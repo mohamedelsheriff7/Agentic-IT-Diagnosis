@@ -1,0 +1,36 @@
+{
+  "id": "POLICY-DEFAULT",
+  "mandatory_human_cases": [
+    "security_sensitive",
+    "privileged_access",
+    "reported_priority=1"
+  ],
+  "severity_rules": {
+    "SEV1": "Critical business impact; human review required",
+    "SEV2": "Multiple affected users in one service scope",
+    "SEV3": "Limited service degradation"
+  },
+  "outage_thresholds": [
+    {
+      "category": "VPN",
+      "configuration_item_id": "CI-VPN",
+      "location_id": "LOC-A",
+      "window_minutes": 30,
+      "minimum_count": 3
+    },
+    {
+      "category": "Availability",
+      "configuration_item_id": "CI-PORTAL",
+      "location_id": "LOC-B",
+      "window_minutes": 30,
+      "minimum_count": 3
+    },
+    {
+      "category": "Availability",
+      "configuration_item_id": "CI-ERP",
+      "location_id": "LOC-C",
+      "window_minutes": 30,
+      "minimum_count": 3
+    }
+  ]
+}

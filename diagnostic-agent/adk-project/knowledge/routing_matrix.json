@@ -1,0 +1,444 @@
+[
+  {
+    "route_id": "ROUTE-PASSWORD_EXPIRED",
+    "diagnosis_code": "PASSWORD_EXPIRED",
+    "resolver_group_id": "GRP-IAM",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "The agent may guide the approved self-service flow only; it must not reset credentials itself."
+  },
+  {
+    "route_id": "ROUTE-ACCOUNT_LOCKED",
+    "diagnosis_code": "ACCOUNT_LOCKED",
+    "resolver_group_id": "GRP-IAM",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Ordinary lockouts are not agent-resolvable because identity verification and unlock require IAM."
+  },
+  {
+    "route_id": "ROUTE-MFA_FAILURE",
+    "diagnosis_code": "MFA_FAILURE",
+    "resolver_group_id": "GRP-IAM",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "MFA reset is specialist-led; never disable or bypass MFA to make sign-in work."
+  },
+  {
+    "route_id": "ROUTE-MISSING_ENTITLEMENT",
+    "diagnosis_code": "MISSING_ENTITLEMENT",
+    "resolver_group_id": "GRP-APP",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Agent can collect evidence and route; entitlement grants remain approval-controlled. Identity-provider or account-lifecycle entitlement faults belong to IAM; application-specific roles belong to Application Support. Use observed scope to select the owner."
+  },
+  {
+    "route_id": "ROUTE-APP_AUTH_FAILURE",
+    "diagnosis_code": "APP_AUTH_FAILURE",
+    "resolver_group_id": "GRP-APP",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Route to Application Support when evidence isolates the fault to one application."
+  },
+  {
+    "route_id": "ROUTE-APP_ERROR",
+    "diagnosis_code": "APP_ERROR",
+    "resolver_group_id": "GRP-APP",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "No autonomous data-changing fix without an approved article and verified conditions."
+  },
+  {
+    "route_id": "ROUTE-APP_OUTAGE",
+    "diagnosis_code": "APP_OUTAGE",
+    "resolver_group_id": "GRP-APP",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Do not restart services automatically. Use outage workflow and human incident ownership."
+  },
+  {
+    "route_id": "ROUTE-SYNC_DELAY",
+    "diagnosis_code": "SYNC_DELAY",
+    "resolver_group_id": "GRP-APP",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "No replay/reprocessing that may duplicate or alter records without specialist approval."
+  },
+  {
+    "route_id": "ROUTE-ACCOUNT_DISABLED",
+    "diagnosis_code": "ACCOUNT_DISABLED",
+    "resolver_group_id": "GRP-IAM",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Never reactivate an account autonomously."
+  },
+  {
+    "route_id": "ROUTE-PRINTER_OFFLINE",
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "resolver_group_id": "GRP-END",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Do not delete other users' print jobs or change shared print-server configuration autonomously."
+  },
+  {
+    "route_id": "ROUTE-DISK_FULL",
+    "diagnosis_code": "DISK_FULL",
+    "resolver_group_id": "GRP-END",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Cleanup must remain user-confirmed and limited to approved safe targets."
+  },
+  {
+    "route_id": "ROUTE-PRIVILEGED_ACCESS",
+    "diagnosis_code": "PRIVILEGED_ACCESS",
+    "resolver_group_id": "GRP-IAM",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": true,
+    "routing_notes": "Never resolve or grant privileged access autonomously."
+  },
+  {
+    "route_id": "ROUTE-ACCOUNT_LOCKED_POLICY",
+    "diagnosis_code": "ACCOUNT_LOCKED_POLICY",
+    "resolver_group_id": "GRP-SEC",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": true,
+    "routing_notes": "No autonomous unlock, password reset, or bypass."
+  },
+  {
+    "route_id": "ROUTE-VPN_CLIENT_ISSUE",
+    "diagnosis_code": "VPN_CLIENT_ISSUE",
+    "resolver_group_id": "GRP-NET",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Do not disable security controls or share VPN credentials."
+  },
+  {
+    "route_id": "ROUTE-LOCAL_ENDPOINT",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "resolver_group_id": "GRP-END",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "No destructive device reset or software removal without specialist approval."
+  },
+  {
+    "route_id": "ROUTE-VPN_OUTAGE",
+    "diagnosis_code": "VPN_OUTAGE",
+    "resolver_group_id": "GRP-NET",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "No autonomous gateway restart."
+  },
+  {
+    "route_id": "ROUTE-PHISHING",
+    "diagnosis_code": "PHISHING",
+    "resolver_group_id": "GRP-SEC",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": true,
+    "routing_notes": "Never auto-delete, quarantine, or declare benign."
+  },
+  {
+    "route_id": "ROUTE-WIFI_FAILURE",
+    "diagnosis_code": "WIFI_FAILURE",
+    "resolver_group_id": "GRP-NET",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "No changes to network security settings or shared credentials."
+  },
+  {
+    "route_id": "ROUTE-DNS_FAILURE",
+    "diagnosis_code": "DNS_FAILURE",
+    "resolver_group_id": "GRP-NET",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Do not change DNS records autonomously."
+  },
+  {
+    "route_id": "ROUTE-SERVER_FAILURE",
+    "diagnosis_code": "SERVER_FAILURE",
+    "resolver_group_id": "GRP-INFRA",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "No autonomous restart or infrastructure configuration change."
+  },
+  {
+    "route_id": "ROUTE-MALWARE",
+    "diagnosis_code": "MALWARE",
+    "resolver_group_id": "GRP-SEC",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": true,
+    "routing_notes": "Never run cleanup tools or instruct user to delete evidence."
+  },
+  {
+    "route_id": "ROUTE-REQUEST_GUIDANCE",
+    "diagnosis_code": "REQUEST_GUIDANCE",
+    "resolver_group_id": "GRP-L1",
+    "alternative_group_ids": [
+      "GRP-IAM",
+      "GRP-APP",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Agent may provide approved guidance; resolve only after user confirms completion."
+  },
+  {
+    "route_id": "ROUTE-UNKNOWN_ISSUE",
+    "diagnosis_code": "UNKNOWN_ISSUE",
+    "resolver_group_id": "GRP-L1",
+    "alternative_group_ids": [
+      "GRP-IAM",
+      "GRP-APP",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Never force a diagnosis or self-resolve with insufficient evidence."
+  },
+  {
+    "route_id": "ROUTE-CERT_EXPIRED",
+    "diagnosis_code": "CERT_EXPIRED",
+    "resolver_group_id": "GRP-INFRA",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Certificate changes require specialist and change-control approval."
+  },
+  {
+    "route_id": "ROUTE-DATA_EXPOSURE",
+    "diagnosis_code": "DATA_EXPOSURE",
+    "resolver_group_id": "GRP-SEC",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": true,
+    "routing_notes": "Do not delete evidence or make disclosure/notification decisions autonomously."
+  },
+  {
+    "route_id": "ROUTE-STORAGE_FAILURE",
+    "diagnosis_code": "STORAGE_FAILURE",
+    "resolver_group_id": "GRP-INFRA",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ],
+    "confidence_rules": {
+      "HIGH": "Required evidence complete, strong knowledge match, alternatives excluded, and available history supportive. Ordinary HIGH cases may assign to the specialist. Mandatory human cases require an APPROVED admin review for this ticket and exact specialist group; otherwise use L1 human triage. Review approval never permits agent resolution of mandatory human cases.",
+      "MEDIUM": "Diagnosis is plausible but one non-safety evidence item is missing or alternatives are not fully excluded; assign GRP-L1 with specialist recommendation attached.",
+      "LOW": "Evidence is incomplete, conflicting, or knowledge/history support is weak; do not assign specialist automatically; send to human triage."
+    },
+    "mandatory_human": false,
+    "routing_notes": "Do not delete shared data or run destructive storage operations autonomously. Shared infrastructure/storage-layer faults belong to Infrastructure; application-isolated storage errors belong to Application Support. Use service-health and affected-scope evidence."
+  }
+]

@@ -1,0 +1,680 @@
+[
+  {
+    "name": "dns",
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-4874544341114a08",
+          "summary": "Chat practice: DNS lookup failure for internal hostnames",
+          "description": "Internal server hostnames cannot resolve. Direct IP access to the same server works. External websites open normally.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": "Network",
+          "category": "DNS",
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": null,
+          "location_id": null,
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [
+          {
+            "diagnosis_id": "DNS_FAILURE",
+            "name": "DNS lookup failure",
+            "domain": "Network",
+            "category": "DNS",
+            "resolver_group": "GRP-NET",
+            "required_evidence": [
+              "dns_failure_confirmed"
+            ],
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "plausible",
+            "elimination_reason": null,
+            "knowledge_article_id": null
+          }
+        ],
+        "archived_candidates": [],
+        "evidence": [
+          {
+            "evidence_id": "EV-c5ace241bdb44cea",
+            "description": "User answered the diagnostic question: Do internal hostnames fail while direct IP access to the same server works?",
+            "value": "Server names fail, but direct IP access works.\nExternal websites open normally.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          },
+          {
+            "evidence_id": "EV-6bba0eb9db114960",
+            "description": "User answered the diagnostic question: Do external websites resolve normally, or does all connectivity fail?",
+            "value": "External websites open normally.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "questions_asked": [
+          "Do internal hostnames fail while direct IP access to the same server works?",
+          "Do external websites resolve normally, or does all connectivity fail?"
+        ],
+        "eliminated_diagnoses": [],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "DNS_FAILURE"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "Do internal hostnames fail while direct IP access to the same server works?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "DNS_FAILURE"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Do internal hostnames fail while direct IP access to the same server works?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Do internal hostnames fail while direct IP access to the same server works?",
+            "evidence_ids": [
+              "EV-c5ace241bdb44cea"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Do external websites resolve normally, or does all connectivity fail?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 9,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Do external websites resolve normally, or does all connectivity fail?",
+            "evidence_ids": [
+              "EV-6bba0eb9db114960"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 10,
+            "event_type": "escalation_required",
+            "description": "The current diagnostic rules need human follow-up.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": null,
+        "confidence": null,
+        "recommended_action": "escalate",
+        "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+        "status": "escalated",
+        "diagnostic_result_id": "DR-b49d51138d3a43ce",
+        "diagnostic_result_version": 3
+      },
+      "ticket_id": "INC-4874544341114a08",
+      "checkpoint_ref": "CHK-35b266c301984e47"
+    },
+    "result": {
+      "ticket_id": "INC-4874544341114a08",
+      "diagnostic_result_id": "DR-b49d51138d3a43ce",
+      "diagnostic_result_version": 3,
+      "evidence_ids": [
+        "EV-c5ace241bdb44cea",
+        "EV-6bba0eb9db114960"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": false
+      },
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "next_question": null,
+      "remaining_candidates": [
+        "DNS_FAILURE"
+      ],
+      "eliminated_diagnoses": [],
+      "evidence_conflicts": [],
+      "evidence_count": 2,
+      "trace_steps": 10,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "DNS_FAILURE",
+          "name": "DNS lookup failure",
+          "score": 0,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": null,
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": []
+    }
+  },
+  {
+    "name": "wifi",
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-0b14e37807a84cd0",
+          "summary": "Chat practice: Wi-Fi cannot connect on one device",
+          "description": "One device cannot connect to the office Wi-Fi. Another device can connect at the same location. The affected device can connect to a different approved network.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": "Network",
+          "category": "Connectivity",
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": null,
+          "location_id": null,
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [
+          {
+            "diagnosis_id": "WIFI_FAILURE",
+            "name": "Wi-Fi association failure",
+            "domain": "Network",
+            "category": "Connectivity",
+            "resolver_group": "GRP-NET",
+            "required_evidence": [
+              "wifi_failure_confirmed"
+            ],
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "plausible",
+            "elimination_reason": null,
+            "knowledge_article_id": null
+          }
+        ],
+        "archived_candidates": [],
+        "evidence": [
+          {
+            "evidence_id": "EV-ea7c80e297cd4466",
+            "description": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?",
+            "value": "yes Another device connects to the same Wi-Fi at the same location.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          },
+          {
+            "evidence_id": "EV-ead1417e67f34715",
+            "description": "User answered the diagnostic question: Can this device connect to a different approved network?",
+            "value": "The affected device connects to a different approved network.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "questions_asked": [
+          "Can another device connect to the same Wi-Fi at the same location?",
+          "Can this device connect to a different approved network?"
+        ],
+        "eliminated_diagnoses": [],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "WIFI_FAILURE"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "Can another device connect to the same Wi-Fi at the same location?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "WIFI_FAILURE"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can another device connect to the same Wi-Fi at the same location?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?",
+            "evidence_ids": [
+              "EV-ea7c80e297cd4466"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can this device connect to a different approved network?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 9,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can this device connect to a different approved network?",
+            "evidence_ids": [
+              "EV-ead1417e67f34715"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 10,
+            "event_type": "escalation_required",
+            "description": "The current diagnostic rules need human follow-up.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": null,
+        "confidence": null,
+        "recommended_action": "escalate",
+        "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+        "status": "escalated",
+        "diagnostic_result_id": "DR-4289d713ed6c409b",
+        "diagnostic_result_version": 3
+      },
+      "ticket_id": "INC-0b14e37807a84cd0",
+      "checkpoint_ref": "CHK-94e83cd7efc74922"
+    },
+    "result": {
+      "ticket_id": "INC-0b14e37807a84cd0",
+      "diagnostic_result_id": "DR-4289d713ed6c409b",
+      "diagnostic_result_version": 3,
+      "evidence_ids": [
+        "EV-ea7c80e297cd4466",
+        "EV-ead1417e67f34715"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": false
+      },
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "next_question": null,
+      "remaining_candidates": [
+        "WIFI_FAILURE"
+      ],
+      "eliminated_diagnoses": [],
+      "evidence_conflicts": [],
+      "evidence_count": 2,
+      "trace_steps": 10,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "WIFI_FAILURE",
+          "name": "Wi-Fi association failure",
+          "score": 0,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": null,
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": []
+    }
+  },
+  {
+    "name": "printer",
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-72b3f4e943974985",
+          "summary": "Chat practice: Printer offline for multiple users",
+          "description": "The same office printer appears offline for several users. Other network services work. No one has changed printer settings.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": "Endpoints",
+          "category": "Printing",
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": null,
+          "location_id": null,
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [
+          {
+            "diagnosis_id": "PRINTER_OFFLINE",
+            "name": "Printer offline",
+            "domain": "Endpoints",
+            "category": "Printing",
+            "resolver_group": "GRP-END",
+            "required_evidence": [
+              "printer_offline_confirmed"
+            ],
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "plausible",
+            "elimination_reason": null,
+            "knowledge_article_id": null
+          }
+        ],
+        "archived_candidates": [],
+        "evidence": [
+          {
+            "evidence_id": "EV-a92dcf67ae1d43be",
+            "description": "User answered the diagnostic question: Is only one user affected or everyone using the same printer?",
+            "value": "Everyone using that printer is affected.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          },
+          {
+            "evidence_id": "EV-05c4e9daae4b4e48",
+            "description": "User answered the diagnostic question: Can the printer be reached by other users on the same network?",
+            "value": "Other users cannot reach the printer either.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "questions_asked": [
+          "Is only one user affected or everyone using the same printer?",
+          "Can the printer be reached by other users on the same network?"
+        ],
+        "eliminated_diagnoses": [],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PRINTER_OFFLINE"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "Is only one user affected or everyone using the same printer?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PRINTER_OFFLINE"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Is only one user affected or everyone using the same printer?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Is only one user affected or everyone using the same printer?",
+            "evidence_ids": [
+              "EV-a92dcf67ae1d43be"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can the printer be reached by other users on the same network?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 9,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can the printer be reached by other users on the same network?",
+            "evidence_ids": [
+              "EV-05c4e9daae4b4e48"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 10,
+            "event_type": "escalation_required",
+            "description": "The current diagnostic rules need human follow-up.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": null,
+        "confidence": null,
+        "recommended_action": "escalate",
+        "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+        "status": "escalated",
+        "diagnostic_result_id": "DR-9248410125b44345",
+        "diagnostic_result_version": 3
+      },
+      "ticket_id": "INC-72b3f4e943974985",
+      "checkpoint_ref": "CHK-9917e99fd8794269"
+    },
+    "result": {
+      "ticket_id": "INC-72b3f4e943974985",
+      "diagnostic_result_id": "DR-9248410125b44345",
+      "diagnostic_result_version": 3,
+      "evidence_ids": [
+        "EV-a92dcf67ae1d43be",
+        "EV-05c4e9daae4b4e48"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": false
+      },
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "next_question": null,
+      "remaining_candidates": [
+        "PRINTER_OFFLINE"
+      ],
+      "eliminated_diagnoses": [],
+      "evidence_conflicts": [],
+      "evidence_count": 2,
+      "trace_steps": 10,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "PRINTER_OFFLINE",
+          "name": "Printer offline",
+          "score": 0,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": null,
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": []
+    }
+  }
+]

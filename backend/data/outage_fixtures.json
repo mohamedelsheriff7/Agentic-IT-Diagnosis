@@ -1,0 +1,92 @@
+{
+  "clock": "2026-10-01T12:00:00.000000Z",
+  "seed": 42,
+  "clusters": [
+    {
+      "name": "cluster-1",
+      "category": "VPN",
+      "configuration_item_id": "CI-VPN",
+      "location_id": "LOC-A",
+      "window_minutes": 30,
+      "minimum_count": 3,
+      "ticket_ids": [
+        "CLUSTER-1-1",
+        "CLUSTER-1-2",
+        "CLUSTER-1-3"
+      ],
+      "expected_count": 3
+    },
+    {
+      "name": "cluster-2",
+      "category": "Availability",
+      "configuration_item_id": "CI-PORTAL",
+      "location_id": "LOC-B",
+      "window_minutes": 30,
+      "minimum_count": 3,
+      "ticket_ids": [
+        "CLUSTER-2-1",
+        "CLUSTER-2-2",
+        "CLUSTER-2-3"
+      ],
+      "expected_count": 3
+    },
+    {
+      "name": "cluster-3",
+      "category": "Availability",
+      "configuration_item_id": "CI-ERP",
+      "location_id": "LOC-C",
+      "window_minutes": 30,
+      "minimum_count": 3,
+      "ticket_ids": [
+        "CLUSTER-3-1",
+        "CLUSTER-3-2",
+        "CLUSTER-3-3"
+      ],
+      "expected_count": 3
+    }
+  ],
+  "decoys": [
+    {
+      "name": "decoy-1",
+      "category": "VPN",
+      "configuration_item_id": "CI-VPN",
+      "location_id": "LOC-D",
+      "window_minutes": 30,
+      "minimum_count": 3,
+      "ticket_ids": [
+        "DECOY-1-1",
+        "DECOY-1-2",
+        "DECOY-1-3"
+      ],
+      "expected_count": 1
+    },
+    {
+      "name": "decoy-2",
+      "category": "Availability",
+      "configuration_item_id": "CI-PORTAL",
+      "location_id": "LOC-E",
+      "window_minutes": 30,
+      "minimum_count": 3,
+      "ticket_ids": [
+        "DECOY-2-1",
+        "DECOY-2-2",
+        "DECOY-2-3"
+      ],
+      "expected_count": 1
+    },
+    {
+      "name": "decoy-3",
+      "category": "Availability",
+      "configuration_item_id": "CI-ERP",
+      "location_id": "LOC-F",
+      "window_minutes": 30,
+      "minimum_count": 3,
+      "ticket_ids": [
+        "DECOY-3-1",
+        "DECOY-3-2",
+        "DECOY-3-3"
+      ],
+      "expected_count": 1
+    }
+  ]
+}

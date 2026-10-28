@@ -1,0 +1,42 @@
+# SYS-34 — Resolved ticket re-entry is read-only
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-34 already exists and is RESOLVED with a recorded resolution. No authorized reopening capability is configured.
+
+## Opening input — copy into Supervisor
+
+```text
+Please investigate TST-SYS-34 again and reset the password.
+```
+
+## Expected first response/action
+
+Read TST-SYS-34 and stop at a read-only explanation of its final state; no unsupported reopen/reset/duplicate creation.
+
+No scripted follow-up is required. Answer only a genuine missing observable fact if asked; optional scope must not delay mandatory human handling.
+
+## Expected internal agent path
+
+Supervisor -> get_ticket_details -> read-only response
+
+## Expected terminal output / ticket state
+
+Read existing RESOLVED record and explain recorded status plus unsupported reopening limitation. No new ticket for same ID, Diagnostic mutation, review, routing, linking or resolve replay.
+
+## Fail this case if
+
+- Mutates a final ticket.
+- Silently recreates/reopens it.
+- Calls a new password reset completed.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

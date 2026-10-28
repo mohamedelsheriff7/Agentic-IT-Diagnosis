@@ -1,0 +1,9 @@
+{
+  "v67_exact_error_reproduced": true,
+  "warm_version_isolation": true,
+  "cleanup_and_repeat_cycles_passed": 5,
+  "garbage_collection_safe": true,
+  "corrupt_resource_restored": true,
+  "concurrent_factories_passed": 8,
+  "package_sha256": "3f6aaf7877aa9c63a84728e2f9588286a8dacb03a38a5a5d533d684a3ea00ad2"
+}

@@ -1,0 +1,240 @@
+[
+  {
+    "id": "ENT-001",
+    "user_id": "USR-001",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-002",
+    "user_id": "USR-002",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-003",
+    "user_id": "USR-003",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-004",
+    "user_id": "USR-004",
+    "application_id": "APP-PORTAL",
+    "entitled": "FALSE",
+    "roles": [],
+    "provisioning_state": "ABSENT"
+  },
+  {
+    "id": "ENT-005",
+    "user_id": "USR-005",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-006",
+    "user_id": "USR-006",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-007",
+    "user_id": "USR-007",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-008",
+    "user_id": "USR-008",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-009",
+    "user_id": "USR-009",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-010",
+    "user_id": "USR-010",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-011",
+    "user_id": "USR-011",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-012",
+    "user_id": "USR-012",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-013",
+    "user_id": "USR-013",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-014",
+    "user_id": "USR-014",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-015",
+    "user_id": "USR-015",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-016",
+    "user_id": "USR-016",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-017",
+    "user_id": "USR-017",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-018",
+    "user_id": "USR-018",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-019",
+    "user_id": "USR-019",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-020",
+    "user_id": "USR-020",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-021",
+    "user_id": "USR-021",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-022",
+    "user_id": "USR-022",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-023",
+    "user_id": "USR-023",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-024",
+    "user_id": "USR-024",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  }
+]

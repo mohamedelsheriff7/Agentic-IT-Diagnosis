@@ -1,0 +1,4 @@
+{
+  "clock": "2026-10-01T12:00:00Z",
+  "description": "Workstream A evaluation uses neutral TST IDs. Cluster membership is held only in offline evaluation labels; use escalation_policy.json for operational scope thresholds."
+}

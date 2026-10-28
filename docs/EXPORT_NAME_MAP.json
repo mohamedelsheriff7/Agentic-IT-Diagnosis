@@ -1,0 +1,20 @@
+{
+  "agents": {
+    "Untitled_Agent_1_7866Br": "Routing_Agent",
+    "Untitled_Agent_1_0666Sy": "Escalation_Outage_Agent"
+  },
+  "tools": {
+    "get_ticket_details_1838aN": "get_ticket_details",
+    "search_similar_tickets_2271fF": "search_similar_tickets",
+    "assign_ticket_8861UC": "assign_ticket",
+    "request_human_review_7012lz": "request_human_review",
+    "notify_resolver_group_4888qX": "notify_resolver_group",
+    "add_worklog_entry_9170lY": "add_worklog_entry",
+    "find_open_global_tickets_21167U": "find_open_global_tickets",
+    "count_recent_tickets_1807D0": "count_recent_tickets",
+    "check_service_health_67045D": "check_service_health",
+    "create_global_ticket_23451F": "create_global_ticket",
+    "link_ticket_to_global_ticket_2535xC": "link_ticket_to_global_ticket"
+  },
+  "diagnostic": "isys_diagnostic_langgraph_v6_8_3"
+}

@@ -1,0 +1,1571 @@
+[
+  {
+    "test": "peers_work",
+    "passed": true,
+    "ticket_id": "INC-7c8fb2b6d4704e8e",
+    "expected_action": "ROUTE",
+    "actual_action": "ROUTE",
+    "actual_diagnosis": "VPN_CLIENT_ISSUE",
+    "turns": [
+      "Can colleagues at the same site connect to VPN right now?\n\nTicket: INC-7c8fb2b6d4704e8e · Ref: CHK-0f827ea75ffc4259",
+      "Yes, colleagues at the same site can connect.",
+      "Does the VPN client show a local configuration or credential error?\n\nTicket: INC-7c8fb2b6d4704e8e · Ref: CHK-731c1530d9eb4ab6",
+      "The VPN client reports a local configuration error.",
+      "You reported: Colleagues at the same site can connect to VPN. The VPN client reports a local configuration error.\n\nThe reported observations support a VPN client local-configuration problem. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-7c8fb2b6d4704e8e · Ref: CHK-2edf539830d54161"
+    ],
+    "result": {
+      "ticket_id": "INC-7c8fb2b6d4704e8e",
+      "diagnostic_result_id": "DR-d4e0411fb24a4a00",
+      "diagnostic_result_version": 3,
+      "evidence_ids": [
+        "EV-3020a71ea98e45f8",
+        "EV-cfa0a83e6e364ab5",
+        "EV-2e7dfc2b59d44a36"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "DIAGNOSED",
+      "recommended_action": "ROUTE",
+      "diagnosis_code": "VPN_CLIENT_ISSUE",
+      "diagnosis_scope": "SYMPTOM_PATTERN",
+      "confidence": "MEDIUM",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": 2,
+          "comparison_diagnosis_code": "VPN_CLIENT_ISSUE",
+          "reviewed": 5,
+          "ticket_ids": [
+            "HIS-0192",
+            "HIS-0367",
+            "HIS-0081",
+            "HIS-0090",
+            "HIS-0457"
+          ]
+        },
+        "knowledge_match_strength": "HIGH",
+        "evidence_completeness": "HIGH",
+        "historical_agreement": "AGREES",
+        "alternatives_excluded": true
+      },
+      "rationale": "Distinct reported observations match the retrieved guidance for VPN_CLIENT_ISSUE at the symptom-pattern level. The underlying faulty component remains unverified. Recommend routing with MEDIUM confidence; no repair or assignment was executed. Diagnostic guidance sources: KB-026. Guidance retrieval does not approve a repair.",
+      "diagnostic_findings": {
+        "observations": [
+          {
+            "description": "Colleagues at the same site can connect to VPN.",
+            "evidence_id": "EV-cfa0a83e6e364ab5",
+            "source": "USER_RESPONSE"
+          },
+          {
+            "description": "The VPN client reports a local configuration error.",
+            "evidence_id": "EV-2e7dfc2b59d44a36",
+            "source": "USER_RESPONSE"
+          }
+        ],
+        "leading_hypothesis": {
+          "diagnosis_code": "VPN_CLIENT_ISSUE",
+          "description": "a VPN client local-configuration problem",
+          "supporting_evidence_ids": [
+            "EV-cfa0a83e6e364ab5",
+            "EV-2e7dfc2b59d44a36"
+          ],
+          "contradicting_evidence_ids": []
+        },
+        "suggested_support_team": "Network Support",
+        "verification_gaps": []
+      },
+      "correction_pending_review": null,
+      "next_question": null,
+      "remaining_candidates": [
+        "VPN_CLIENT_ISSUE"
+      ],
+      "eliminated_diagnoses": [
+        {
+          "diagnosis_id": "VPN_OUTAGE",
+          "reason": "Service health check: status=OPERATIONAL"
+        }
+      ],
+      "evidence_conflicts": [],
+      "evidence_count": 3,
+      "trace_steps": 12,
+      "knowledge_article_ids": [],
+      "knowledge_sources": [
+        {
+          "article_id": "KB-026",
+          "version": 2,
+          "approved": false,
+          "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE",
+          "backend_reference": false
+        }
+      ],
+      "historical_ticket_ids": [
+        "HIS-0192",
+        "HIS-0367",
+        "HIS-0081",
+        "HIS-0090",
+        "HIS-0457"
+      ],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "VPN_CLIENT_ISSUE",
+          "name": "VPN client or credential issue",
+          "score": 2.0,
+          "supporting_evidence_ids": [
+            "EV-cfa0a83e6e364ab5",
+            "EV-2e7dfc2b59d44a36"
+          ],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": "KB-026",
+          "status": "confirmed"
+        }
+      ],
+      "checks": [],
+      "check_errors": [],
+      "diagnostic_session": {
+        "mode": "backend",
+        "snapshot": {
+          "ticket": {
+            "ticket_id": "INC-7c8fb2b6d4704e8e",
+            "summary": "VPN client cannot connect [v6 prepatch peers_work]",
+            "description": "The VPN client cannot connect. The scope has not been established.",
+            "priority": "3",
+            "ticket_class": "INCIDENT",
+            "impact": 3,
+            "urgency": 2,
+            "language": "en",
+            "domain": "Network",
+            "category": "VPN",
+            "subcategory": null,
+            "severity": null,
+            "asset_id": null,
+            "configuration_item_id": "CI-VPN",
+            "location_id": "LOC-D",
+            "security_sensitive": false,
+            "privileged_access": false,
+            "metadata": {
+              "diagnostic_review_mode": true,
+              "interpreted_answers": {
+                "EV-cfa0a83e6e364ab5": {
+                  "question": "Can colleagues at the same site connect to VPN right now?",
+                  "facts": {
+                    "peer_vpn_connection": "WORKS"
+                  }
+                },
+                "EV-2e7dfc2b59d44a36": {
+                  "question": "Does the VPN client show a local configuration or credential error?",
+                  "facts": {
+                    "vpn_client_error": "LOCAL_CONFIGURATION"
+                  }
+                }
+              },
+              "diagnosis_basis": "REPORTED_DIAGNOSTIC_PATTERN"
+            }
+          },
+          "candidates": [
+            {
+              "diagnosis_id": "VPN_CLIENT_ISSUE",
+              "name": "VPN client or credential issue",
+              "domain": "Network",
+              "category": "VPN",
+              "resolver_group": "GRP-NET",
+              "required_evidence": [
+                "vpn_client_issue_confirmed"
+              ],
+              "supporting_evidence_ids": [
+                "EV-cfa0a83e6e364ab5",
+                "EV-2e7dfc2b59d44a36"
+              ],
+              "contradicting_evidence_ids": [],
+              "status": "confirmed",
+              "elimination_reason": null,
+              "knowledge_article_id": "KB-026"
+            }
+          ],
+          "archived_candidates": [
+            {
+              "diagnosis_id": "VPN_OUTAGE",
+              "name": "Vpn Outage",
+              "domain": "Network/Other",
+              "category": "VPN",
+              "resolver_group": "GRP-NET",
+              "required_evidence": [
+                "diagnosis_confirmed_by_current_ticket_evidence"
+              ],
+              "supporting_evidence_ids": [],
+              "contradicting_evidence_ids": [
+                "EV-3020a71ea98e45f8"
+              ],
+              "status": "eliminated",
+              "elimination_reason": "Service health check: status=OPERATIONAL",
+              "knowledge_article_id": null
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "EV-3020a71ea98e45f8",
+              "description": "Service health check: status=OPERATIONAL",
+              "value": {
+                "configuration_item_id": "CI-VPN",
+                "location_id": "LOC-D",
+                "state": "OPERATIONAL",
+                "scope": "CI-VPN/LOC-D",
+                "details": "Stored synthetic monitor fact supplied by Workstream A.",
+                "observed_at": "2026-10-01T12:00:00Z",
+                "evidence_id": "EV-3020a71ea98e45f8"
+              },
+              "source": "diagnostic_check",
+              "timestamp": null,
+              "supports": [],
+              "contradicts": [
+                "VPN_OUTAGE"
+              ]
+            },
+            {
+              "evidence_id": "EV-cfa0a83e6e364ab5",
+              "description": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?",
+              "value": "Yes, colleagues at the same site can connect.",
+              "source": "user_answer",
+              "timestamp": null,
+              "supports": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "contradicts": [
+                "VPN_OUTAGE"
+              ]
+            },
+            {
+              "evidence_id": "EV-2e7dfc2b59d44a36",
+              "description": "User answered the diagnostic question: Does the VPN client show a local configuration or credential error?",
+              "value": "The VPN client reports a local configuration error.",
+              "source": "user_answer",
+              "timestamp": null,
+              "supports": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "contradicts": []
+            }
+          ],
+          "questions_asked": [
+            "Can colleagues at the same site connect to VPN right now?",
+            "Does the VPN client show a local configuration or credential error?"
+          ],
+          "eliminated_diagnoses": [
+            {
+              "diagnosis_id": "VPN_OUTAGE",
+              "reason": "Service health check: status=OPERATIONAL"
+            }
+          ],
+          "trace": [
+            {
+              "step_number": 1,
+              "event_type": "knowledge_retrieved",
+              "description": "Retrieved 1 diagnostic article(s).",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+            },
+            {
+              "step_number": 2,
+              "event_type": "historical_tickets_retrieved",
+              "description": "Retrieved 5 similar resolved/closed historical ticket(s).",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE",
+                "VPN_CLIENT_ISSUE",
+                "VPN_OUTAGE",
+                "VPN_OUTAGE",
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+            },
+            {
+              "step_number": 3,
+              "event_type": "historical_hypothesis_added",
+              "description": "Added VPN_OUTAGE as a candidate based on a similar historical ticket.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Historical similarity score=0.200; this remains a hypothesis and requires evidence from the current ticket."
+            },
+            {
+              "step_number": 4,
+              "event_type": "investigation_started",
+              "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE",
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+            },
+            {
+              "step_number": 5,
+              "event_type": "outage_signal_detected",
+              "description": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "An active shared-service hypothesis requires scoped screening; this signal does not establish an outage or authorize a global-incident action."
+            },
+            {
+              "step_number": 6,
+              "event_type": "evidence_added",
+              "description": "Service health check: status=OPERATIONAL",
+              "evidence_ids": [
+                "EV-3020a71ea98e45f8"
+              ],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Evidence source: diagnostic_check."
+            },
+            {
+              "step_number": 7,
+              "event_type": "outage_signal_cleared",
+              "description": "The previous outage hypothesis was excluded by current evidence. Continue individual diagnosis.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "No active shared-service candidate remains; the earlier outage recommendation is superseded."
+            },
+            {
+              "step_number": 8,
+              "event_type": "answer_received",
+              "description": "Recorded an answer to: Can colleagues at the same site connect to VPN right now?",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE",
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+            },
+            {
+              "step_number": 9,
+              "event_type": "evidence_added",
+              "description": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?",
+              "evidence_ids": [
+                "EV-cfa0a83e6e364ab5"
+              ],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE",
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Evidence source: user_answer."
+            },
+            {
+              "step_number": 10,
+              "event_type": "answer_received",
+              "description": "Recorded an answer to: Does the VPN client show a local configuration or credential error?",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+            },
+            {
+              "step_number": 11,
+              "event_type": "evidence_added",
+              "description": "User answered the diagnostic question: Does the VPN client show a local configuration or credential error?",
+              "evidence_ids": [
+                "EV-2e7dfc2b59d44a36"
+              ],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Evidence source: user_answer."
+            },
+            {
+              "step_number": 12,
+              "event_type": "diagnosis_supported",
+              "description": "Evidence threshold met for VPN_CLIENT_ISSUE.",
+              "evidence_ids": [
+                "EV-2e7dfc2b59d44a36",
+                "EV-cfa0a83e6e364ab5"
+              ],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Distinct reported observations match the retrieved guidance for VPN_CLIENT_ISSUE at the symptom-pattern level. The underlying faulty component remains unverified. Recommend routing with MEDIUM confidence; no repair or assignment was executed. Diagnostic guidance sources: KB-026. Guidance retrieval does not approve a repair."
+            }
+          ],
+          "knowledge_matches": [
+            {
+              "article_id": "KB-026",
+              "title": "KB-026",
+              "score": 5,
+              "matched_terms": [
+                "cannot",
+                "client",
+                "connect",
+                "the",
+                "vpn"
+              ],
+              "diagnosis_code": "VPN_CLIENT_ISSUE",
+              "questions": [
+                "Can colleagues at the same site connect to VPN right now?",
+                "Can the user reach the internet and does the VPN client show a local configuration/credential error?"
+              ],
+              "approved": false,
+              "usage": "DIAGNOSTIC_GUIDANCE",
+              "version": 2,
+              "backend_reference": false,
+              "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE"
+            }
+          ],
+          "historical_matches": [
+            {
+              "ticket_id": "HIS-0192",
+              "score": 0.2217,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_CLIENT_ISSUE",
+              "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0367",
+              "score": 0.2217,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_CLIENT_ISSUE",
+              "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. No further action needed.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0081",
+              "score": 0.2,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0090",
+              "score": 0.2,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0457",
+              "score": 0.2,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            }
+          ],
+          "next_question": null,
+          "final_diagnosis": "VPN_CLIENT_ISSUE",
+          "confidence": 0.7,
+          "recommended_action": "route",
+          "rationale": "Distinct reported observations match the retrieved guidance for VPN_CLIENT_ISSUE at the symptom-pattern level. The underlying faulty component remains unverified. Recommend routing with MEDIUM confidence; no repair or assignment was executed. Diagnostic guidance sources: KB-026. Guidance retrieval does not approve a repair.",
+          "status": "diagnosed",
+          "diagnostic_result_id": "DR-d4e0411fb24a4a00",
+          "diagnostic_result_version": 3
+        },
+        "ticket_id": "INC-7c8fb2b6d4704e8e",
+        "checkpoint_ref": "CHK-2edf539830d54161",
+        "reply_language": "en"
+      },
+      "framework": "langgraph"
+    }
+  },
+  {
+    "test": "peers_work_no_assignment_or_resolution",
+    "passed": true,
+    "ticket_id": "INC-7c8fb2b6d4704e8e"
+  },
+  {
+    "test": "peers_fail",
+    "passed": true,
+    "ticket_id": "INC-00805946777948ae",
+    "expected_action": "ESCALATE",
+    "actual_action": "ESCALATE",
+    "actual_diagnosis": null,
+    "turns": [
+      "Can colleagues at the same site connect to VPN right now?\n\nTicket: INC-00805946777948ae · Ref: CHK-8260e35152ec4eec",
+      "No, colleagues at the same site cannot connect either.",
+      "You reported: Colleagues at the same site also cannot connect to VPN.\n\nThese observations suggest a possible shared-service issue. An outage is not confirmed. I recommend Supervisor outage screening for this service, location, and related tickets before individual troubleshooting. Your ticket remains open.\n\nTicket: INC-00805946777948ae · Ref: CHK-cadc54e6d1314243"
+    ],
+    "result": {
+      "outage_detection": {
+        "outage_candidates": [
+          "VPN_OUTAGE"
+        ],
+        "existing_global_ticket": null,
+        "global_search_result": {
+          "results": []
+        },
+        "recent_ticket_count": 12,
+        "count_result": {
+          "count": 12,
+          "matching_ticket_ids": [
+            "INC-00805946777948ae",
+            "INC-0dc43d9491e44e31",
+            "INC-1fd0c8ed464e4970",
+            "INC-2efd94a47c8a41d8",
+            "INC-38f33414d913415a",
+            "INC-7c8fb2b6d4704e8e",
+            "INC-8639d319476e4302",
+            "INC-a6e19bc68601401b",
+            "INC-c483363c42444c06",
+            "INC-eb17292cb8064a56",
+            "INC-eee083a83a3641e4",
+            "INC-ffec9b59f6ce4665"
+          ],
+          "grouping_criteria": {
+            "domain": null,
+            "category": "VPN",
+            "configuration_item_id": "CI-VPN",
+            "location_id": "LOC-D"
+          },
+          "window_start": "2026-10-01T11:30:00Z",
+          "window_end": "2026-10-01T12:00:00Z"
+        },
+        "threshold_met": true
+      },
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "recommended_action": "ESCALATE",
+      "rationale": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds. Current evidence conflicts: supporting observations challenge an earlier exclusion. Both supporting and contradicting observations are retained. The Supervisor must review current health and recent tickets for the same CI/location. An outage is not confirmed and no global ticket or link has been created. Scoped backend screening: 12 recent matching ticket(s); open global ticket: none found. These screening results must be reviewed together with the conflicting observations; the diagnostic agent has not confirmed an outage.",
+      "ticket_id": "INC-00805946777948ae",
+      "diagnostic_result_id": "DR-52cbe7304c424795",
+      "diagnostic_result_version": 2,
+      "evidence_ids": [
+        "EV-73f43dce6b8b44bf",
+        "EV-ec51007e738c44b0"
+      ],
+      "completed_actions": [],
+      "missing_information": [
+        "Reconcile the user report with current service-health evidence for the same CI/location."
+      ],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "diagnosis_code": null,
+      "diagnosis_scope": "UNDETERMINED",
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 5,
+          "ticket_ids": [
+            "HIS-0192",
+            "HIS-0367",
+            "HIS-0081",
+            "HIS-0090",
+            "HIS-0457"
+          ]
+        },
+        "knowledge_match_strength": "HIGH",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": true
+      },
+      "diagnostic_findings": {
+        "observations": [
+          {
+            "description": "Colleagues at the same site also cannot connect to VPN.",
+            "evidence_id": "EV-ec51007e738c44b0",
+            "source": "USER_RESPONSE"
+          }
+        ],
+        "verification_gaps": []
+      },
+      "correction_pending_review": null,
+      "next_question": null,
+      "remaining_candidates": [
+        "VPN_OUTAGE"
+      ],
+      "eliminated_diagnoses": [
+        {
+          "diagnosis_id": "VPN_CLIENT_ISSUE",
+          "reason": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?"
+        }
+      ],
+      "evidence_conflicts": [
+        {
+          "diagnosis_code": "VPN_OUTAGE",
+          "supporting_evidence_ids": [
+            "EV-ec51007e738c44b0"
+          ],
+          "contradicting_evidence_ids": [
+            "EV-73f43dce6b8b44bf"
+          ]
+        }
+      ],
+      "evidence_count": 2,
+      "trace_steps": 13,
+      "knowledge_article_ids": [],
+      "knowledge_sources": [
+        {
+          "article_id": "KB-008",
+          "version": 2,
+          "approved": false,
+          "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE",
+          "backend_reference": false
+        }
+      ],
+      "historical_ticket_ids": [
+        "HIS-0192",
+        "HIS-0367",
+        "HIS-0081",
+        "HIS-0090",
+        "HIS-0457"
+      ],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "VPN_OUTAGE",
+          "name": "Vpn Outage",
+          "score": -2.0,
+          "supporting_evidence_ids": [
+            "EV-ec51007e738c44b0"
+          ],
+          "contradicting_evidence_ids": [
+            "EV-73f43dce6b8b44bf"
+          ],
+          "knowledge_article_id": null,
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": [],
+      "diagnostic_session": {
+        "mode": "backend",
+        "snapshot": {
+          "ticket": {
+            "ticket_id": "INC-00805946777948ae",
+            "summary": "VPN client cannot connect [v6 prepatch peers_fail]",
+            "description": "The VPN client cannot connect. The scope has not been established.",
+            "priority": "3",
+            "ticket_class": "INCIDENT",
+            "impact": 3,
+            "urgency": 2,
+            "language": "en",
+            "domain": "Network",
+            "category": "VPN",
+            "subcategory": null,
+            "severity": null,
+            "asset_id": null,
+            "configuration_item_id": "CI-VPN",
+            "location_id": "LOC-D",
+            "security_sensitive": false,
+            "privileged_access": false,
+            "metadata": {
+              "diagnostic_review_mode": true,
+              "interpreted_answers": {
+                "EV-ec51007e738c44b0": {
+                  "question": "Can colleagues at the same site connect to VPN right now?",
+                  "facts": {
+                    "peer_vpn_connection": "FAILS"
+                  }
+                }
+              }
+            }
+          },
+          "candidates": [
+            {
+              "diagnosis_id": "VPN_OUTAGE",
+              "name": "Vpn Outage",
+              "domain": "Network/Other",
+              "category": "VPN",
+              "resolver_group": "GRP-NET",
+              "required_evidence": [
+                "diagnosis_confirmed_by_current_ticket_evidence"
+              ],
+              "supporting_evidence_ids": [
+                "EV-ec51007e738c44b0"
+              ],
+              "contradicting_evidence_ids": [
+                "EV-73f43dce6b8b44bf"
+              ],
+              "status": "plausible",
+              "elimination_reason": null,
+              "knowledge_article_id": null
+            }
+          ],
+          "archived_candidates": [
+            {
+              "diagnosis_id": "VPN_CLIENT_ISSUE",
+              "name": "VPN client or credential issue",
+              "domain": "Network",
+              "category": "VPN",
+              "resolver_group": "GRP-NET",
+              "required_evidence": [
+                "vpn_client_issue_confirmed"
+              ],
+              "supporting_evidence_ids": [],
+              "contradicting_evidence_ids": [
+                "EV-ec51007e738c44b0"
+              ],
+              "status": "eliminated",
+              "elimination_reason": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?",
+              "knowledge_article_id": "KB-026"
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "EV-73f43dce6b8b44bf",
+              "description": "Service health check: status=OPERATIONAL",
+              "value": {
+                "configuration_item_id": "CI-VPN",
+                "location_id": "LOC-D",
+                "state": "OPERATIONAL",
+                "scope": "CI-VPN/LOC-D",
+                "details": "Stored synthetic monitor fact supplied by Workstream A.",
+                "observed_at": "2026-10-01T12:00:00Z",
+                "evidence_id": "EV-73f43dce6b8b44bf"
+              },
+              "source": "diagnostic_check",
+              "timestamp": null,
+              "supports": [],
+              "contradicts": [
+                "VPN_OUTAGE"
+              ]
+            },
+            {
+              "evidence_id": "EV-ec51007e738c44b0",
+              "description": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?",
+              "value": "No, colleagues at the same site cannot connect either.",
+              "source": "user_answer",
+              "timestamp": null,
+              "supports": [
+                "VPN_OUTAGE"
+              ],
+              "contradicts": [
+                "VPN_CLIENT_ISSUE"
+              ]
+            }
+          ],
+          "questions_asked": [
+            "Can colleagues at the same site connect to VPN right now?"
+          ],
+          "eliminated_diagnoses": [
+            {
+              "diagnosis_id": "VPN_CLIENT_ISSUE",
+              "reason": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?"
+            }
+          ],
+          "trace": [
+            {
+              "step_number": 1,
+              "event_type": "knowledge_retrieved",
+              "description": "Retrieved 1 diagnostic article(s).",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+            },
+            {
+              "step_number": 2,
+              "event_type": "historical_tickets_retrieved",
+              "description": "Retrieved 5 similar resolved/closed historical ticket(s).",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE",
+                "VPN_CLIENT_ISSUE",
+                "VPN_OUTAGE",
+                "VPN_OUTAGE",
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+            },
+            {
+              "step_number": 3,
+              "event_type": "historical_hypothesis_added",
+              "description": "Added VPN_OUTAGE as a candidate based on a similar historical ticket.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Historical similarity score=0.200; this remains a hypothesis and requires evidence from the current ticket."
+            },
+            {
+              "step_number": 4,
+              "event_type": "investigation_started",
+              "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE",
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+            },
+            {
+              "step_number": 5,
+              "event_type": "outage_signal_detected",
+              "description": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "An active shared-service hypothesis requires scoped screening; this signal does not establish an outage or authorize a global-incident action."
+            },
+            {
+              "step_number": 6,
+              "event_type": "evidence_added",
+              "description": "Service health check: status=OPERATIONAL",
+              "evidence_ids": [
+                "EV-73f43dce6b8b44bf"
+              ],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Evidence source: diagnostic_check."
+            },
+            {
+              "step_number": 7,
+              "event_type": "outage_signal_cleared",
+              "description": "The previous outage hypothesis was excluded by current evidence. Continue individual diagnosis.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "No active shared-service candidate remains; the earlier outage recommendation is superseded."
+            },
+            {
+              "step_number": 8,
+              "event_type": "answer_received",
+              "description": "Recorded an answer to: Can colleagues at the same site connect to VPN right now?",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_OUTAGE",
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+            },
+            {
+              "step_number": 9,
+              "event_type": "hypothesis_reopened",
+              "description": "Reopened VPN_OUTAGE because current evidence conflicts with its previous exclusion.",
+              "evidence_ids": [
+                "EV-ec51007e738c44b0",
+                "EV-73f43dce6b8b44bf"
+              ],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Keep both supporting and contradicting observations; this is an unconfirmed hypothesis."
+            },
+            {
+              "step_number": 10,
+              "event_type": "evidence_added",
+              "description": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?",
+              "evidence_ids": [
+                "EV-ec51007e738c44b0"
+              ],
+              "candidate_ids": [
+                "VPN_OUTAGE",
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Evidence source: user_answer."
+            },
+            {
+              "step_number": 11,
+              "event_type": "outage_signal_detected",
+              "description": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds. Current evidence conflicts: supporting observations challenge an earlier exclusion. Both supporting and contradicting observations are retained. The Supervisor must review current health and recent tickets for the same CI/location. An outage is not confirmed and no global ticket or link has been created.",
+              "evidence_ids": [
+                "EV-73f43dce6b8b44bf",
+                "EV-ec51007e738c44b0"
+              ],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "An active shared-service hypothesis requires scoped screening; this signal does not establish an outage or authorize a global-incident action."
+            },
+            {
+              "step_number": 12,
+              "event_type": "knowledge_retrieved",
+              "description": "Retrieved 1 diagnostic article(s).",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+            },
+            {
+              "step_number": 13,
+              "event_type": "outage_signal_detected",
+              "description": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds. Current evidence conflicts: supporting observations challenge an earlier exclusion. Both supporting and contradicting observations are retained. The Supervisor must review current health and recent tickets for the same CI/location. An outage is not confirmed and no global ticket or link has been created.",
+              "evidence_ids": [
+                "EV-73f43dce6b8b44bf",
+                "EV-ec51007e738c44b0"
+              ],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "An active shared-service hypothesis requires scoped screening; this signal does not establish an outage or authorize a global-incident action."
+            }
+          ],
+          "knowledge_matches": [
+            {
+              "article_id": "KB-008",
+              "title": "KB-008",
+              "score": 6,
+              "matched_terms": [
+                "cannot",
+                "connect",
+                "not",
+                "scope",
+                "the",
+                "vpn"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "questions": [
+                "Are multiple users at the same site affected within the same short time window?",
+                "Can affected users reach other network services, and is VPN health UNAVAILABLE/DEGRADED?"
+              ],
+              "approved": false,
+              "usage": "DIAGNOSTIC_GUIDANCE",
+              "version": 2,
+              "backend_reference": false,
+              "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE"
+            }
+          ],
+          "historical_matches": [
+            {
+              "ticket_id": "HIS-0192",
+              "score": 0.2217,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_CLIENT_ISSUE",
+              "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0367",
+              "score": 0.2217,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_CLIENT_ISSUE",
+              "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. No further action needed.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0081",
+              "score": 0.2,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0090",
+              "score": 0.2,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0457",
+              "score": 0.2,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            }
+          ],
+          "next_question": null,
+          "final_diagnosis": null,
+          "confidence": null,
+          "recommended_action": "escalate",
+          "rationale": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds. Current evidence conflicts: supporting observations challenge an earlier exclusion. Both supporting and contradicting observations are retained. The Supervisor must review current health and recent tickets for the same CI/location. An outage is not confirmed and no global ticket or link has been created. Scoped backend screening: 12 recent matching ticket(s); open global ticket: none found. These screening results must be reviewed together with the conflicting observations; the diagnostic agent has not confirmed an outage.",
+          "status": "escalated",
+          "diagnostic_result_id": "DR-52cbe7304c424795",
+          "diagnostic_result_version": 2
+        },
+        "ticket_id": "INC-00805946777948ae",
+        "checkpoint_ref": "CHK-cadc54e6d1314243",
+        "reply_language": "en"
+      },
+      "framework": "langgraph"
+    }
+  },
+  {
+    "test": "peers_fail_no_assignment_or_resolution",
+    "passed": true,
+    "ticket_id": "INC-00805946777948ae"
+  },
+  {
+    "test": "peers_unknown",
+    "passed": true,
+    "ticket_id": "INC-a4154dbd41ef403e",
+    "expected_action": null,
+    "actual_action": "ESCALATE",
+    "actual_diagnosis": null,
+    "turns": [
+      "Can colleagues at the same site connect to VPN right now?\n\nTicket: INC-a4154dbd41ef403e · Ref: CHK-342acbaeb8d84a45",
+      "I do not know whether colleagues can connect.",
+      "Does the VPN client show a local configuration or credential error?\n\nTicket: INC-a4154dbd41ef403e · Ref: CHK-733aeeadb0df46bf",
+      "The VPN client reports a local configuration error.",
+      "You reported: The VPN client reports a local configuration error.\n\nThis suggests a VPN client local-configuration problem, but the cause is not confirmed. A specialist needs to verify the client configuration and exact connection error; this agent has no implemented direct check for it. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-a4154dbd41ef403e · Ref: CHK-7b9b07c09a2f43aa"
+    ],
+    "result": {
+      "ticket_id": "INC-a4154dbd41ef403e",
+      "diagnostic_result_id": "DR-641fa5cf6b3348de",
+      "diagnostic_result_version": 3,
+      "evidence_ids": [
+        "EV-10771608a16b40ef",
+        "EV-a3be982560414daa",
+        "EV-318bb6a8b6a440c2"
+      ],
+      "completed_actions": [],
+      "missing_information": [
+        "A specialist needs to verify the client configuration and exact connection error; this agent has no implemented direct check for it."
+      ],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "diagnosis_scope": "UNDETERMINED",
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 5,
+          "ticket_ids": [
+            "HIS-0192",
+            "HIS-0367",
+            "HIS-0081",
+            "HIS-0090",
+            "HIS-0457"
+          ]
+        },
+        "knowledge_match_strength": "HIGH",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": true
+      },
+      "rationale": "Reported observations: The VPN client reports a local configuration error. A specialist needs to verify the client configuration and exact connection error; this agent has no implemented direct check for it. No diagnosis is confirmed. Recommend human review; no repair or assignment was executed.",
+      "diagnostic_findings": {
+        "observations": [
+          {
+            "description": "The VPN client reports a local configuration error.",
+            "evidence_id": "EV-318bb6a8b6a440c2",
+            "source": "USER_RESPONSE"
+          }
+        ],
+        "leading_hypothesis": {
+          "diagnosis_code": "VPN_CLIENT_ISSUE",
+          "description": "a VPN client local-configuration problem",
+          "supporting_evidence_ids": [
+            "EV-318bb6a8b6a440c2"
+          ],
+          "contradicting_evidence_ids": []
+        },
+        "suggested_support_team": "Network Support",
+        "verification_gaps": [
+          "A specialist needs to verify the client configuration and exact connection error; this agent has no implemented direct check for it."
+        ]
+      },
+      "correction_pending_review": null,
+      "next_question": null,
+      "remaining_candidates": [
+        "VPN_CLIENT_ISSUE"
+      ],
+      "eliminated_diagnoses": [
+        {
+          "diagnosis_id": "VPN_OUTAGE",
+          "reason": "Service health check: status=OPERATIONAL"
+        }
+      ],
+      "evidence_conflicts": [],
+      "evidence_count": 3,
+      "trace_steps": 12,
+      "knowledge_article_ids": [],
+      "knowledge_sources": [
+        {
+          "article_id": "KB-026",
+          "version": 2,
+          "approved": false,
+          "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE",
+          "backend_reference": false
+        }
+      ],
+      "historical_ticket_ids": [
+        "HIS-0192",
+        "HIS-0367",
+        "HIS-0081",
+        "HIS-0090",
+        "HIS-0457"
+      ],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "VPN_CLIENT_ISSUE",
+          "name": "VPN client or credential issue",
+          "score": 1.0,
+          "supporting_evidence_ids": [
+            "EV-318bb6a8b6a440c2"
+          ],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": "KB-026",
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": [],
+      "diagnostic_session": {
+        "mode": "backend",
+        "snapshot": {
+          "ticket": {
+            "ticket_id": "INC-a4154dbd41ef403e",
+            "summary": "VPN client cannot connect [v6 prepatch peers_unknown]",
+            "description": "The VPN client cannot connect. The scope has not been established.",
+            "priority": "3",
+            "ticket_class": "INCIDENT",
+            "impact": 3,
+            "urgency": 2,
+            "language": "en",
+            "domain": "Network",
+            "category": "VPN",
+            "subcategory": null,
+            "severity": null,
+            "asset_id": null,
+            "configuration_item_id": "CI-VPN",
+            "location_id": "LOC-D",
+            "security_sensitive": false,
+            "privileged_access": false,
+            "metadata": {
+              "diagnostic_review_mode": true,
+              "interpreted_answers": {
+                "EV-318bb6a8b6a440c2": {
+                  "question": "Does the VPN client show a local configuration or credential error?",
+                  "facts": {
+                    "vpn_client_error": "LOCAL_CONFIGURATION"
+                  }
+                }
+              }
+            }
+          },
+          "candidates": [
+            {
+              "diagnosis_id": "VPN_CLIENT_ISSUE",
+              "name": "VPN client or credential issue",
+              "domain": "Network",
+              "category": "VPN",
+              "resolver_group": "GRP-NET",
+              "required_evidence": [
+                "vpn_client_issue_confirmed"
+              ],
+              "supporting_evidence_ids": [
+                "EV-318bb6a8b6a440c2"
+              ],
+              "contradicting_evidence_ids": [],
+              "status": "plausible",
+              "elimination_reason": null,
+              "knowledge_article_id": "KB-026"
+            }
+          ],
+          "archived_candidates": [
+            {
+              "diagnosis_id": "VPN_OUTAGE",
+              "name": "Vpn Outage",
+              "domain": "Network/Other",
+              "category": "VPN",
+              "resolver_group": "GRP-NET",
+              "required_evidence": [
+                "diagnosis_confirmed_by_current_ticket_evidence"
+              ],
+              "supporting_evidence_ids": [],
+              "contradicting_evidence_ids": [
+                "EV-10771608a16b40ef"
+              ],
+              "status": "eliminated",
+              "elimination_reason": "Service health check: status=OPERATIONAL",
+              "knowledge_article_id": null
+            }
+          ],
+          "evidence": [
+            {
+              "evidence_id": "EV-10771608a16b40ef",
+              "description": "Service health check: status=OPERATIONAL",
+              "value": {
+                "configuration_item_id": "CI-VPN",
+                "location_id": "LOC-D",
+                "state": "OPERATIONAL",
+                "scope": "CI-VPN/LOC-D",
+                "details": "Stored synthetic monitor fact supplied by Workstream A.",
+                "observed_at": "2026-10-01T12:00:00Z",
+                "evidence_id": "EV-10771608a16b40ef"
+              },
+              "source": "diagnostic_check",
+              "timestamp": null,
+              "supports": [],
+              "contradicts": [
+                "VPN_OUTAGE"
+              ]
+            },
+            {
+              "evidence_id": "EV-a3be982560414daa",
+              "description": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?",
+              "value": "I do not know whether colleagues can connect.",
+              "source": "user_answer",
+              "timestamp": null,
+              "supports": [],
+              "contradicts": []
+            },
+            {
+              "evidence_id": "EV-318bb6a8b6a440c2",
+              "description": "User answered the diagnostic question: Does the VPN client show a local configuration or credential error?",
+              "value": "The VPN client reports a local configuration error.",
+              "source": "user_answer",
+              "timestamp": null,
+              "supports": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "contradicts": []
+            }
+          ],
+          "questions_asked": [
+            "Can colleagues at the same site connect to VPN right now?",
+            "Does the VPN client show a local configuration or credential error?"
+          ],
+          "eliminated_diagnoses": [
+            {
+              "diagnosis_id": "VPN_OUTAGE",
+              "reason": "Service health check: status=OPERATIONAL"
+            }
+          ],
+          "trace": [
+            {
+              "step_number": 1,
+              "event_type": "knowledge_retrieved",
+              "description": "Retrieved 1 diagnostic article(s).",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+            },
+            {
+              "step_number": 2,
+              "event_type": "historical_tickets_retrieved",
+              "description": "Retrieved 5 similar resolved/closed historical ticket(s).",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE",
+                "VPN_CLIENT_ISSUE",
+                "VPN_OUTAGE",
+                "VPN_OUTAGE",
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+            },
+            {
+              "step_number": 3,
+              "event_type": "historical_hypothesis_added",
+              "description": "Added VPN_OUTAGE as a candidate based on a similar historical ticket.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Historical similarity score=0.200; this remains a hypothesis and requires evidence from the current ticket."
+            },
+            {
+              "step_number": 4,
+              "event_type": "investigation_started",
+              "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE",
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+            },
+            {
+              "step_number": 5,
+              "event_type": "outage_signal_detected",
+              "description": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "An active shared-service hypothesis requires scoped screening; this signal does not establish an outage or authorize a global-incident action."
+            },
+            {
+              "step_number": 6,
+              "event_type": "evidence_added",
+              "description": "Service health check: status=OPERATIONAL",
+              "evidence_ids": [
+                "EV-10771608a16b40ef"
+              ],
+              "candidate_ids": [
+                "VPN_OUTAGE"
+              ],
+              "rationale": "Evidence source: diagnostic_check."
+            },
+            {
+              "step_number": 7,
+              "event_type": "outage_signal_cleared",
+              "description": "The previous outage hypothesis was excluded by current evidence. Continue individual diagnosis.",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "No active shared-service candidate remains; the earlier outage recommendation is superseded."
+            },
+            {
+              "step_number": 8,
+              "event_type": "answer_received",
+              "description": "Recorded an answer to: Can colleagues at the same site connect to VPN right now?",
+              "evidence_ids": [],
+              "candidate_ids": [],
+              "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+            },
+            {
+              "step_number": 9,
+              "event_type": "evidence_added",
+              "description": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?",
+              "evidence_ids": [
+                "EV-a3be982560414daa"
+              ],
+              "candidate_ids": [],
+              "rationale": "Evidence source: user_answer."
+            },
+            {
+              "step_number": 10,
+              "event_type": "answer_received",
+              "description": "Recorded an answer to: Does the VPN client show a local configuration or credential error?",
+              "evidence_ids": [],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+            },
+            {
+              "step_number": 11,
+              "event_type": "evidence_added",
+              "description": "User answered the diagnostic question: Does the VPN client show a local configuration or credential error?",
+              "evidence_ids": [
+                "EV-318bb6a8b6a440c2"
+              ],
+              "candidate_ids": [
+                "VPN_CLIENT_ISSUE"
+              ],
+              "rationale": "Evidence source: user_answer."
+            },
+            {
+              "step_number": 12,
+              "event_type": "escalation_required",
+              "description": "The current diagnostic rules need human follow-up.",
+              "evidence_ids": [],
+              "candidate_ids": [],
+              "rationale": "Reported observations: The VPN client reports a local configuration error. A specialist needs to verify the client configuration and exact connection error; this agent has no implemented direct check for it. No diagnosis is confirmed. Recommend human review; no repair or assignment was executed."
+            }
+          ],
+          "knowledge_matches": [
+            {
+              "article_id": "KB-026",
+              "title": "KB-026",
+              "score": 5,
+              "matched_terms": [
+                "cannot",
+                "client",
+                "connect",
+                "the",
+                "vpn"
+              ],
+              "diagnosis_code": "VPN_CLIENT_ISSUE",
+              "questions": [
+                "Can colleagues at the same site connect to VPN right now?",
+                "Can the user reach the internet and does the VPN client show a local configuration/credential error?"
+              ],
+              "approved": false,
+              "usage": "DIAGNOSTIC_GUIDANCE",
+              "version": 2,
+              "backend_reference": false,
+              "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE"
+            }
+          ],
+          "historical_matches": [
+            {
+              "ticket_id": "HIS-0192",
+              "score": 0.2217,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_CLIENT_ISSUE",
+              "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0367",
+              "score": 0.2217,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_CLIENT_ISSUE",
+              "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. No further action needed.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0081",
+              "score": 0.2,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0090",
+              "score": 0.2,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            },
+            {
+              "ticket_id": "HIS-0457",
+              "score": 0.2,
+              "matched_on": [
+                "shared_ticket_terms",
+                "category"
+              ],
+              "diagnosis_code": "VPN_OUTAGE",
+              "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+              "owner_group_id": "GRP-NET"
+            }
+          ],
+          "next_question": null,
+          "final_diagnosis": null,
+          "confidence": null,
+          "recommended_action": "escalate",
+          "rationale": "Reported observations: The VPN client reports a local configuration error. A specialist needs to verify the client configuration and exact connection error; this agent has no implemented direct check for it. No diagnosis is confirmed. Recommend human review; no repair or assignment was executed.",
+          "status": "escalated",
+          "diagnostic_result_id": "DR-641fa5cf6b3348de",
+          "diagnostic_result_version": 3
+        },
+        "ticket_id": "INC-a4154dbd41ef403e",
+        "checkpoint_ref": "CHK-7b9b07c09a2f43aa",
+        "reply_language": "en"
+      },
+      "framework": "langgraph"
+    }
+  },
+  {
+    "test": "peers_unknown_no_assignment_or_resolution",
+    "passed": true,
+    "ticket_id": "INC-a4154dbd41ef403e"
+  },
+  {
+    "test": "switch_password",
+    "passed": true,
+    "ticket_id": "INC-0f1deda906e743a8",
+    "actual_action": "ROUTE",
+    "actual_diagnosis": "PASSWORD_EXPIRED",
+    "reply": "The evidence points to an expired password. I recommend a review by the IAM team. Your ticket remains open.\n\nTicket: INC-0f1deda906e743a8 · Ref: CHK-41a6c55008064d50"
+  },
+  {
+    "test": "switch_password_saved_answers_preserved",
+    "passed": true,
+    "ticket_id": "INC-0f1deda906e743a8",
+    "repeated_answered_question": false
+  },
+  {
+    "test": "switch_vpn",
+    "passed": true,
+    "ticket_id": "INC-1fd0c8ed464e4970",
+    "actual_action": "ESCALATE",
+    "actual_diagnosis": null,
+    "reply": "You reported: The VPN client reports a local configuration error. Colleagues at the same site also cannot connect to VPN.\n\nThese observations suggest a possible shared-service issue. An outage is not confirmed. I recommend Supervisor outage screening for this service, location, and related tickets before individual troubleshooting. Your ticket remains open.\n\nTicket: INC-1fd0c8ed464e4970 · Ref: CHK-73dd2d50485e4a91"
+  },
+  {
+    "test": "switch_vpn_saved_answers_preserved",
+    "passed": true,
+    "ticket_id": "INC-1fd0c8ed464e4970",
+    "repeated_answered_question": false
+  },
+  {
+    "test": "switch_dns",
+    "passed": true,
+    "ticket_id": "INC-d8a775438e974622",
+    "actual_action": "ROUTE",
+    "actual_diagnosis": "DNS_FAILURE",
+    "reply": "You reported: Internal server names fail. Direct IP access works. External websites open normally.\n\nThe reported observations support a DNS/name-resolution problem. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-d8a775438e974622 · Ref: CHK-8672ad05e4e24105"
+  },
+  {
+    "test": "switch_dns_saved_answers_preserved",
+    "passed": true,
+    "ticket_id": "INC-d8a775438e974622",
+    "repeated_answered_question": false
+  },
+  {
+    "test": "switch_wifi",
+    "passed": true,
+    "ticket_id": "INC-1de93dbec7cc4105",
+    "actual_action": "ROUTE",
+    "actual_diagnosis": "WIFI_FAILURE",
+    "reply": "You reported: Another device connects to the same Wi-Fi. The affected device connects to a different approved network.\n\nThe reported observations support a Wi-Fi connection problem specific to this device/network pairing. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-1de93dbec7cc4105 · Ref: CHK-3b26aaa459484b3e"
+  },
+  {
+    "test": "switch_wifi_saved_answers_preserved",
+    "passed": true,
+    "ticket_id": "INC-1de93dbec7cc4105",
+    "repeated_answered_question": false
+  },
+  {
+    "test": "legacy_snapshot_adds_shared_hypothesis",
+    "passed": true,
+    "ticket_id": "INC-1fd0c8ed464e4970",
+    "remaining_candidates": [
+      "VPN_CLIENT_ISSUE",
+      "VPN_OUTAGE"
+    ],
+    "evidence_supports": [
+      "VPN_OUTAGE"
+    ],
+    "rationale": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds."
+  },
+  {
+    "test": "legacy_reply_requests_screening",
+    "passed": true,
+    "ticket_id": "INC-1fd0c8ed464e4970",
+    "actual_action": "ESCALATE",
+    "reply": "You reported: The VPN client reports a local configuration error. Colleagues at the same site also cannot connect to VPN.\n\nThese observations suggest a possible shared-service issue. An outage is not confirmed. I recommend Supervisor outage screening for this service, location, and related tickets before individual troubleshooting. Your ticket remains open.\n\nTicket: INC-1fd0c8ed464e4970 · Ref: CHK-9d22ad1c02e64c7a"
+  }
+]

@@ -1,0 +1,14 @@
+spec_version: v1
+kind: connection
+app_id: workstream_c
+environments:
+  draft:
+    kind: api_key
+    type: team
+    server_url: https://workstream-c.example.com
+    name: X-API-Key
+  live:
+    kind: api_key
+    type: team
+    server_url: https://workstream-c.example.com
+    name: X-API-Key

@@ -1,0 +1,27 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Environments / caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.test-tmp*/
+.test-results/
+.local-export-backups/
+# Runtime state
+*.db
+*.db-*
+*.sqlite*
+*.log
+*.pid
+**/data/sessions/
+**/data/graph_sessions/
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/

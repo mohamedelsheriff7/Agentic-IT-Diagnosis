@@ -1,0 +1,63 @@
+{
+  "imported_total": 634,
+  "historical": 500,
+  "evaluation_tickets": 134,
+  "labels": 134,
+  "scenario_counts": {
+    "decoy": 20,
+    "outage": 24,
+    "normal": 36,
+    "ambiguous": 28,
+    "security": 14,
+    "vague": 12
+  },
+  "references_added": {
+    "users": 134,
+    "assets": 98
+  },
+  "fixture_records": {
+    "check_account_status": 60,
+    "check_application_entitlement": 18,
+    "check_service_health": 18
+  },
+  "clusters": [
+    {
+      "cluster_id": "DECOY-1",
+      "tickets": 8,
+      "max_30_minute_count": 1
+    },
+    {
+      "cluster_id": "DECOY-2",
+      "tickets": 6,
+      "max_30_minute_count": 2
+    },
+    {
+      "cluster_id": "DECOY-3",
+      "tickets": 6,
+      "max_30_minute_count": 1
+    },
+    {
+      "cluster_id": "OUT-1",
+      "tickets": 8,
+      "max_30_minute_count": 8
+    },
+    {
+      "cluster_id": "OUT-2",
+      "tickets": 8,
+      "max_30_minute_count": 8
+    },
+    {
+      "cluster_id": "OUT-3",
+      "tickets": 8,
+      "max_30_minute_count": 8
+    }
+  ],
+  "missing_articles": [
+    "ACCOUNT_LOCKED_POLICY",
+    "VPN_CLIENT_ISSUE"
+  ],
+  "source_sha256": {
+    "TestSet_Tickets.json": "750af86a62fa49752edf010adf17f625a55328b94bd6448992b438a43c04ff62",
+    "ground_truth.json": "12c72ef859eaca3cdf8865a009211d57f9766e8944fd17686f2c7ec0b766b640"
+  }
+}

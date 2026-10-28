@@ -1,0 +1,5351 @@
+{
+  "package": "dist/isys-diagnostic-langgraph-v6.7.zip",
+  "evaluator_version": "2.0",
+  "package_sha256": "f1f0a1ac007151b8e5d088810e0b693bf535370d972aab5dbb20901bcc477380",
+  "dataset_sha256": "750af86a62fa49752edf010adf17f625a55328b94bd6448992b438a43c04ff62",
+  "truth_sha256": "12c72ef859eaca3cdf8865a009211d57f9766e8944fd17686f2c7ec0b766b640",
+  "summary": {
+    "tickets": 134,
+    "diagnostic_accuracy": 0.0672,
+    "routing_recommendation_top1": 0.6119,
+    "routing_recommendation_top3": 0.6493,
+    "mandatory_human_cases": 20,
+    "mandatory_human_compliance": 1.0,
+    "resolution_ready_cases": 2,
+    "false_resolution_ready_rate": 0.0,
+    "actual_resolution_rate": null,
+    "false_actual_resolution_rate": null,
+    "potential_premature_diagnosis_proxy": 0.0,
+    "errors": 0,
+    "by_language": {
+      "ar": {
+        "count": 39,
+        "diagnostic_accuracy": 0.0256
+      },
+      "en": {
+        "count": 67,
+        "diagnostic_accuracy": 0.1045
+      },
+      "franco_ar": {
+        "count": 28,
+        "diagnostic_accuracy": 0.0357
+      }
+    },
+    "actions": {
+      "ESCALATE": 118,
+      "ASK_MORE": 7,
+      "RESOLVE": 2,
+      "ROUTE": 7
+    },
+    "questions": 399,
+    "topic_matched_questions": 140
+  },
+  "limitations": [
+    "Independent authored data, but scripted-user topic matching is incomplete.",
+    "Original-language answers only; no answer_en translation or labels passed to the agent.",
+    "Raw ticket fixture fields are simulator inputs. No real backend writes or actual resolutions in this batch.",
+    "Routing is a recommendation proxy; outage lifecycle belongs to collaborators and is not evaluated here.",
+    "Premature diagnosis proxy flags initial diagnoses on cases marked requires_questions, not a clinical evidence adjudication.",
+    "Dataset and oracle were inspected to implement evaluation; this is not an untouched post-development holdout."
+  ],
+  "results": [
+    {
+      "ticket_id": "TST-0001",
+      "language": "franco_ar",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "la, zomalaey fe nafs el site metsleen 3adi",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0002",
+      "language": "en",
+      "expected_diagnosis": "VPN_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0003",
+      "language": "en",
+      "expected_diagnosis": "REQUEST_GUIDANCE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ASK_MORE",
+      "outcome": "INCONCLUSIVE",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Are you asking for setup instructions, or is an existing service failing with an error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which approved device or application and which step are you trying to complete?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is another user or device affected?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can another device connect to the same Wi-Fi at the same location?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can this device connect to a different approved network?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0004",
+      "language": "franco_ar",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0005",
+      "language": "en",
+      "expected_diagnosis": "DISK_FULL",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Does the same task work on another device or for a colleague?",
+          "topic": "others_slow",
+          "answer": "Nobody else around me complains, it is only my laptop.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the affected service reported as healthy for other users?",
+          "topic": "others_slow",
+          "answer": "Nobody else around me complains, it is only my laptop.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the issue follow this device or also occur on another device?",
+          "topic": "others_slow",
+          "answer": "Nobody else around me complains, it is only my laptop.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is only one browser affected?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0006",
+      "language": "ar",
+      "expected_diagnosis": "MALWARE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Did an approved security tool show an alert, or is the report based on unusual behavior?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Are files being encrypted, security tools disabled, or unexpected prompts appearing?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is another user or device affected?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0007",
+      "language": "en",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "I asked two colleagues in the same office and they are connected without trouble.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": "client_message",
+          "answer": "It says the connection attempt timed out, nothing about my password.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": "client_message",
+          "answer": "It says the connection attempt timed out, nothing about my password.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the same task work on another device or for a colleague?",
+          "topic": "colleagues_affected",
+          "answer": "I asked two colleagues in the same office and they are connected without trouble.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the affected service reported as healthy for other users?",
+          "topic": "colleagues_affected",
+          "answer": "I asked two colleagues in the same office and they are connected without trouble.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the issue follow this device or also occur on another device?",
+          "topic": "colleagues_affected",
+          "answer": "I asked two colleagues in the same office and they are connected without trouble.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is only one browser affected?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0008",
+      "language": "franco_ar",
+      "expected_diagnosis": "SYNC_DELAY",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "error_seen",
+          "answer": "mafeesh error, el save bey-nga7 dayman",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "error_seen",
+          "answer": "mafeesh error, el save bey-nga7 dayman",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0009",
+      "language": "ar",
+      "expected_diagnosis": "DATA_EXPOSURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0010",
+      "language": "ar",
+      "expected_diagnosis": "WIFI_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0011",
+      "language": "ar",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "اتنين تانيين عندهم نفس موديل اللابتوب بيحصلهم نفس الحاجة",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "اتنين تانيين عندهم نفس موديل اللابتوب بيحصلهم نفس الحاجة",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0012",
+      "language": "ar",
+      "expected_diagnosis": "APP_AUTH_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0013",
+      "language": "franco_ar",
+      "expected_diagnosis": "WIFI_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ASK_MORE",
+      "outcome": "INCONCLUSIVE",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can another device connect to the same Wi-Fi at the same location?",
+          "topic": "other_devices",
+          "answer": "el mobile bardo byesraf nafs el 7aga fel wing da",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can another device connect to the same Wi-Fi at the same location?",
+          "topic": "other_devices",
+          "answer": "el mobile bardo byesraf nafs el 7aga fel wing da",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can this device connect to a different approved network?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is another user or device affected?",
+          "topic": "other_devices",
+          "answer": "el mobile bardo byesraf nafs el 7aga fel wing da",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the Wi-Fi setting show Off, and are you allowed to enable it here?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0014",
+      "language": "en",
+      "expected_diagnosis": "PASSWORD_EXPIRED",
+      "actual_diagnosis": "PASSWORD_EXPIRED",
+      "diagnosis_correct": true,
+      "recommended_action": "RESOLVE",
+      "outcome": "RESOLVE_READY",
+      "confidence": "HIGH",
+      "questions": [
+        {
+          "question": "Does the sign-in screen explicitly say the password has expired?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can you access other corporate applications with the same account?",
+          "topic": "other_corporate_applications",
+          "answer": "I cannot try others because the laptop will not get past the sign-in.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": true,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0015",
+      "language": "ar",
+      "expected_diagnosis": "PASSWORD_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0016",
+      "language": "en",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0017",
+      "language": "ar",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0018",
+      "language": "ar",
+      "expected_diagnosis": "WIFI_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0019",
+      "language": "en",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "Two others with the same laptop model have the same crash.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "Two others with the same laptop model have the same crash.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0020",
+      "language": "en",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0021",
+      "language": "ar",
+      "expected_diagnosis": "VPN_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0022",
+      "language": "en",
+      "expected_diagnosis": "PASSWORD_EXPIRED",
+      "actual_diagnosis": "PASSWORD_EXPIRED",
+      "diagnosis_correct": true,
+      "recommended_action": "RESOLVE",
+      "outcome": "RESOLVE_READY",
+      "confidence": "HIGH",
+      "questions": [
+        {
+          "question": "Does the sign-in message explicitly say your account is disabled or deactivated?",
+          "topic": "message_text",
+          "answer": "It says my password has expired and must be changed.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": true,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0023",
+      "language": "franco_ar",
+      "expected_diagnosis": "CERT_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0024",
+      "language": "en",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0025",
+      "language": "franco_ar",
+      "expected_diagnosis": "ACCOUNT_LOCKED_POLICY",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "alert_details",
+          "answer": "el email beyeb2a feh login men dawla ma roht-ha abadan",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "alert_details",
+          "answer": "el email beyeb2a feh login men dawla ma roht-ha abadan",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the identity provider indicate a security-policy lock reason?",
+          "topic": "alert_details",
+          "answer": "el email beyeb2a feh login men dawla ma roht-ha abadan",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did the user receive a suspicious-activity/security alert, or was the lock only after incorrect passwords?",
+          "topic": "alert_details",
+          "answer": "el email beyeb2a feh login men dawla ma roht-ha abadan",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the identity status indicate a security-policy lock reason?",
+          "topic": "alert_details",
+          "answer": "el email beyeb2a feh login men dawla ma roht-ha abadan",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0026",
+      "language": "en",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "No, colleagues on the same site are connected fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "No, colleagues on the same site are connected fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0027",
+      "language": "en",
+      "expected_diagnosis": "LOCAL_ENDPOINT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0028",
+      "language": "franco_ar",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": "what_application",
+          "answer": "bernameg el VPN 3ala el laptop",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": "what_application",
+          "answer": "bernameg el VPN 3ala el laptop",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0029",
+      "language": "franco_ar",
+      "expected_diagnosis": "DISK_FULL",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0030",
+      "language": "en",
+      "expected_diagnosis": "VPN_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0031",
+      "language": "ar",
+      "expected_diagnosis": "ACCOUNT_LOCKED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact sign-in message do you see?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the sign-in screen currently report that the account is locked?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "security_alert_received",
+          "answer": "لا، مفيش أي تنبيه ولا إيميل عن نشاط مشبوه",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "security_alert_received",
+          "answer": "لا، مفيش أي تنبيه ولا إيميل عن نشاط مشبوه",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the error mention too many attempts or a locked account?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "When did the failures start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0032",
+      "language": "ar",
+      "expected_diagnosis": "PRINTER_OFFLINE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0033",
+      "language": "franco_ar",
+      "expected_diagnosis": "DATA_EXPOSURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0034",
+      "language": "en",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0035",
+      "language": "ar",
+      "expected_diagnosis": "PASSWORD_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "message_text",
+          "answer": "بيقول إن الباسورد انتهت ولازم تتغير",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "what_fails",
+          "answer": "مش قادر أفتح اللابتوب، بيطلب باسورد جديدة",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": true,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0036",
+      "language": "ar",
+      "expected_diagnosis": "APP_ERROR",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "banner_text",
+          "answer": "الشريط مكتوب فيه حصل خطأ غير متوقع أثناء تجهيز التقرير",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "banner_text",
+          "answer": "الشريط مكتوب فيه حصل خطأ غير متوقع أثناء تجهيز التقرير",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0037",
+      "language": "ar",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "لا، زمايلي في نفس الموقع متصلين عادي",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0038",
+      "language": "en",
+      "expected_diagnosis": "UNKNOWN_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "what_is_broken",
+          "answer": "I do not know, it just feels wrong, I cannot explain more.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": "device_or_app",
+          "answer": "I do not remember which program it was.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": "device_or_app",
+          "answer": "I do not remember which program it was.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "what_is_broken",
+          "answer": "I do not know, it just feels wrong, I cannot explain more.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0039",
+      "language": "ar",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "لا، زمايلي في نفس الموقع متصلين عادي",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0040",
+      "language": "franco_ar",
+      "expected_diagnosis": "PRIVILEGED_ACCESS",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact task requires elevated access, and for how long?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the requested access a standard application role or a privileged/admin role?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which administrative task requires access?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Has an authorized approver reviewed the request?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0041",
+      "language": "ar",
+      "expected_diagnosis": "MISSING_ENTITLEMENT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": "which_application",
+          "answer": "الـ ERP، الصفحة الرئيسية بتفتح بس كل القوائم فاضية",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": "which_application",
+          "answer": "الـ ERP، الصفحة الرئيسية بتفتح بس كل القوائم فاضية",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0042",
+      "language": "en",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0043",
+      "language": "en",
+      "expected_diagnosis": "SYNC_DELAY",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Are all records delayed or only specific records?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the source system showing the updated data while the destination remains stale?",
+          "topic": "time_to_appear",
+          "answer": "They show up eventually, usually after four or five hours.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the source system showing the updated data while the destination remains stale?",
+          "topic": "time_to_appear",
+          "answer": "They show up eventually, usually after four or five hours.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "error_seen",
+          "answer": "No error, the save always succeeds.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "error_seen",
+          "answer": "No error, the save always succeeds.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0044",
+      "language": "en",
+      "expected_diagnosis": "MISSING_ENTITLEMENT",
+      "actual_diagnosis": "MISSING_ENTITLEMENT",
+      "diagnosis_correct": true,
+      "recommended_action": "ROUTE",
+      "outcome": "DIAGNOSED",
+      "confidence": "MEDIUM",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": "which_application",
+          "answer": "It is the ERP, the home page loads but every menu is empty.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0045",
+      "language": "franco_ar",
+      "expected_diagnosis": "APP_AUTH_FAILURE",
+      "actual_diagnosis": "APP_AUTH_FAILURE",
+      "diagnosis_correct": true,
+      "recommended_action": "ROUTE",
+      "outcome": "DIAGNOSED",
+      "confidence": "MEDIUM",
+      "questions": [
+        {
+          "question": "Do other corporate applications accept the same account while this one fails?",
+          "topic": "other_corporate_applications",
+          "answer": "aywa el mail w el ERP sheghalin bnafs el login",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other corporate applications accept the same account while this one fails?",
+          "topic": "other_corporate_applications",
+          "answer": "aywa el mail w el ERP sheghalin bnafs el login",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the application show an SSO or session error rather than a password error?",
+          "topic": "access_page_message",
+          "answer": "ma bashoof'sh safhet access denied abadan, bas el login tany",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0046",
+      "language": "ar",
+      "expected_diagnosis": "APP_AUTH_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0047",
+      "language": "franco_ar",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "la, zomalaey fe nafs el site metsleen 3adi",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0048",
+      "language": "ar",
+      "expected_diagnosis": "REQUEST_GUIDANCE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ASK_MORE",
+      "outcome": "INCONCLUSIVE",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Are you asking for setup instructions, or is an existing service failing with an error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which approved device or application and which step are you trying to complete?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can another device connect to the same Wi-Fi at the same location?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can this device connect to a different approved network?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the Wi-Fi setting show Off, and are you allowed to enable it here?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can another device connect to the same approved network at this location?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0049",
+      "language": "ar",
+      "expected_diagnosis": "CERT_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "warning_text",
+          "answer": "التحذير بيقول إن الشهادة منتهية",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "warning_text",
+          "answer": "التحذير بيقول إن الشهادة منتهية",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0050",
+      "language": "en",
+      "expected_diagnosis": "DNS_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Do internal hostnames fail while direct IP access to the same server works?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do external websites resolve normally, or does all connectivity fail?",
+          "topic": "other_sites_load",
+          "answer": "External sites open normally; only the company internal addresses fail.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is another user or device affected?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0051",
+      "language": "en",
+      "expected_diagnosis": "WIFI_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ASK_MORE",
+      "outcome": "INCONCLUSIVE",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can another device connect to the same Wi-Fi at the same location?",
+          "topic": "other_devices",
+          "answer": "My phone does the same in that wing.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can another device connect to the same Wi-Fi at the same location?",
+          "topic": "other_devices",
+          "answer": "My phone does the same in that wing.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can this device connect to a different approved network?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the Wi-Fi setting show Off, and are you allowed to enable it here?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can another device connect to the same approved network at this location?",
+          "topic": "other_devices",
+          "answer": "My phone does the same in that wing.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is another user or device affected?",
+          "topic": "other_devices",
+          "answer": "My phone does the same in that wing.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0052",
+      "language": "franco_ar",
+      "expected_diagnosis": "VPN_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0053",
+      "language": "en",
+      "expected_diagnosis": "APP_AUTH_FAILURE",
+      "actual_diagnosis": "APP_AUTH_FAILURE",
+      "diagnosis_correct": true,
+      "recommended_action": "ROUTE",
+      "outcome": "DIAGNOSED",
+      "confidence": "MEDIUM",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "Others in my team log in to ERP without any problem.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "Others in my team log in to ERP without any problem.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "exact_error",
+          "answer": "The message is 'authentication failed, please try again', not an access denied page.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0054",
+      "language": "ar",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0055",
+      "language": "en",
+      "expected_diagnosis": "APP_ERROR",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "banner_text",
+          "answer": "The banner says an unexpected error occurred while building the report.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "banner_text",
+          "answer": "The banner says an unexpected error occurred while building the report.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0056",
+      "language": "en",
+      "expected_diagnosis": "WIFI_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0057",
+      "language": "franco_ar",
+      "expected_diagnosis": "LOCAL_ENDPOINT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0058",
+      "language": "ar",
+      "expected_diagnosis": "VPN_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0059",
+      "language": "ar",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "سألت اتنين زمايل في نفس المكتب وهما متصلين عادي",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": "client_message",
+          "answer": "بيقول انتهت مهلة محاولة الاتصال ومفيش حاجة عن الباسورد",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": "client_message",
+          "answer": "بيقول انتهت مهلة محاولة الاتصال ومفيش حاجة عن الباسورد",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0060",
+      "language": "en",
+      "expected_diagnosis": "ACCOUNT_LOCKED",
+      "actual_diagnosis": "ACCOUNT_LOCKED",
+      "diagnosis_correct": true,
+      "recommended_action": "ROUTE",
+      "outcome": "DIAGNOSED",
+      "confidence": "HIGH",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "what_happens",
+          "answer": "After a few wrong tries the screen said the account is locked.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0061",
+      "language": "en",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0062",
+      "language": "franco_ar",
+      "expected_diagnosis": "ACCOUNT_LOCKED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0063",
+      "language": "ar",
+      "expected_diagnosis": "SERVER_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0064",
+      "language": "en",
+      "expected_diagnosis": "PRINTER_OFFLINE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0065",
+      "language": "en",
+      "expected_diagnosis": "LOCAL_ENDPOINT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Does the same task work on another device or for a colleague?",
+          "topic": "others_slow",
+          "answer": "No, only my machine; my neighbour uses the same applications without problems.",
+          "eliminated_more": true
+        },
+        {
+          "question": "What exact task requires elevated access, and for how long?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the requested access a standard application role or a privileged/admin role?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which administrative task requires access?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Has an authorized approver reviewed the request?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0066",
+      "language": "en",
+      "expected_diagnosis": "SYNC_DELAY",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "any_error_message",
+          "answer": "No error at all, the page just shows older data.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "any_error_message",
+          "answer": "No error at all, the page just shows older data.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0067",
+      "language": "ar",
+      "expected_diagnosis": "APP_AUTH_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Do other corporate applications accept the same account while this one fails?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the application show an SSO or session error rather than a password error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0068",
+      "language": "en",
+      "expected_diagnosis": "APP_ERROR",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Does the application open successfully but fail only when you perform a specific action?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do colleagues using the same function see the same error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is another user or device affected?",
+          "topic": "same_for_colleague",
+          "answer": "A colleague gets the same code on the same screen.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0069",
+      "language": "en",
+      "expected_diagnosis": "MALWARE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Did an approved security tool show an alert, or is the report based on unusual behavior?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Are files being encrypted, security tools disabled, or unexpected prompts appearing?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is another user or device affected?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0070",
+      "language": "en",
+      "expected_diagnosis": "DATA_EXPOSURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0071",
+      "language": "ar",
+      "expected_diagnosis": "PASSWORD_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": true,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0072",
+      "language": "en",
+      "expected_diagnosis": "PHISHING",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0073",
+      "language": "franco_ar",
+      "expected_diagnosis": "SYNC_DELAY",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "any_error_message",
+          "answer": "mafeesh error khales, el safha bas beteshawer data adeema",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "any_error_message",
+          "answer": "mafeesh error khales, el safha bas beteshawer data adeema",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0074",
+      "language": "franco_ar",
+      "expected_diagnosis": "PHISHING",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can you receive and approve the verification prompt on your current phone?",
+          "topic": "approved_any",
+          "answer": "da3ast approve marra bel ghalat 7awaleen el nos el leil",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the identity provider show a failed or unregistered MFA method?",
+          "topic": "started_signin_myself",
+          "answer": "la, kont nayem fi gozz men el wa2t w mesh 2odam ay kompyuter",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the prompt missing, rejected, or arriving on a different device?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the authenticator enrolled and unlocked?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0075",
+      "language": "en",
+      "expected_diagnosis": "WIFI_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0076",
+      "language": "en",
+      "expected_diagnosis": "MFA_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can you receive and approve the verification prompt on your current phone?",
+          "topic": "phone_changed",
+          "answer": "I got a new phone last week and set it up from a backup.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the identity provider show a failed or unregistered MFA method?",
+          "topic": "started_signin_myself",
+          "answer": "Yes, I opened the sign-in page myself just now.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0077",
+      "language": "ar",
+      "expected_diagnosis": "APP_ERROR",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ASK_MORE",
+      "outcome": "INCONCLUSIVE",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Do other corporate applications accept the same account while this one fails?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the application show an SSO or session error rather than a password error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications accept the same identity?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the application fail in a second browser?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the application open successfully but fail only when you perform a specific action?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do colleagues using the same function see the same error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0078",
+      "language": "en",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0079",
+      "language": "en",
+      "expected_diagnosis": "SERVER_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0080",
+      "language": "en",
+      "expected_diagnosis": "DISK_FULL",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Is the storage warning on one device or are multiple users seeing a shared storage error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the storage check show low free space on the endpoint, or is a network drive affected?",
+          "topic": "big_folders",
+          "answer": "The downloads folder alone is over 150 GB of old videos.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0081",
+      "language": "en",
+      "expected_diagnosis": "ACCOUNT_LOCKED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact sign-in message do you see?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the sign-in screen currently report that the account is locked?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "security_alert_received",
+          "answer": "No alert or email about suspicious activity, nothing like that.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "security_alert_received",
+          "answer": "No alert or email about suspicious activity, nothing like that.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the error mention too many attempts or a locked account?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "When did the failures start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can another device connect to the same Wi-Fi at the same location?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can this device connect to a different approved network?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0082",
+      "language": "franco_ar",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0083",
+      "language": "ar",
+      "expected_diagnosis": "ACCOUNT_DISABLED",
+      "actual_diagnosis": "ACCOUNT_DISABLED",
+      "diagnosis_correct": true,
+      "recommended_action": "ROUTE",
+      "outcome": "DIAGNOSED",
+      "confidence": "MEDIUM",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "exact_message",
+          "answer": "شاشة الدخول مكتوب فيها بالنص إن الحساب معطل",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0084",
+      "language": "en",
+      "expected_diagnosis": "MFA_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can you receive and approve the verification prompt on your current phone?",
+          "topic": "old_phone_available",
+          "answer": "The old phone was reset and I no longer have it.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the identity provider show a failed or unregistered MFA method?",
+          "topic": "old_phone_available",
+          "answer": "The old phone was reset and I no longer have it.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the prompt missing, rejected, or arriving on a different device?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the authenticator enrolled and unlocked?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0085",
+      "language": "en",
+      "expected_diagnosis": "CERT_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can you access other corporate applications with the same account?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Has the application owner confirmed that your account has the required role?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0086",
+      "language": "franco_ar",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0087",
+      "language": "en",
+      "expected_diagnosis": "APP_AUTH_FAILURE",
+      "actual_diagnosis": "APP_AUTH_FAILURE",
+      "diagnosis_correct": true,
+      "recommended_action": "ROUTE",
+      "outcome": "DIAGNOSED",
+      "confidence": "MEDIUM",
+      "questions": [
+        {
+          "question": "Do other corporate applications accept the same account while this one fails?",
+          "topic": "other_corporate_applications",
+          "answer": "Yes, mail and ERP both work with the same login.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other corporate applications accept the same account while this one fails?",
+          "topic": "other_corporate_applications",
+          "answer": "Yes, mail and ERP both work with the same login.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the application show an SSO or session error rather than a password error?",
+          "topic": "access_page_message",
+          "answer": "I never see an access denied page, just the login again.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0088",
+      "language": "en",
+      "expected_diagnosis": "CERT_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0089",
+      "language": "ar",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0090",
+      "language": "ar",
+      "expected_diagnosis": "DNS_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0091",
+      "language": "en",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "No, colleagues on the same site are connected fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "No, colleagues on the same site are connected fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0092",
+      "language": "franco_ar",
+      "expected_diagnosis": "ACCOUNT_LOCKED_POLICY",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact sign-in message do you see?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the sign-in screen currently report that the account is locked?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "security_alert_received",
+          "answer": "aywa geely email en 7ad 7awel yedkhol men dawla tanya ems bel leil",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "security_alert_received",
+          "answer": "aywa geely email en 7ad 7awel yedkhol men dawla tanya ems bel leil",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the error mention too many attempts or a locked account?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "When did the failures start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the identity provider indicate a security-policy lock reason?",
+          "topic": "security_alert_received",
+          "answer": "aywa geely email en 7ad 7awel yedkhol men dawla tanya ems bel leil",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0093",
+      "language": "en",
+      "expected_diagnosis": "ACCOUNT_LOCKED_POLICY",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "alert_details",
+          "answer": "The email lists a sign-in from a country I have never visited.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "alert_details",
+          "answer": "The email lists a sign-in from a country I have never visited.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the identity provider indicate a security-policy lock reason?",
+          "topic": "alert_details",
+          "answer": "The email lists a sign-in from a country I have never visited.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did the user receive a suspicious-activity/security alert, or was the lock only after incorrect passwords?",
+          "topic": "alert_details",
+          "answer": "The email lists a sign-in from a country I have never visited.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the identity status indicate a security-policy lock reason?",
+          "topic": "alert_details",
+          "answer": "The email lists a sign-in from a country I have never visited.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0094",
+      "language": "ar",
+      "expected_diagnosis": "PRINTER_OFFLINE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ASK_MORE",
+      "outcome": "INCONCLUSIVE",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Is only one user affected or everyone using the same printer?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can the printer be reached by other users on the same network?",
+          "topic": "printer_panel",
+          "answer": "الشاشة على الطابعة مكتوب فيها كابل الشبكة مفصول",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can the printer be reached by other users on the same network?",
+          "topic": "printer_panel",
+          "answer": "الشاشة على الطابعة مكتوب فيها كابل الشبكة مفصول",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is another user or device affected?",
+          "topic": "other_devices",
+          "answer": "تلاتة زمايل كمان مش قادرين يطبعوا عليها",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which installed printer is selected in the print dialog, and which approved printer did you intend to use?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0095",
+      "language": "en",
+      "expected_diagnosis": "VPN_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0096",
+      "language": "ar",
+      "expected_diagnosis": "UNKNOWN_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "what_is_broken",
+          "answer": "معرفش، حاسس إن في حاجة غلط ومش قادر أشرح أكتر",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": "device_or_app",
+          "answer": "مش فاكر كان أنهي برنامج",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": "device_or_app",
+          "answer": "مش فاكر كان أنهي برنامج",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "what_is_broken",
+          "answer": "معرفش، حاسس إن في حاجة غلط ومش قادر أشرح أكتر",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0097",
+      "language": "en",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0098",
+      "language": "franco_ar",
+      "expected_diagnosis": "STORAGE_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0099",
+      "language": "en",
+      "expected_diagnosis": "PASSWORD_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": true,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0100",
+      "language": "en",
+      "expected_diagnosis": "PRINTER_OFFLINE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ASK_MORE",
+      "outcome": "INCONCLUSIVE",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Is only one user affected or everyone using the same printer?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can the printer be reached by other users on the same network?",
+          "topic": "printer_panel",
+          "answer": "The panel on the printer says network cable disconnected.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can the printer be reached by other users on the same network?",
+          "topic": "printer_panel",
+          "answer": "The panel on the printer says network cable disconnected.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which installed printer is selected in the print dialog, and which approved printer did you intend to use?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the intended printer available and are other users able to print to it?",
+          "topic": "other_devices",
+          "answer": "Three colleagues cannot print to it either.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error appears?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications work?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is another user or device affected?",
+          "topic": "other_devices",
+          "answer": "Three colleagues cannot print to it either.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0101",
+      "language": "en",
+      "expected_diagnosis": "LOCAL_ENDPOINT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0102",
+      "language": "ar",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0103",
+      "language": "franco_ar",
+      "expected_diagnosis": "DISK_FULL",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0104",
+      "language": "franco_ar",
+      "expected_diagnosis": "MISSING_ENTITLEMENT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can you access other corporate applications with the same account?",
+          "topic": "other_corporate_applications",
+          "answer": "el mail w safhet el HR betefta7 3adi",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can you access other corporate applications with the same account?",
+          "topic": "other_corporate_applications",
+          "answer": "el mail w safhet el HR betefta7 3adi",
+          "eliminated_more": false
+        },
+        {
+          "question": "Has the application owner confirmed that your account has the required role?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can you sign in but not open this application?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which role is required for the task?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0105",
+      "language": "franco_ar",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0106",
+      "language": "ar",
+      "expected_diagnosis": "LOCAL_ENDPOINT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Does the same task work on another device or for a colleague?",
+          "topic": "others_slow",
+          "answer": "لا، جهازي أنا بس، الزميل اللي جنبي بيستخدم نفس البرامج من غير مشاكل",
+          "eliminated_more": true
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0107",
+      "language": "en",
+      "expected_diagnosis": "STORAGE_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "error_text",
+          "answer": "It says the network location is unavailable when I try to reconnect.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "error_text",
+          "answer": "It says the network location is unavailable when I try to reconnect.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0108",
+      "language": "franco_ar",
+      "expected_diagnosis": "APP_AUTH_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0109",
+      "language": "en",
+      "expected_diagnosis": "VPN_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "Yes, the people sitting next to me cannot connect or load it either.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "Yes, the people sitting next to me cannot connect or load it either.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0110",
+      "language": "en",
+      "expected_diagnosis": "MISSING_ENTITLEMENT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can you access other corporate applications with the same account?",
+          "topic": "other_corporate_applications",
+          "answer": "Mail and the HR page open fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can you access other corporate applications with the same account?",
+          "topic": "other_corporate_applications",
+          "answer": "Mail and the HR page open fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Has the application owner confirmed that your account has the required role?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0111",
+      "language": "ar",
+      "expected_diagnosis": "APP_AUTH_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Do other corporate applications accept the same account while this one fails?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the application show an SSO or session error rather than a password error?",
+          "topic": "exact_error",
+          "answer": "الرسالة مكتوب فيها فشل التحقق حاول تاني، مش صفحة ممنوع الدخول",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do other applications accept the same identity?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the application fail in a second browser?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the application open successfully but fail only when you perform a specific action?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Do colleagues using the same function see the same error?",
+          "topic": "exact_error",
+          "answer": "الرسالة مكتوب فيها فشل التحقق حاول تاني، مش صفحة ممنوع الدخول",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "exact_error",
+          "answer": "الرسالة مكتوب فيها فشل التحقق حاول تاني، مش صفحة ممنوع الدخول",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0112",
+      "language": "ar",
+      "expected_diagnosis": "LOCAL_ENDPOINT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Does the same task work on another device or for a colleague?",
+          "topic": "only_this_device",
+          "answer": "أيوه بيحصل مع أي برنامج حتى لو على سطح المكتب بس",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the affected service reported as healthy for other users?",
+          "topic": "only_this_device",
+          "answer": "أيوه بيحصل مع أي برنامج حتى لو على سطح المكتب بس",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0113",
+      "language": "en",
+      "expected_diagnosis": "MISSING_ENTITLEMENT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0114",
+      "language": "en",
+      "expected_diagnosis": "WIFI_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-2",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0115",
+      "language": "ar",
+      "expected_diagnosis": "PHISHING",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0116",
+      "language": "ar",
+      "expected_diagnosis": "MFA_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0117",
+      "language": "en",
+      "expected_diagnosis": "LOCAL_ENDPOINT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0118",
+      "language": "franco_ar",
+      "expected_diagnosis": "PASSWORD_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "message_on_screen",
+          "answer": "kan maktoob en el password lazem yet-ghayar, w ba3deen safhet el ta3deel mesh betefta7",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "message_on_screen",
+          "answer": "kan maktoob en el password lazem yet-ghayar, w ba3deen safhet el ta3deel mesh betefta7",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": true,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0119",
+      "language": "en",
+      "expected_diagnosis": "ACCOUNT_LOCKED_POLICY",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact sign-in message do you see?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the sign-in screen currently report that the account is locked?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Did you receive a security alert or suspicious-activity notice before the lockout?",
+          "topic": "security_alert_received",
+          "answer": "Yes, I got an email saying someone tried to sign in from another country last night.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the error mention too many attempts or a locked account?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "When did the failures start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can you access other corporate applications with the same account?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Has the application owner confirmed that your account has the required role?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0120",
+      "language": "en",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": "what_application",
+          "answer": "The VPN program on my laptop.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": "what_application",
+          "answer": "The VPN program on my laptop.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "vague",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0121",
+      "language": "en",
+      "expected_diagnosis": "WIFI_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Are you asking for setup instructions, or is an existing service failing with an error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which approved device or application and which step are you trying to complete?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0122",
+      "language": "en",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0123",
+      "language": "en",
+      "expected_diagnosis": "PRIVILEGED_ACCESS",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact task requires elevated access, and for how long?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the requested access a standard application role or a privileged/admin role?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which administrative task requires access?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Has an authorized approver reviewed the request?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0124",
+      "language": "en",
+      "expected_diagnosis": "PHISHING",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0125",
+      "language": "franco_ar",
+      "expected_diagnosis": "VPN_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0126",
+      "language": "ar",
+      "expected_diagnosis": "APP_OUTAGE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "OUTAGE_THRESHOLD_MET",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "outage",
+      "cluster_id": "OUT-3",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0127",
+      "language": "en",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "No, colleagues on the same site are connected fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "No, colleagues on the same site are connected fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0128",
+      "language": "en",
+      "expected_diagnosis": "ACCOUNT_DISABLED",
+      "actual_diagnosis": "ACCOUNT_DISABLED",
+      "diagnosis_correct": true,
+      "recommended_action": "ROUTE",
+      "outcome": "DIAGNOSED",
+      "confidence": "MEDIUM",
+      "questions": [
+        {
+          "question": "Does the sign-in message explicitly say your account is disabled or deactivated?",
+          "topic": "exact_message",
+          "answer": "The sign-in screen literally says the account is disabled.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": false
+    },
+    {
+      "ticket_id": "TST-0129",
+      "language": "franco_ar",
+      "expected_diagnosis": "MFA_FAILURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can you receive and approve the verification prompt on your current phone?",
+          "topic": "old_phone_available",
+          "answer": "el mobile el adeem et3amalo reset w ma3ndeesh 5alas",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the identity provider show a failed or unregistered MFA method?",
+          "topic": "old_phone_available",
+          "answer": "el mobile el adeem et3amalo reset w ma3ndeesh 5alas",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the prompt missing, rejected, or arriving on a different device?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the authenticator enrolled and unlocked?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0130",
+      "language": "en",
+      "expected_diagnosis": "VPN_CLIENT_ISSUE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "No, colleagues on the same site are connected fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Can colleagues at the same site connect to VPN right now?",
+          "topic": "colleagues_affected",
+          "answer": "No, colleagues on the same site are connected fine.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the VPN client show a local configuration or credential error?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "decoy",
+      "cluster_id": "DECOY-1",
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0131",
+      "language": "en",
+      "expected_diagnosis": "DATA_EXPOSURE",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0132",
+      "language": "en",
+      "expected_diagnosis": "PASSWORD_EXPIRED",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": true,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "security",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0133",
+      "language": "ar",
+      "expected_diagnosis": "MISSING_ENTITLEMENT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "What exact error message do you see, and when did the problem start?",
+          "topic": "error_shown",
+          "answer": "بتظهر صفحة مكتوب فيها إني مش مخول أشوف التطبيق",
+          "eliminated_more": false
+        },
+        {
+          "question": "Which application or device were you using when you noticed the problem?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هو التطبيق الذي لا يعمل؟",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        },
+        {
+          "question": "ما هي رسالة الخطأ ومتى بدأت المشكلة؟",
+          "topic": "error_shown",
+          "answer": "بتظهر صفحة مكتوب فيها إني مش مخول أشوف التطبيق",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": false,
+      "routing_top3_correct": false,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "ambiguous",
+      "cluster_id": null,
+      "escalated": true
+    },
+    {
+      "ticket_id": "TST-0134",
+      "language": "en",
+      "expected_diagnosis": "LOCAL_ENDPOINT",
+      "actual_diagnosis": null,
+      "diagnosis_correct": false,
+      "recommended_action": "ESCALATE",
+      "outcome": "HUMAN_REQUIRED",
+      "confidence": "LOW",
+      "questions": [
+        {
+          "question": "Does the same task work on another device or for a colleague?",
+          "topic": "only_this_device",
+          "answer": "Yes, it happens with any program, even just the desktop.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is the affected service reported as healthy for other users?",
+          "topic": "only_this_device",
+          "answer": "Yes, it happens with any program, even just the desktop.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Does the issue follow this device or also occur on another device?",
+          "topic": "only_this_device",
+          "answer": "Yes, it happens with any program, even just the desktop.",
+          "eliminated_more": false
+        },
+        {
+          "question": "Is only one browser affected?",
+          "topic": null,
+          "answer": "I do not know.",
+          "eliminated_more": false
+        }
+      ],
+      "routing_top1_correct": true,
+      "routing_top3_correct": true,
+      "mandatory_human": false,
+      "mandatory_human_compliant": true,
+      "premature_proxy": false,
+      "resolution_ready_false": false,
+      "expected_agent_resolvable": false,
+      "scenario_type": "normal",
+      "cluster_id": null,
+      "escalated": true
+    }
+  ]
+}

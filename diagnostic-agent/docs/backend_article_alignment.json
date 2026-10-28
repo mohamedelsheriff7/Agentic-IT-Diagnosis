@@ -1,0 +1,639 @@
+{
+  "backend_modified": false,
+  "exact_mirrors": [
+    "KB-001",
+    "KB-002",
+    "KB-003",
+    "KB-004",
+    "KB-005",
+    "KB-017",
+    "KB-007",
+    "KB-018",
+    "KB-023",
+    "KB-016",
+    "KB-015",
+    "KB-010",
+    "KB-006",
+    "KB-008",
+    "KB-009",
+    "KB-014",
+    "KB-013",
+    "KB-011",
+    "KB-019",
+    "KB-024",
+    "KB-012",
+    "KB-022",
+    "KB-020",
+    "KB-021"
+  ],
+  "unavailable": [
+    "KB-025",
+    "KB-026"
+  ],
+  "additional_missing_article_searches": [
+    {
+      "article_id": "KB-025",
+      "query": "ACCOUNT_LOCKED_POLICY",
+      "matched": false
+    },
+    {
+      "article_id": "KB-025",
+      "query": "Account blocked after suspicious sign-in or security-policy notice.",
+      "matched": false
+    },
+    {
+      "article_id": "KB-026",
+      "query": "VPN_CLIENT_ISSUE",
+      "matched": false
+    },
+    {
+      "article_id": "KB-026",
+      "query": "One user cannot connect to VPN; others at same site can connect; client shows configuration/credential error.",
+      "matched": false
+    }
+  ],
+  "articles": [
+    {
+      "article_id": "KB-001",
+      "diagnosis_code": "PASSWORD_EXPIRED",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [],
+      "agent_resolvable": true,
+      "step_ids": [
+        "PASSWORD_EXPIRED-1"
+      ],
+      "article_sha256": "c03613efbaea10464910a7c9bdbb44714a8df5716fde2c31cfefb07ee81c7bc2"
+    },
+    {
+      "article_id": "KB-002",
+      "diagnosis_code": "ACCOUNT_LOCKED",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "ACCOUNT_LOCKED-1"
+      ],
+      "article_sha256": "2b631a663d0e82e3e4cb3f290645c34bcaa062e546ee26b9e04e896b2f80a24b"
+    },
+    {
+      "article_id": "KB-003",
+      "diagnosis_code": "MFA_FAILURE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "MFA_FAILURE-1"
+      ],
+      "article_sha256": "6cc47d205129c97396afea5eb7c43dd3d4f6bfc98ea4b6f22ea13de01c8e7fb1"
+    },
+    {
+      "article_id": "KB-004",
+      "diagnosis_code": "MISSING_ENTITLEMENT",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "MISSING_ENTITLEMENT-1"
+      ],
+      "article_sha256": "4f475d21c898e2ccb11dc6cff20cb2ac13a6ea715b983a370962276a5572e485"
+    },
+    {
+      "article_id": "KB-005",
+      "diagnosis_code": "APP_AUTH_FAILURE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "APP_AUTH_FAILURE-1"
+      ],
+      "article_sha256": "e6bd0c8ef7f955d5198b759704ab16e1844d8b55ed2f8cff8b12d25e0f0ab7a5"
+    },
+    {
+      "article_id": "KB-017",
+      "diagnosis_code": "APP_ERROR",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "APP_ERROR-1"
+      ],
+      "article_sha256": "cdc47dcf3e2470b8216cd363c37a0f2ba1f28356e146950cb278ead7021e2aa5"
+    },
+    {
+      "article_id": "KB-007",
+      "diagnosis_code": "APP_OUTAGE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "APP_OUTAGE-1"
+      ],
+      "article_sha256": "600de52813e8e4aa861786f64baf7270a39937914ba1ce15495eba161b94d93a"
+    },
+    {
+      "article_id": "KB-018",
+      "diagnosis_code": "SYNC_DELAY",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "SYNC_DELAY-1"
+      ],
+      "article_sha256": "bf5277e46cbf3d506c7dfc2813863330ec56fada7828fb99e6f58b5f9156a05f"
+    },
+    {
+      "article_id": "KB-023",
+      "diagnosis_code": "ACCOUNT_DISABLED",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "ACCOUNT_DISABLED-1"
+      ],
+      "article_sha256": "db9f38a96243f01a611a4e6c3c3cb98277a6fc3d88920bc000ffcb26c761c2ec"
+    },
+    {
+      "article_id": "KB-016",
+      "diagnosis_code": "PRINTER_OFFLINE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "PRINTER_OFFLINE-1"
+      ],
+      "article_sha256": "82161026d1d579acc09a56e353e9cb27e7fca7328394e2b834fcd54743d720bd"
+    },
+    {
+      "article_id": "KB-015",
+      "diagnosis_code": "DISK_FULL",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "DISK_FULL-1"
+      ],
+      "article_sha256": "bbdbe84dd419a55c3eeded5189deebea16b2298a684ce503c62b36f7951ab0e3"
+    },
+    {
+      "article_id": "KB-010",
+      "diagnosis_code": "PRIVILEGED_ACCESS",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "PRIVILEGED_ACCESS-1"
+      ],
+      "article_sha256": "d30d2d433a667c479864139e65147db3f717a393227758b495d1dc641caf6f9f"
+    },
+    {
+      "article_id": "KB-025",
+      "diagnosis_code": "ACCOUNT_LOCKED_POLICY",
+      "status": "NO_APPROVED_BACKEND_MATCH",
+      "local_version": 3,
+      "agent_resolvable": false,
+      "changed_fields": [],
+      "note": "Not returned by focused approved-knowledge searches; also absent from supplied backend article file. Not proof that no unapproved live record exists."
+    },
+    {
+      "article_id": "KB-026",
+      "diagnosis_code": "VPN_CLIENT_ISSUE",
+      "status": "NO_APPROVED_BACKEND_MATCH",
+      "local_version": 3,
+      "agent_resolvable": false,
+      "changed_fields": [],
+      "note": "Not returned by focused approved-knowledge searches; also absent from supplied backend article file. Not proof that no unapproved live record exists."
+    },
+    {
+      "article_id": "KB-006",
+      "diagnosis_code": "LOCAL_ENDPOINT",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "LOCAL_ENDPOINT-1"
+      ],
+      "article_sha256": "1971e181dba8d337f79bad742663172de179635657947675caab49aa713db475"
+    },
+    {
+      "article_id": "KB-008",
+      "diagnosis_code": "VPN_OUTAGE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "VPN_OUTAGE-1"
+      ],
+      "article_sha256": "5923f33cc86c47a8978a206dd3137d089cdb45ab7a3a9bf8d4d9b34a75291bed"
+    },
+    {
+      "article_id": "KB-009",
+      "diagnosis_code": "PHISHING",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "PHISHING-1"
+      ],
+      "article_sha256": "cf49d7061106b26a9096bd5773b0203db553a191e4f654a1d042c92b74dd0d62"
+    },
+    {
+      "article_id": "KB-014",
+      "diagnosis_code": "WIFI_FAILURE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "WIFI_FAILURE-1"
+      ],
+      "article_sha256": "8da22ed98fa61c6c4c3108056bbe1cce66a42d636ee73de161753acc4810478c"
+    },
+    {
+      "article_id": "KB-013",
+      "diagnosis_code": "DNS_FAILURE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "DNS_FAILURE-1"
+      ],
+      "article_sha256": "7a250c1a944ae08013f57193e3e65726f434d49b3ffd136fe6329c1abf098118"
+    },
+    {
+      "article_id": "KB-011",
+      "diagnosis_code": "SERVER_FAILURE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "SERVER_FAILURE-1"
+      ],
+      "article_sha256": "ecd201e5de6a16cea5725a1214031712d08516e4b2d11d4f4226d681915fa323"
+    },
+    {
+      "article_id": "KB-019",
+      "diagnosis_code": "MALWARE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "MALWARE-1"
+      ],
+      "article_sha256": "97e524fa46e80bcc0f9a8b15d04297c9313bddc082ad4d9a54ebb26f34fe4e21"
+    },
+    {
+      "article_id": "KB-024",
+      "diagnosis_code": "REQUEST_GUIDANCE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "REQUEST_GUIDANCE-1"
+      ],
+      "article_sha256": "41d1e5ccc52e7fe577bf25221e5a71f4df459f1844eeb6bb6b55835104b067ab"
+    },
+    {
+      "article_id": "KB-012",
+      "diagnosis_code": "UNKNOWN_ISSUE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "UNKNOWN_ISSUE-1"
+      ],
+      "article_sha256": "a73803c0eb16b0b65792bff9f16e38f611c376dfd41052202538f92d0ea2a373"
+    },
+    {
+      "article_id": "KB-022",
+      "diagnosis_code": "CERT_EXPIRED",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "CERT_EXPIRED-1"
+      ],
+      "article_sha256": "98a8f3a414f310c3555a16ba1fd43973c193d651a1578707440837c0aaf65002"
+    },
+    {
+      "article_id": "KB-020",
+      "diagnosis_code": "DATA_EXPOSURE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "DATA_EXPOSURE-1"
+      ],
+      "article_sha256": "dddbe6110f26898f9e846b3348e9fe9e91b3b950cedebfaff52a92331514ee73"
+    },
+    {
+      "article_id": "KB-021",
+      "diagnosis_code": "STORAGE_FAILURE",
+      "status": "EXACT_BACKEND_MIRROR",
+      "local_version": 1,
+      "changed_fields": [
+        "competing_diagnoses",
+        "discriminating_questions",
+        "exclusion_criteria",
+        "mandatory_human_escalation_conditions",
+        "possible_causes",
+        "required_evidence",
+        "resolution_steps",
+        "safe_checks",
+        "symptoms_ar",
+        "symptoms_en",
+        "version"
+      ],
+      "agent_resolvable": false,
+      "step_ids": [
+        "STORAGE_FAILURE-1"
+      ],
+      "article_sha256": "44745ea2e937b0a0c84940edadc28d0486b45d18efcae3ccb15a297186c54d0f"
+    }
+  ]
+}

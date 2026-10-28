@@ -1,0 +1,63 @@
+# SYS-03 — Plain ID question and explanation without examples
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+
+## Opening input — copy into Supervisor
+
+```text
+My password has expired.
+```
+
+## Expected first response/action
+
+Ask only for the missing user ID with no example value. Wait for actual identity input before creation.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: When asked for user ID
+
+```text
+What do you mean by user ID?
+```
+
+**Expected:** Explain simply that it is the ID assigned for this support system; no sample IDs, format patterns or backend field names.
+
+### Reply 2: After that explanation
+
+```text
+USR-001
+```
+
+**Expected:** Use the exact supplied ID; create once and invoke Diagnostic.
+
+### Reply 3: If asked whether the screen explicitly says password expired
+
+```text
+Yes. The sign-in screen explicitly says, "Your password has expired."
+```
+
+**Expected:** Submit one actual Diagnostic answer with this ticket/current checkpoint. If evidence/approvals permit, display the complete real demo steps and current receipt; otherwise explain the exact remaining evidence gap.
+
+
+## Expected internal agent path
+
+Supervisor intake -> Diagnostic
+
+## Expected terminal output / ticket state
+
+May stop at the next real Diagnostic checkpoint; this is an intake-wording test, not a full resolution requirement.
+
+## Fail this case if
+
+- Gives example IDs or suggests a known successful demo user.
+- Requests passwords/MFA codes instead of a reporter identifier.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

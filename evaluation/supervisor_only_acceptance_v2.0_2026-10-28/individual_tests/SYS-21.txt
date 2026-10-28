@@ -1,0 +1,42 @@
+# SYS-21 — Safety review already pending: no duplicates
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- Create active TST-SYS-21 with security_sensitive=true and one real matching pending SAFETY review; preserve that existing review record for comparison.
+
+## Opening input — copy into Supervisor
+
+```text
+Please give me the current status of TST-SYS-21. Do not open a new ticket.
+```
+
+## Expected first response/action
+
+Read existing TST-SYS-21, verify the real matching pending review, and report/reuse it rather than create another record.
+
+No scripted follow-up is required. Answer only a genuine missing observable fact if asked; optional scope must not delay mandatory human handling.
+
+## Expected internal agent path
+
+Supervisor -> ticket read -> Escalation read/reuse if required -> Supervisor
+
+## Expected terminal output / ticket state
+
+Read the actual current security case and reuse/report its existing matching pending review ID. Do not request another equivalent review or falsely claim approval.
+
+## Fail this case if
+
+- Creates another ticket/review.
+- Calls pending approval completed.
+- Mutates an unrelated review.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

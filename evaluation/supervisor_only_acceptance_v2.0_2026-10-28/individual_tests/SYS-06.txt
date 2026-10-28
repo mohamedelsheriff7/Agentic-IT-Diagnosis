@@ -1,0 +1,73 @@
+# SYS-06 — Step completed but original sign-in still fails
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- USR-001 must currently return independently verified expired password with enabled/unlocked account and required nonblocking MFA state; applicable resolution article/version is actively approved. Earlier successful chat is evidence of prior behavior, not a guarantee of current data.
+
+## Opening input — copy into Supervisor
+
+```text
+I am user USR-001. My password expired.
+```
+
+## Expected first response/action
+
+Create once, invoke Diagnostic and follow its actual verified-expiry questions/procedure before testing failed sign-in verification.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked whether the screen explicitly says password expired
+
+```text
+Yes. The sign-in screen explicitly says, "Your password has expired."
+```
+
+**Expected:** Submit one actual Diagnostic answer with this ticket/current checkpoint. If evidence/approvals permit, display the complete real demo steps and current receipt; otherwise explain the exact remaining evidence gap.
+
+### Reply 2: If asked whether other corporate applications work with this same account
+
+```text
+No. I cannot sign in to other corporate applications using this same account.
+```
+
+**Expected:** Interpret as same-account access failure; preserve this fact rather than ask its negative-worded equivalent again.
+
+### Reply 3: Only after actual returned simulated procedure and step-completion question (WAIT_STEP)
+
+```text
+Done
+```
+
+**Expected:** Record only simulated step completion. Ask separately whether the original affected service now works. Do not resolve yet.
+
+### Reply 4: Only after the separate actual question asking whether original sign-in works (WAIT_SUCCESS)
+
+```text
+No. The original sign-in still fails.
+```
+
+**Expected:** Persist failed success verification. Continue only safe useful investigation or the real required human handoff; never claim resolution.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> failed verification -> supported Diagnostic continuation or Escalation -> Supervisor
+
+## Expected terminal output / ticket state
+
+Ticket stays unresolved. Any additional safe investigation is explicit; if no useful next check remains, actual Escalation review is requested.
+
+## Fail this case if
+
+- Done is treated as final success.
+- Repeatedly offers the same failed procedure without a supported reason.
+- Reports resolved despite No.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

@@ -1,0 +1,89 @@
+{
+  "version": "6.7",
+  "date": "2026-10-26",
+  "package_sha256": "f1f0a1ac007151b8e5d088810e0b693bf535370d972aab5dbb20901bcc477380",
+  "regression_tests_passed": 234,
+  "controlled_dialogues": {
+    "passed": 15,
+    "total": 15
+  },
+  "live_synthetic_resolution": {
+    "passed": true,
+    "ticket_id": "INC-43b645b610634ca3",
+    "status": "RESOLVED"
+  },
+  "independent_evaluation": {
+    "baseline": {
+      "tickets": 134,
+      "diagnostic_accuracy": 0.0,
+      "routing_recommendation_top1": 0.5672,
+      "routing_recommendation_top3": 0.6119,
+      "mandatory_human_cases": 20,
+      "mandatory_human_compliance": 1.0,
+      "resolution_ready_cases": 0,
+      "false_resolution_ready_rate": null,
+      "actual_resolution_rate": null,
+      "false_actual_resolution_rate": null,
+      "potential_premature_diagnosis_proxy": 0.0,
+      "errors": 0,
+      "by_language": {
+        "ar": {
+          "count": 39,
+          "diagnostic_accuracy": 0.0
+        },
+        "en": {
+          "count": 67,
+          "diagnostic_accuracy": 0.0
+        },
+        "franco_ar": {
+          "count": 28,
+          "diagnostic_accuracy": 0.0
+        }
+      },
+      "actions": {
+        "ESCALATE": 127,
+        "ASK_MORE": 7
+      },
+      "questions": 388,
+      "topic_matched_questions": 135
+    },
+    "after": {
+      "tickets": 134,
+      "diagnostic_accuracy": 0.0672,
+      "routing_recommendation_top1": 0.6119,
+      "routing_recommendation_top3": 0.6493,
+      "mandatory_human_cases": 20,
+      "mandatory_human_compliance": 1.0,
+      "resolution_ready_cases": 2,
+      "false_resolution_ready_rate": 0.0,
+      "actual_resolution_rate": null,
+      "false_actual_resolution_rate": null,
+      "potential_premature_diagnosis_proxy": 0.0,
+      "errors": 0,
+      "by_language": {
+        "ar": {
+          "count": 39,
+          "diagnostic_accuracy": 0.0256
+        },
+        "en": {
+          "count": 67,
+          "diagnostic_accuracy": 0.1045
+        },
+        "franco_ar": {
+          "count": 28,
+          "diagnostic_accuracy": 0.0357
+        }
+      },
+      "actions": {
+        "ESCALATE": 118,
+        "ASK_MORE": 7,
+        "RESOLVE": 2,
+        "ROUTE": 7
+      },
+      "questions": 399,
+      "topic_matched_questions": 140
+    }
+  },
+  "readiness": "CONTROLLED_TESTING_ONLY",
+  "wxo_tenant_acceptance": "NOT_TESTED"
+}

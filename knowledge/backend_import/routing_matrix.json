@@ -1,0 +1,262 @@
+[
+  {
+    "diagnosis_code": "PASSWORD_EXPIRED",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "The agent may guide the approved self-service flow only; it must not reset credentials itself.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "ACCOUNT_LOCKED",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "Ordinary lockouts are not agent-resolvable because identity verification and unlock require IAM.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "MFA_FAILURE",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "MFA reset is specialist-led; never disable or bypass MFA to make sign-in work.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "MISSING_ENTITLEMENT",
+    "owner_group_id": "GRP-APP",
+    "boundary": "Agent can collect evidence and route; entitlement grants remain approval-controlled. Identity-provider or account-lifecycle entitlement faults belong to IAM; application-specific roles belong to Application Support. Use observed scope to select the owner.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "APP_AUTH_FAILURE",
+    "owner_group_id": "GRP-APP",
+    "boundary": "Route to Application Support when evidence isolates the fault to one application.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "APP_ERROR",
+    "owner_group_id": "GRP-APP",
+    "boundary": "No autonomous data-changing fix without an approved article and verified conditions.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "APP_OUTAGE",
+    "owner_group_id": "GRP-APP",
+    "boundary": "Do not restart services automatically. Use outage workflow and human incident ownership.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "SYNC_DELAY",
+    "owner_group_id": "GRP-APP",
+    "boundary": "No replay/reprocessing that may duplicate or alter records without specialist approval.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "ACCOUNT_DISABLED",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "Never reactivate an account autonomously.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "owner_group_id": "GRP-END",
+    "boundary": "Do not delete other users' print jobs or change shared print-server configuration autonomously.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "DISK_FULL",
+    "owner_group_id": "GRP-END",
+    "boundary": "Cleanup must remain user-confirmed and limited to approved safe targets.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "PRIVILEGED_ACCESS",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "Never resolve or grant privileged access autonomously.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-APP",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "ACCOUNT_LOCKED_POLICY",
+    "owner_group_id": "GRP-SEC",
+    "boundary": "No autonomous unlock, password reset, or bypass.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "VPN_CLIENT_ISSUE",
+    "owner_group_id": "GRP-NET",
+    "boundary": "Do not disable security controls or share VPN credentials.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "owner_group_id": "GRP-END",
+    "boundary": "No destructive device reset or software removal without specialist approval.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "VPN_OUTAGE",
+    "owner_group_id": "GRP-NET",
+    "boundary": "No autonomous gateway restart.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "PHISHING",
+    "owner_group_id": "GRP-SEC",
+    "boundary": "Never auto-delete, quarantine, or declare benign.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "WIFI_FAILURE",
+    "owner_group_id": "GRP-NET",
+    "boundary": "No changes to network security settings or shared credentials.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "DNS_FAILURE",
+    "owner_group_id": "GRP-NET",
+    "boundary": "Do not change DNS records autonomously.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "SERVER_FAILURE",
+    "owner_group_id": "GRP-INFRA",
+    "boundary": "No autonomous restart or infrastructure configuration change.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "MALWARE",
+    "owner_group_id": "GRP-SEC",
+    "boundary": "Never run cleanup tools or instruct user to delete evidence.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "REQUEST_GUIDANCE",
+    "owner_group_id": "GRP-L1",
+    "boundary": "Agent may provide approved guidance; resolve only after user confirms completion.",
+    "alternative_group_ids": [
+      "GRP-IAM",
+      "GRP-APP",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "UNKNOWN_ISSUE",
+    "owner_group_id": "GRP-L1",
+    "boundary": "Never force a diagnosis or self-resolve with insufficient evidence.",
+    "alternative_group_ids": [
+      "GRP-IAM",
+      "GRP-APP",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "CERT_EXPIRED",
+    "owner_group_id": "GRP-INFRA",
+    "boundary": "Certificate changes require specialist and change-control approval.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-END"
+    ]
+  },
+  {
+    "diagnosis_code": "DATA_EXPOSURE",
+    "owner_group_id": "GRP-SEC",
+    "boundary": "Do not delete evidence or make disclosure/notification decisions autonomously.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "STORAGE_FAILURE",
+    "owner_group_id": "GRP-INFRA",
+    "boundary": "Do not delete shared data or run destructive storage operations autonomously. Shared infrastructure/storage-layer faults belong to Infrastructure; application-isolated storage errors belong to Application Support. Use service-health and affected-scope evidence.",
+    "alternative_group_ids": [
+      "GRP-L1",
+      "GRP-IAM",
+      "GRP-APP"
+    ]
+  }
+]

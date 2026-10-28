@@ -1,0 +1,55 @@
+# SYS-16 — Ordinary login problem does not require technical scope form
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+
+## Opening input — copy into Supervisor
+
+```text
+I am user USR-001. My password expired. I do not know internal categories, CI IDs or authentication infrastructure.
+```
+
+## Expected first response/action
+
+Begin ordinary Diagnostic investigation without a category/CI/infrastructure form. No absence-of-outage claim without actual checks.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked whether the screen explicitly says password expired
+
+```text
+Yes. The sign-in screen explicitly says, "Your password has expired."
+```
+
+**Expected:** Submit one actual Diagnostic answer with this ticket/current checkpoint. If evidence/approvals permit, display the complete real demo steps and current receipt; otherwise explain the exact remaining evidence gap.
+
+### Reply 2: If asked whether other corporate applications work with this same account
+
+```text
+No. I cannot sign in to other corporate applications using this same account.
+```
+
+**Expected:** Interpret as same-account access failure; preserve this fact rather than ask its negative-worded equivalent again.
+
+
+## Expected internal agent path
+
+Supervisor intake gate -> Diagnostic
+
+## Expected terminal output / ticket state
+
+Ordinary permitted Diagnostic investigation starts with no forced internal-ID form and no automatic outage transfer solely for missing canonical scope.
+
+## Fail this case if
+
+- Demands category/CI/location as a precondition for ordinary investigation.
+- Claims no outage was found without a real search.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

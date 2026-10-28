@@ -1,0 +1,73 @@
+# SYS-12 — Arabic conversation with exact identifiers preserved
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- USR-001 must currently return independently verified expired password with enabled/unlocked account and required nonblocking MFA state; applicable resolution article/version is actively approved. Earlier successful chat is evidence of prior behavior, not a guarantee of current data.
+
+## Opening input — copy into Supervisor
+
+```text
+أنا المستخدم USR-001. تظهر رسالة أن صلاحية كلمة المرور انتهت ولا أستطيع تسجيل الدخول.
+```
+
+## Expected first response/action
+
+Use the already-provided USR-001, create once and invoke Diagnostic; relay the actual question in Arabic while preserving literal identifiers.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: إذا سأل هل تظهر رسالة انتهاء صلاحية كلمة المرور
+
+```text
+نعم، تظهر رسالة انتهاء صلاحية كلمة المرور.
+```
+
+**Expected:** يستدعي التشخيص فعليًا ويحافظ على رقم التذكرة ومرجعها كما وردا.
+
+### Reply 2: إذا سأل هل تعمل التطبيقات الأخرى بالحساب نفسه
+
+```text
+لا، لا أستطيع الدخول إلى التطبيقات الأخرى بالحساب نفسه.
+```
+
+**Expected:** يسجل الإجابة دون افتراض نجاح تسجيل الدخول.
+
+### Reply 3: فقط عند عرض خطوات التجربة وطلب تأكيد إكمالها
+
+```text
+تم
+```
+
+**Expected:** يسأل بشكل منفصل هل نجح الدخول إلى الخدمة الأصلية، ولا يغلق التذكرة بعد.
+
+### Reply 4: فقط عند سؤال نجاح الدخول الأصلي بعد التجربة
+
+```text
+نعم، نجح الدخول في هذه التجربة الاصطناعية.
+```
+
+**Expected:** لا يعلن الحل إلا بعد تأكيد نظام التذاكر.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> Arabic user checkpoints -> verified resolution
+
+## Expected terminal output / ticket state
+
+Arabic explanations for this supported path; identifiers/receipt unchanged. Backend-confirmed resolution only when configured account/article preconditions hold.
+
+## Fail this case if
+
+- Changes ID/CHK punctuation or truncates reference.
+- Unexpected language switch caused by KB text.
+- Resolves from step completion alone.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

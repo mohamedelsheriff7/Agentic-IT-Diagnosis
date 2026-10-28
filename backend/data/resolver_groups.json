@@ -1,0 +1,30 @@
+[
+  {
+    "id": "GRP-L1",
+    "label": "Service Desk L1"
+  },
+  {
+    "id": "GRP-IAM",
+    "label": "IAM"
+  },
+  {
+    "id": "GRP-APP",
+    "label": "Application Support"
+  },
+  {
+    "id": "GRP-END",
+    "label": "Endpoint Support"
+  },
+  {
+    "id": "GRP-NET",
+    "label": "Network Operations"
+  },
+  {
+    "id": "GRP-SEC",
+    "label": "Security Operations"
+  },
+  {
+    "id": "GRP-INFRA",
+    "label": "Servers & Infrastructure"
+  }
+]

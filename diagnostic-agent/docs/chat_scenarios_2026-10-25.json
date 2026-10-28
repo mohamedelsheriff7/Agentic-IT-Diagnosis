@@ -1,0 +1,83 @@
+{
+  "created_for": "2026-10-25 WXO manual chat tests",
+  "cases": [
+    {
+      "name": "DNS failure",
+      "ticket_id": "INC-4874544341114a08",
+      "prompt": "Investigate INC-4874544341114a08",
+      "scenario_facts": "Internal server hostnames cannot resolve. Direct IP access to the same server works. External websites open normally.",
+      "answers_if_asked": [
+        "Yes, direct IP access to the same server works, but its hostname fails.",
+        "External websites resolve normally."
+      ],
+      "expected_behavior": "Investigate DNS rather than treating this as a total internet outage. Do not claim a DNS check or configuration change that was not performed.",
+      "status": "NEW",
+      "agent_run": false
+    },
+    {
+      "name": "Wi-Fi problem limited to one device",
+      "ticket_id": "INC-0b14e37807a84cd0",
+      "prompt": "Investigate INC-0b14e37807a84cd0",
+      "scenario_facts": "One device cannot connect to the office Wi-Fi. Another device can connect at the same location. The affected device can connect to a different approved network.",
+      "answers_if_asked": [
+        "Yes, another device connects to the same Wi-Fi at the same location.",
+        "Yes, the affected device connects to a different approved network."
+      ],
+      "expected_behavior": "Distinguish a device or network-association issue from a confirmed shared outage. Do not claim to reset the device or change its configuration.",
+      "status": "NEW",
+      "agent_run": false
+    },
+    {
+      "name": "Shared printer unavailable",
+      "ticket_id": "INC-72b3f4e943974985",
+      "prompt": "Investigate INC-72b3f4e943974985",
+      "scenario_facts": "The same office printer appears offline for several users. Other network services work. No one has changed printer settings.",
+      "answers_if_asked": [
+        "Everyone using the same printer is affected.",
+        "No, other users on the same network cannot reach the printer either."
+      ],
+      "expected_behavior": "Recognize the shared scope and seek support or Supervisor screening as needed. Do not claim to restart or repair the printer.",
+      "status": "NEW",
+      "agent_run": false
+    },
+    {
+      "name": "Synchronization delay",
+      "ticket_id": "INC-631d72b2a7f04e32",
+      "prompt": "Investigate INC-631d72b2a7f04e32",
+      "scenario_facts": "Records were updated in the source system, but the destination still shows old data. Only some records are delayed.",
+      "answers_if_asked": [
+        "Only specific records are delayed.",
+        "Yes, the source shows the updates, but the destination still shows the old data."
+      ],
+      "expected_behavior": "Investigate synchronization delay without claiming a confirmed cause, a completed sync, or that data was repaired without evidence.",
+      "status": "NEW",
+      "agent_run": false
+    },
+    {
+      "name": "Certificate warning",
+      "ticket_id": "INC-a84332858a8341ca",
+      "prompt": "Investigate INC-a84332858a8341ca",
+      "scenario_facts": "The browser reports an expired certificate on an internal service. Several users see the same warning. No one has bypassed the warning.",
+      "answers_if_asked": [
+        "The warning says the certificate expired.",
+        "Yes, multiple users see the same warning on the same service."
+      ],
+      "expected_behavior": "Recommend appropriate investigation or support review. Do not tell users to bypass certificate validation or claim a certificate was renewed.",
+      "status": "NEW",
+      "agent_run": false
+    },
+    {
+      "name": "Conflicting VPN evidence",
+      "ticket_id": "INC-0dc43d9491e44e31",
+      "prompt": "Investigate INC-0dc43d9491e44e31",
+      "scenario_facts": "The VPN client cannot connect. It is not yet known whether colleagues at the same site can connect.",
+      "answers_if_asked": [
+        "No, colleagues at the same site cannot connect either.",
+        "Other internet services work. I do not know what the VPN monitor reports."
+      ],
+      "expected_behavior": "Preserve the reported shared scope. If a service check reports healthy, acknowledge the conflict and seek Supervisor review; do not declare a confirmed global outage or create a global incident.",
+      "status": "NEW",
+      "agent_run": false
+    }
+  ]
+}

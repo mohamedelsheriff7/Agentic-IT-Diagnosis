@@ -1,0 +1,504 @@
+[
+  {
+    "article_id": "KB-001",
+    "diagnosis_code": "PASSWORD_EXPIRED",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; guided self-service resolution remains conditional on runtime/backend alignment and every recorded prerequisite.",
+    "agent_resolvable": true,
+    "changed_fields": [
+      "version",
+      "required_evidence",
+      "safe_checks",
+      "exclusion_criteria",
+      "resolution_conditions"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "5285a7cea91f260cee28744e4daa480d98078ec62c879b543e3f57b256b11f3e",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-002",
+    "diagnosis_code": "ACCOUNT_LOCKED",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "71646635e6e6ac8c4dd541bd1ceabf527dcaf708de0f07a99964149b1bfcd8ab",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-003",
+    "diagnosis_code": "MFA_FAILURE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "fafce8047c9a484501720394f53bc44814f96314d86037b34b48d7a46a97660e",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-004",
+    "diagnosis_code": "MISSING_ENTITLEMENT",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "c39ec933dd0d150704f2011562f937b949c4949c373830000fc053caefa988a6",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-005",
+    "diagnosis_code": "APP_AUTH_FAILURE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "b5d8a5028a20b8a778d09e69bbcb4b3bfe1e7217a2deb15cc76f6140ebdd3744",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-017",
+    "diagnosis_code": "APP_ERROR",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "c1fcab348acc117bccbf743fedf2d7d59189fc13360f8b221d98776a2a5e83b0",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-007",
+    "diagnosis_code": "APP_OUTAGE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks",
+      "exclusion_criteria",
+      "resolution_steps"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "82827c3e1928ccd9bbc1701ff96302dc4f6cdab2c1e7ab5e42820a15f5cec2b5",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-018",
+    "diagnosis_code": "SYNC_DELAY",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "cef2caaef7bcd71b002ee2e73193d96907da7e6a18a25c4d58c0554be75935be",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-023",
+    "diagnosis_code": "ACCOUNT_DISABLED",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks",
+      "exclusion_criteria"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "6dbac5773ad9284bfa1ae7b84eccffd1b410714a1d7f788770d95649dfc1f1f3",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-016",
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "d02b87b5d43892bd6fa967e2238085a9342160112bd7c66182ee25f0eda05a54",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-015",
+    "diagnosis_code": "DISK_FULL",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks",
+      "resolution_steps"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "b8d4a2e29672030c8f1ad05f535d99593f3665c82ab76d5e014c8343e0135742",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-010",
+    "diagnosis_code": "PRIVILEGED_ACCESS",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "81cb6d843a901d92dd8bc172aa4be4f55b0e8f725a43cd7606bacbc40a237c48",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-025",
+    "diagnosis_code": "ACCOUNT_LOCKED_POLICY",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "ef82775bae2168e1d084ae3f442f1f725b44361f0d4af3d66656a3b7bc648353",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-026",
+    "diagnosis_code": "VPN_CLIENT_ISSUE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "d26faa5cdf7d0e4d15af92f047b92fc177e5123415a5a0672b420d1d72a98010",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-006",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "537905dd1444e9e1360e10752417f5ec02536ac27fd81408d460a3e7a0444c4e",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-008",
+    "diagnosis_code": "VPN_OUTAGE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks",
+      "exclusion_criteria",
+      "resolution_steps"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "8b5c917a647800dd47e9ec213ffd1fcde02d07b0477eabb60866e9eaf3b6270e",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-009",
+    "diagnosis_code": "PHISHING",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "7689d340419b138116745d50946a4a3bdb76480f4af8971f60a822348a7946ff",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-014",
+    "diagnosis_code": "WIFI_FAILURE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "0474118f2b257e08fbe65aa14a1017ee102dcc7f5a3ad5522deff7ff4abbbc77",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-013",
+    "diagnosis_code": "DNS_FAILURE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "ef0a1c0d25252cea97448264cfa5da85e93522572165b9e024401871793376e7",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-011",
+    "diagnosis_code": "SERVER_FAILURE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "a830ebdc6d4cf9bec3b5610d87cf574b37b39264db51d4524e4159bbe097e0be",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-019",
+    "diagnosis_code": "MALWARE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "26e04b25715168469ad8a6f7acd886ef5bf0217a9423570aac4e050487ef1142",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-024",
+    "diagnosis_code": "REQUEST_GUIDANCE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks",
+      "agent_resolvable"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "20b6f1a2f4c243884ba3f5bfa0b836cbe5949e1d9c7795e9fdede4da7f8f53b0",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-012",
+    "diagnosis_code": "UNKNOWN_ISSUE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "0852db9f119093fc9ed5f6070da4c516af5ac1fa0dd7dc938e189e4d7d18a5c2",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-022",
+    "diagnosis_code": "CERT_EXPIRED",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "3a215cc3dfa5014ac42237a778be6525a8935b422e6f20105bb93c081f272b95",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-020",
+    "diagnosis_code": "DATA_EXPOSURE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "b67e4ff0d810e94a2e0ba5a670aa6ceb7d93fd90d497408d72393e44aa8c47b6",
+    "deployment_status": "NOT_DEPLOYED"
+  },
+  {
+    "article_id": "KB-021",
+    "diagnosis_code": "STORAGE_FAILURE",
+    "version": 3,
+    "decision": "APPROVED",
+    "scope": "Diagnostic questions, evidence assessment and human handoff in the synthetic prototype; no agent resolution authorized.",
+    "agent_resolvable": false,
+    "changed_fields": [
+      "version",
+      "approved",
+      "required_evidence",
+      "safe_checks"
+    ],
+    "approved_on": "2026-10-25",
+    "approved_by": "Project owner / requesting user; review and selection delegated to Codex",
+    "authorization": "check all and approve if they are ok",
+    "article_sha256": "d676d97fcaa7900ae63402ddbbad107914e58696d44f27a5062415b154338496",
+    "deployment_status": "NOT_DEPLOYED"
+  }
+]

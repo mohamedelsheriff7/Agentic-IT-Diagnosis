@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "ticket_id": "INC-885a5c3bd88f4317",
+  "correction_evidence_id": "EV-9907ee5e0631478f",
+  "diagnostic_result_id": "DR-406791585eb0436d",
+  "diagnostic_result_version": 4,
+  "text_only_followup": true,
+  "fresh_chat_resume": true,
+  "turns": [
+    "Do internal hostnames fail while direct IP access to the same server works?\n\nTicket: INC-885a5c3bd88f4317 · Ref: CHK-448ff7c48ad74f1e",
+    "Internal server names fail, but direct IP access to the same server works.",
+    "Do external websites resolve normally, or does all connectivity fail?\n\nTicket: INC-885a5c3bd88f4317 · Ref: CHK-5cdb36adb51f4a57",
+    "External websites open normally.",
+    "You reported: Internal server names fail. Direct IP access works. External websites open normally.\n\nThe reported observations support a DNS/name-resolution problem. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-885a5c3bd88f4317 · Ref: CHK-251451bfea9d4abe",
+    "Correction: direct IP access fails too. My previous answer was wrong.",
+    "Your correction is recorded for Supervisor review. It may change the earlier conclusion; the Supervisor must review the corrected evidence before further action. Your ticket remains open.\n\nTicket: INC-885a5c3bd88f4317 · Ref: CHK-23c52e6e83384028",
+    "Your correction is recorded for Supervisor review. It may change the earlier conclusion; the Supervisor must review the corrected evidence before further action. Your ticket remains open.\n\nTicket: INC-885a5c3bd88f4317 · Ref: CHK-7928eb9f83364528"
+  ]
+}

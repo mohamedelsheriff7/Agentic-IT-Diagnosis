@@ -1,0 +1,21 @@
+{
+  "ticket_id": "INC-6932ce37f99045d4",
+  "turns": [
+    {
+      "reply": "The account check shows an expired password. I need one more detail to confirm the issue.\n\nCan you access other corporate applications with the same account?\n\nTicket: INC-6932ce37f99045d4 · Ref: CHK-049763fe93be48c5",
+      "recommended_action": "ASK_MORE"
+    },
+    {
+      "reply": "The evidence points to an expired password. I recommend a review by the IAM team. Your ticket remains open.\n\nTicket: INC-6932ce37f99045d4 · Ref: CHK-a9356ff2c8fe452e",
+      "recommended_action": "ROUTE"
+    },
+    {
+      "reply": "The recorded next step is Supervisor or support review. No further diagnostic answer is needed right now.\n\nTicket: INC-6932ce37f99045d4 · Ref: CHK-a9356ff2c8fe452e",
+      "handoff_status": "AWAITING_SUPERVISOR"
+    }
+  ],
+  "result": "PASS",
+  "visible_text_only_resume": "PASS",
+  "no_duplicate_acknowledgement_mutations": "PASS",
+  "final_status": "NEW"
+}

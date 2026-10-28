@@ -1,0 +1,46 @@
+[
+  {
+    "id": "CI-CRM",
+    "label": "Synthetic CI-CRM"
+  },
+  {
+    "id": "CI-DB",
+    "label": "Synthetic CI-DB"
+  },
+  {
+    "id": "CI-DNS",
+    "label": "Synthetic CI-DNS"
+  },
+  {
+    "id": "CI-ERP",
+    "label": "Synthetic ERP"
+  },
+  {
+    "id": "CI-FILES",
+    "label": "Synthetic CI-FILES"
+  },
+  {
+    "id": "CI-IDP",
+    "label": "Synthetic CI-IDP"
+  },
+  {
+    "id": "CI-MAIL",
+    "label": "Synthetic MAIL"
+  },
+  {
+    "id": "CI-PORTAL",
+    "label": "Synthetic PORTAL"
+  },
+  {
+    "id": "CI-SERVER",
+    "label": "Synthetic SERVER"
+  },
+  {
+    "id": "CI-VPN",
+    "label": "Synthetic VPN"
+  },
+  {
+    "id": "CI-WIFI",
+    "label": "Synthetic CI-WIFI"
+  }
+]

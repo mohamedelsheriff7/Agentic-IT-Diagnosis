@@ -1,0 +1,65 @@
+# SYS-10 — Portal error: preserve concrete evidence and avoid language loop
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+
+## Opening input — copy into Supervisor
+
+```text
+I am user USR-005 at LOC-A. The portal fails after sign-in, but mail works. Please help.
+```
+
+## Expected first response/action
+
+Create an INCIDENT preserving USR-005, LOC-A and portal-after-sign-in/mail-working observations, then invoke Diagnostic. Any error/start-time question must collect genuinely missing detail.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked for exact error and start time
+
+```text
+The page says "Authentication failed. Please try again." It started about 30 minutes ago. Email works. I am not sure whether the failure is before login completes or just after it.
+```
+
+**Expected:** Record error/time/working mail and the uncertain failure stage; do not claim no usable symptom was supplied.
+
+### Reply 2: If asked for specific application/service name
+
+```text
+I only know it as the company web portal at LOC-A. I do not know its specific application name or internal CI.
+```
+
+**Expected:** Retain the known service type/location; exact service identity may remain unknown. Do not invent CI-PORTAL or repeat the same English/Arabic question.
+
+### Reply 3: If asked whether login succeeds before the failure
+
+```text
+I cannot confirm whether authentication completes. I see the authentication-failed page.
+```
+
+**Expected:** Preserve uncertainty rather than fabricate a confirmed post-login failure.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> evidence-aware clarification -> actual Escalation if inconclusive
+
+## Expected terminal output / ticket state
+
+Useful targeted investigation or actual human-investigation handoff identifying the specific remaining gap. No password-reset instructions or unsupported diagnosis. English maintained; supplied error/time not discarded.
+
+## Fail this case if
+
+- Claims no error/symptom exists after recording it.
+- Arabic repetition in English conversation.
+- Invents a CI/group/diagnosis from generic portal wording.
+- Narrates human referral without executing the actual required handoff.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

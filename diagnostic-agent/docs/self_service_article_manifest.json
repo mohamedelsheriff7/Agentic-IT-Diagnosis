@@ -1,0 +1,122 @@
+[
+  {
+    "article_id": "KB-027",
+    "scenario_code": "WIFI_DISABLED",
+    "title": "Wi-Fi switched off",
+    "diagnosis_code": "WIFI_FAILURE",
+    "example_report": "Wi-Fi is turned off and I cannot connect to the office network.",
+    "source_url": "https://support.microsoft.com/en-us/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-028",
+    "scenario_code": "WRONG_PRINTER_SELECTED",
+    "title": "Wrong printer selected",
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "example_report": "The print dialog selects the wrong printer or Print to PDF.",
+    "source_url": "https://support.microsoft.com/en-us/windows/hardware/printer/set-a-default-printer-in-windows",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-029",
+    "scenario_code": "SPEAKERS_MUTED",
+    "title": "Speakers muted or volume zero",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "Speakers are muted or system volume is zero; no sound plays.",
+    "source_url": "https://support.microsoft.com/en-us/windows/hardware/audio/fix-audio-issues-when-no-sound-plays-from-speakers-or-headphones-in-windows",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-030",
+    "scenario_code": "WRONG_AUDIO_OUTPUT",
+    "title": "Wrong audio output device",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "Sound is routed to the wrong audio output such as a monitor instead of my connected headset.",
+    "source_url": "https://support.microsoft.com/en-us/windows/hardware/audio/fix-audio-issues-when-no-sound-plays-from-speakers-or-headphones-in-windows",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-031",
+    "scenario_code": "WRONG_TEAMS_MICROPHONE",
+    "title": "Wrong microphone selected in Teams",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "Teams uses the wrong microphone even though my intended microphone is connected.",
+    "source_url": "https://support.microsoft.com/en-us/teams/notifications-settings/manage-your-device-settings-in-microsoft-teams",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-032",
+    "scenario_code": "BROWSER_ZOOM_SETTING",
+    "title": "Accidental browser page zoom",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "The browser page is too large or too small because its zoom setting changed.",
+    "source_url": "https://support.google.com/chrome/answer/96810",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-033",
+    "scenario_code": "KEYBOARD_LAYOUT_SETTING",
+    "title": "Wrong keyboard input layout",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "The keyboard layout is wrong and keys type different characters.",
+    "source_url": "https://support.microsoft.com/en-gb/windows/hardware/input-devices/manage-the-language-and-keyboard-input-layout-settings-in-windows",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-034",
+    "scenario_code": "LOW_DISPLAY_BRIGHTNESS",
+    "title": "Display brightness set too low",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "My working screen is unusually dim and the brightness setting is low.",
+    "source_url": "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-035",
+    "scenario_code": "DISPLAY_PROJECTION_SETTING",
+    "title": "Incorrect multiple-display mode",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "The second monitor is detected but the wrong display mode is selected.",
+    "source_url": "https://support.microsoft.com/en-us/windows/hardware/display-graphics/how-to-use-multiple-monitors-in-windows",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-036",
+    "scenario_code": "BLUETOOTH_DISABLED",
+    "title": "Bluetooth off for a known paired device",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "Bluetooth is switched off and my already-paired headset will not connect.",
+    "source_url": "https://support.microsoft.com/en-US/Windows/Hardware/bluetooth/pair-a-bluetooth-device-in-windows",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-037",
+    "scenario_code": "CAMERA_SHUTTER_CLOSED",
+    "title": "Camera privacy shutter closed",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "The camera preview is black because its physical privacy shutter is closed.",
+    "source_url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/stream/camera-privacy-controls",
+    "backend_registered": false,
+    "agent_resolvable": false
+  },
+  {
+    "article_id": "KB-038",
+    "scenario_code": "DO_NOT_DISTURB_NOTIFICATIONS",
+    "title": "Notifications suppressed by Do Not Disturb",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "example_report": "Notification banners are missing while Do Not Disturb is on and notifications reach Notification Center.",
+    "source_url": "https://support.microsoft.com/en-us/windows/experience/notifications-and-do-not-disturb-in-windows",
+    "backend_registered": false,
+    "agent_resolvable": false
+  }
+]

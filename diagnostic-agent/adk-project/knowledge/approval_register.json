@@ -1,0 +1,9 @@
+{
+  "status": "APPROVED",
+  "approver": "Project owner",
+  "approved_at": "2025-01-01T00:00:00Z",
+  "articles_approved": true,
+  "policy_approved": true,
+  "orchestrate_retrieval_status": "NOT_RUN",
+  "note": "All articles and escalation policy approved for prototype use."
+}

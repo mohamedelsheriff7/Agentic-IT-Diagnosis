@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ISYS Diagnostic Result 1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_version", "ticket_id", "diagnostic_result_id", "diagnostic_result_version", "diagnosis", "outcome", "evidence", "evidence_ids", "confidence", "confidence_basis", "recommended_action", "rationale", "next_question", "knowledge_sources", "historical_ticket_ids", "trace", "completed_actions", "resolution_progress", "error"],
+  "properties": {
+    "contract_version": {"const": "1.0"},
+    "ticket_id": {"type": ["string", "null"]},
+    "diagnostic_result_id": {"type": ["string", "null"]},
+    "diagnostic_result_version": {"type": ["integer", "null"]},
+    "diagnosis": {"type": ["string", "null"]},
+    "outcome": {"type": "string"},
+    "evidence": {"type": "array", "items": {"type": "object"}},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "confidence": {"enum": ["LOW", "MEDIUM", "HIGH"]},
+    "confidence_basis": {"type": "object"},
+    "recommended_action": {"enum": ["ASK_MORE", "RESOLVE", "ROUTE", "ESCALATE", "NONE"]},
+    "rationale": {"type": "string"},
+    "next_question": {"type": ["string", "null"]},
+    "knowledge_sources": {"type": "array"},
+    "historical_ticket_ids": {"type": "array", "items": {"type": "string"}},
+    "trace": {"type": "array", "items": {"type": "object"}},
+    "completed_actions": {"type": "array", "items": {"type": "string"}},
+    "resolution_progress": {"type": ["object", "null"]},
+    "error": {"type": ["string", "null"]}
+  }
+}

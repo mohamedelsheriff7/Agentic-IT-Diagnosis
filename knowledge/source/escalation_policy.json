@@ -1,0 +1,128 @@
+{
+  "policy_id": "ESC-POLICY-001",
+  "version": 2,
+  "approved": false,
+  "status_note": "Awaiting approval by the project owner (the requesting user). Thresholds aligned to the supplied backend data/escalation_policy.json on 2026-10-15. This is a review copy; deployed state has not been changed.",
+  "global_issue_check_order": [
+    "For each new ticket, first search for an open global ticket matching the same diagnosis/category, configuration item and location scope.",
+    "If a matching open global ticket exists, link the new ticket and tell the user it is a known issue; avoid duplicate individual diagnosis unless new evidence suggests a different cause.",
+    "If none exists, count recent non-global, unlinked, non-final tickets in the same scope and UTC time window.",
+    "Only create a global ticket when both the numeric threshold and shared-scope evidence are met; link related tickets and notify the owning resolver group."
+  ],
+  "outage_thresholds": [
+    {
+      "threshold_id": "BACKEND-1",
+      "category": "VPN",
+      "configuration_item_id": "CI-VPN",
+      "location_id": "LOC-A",
+      "window_minutes": 30,
+      "minimum_count": 3,
+      "minimum_tickets": 3,
+      "scope": "Exact category + configuration_item_id + location_id; AND filters",
+      "severity_selection": "SEV1 only for confirmed critical business impact with human review; otherwise SEV2 for corroborated multi-user outage. Ticket count alone does not set severity."
+    },
+    {
+      "threshold_id": "BACKEND-2",
+      "category": "Availability",
+      "configuration_item_id": "CI-PORTAL",
+      "location_id": "LOC-B",
+      "window_minutes": 30,
+      "minimum_count": 3,
+      "minimum_tickets": 3,
+      "scope": "Exact category + configuration_item_id + location_id; AND filters",
+      "severity_selection": "SEV1 only for confirmed critical business impact with human review; otherwise SEV2 for corroborated multi-user outage. Ticket count alone does not set severity."
+    },
+    {
+      "threshold_id": "BACKEND-3",
+      "category": "Availability",
+      "configuration_item_id": "CI-ERP",
+      "location_id": "LOC-C",
+      "window_minutes": 30,
+      "minimum_count": 3,
+      "minimum_tickets": 3,
+      "scope": "Exact category + configuration_item_id + location_id; AND filters",
+      "severity_selection": "SEV1 only for confirmed critical business impact with human review; otherwise SEV2 for corroborated multi-user outage. Ticket count alone does not set severity."
+    }
+  ],
+  "scope_requirements": [
+    "All tickets in a cluster must share the same canonical category, configuration item and location for the current mock backend's global-ticket API.",
+    "Do not create a global ticket if configuration_item_id or location_id is missing; send to human triage and document the missing scope.",
+    "The current backend count filters combine with AND and global-ticket creation requires category + CI + location. This policy is deliberately compatible with that constraint."
+  ],
+  "decoy_safeguards": [
+    "Do not escalate based on category similarity alone.",
+    "Do not aggregate tickets across different locations or configuration items.",
+    "Do not aggregate reports outside the configured time window.",
+    "Require corroborating evidence: shared CI/location, close timestamps, and either degraded/unavailable service health or repeated consistent symptoms.",
+    "Run a negative control for the three decoy patterns: same category spread across days or different sites must not meet thresholds."
+  ],
+  "severity_and_notification": {
+    "SEV1": {
+      "definition": "Confirmed critical business impact; requires human review. A burst count alone does not establish SEV1.",
+      "notify": [
+        "GRP-L1",
+        "relevant service owner group",
+        "GRP-INFRA when infrastructure dependency is plausible",
+        "human incident lead"
+      ],
+      "response": "Create only a corroborated, correctly scoped global incident; initial owner must be GRP-L1. L1 coordinates human incident leadership. No autonomous remediation."
+    },
+    "SEV2": {
+      "definition": "At least 3 eligible tickets in 30 minutes in one configured exact scope, plus corroborated multi-user service impact, without confirmed critical impact.",
+      "notify": [
+        "GRP-L1",
+        "diagnosed service owner group"
+      ],
+      "response": "Create/link global ticket, notify owner group, track affected tickets, update users with known-issue status."
+    },
+    "SEV3": {
+      "definition": "Limited degradation, below-threshold pattern, uncertain scope, or a scope without a configured threshold; human review and further evidence collection.",
+      "notify": [
+        "GRP-L1",
+        "suspected owner group"
+      ],
+      "response": "Continue evidence collection and human review; do not create a global ticket solely on weak similarity."
+    }
+  },
+  "always_human_conditions": [
+    "security_sensitive=true or suspected phishing, malware, account lock due to security policy, or suspected data exposure",
+    "privileged_access=true or any privileged-access request",
+    "reported_priority=1 (critical)",
+    "evidence conflicts or diagnosis remains inconclusive after targeted questions/checks",
+    "destructive, irreversible, production-changing, certificate, shared storage, server, or account lifecycle action requiring approval",
+    "identity verification failure or any request to bypass MFA/security controls"
+  ],
+  "confidence_policy": {
+    "HIGH": "Only when article match is strong, all required evidence is complete, similar-ticket evidence is supportive when available, and plausible competing diagnoses have been excluded. For HIGH specialist routing, follow backend review requirements.",
+    "MEDIUM": "Some evidence supports the diagnosis, but a non-safety gap remains. Assign GRP-L1 and attach recommended specialist group and rationale.",
+    "LOW": "Insufficient/conflicting evidence or multiple unresolved candidates. Do not force diagnosis; send to human triage or ask a discriminating question."
+  },
+  "decoy_validation": {
+    "decoy_1": "Same category across multiple days: must not trigger.",
+    "decoy_2": "Same category at different sites: must not trigger.",
+    "decoy_3": "Similar descriptions but different configuration items: must not trigger."
+  },
+  "backend_compatibility_notes": [
+    "Source reviewed: outputs/workstream-c/data/escalation_policy.json, app/services.py, app/schemas.py, app/dataset.py and agent OpenAPI. This confirms supplied source behavior, not a running deployment.",
+    "Only VPN + CI-VPN + LOC-A, Availability + CI-PORTAL + LOC-B, and Availability + CI-ERP + LOC-C have configured numeric triggers: 3 tickets / 30 minutes. Do not generalize thresholds to other scopes.",
+    "The agent evaluates thresholds. The backend does not automatically evaluate counts or prove an outage.",
+    "Counts exclude global, linked, resolved and closed records; UTC window boundaries are inclusive. Use the backend demo clock or an explicit as_of consistent with fixture dates.",
+    "Creation requires category + CI + location; missing scope requires human triage. Check existing globals using the full known exact scope first.",
+    "Notifications are mock group records. A human incident lead is coordinated through L1.",
+    "Backend knowledge search excludes unapproved articles. All revised articles remain approved=false."
+  ],
+  "notification_policy": {
+    "default_group_ids": [
+      "GRP-L1"
+    ],
+    "additional_recipients": "Notify the diagnosed service owner group once. Add GRP-INFRA only for a plausible infrastructure dependency; GRP-SEC for security-sensitive evidence. Avoid unrelated group broadcasts.",
+    "SEV1": "Notify L1 and relevant owner; L1 coordinates a human incident lead. The API accepts resolver group IDs, not a human incident lead recipient.",
+    "delivery": "Notifications are MOCK records via notify_resolver_group, not email, chat or paging delivery."
+  },
+  "global_ownership_rules": [
+    "SEV1 global tickets initially belong to GRP-L1.",
+    "Any mandatory-human child requires GRP-L1 ownership of a new global ticket.",
+    "For ordinary SEV2 incidents, use the diagnosed service owner; use L1 when ownership is uncertain.",
+    "For existing globals, link without claiming severity or ownership was updated: creation reuses the current record without overwriting those facts."
+  ]
+}

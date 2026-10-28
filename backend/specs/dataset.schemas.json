@@ -1,0 +1,1427 @@
+{
+  "taxonomy": {
+    "additionalProperties": false,
+    "properties": {
+      "diagnosis_code": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Diagnosis Code",
+        "type": "string"
+      },
+      "domain": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Domain",
+        "type": "string"
+      },
+      "category": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Category",
+        "type": "string"
+      },
+      "label": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Label",
+        "type": "string"
+      },
+      "resolver_group_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Resolver Group Id",
+        "type": "string"
+      },
+      "security_sensitive": {
+        "default": false,
+        "title": "Security Sensitive",
+        "type": "boolean"
+      },
+      "privileged_access": {
+        "default": false,
+        "title": "Privileged Access",
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "diagnosis_code",
+      "domain",
+      "category",
+      "label",
+      "resolver_group_id"
+    ],
+    "title": "Taxonomy",
+    "type": "object"
+  },
+  "resolver_groups": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "label": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Label",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "label"
+    ],
+    "title": "Label",
+    "type": "object"
+  },
+  "users": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "label": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Label",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "label"
+    ],
+    "title": "Label",
+    "type": "object"
+  },
+  "assets": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "label": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Label",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "label"
+    ],
+    "title": "Label",
+    "type": "object"
+  },
+  "configuration_items": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "label": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Label",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "label"
+    ],
+    "title": "Label",
+    "type": "object"
+  },
+  "locations": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "label": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Label",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "label"
+    ],
+    "title": "Label",
+    "type": "object"
+  },
+  "routing_matrix": {
+    "additionalProperties": false,
+    "properties": {
+      "diagnosis_code": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Diagnosis Code",
+        "type": "string"
+      },
+      "owner_group_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Owner Group Id",
+        "type": "string"
+      },
+      "boundary": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Boundary",
+        "type": "string"
+      },
+      "alternative_group_ids": {
+        "items": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "type": "string"
+        },
+        "title": "Alternative Group Ids",
+        "type": "array"
+      }
+    },
+    "required": [
+      "diagnosis_code",
+      "owner_group_id",
+      "boundary",
+      "alternative_group_ids"
+    ],
+    "title": "Routing",
+    "type": "object"
+  },
+  "account_states": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "user_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "User Id",
+        "type": "string"
+      },
+      "enabled": {
+        "enum": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN"
+        ],
+        "title": "Enabled",
+        "type": "string"
+      },
+      "locked": {
+        "enum": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN"
+        ],
+        "title": "Locked",
+        "type": "string"
+      },
+      "password_expired": {
+        "enum": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN"
+        ],
+        "title": "Password Expired",
+        "type": "string"
+      },
+      "mfa_enrolled": {
+        "enum": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN"
+        ],
+        "title": "Mfa Enrolled",
+        "type": "string"
+      },
+      "mfa_locked": {
+        "enum": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN"
+        ],
+        "title": "Mfa Locked",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "user_id",
+      "enabled",
+      "locked",
+      "password_expired",
+      "mfa_enrolled",
+      "mfa_locked"
+    ],
+    "title": "AccountState",
+    "type": "object"
+  },
+  "application_entitlements": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "user_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "User Id",
+        "type": "string"
+      },
+      "application_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Application Id",
+        "type": "string"
+      },
+      "entitled": {
+        "enum": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN"
+        ],
+        "title": "Entitled",
+        "type": "string"
+      },
+      "roles": {
+        "items": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "type": "string"
+        },
+        "title": "Roles",
+        "type": "array"
+      },
+      "provisioning_state": {
+        "enum": [
+          "ACTIVE",
+          "PENDING",
+          "ABSENT",
+          "UNKNOWN"
+        ],
+        "title": "Provisioning State",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "user_id",
+      "application_id",
+      "entitled",
+      "roles",
+      "provisioning_state"
+    ],
+    "title": "EntitlementState",
+    "type": "object"
+  },
+  "service_health": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "configuration_item_id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Configuration Item Id",
+        "type": "string"
+      },
+      "location_id": {
+        "anyOf": [
+          {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Location Id"
+      },
+      "state": {
+        "enum": [
+          "OPERATIONAL",
+          "DEGRADED",
+          "UNAVAILABLE",
+          "UNKNOWN"
+        ],
+        "title": "State",
+        "type": "string"
+      },
+      "scope": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Scope",
+        "type": "string"
+      },
+      "details": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "title": "Details",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "configuration_item_id",
+      "state",
+      "scope",
+      "details"
+    ],
+    "title": "ServiceState",
+    "type": "object"
+  },
+  "diagnostic_articles": {
+    "$defs": {
+      "Condition": {
+        "additionalProperties": false,
+        "properties": {
+          "tool": {
+            "enum": [
+              "check_account_status",
+              "check_application_entitlement",
+              "check_service_health"
+            ],
+            "title": "Tool",
+            "type": "string"
+          },
+          "field": {
+            "title": "Field",
+            "type": "string"
+          },
+          "equals": {
+            "title": "Equals",
+            "type": "string"
+          }
+        },
+        "required": [
+          "tool",
+          "field",
+          "equals"
+        ],
+        "title": "Condition",
+        "type": "object"
+      },
+      "ResolutionStep": {
+        "additionalProperties": false,
+        "properties": {
+          "step_id": {
+            "title": "Step Id",
+            "type": "string"
+          },
+          "level": {
+            "enum": [
+              "SELF_SERVICE",
+              "L1",
+              "SPECIALIST"
+            ],
+            "title": "Level",
+            "type": "string"
+          },
+          "instruction": {
+            "title": "Instruction",
+            "type": "string"
+          }
+        },
+        "required": [
+          "step_id",
+          "level",
+          "instruction"
+        ],
+        "title": "ResolutionStep",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "article_id": {
+        "title": "Article Id",
+        "type": "string"
+      },
+      "version": {
+        "title": "Version",
+        "type": "integer"
+      },
+      "approved": {
+        "title": "Approved",
+        "type": "boolean"
+      },
+      "diagnosis_code": {
+        "title": "Diagnosis Code",
+        "type": "string"
+      },
+      "domain": {
+        "title": "Domain",
+        "type": "string"
+      },
+      "category": {
+        "title": "Category",
+        "type": "string"
+      },
+      "symptoms_en": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Symptoms En",
+        "type": "array"
+      },
+      "symptoms_ar": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Symptoms Ar",
+        "type": "array"
+      },
+      "possible_causes": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Possible Causes",
+        "type": "array"
+      },
+      "discriminating_questions": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Discriminating Questions",
+        "type": "array"
+      },
+      "required_evidence": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Required Evidence",
+        "type": "array"
+      },
+      "safe_checks": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Safe Checks",
+        "type": "array"
+      },
+      "exclusion_criteria": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Exclusion Criteria",
+        "type": "array"
+      },
+      "competing_diagnoses": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Competing Diagnoses",
+        "type": "array"
+      },
+      "resolution_steps": {
+        "items": {
+          "$ref": "#/$defs/ResolutionStep"
+        },
+        "title": "Resolution Steps",
+        "type": "array"
+      },
+      "agent_resolvable": {
+        "title": "Agent Resolvable",
+        "type": "boolean"
+      },
+      "resolution_conditions": {
+        "items": {
+          "$ref": "#/$defs/Condition"
+        },
+        "title": "Resolution Conditions",
+        "type": "array"
+      },
+      "mandatory_human_escalation_conditions": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Mandatory Human Escalation Conditions",
+        "type": "array"
+      },
+      "resolver_group_id": {
+        "title": "Resolver Group Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "article_id",
+      "version",
+      "approved",
+      "diagnosis_code",
+      "domain",
+      "category",
+      "symptoms_en",
+      "symptoms_ar",
+      "possible_causes",
+      "discriminating_questions",
+      "required_evidence",
+      "safe_checks",
+      "exclusion_criteria",
+      "competing_diagnoses",
+      "resolution_steps",
+      "agent_resolvable",
+      "resolution_conditions",
+      "mandatory_human_escalation_conditions",
+      "resolver_group_id"
+    ],
+    "title": "Article",
+    "type": "object"
+  },
+  "escalation_policy": {
+    "$defs": {
+      "SeverityRules": {
+        "additionalProperties": false,
+        "properties": {
+          "SEV1": {
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Sev1",
+            "type": "string"
+          },
+          "SEV2": {
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Sev2",
+            "type": "string"
+          },
+          "SEV3": {
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Sev3",
+            "type": "string"
+          }
+        },
+        "required": [
+          "SEV1",
+          "SEV2",
+          "SEV3"
+        ],
+        "title": "SeverityRules",
+        "type": "object"
+      },
+      "Threshold": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Category",
+            "type": "string"
+          },
+          "configuration_item_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Configuration Item Id",
+            "type": "string"
+          },
+          "location_id": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Location Id",
+            "type": "string"
+          },
+          "window_minutes": {
+            "maximum": 10080,
+            "minimum": 1,
+            "title": "Window Minutes",
+            "type": "integer"
+          },
+          "minimum_count": {
+            "minimum": 1,
+            "title": "Minimum Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "category",
+          "configuration_item_id",
+          "location_id",
+          "window_minutes",
+          "minimum_count"
+        ],
+        "title": "Threshold",
+        "type": "object"
+      }
+    },
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "title": "Id",
+        "type": "string"
+      },
+      "mandatory_human_cases": {
+        "items": {
+          "maxLength": 16000,
+          "minLength": 1,
+          "type": "string"
+        },
+        "title": "Mandatory Human Cases",
+        "type": "array"
+      },
+      "severity_rules": {
+        "$ref": "#/$defs/SeverityRules"
+      },
+      "outage_thresholds": {
+        "items": {
+          "$ref": "#/$defs/Threshold"
+        },
+        "title": "Outage Thresholds",
+        "type": "array"
+      }
+    },
+    "required": [
+      "id",
+      "mandatory_human_cases",
+      "severity_rules",
+      "outage_thresholds"
+    ],
+    "title": "EscalationPolicy",
+    "type": "object"
+  },
+  "historical_tickets": {
+    "additionalProperties": false,
+    "properties": {
+      "ticket_id": {
+        "title": "Ticket Id",
+        "type": "string"
+      },
+      "ticket_class": {
+        "enum": [
+          "SERVICE_REQUEST",
+          "INCIDENT",
+          "PROBLEM",
+          "CHANGE"
+        ],
+        "title": "Ticket Class",
+        "type": "string"
+      },
+      "summary": {
+        "title": "Summary",
+        "type": "string"
+      },
+      "description": {
+        "title": "Description",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "NEW",
+          "QUEUED",
+          "IN_PROGRESS",
+          "PENDING",
+          "RESOLVED",
+          "CLOSED"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "reported_priority": {
+        "maximum": 4,
+        "minimum": 1,
+        "title": "Reported Priority",
+        "type": "integer"
+      },
+      "impact": {
+        "maximum": 3,
+        "minimum": 1,
+        "title": "Impact",
+        "type": "integer"
+      },
+      "urgency": {
+        "maximum": 3,
+        "minimum": 1,
+        "title": "Urgency",
+        "type": "integer"
+      },
+      "language": {
+        "enum": [
+          "en",
+          "ar",
+          "franco_ar"
+        ],
+        "title": "Language",
+        "type": "string"
+      },
+      "domain": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Domain"
+      },
+      "category": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Category"
+      },
+      "subcategory": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Subcategory"
+      },
+      "diagnosis_code": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Diagnosis Code"
+      },
+      "owner_group_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Owner Group Id"
+      },
+      "owner_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Owner Id"
+      },
+      "reported_by_id": {
+        "title": "Reported By Id",
+        "type": "string"
+      },
+      "affected_person_id": {
+        "title": "Affected Person Id",
+        "type": "string"
+      },
+      "asset_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Asset Id"
+      },
+      "configuration_item_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Configuration Item Id"
+      },
+      "location_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Location Id"
+      },
+      "reported_at": {
+        "format": "date-time",
+        "title": "Reported At",
+        "type": "string"
+      },
+      "target_finish_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Target Finish At"
+      },
+      "actual_finish_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Actual Finish At"
+      },
+      "resolved_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Resolved At"
+      },
+      "closed_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Closed At"
+      },
+      "updated_at": {
+        "format": "date-time",
+        "title": "Updated At",
+        "type": "string"
+      },
+      "linked_solution_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Linked Solution Id"
+      },
+      "resolution_summary": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Resolution Summary"
+      },
+      "is_global": {
+        "default": false,
+        "title": "Is Global",
+        "type": "boolean"
+      },
+      "global_ticket_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Global Ticket Id"
+      },
+      "severity": {
+        "anyOf": [
+          {
+            "enum": [
+              "SEV1",
+              "SEV2",
+              "SEV3"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Severity"
+      },
+      "security_sensitive": {
+        "default": false,
+        "title": "Security Sensitive",
+        "type": "boolean"
+      },
+      "privileged_access": {
+        "default": false,
+        "title": "Privileged Access",
+        "type": "boolean"
+      },
+      "initial_owner_group_id": {
+        "anyOf": [
+          {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Initial Owner Group Id"
+      }
+    },
+    "required": [
+      "ticket_id",
+      "ticket_class",
+      "summary",
+      "description",
+      "status",
+      "reported_priority",
+      "impact",
+      "urgency",
+      "language",
+      "reported_by_id",
+      "affected_person_id",
+      "reported_at",
+      "updated_at"
+    ],
+    "title": "ImportedTicket",
+    "type": "object"
+  },
+  "sample_open_tickets": {
+    "additionalProperties": false,
+    "properties": {
+      "ticket_id": {
+        "title": "Ticket Id",
+        "type": "string"
+      },
+      "ticket_class": {
+        "enum": [
+          "SERVICE_REQUEST",
+          "INCIDENT",
+          "PROBLEM",
+          "CHANGE"
+        ],
+        "title": "Ticket Class",
+        "type": "string"
+      },
+      "summary": {
+        "title": "Summary",
+        "type": "string"
+      },
+      "description": {
+        "title": "Description",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "NEW",
+          "QUEUED",
+          "IN_PROGRESS",
+          "PENDING",
+          "RESOLVED",
+          "CLOSED"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "reported_priority": {
+        "maximum": 4,
+        "minimum": 1,
+        "title": "Reported Priority",
+        "type": "integer"
+      },
+      "impact": {
+        "maximum": 3,
+        "minimum": 1,
+        "title": "Impact",
+        "type": "integer"
+      },
+      "urgency": {
+        "maximum": 3,
+        "minimum": 1,
+        "title": "Urgency",
+        "type": "integer"
+      },
+      "language": {
+        "enum": [
+          "en",
+          "ar",
+          "franco_ar"
+        ],
+        "title": "Language",
+        "type": "string"
+      },
+      "domain": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Domain"
+      },
+      "category": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Category"
+      },
+      "subcategory": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Subcategory"
+      },
+      "diagnosis_code": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Diagnosis Code"
+      },
+      "owner_group_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Owner Group Id"
+      },
+      "owner_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Owner Id"
+      },
+      "reported_by_id": {
+        "title": "Reported By Id",
+        "type": "string"
+      },
+      "affected_person_id": {
+        "title": "Affected Person Id",
+        "type": "string"
+      },
+      "asset_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Asset Id"
+      },
+      "configuration_item_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Configuration Item Id"
+      },
+      "location_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Location Id"
+      },
+      "reported_at": {
+        "format": "date-time",
+        "title": "Reported At",
+        "type": "string"
+      },
+      "target_finish_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Target Finish At"
+      },
+      "actual_finish_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Actual Finish At"
+      },
+      "resolved_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Resolved At"
+      },
+      "closed_at": {
+        "anyOf": [
+          {
+            "format": "date-time",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Closed At"
+      },
+      "updated_at": {
+        "format": "date-time",
+        "title": "Updated At",
+        "type": "string"
+      },
+      "linked_solution_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Linked Solution Id"
+      },
+      "resolution_summary": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Resolution Summary"
+      },
+      "is_global": {
+        "default": false,
+        "title": "Is Global",
+        "type": "boolean"
+      },
+      "global_ticket_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Global Ticket Id"
+      },
+      "severity": {
+        "anyOf": [
+          {
+            "enum": [
+              "SEV1",
+              "SEV2",
+              "SEV3"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Severity"
+      },
+      "security_sensitive": {
+        "default": false,
+        "title": "Security Sensitive",
+        "type": "boolean"
+      },
+      "privileged_access": {
+        "default": false,
+        "title": "Privileged Access",
+        "type": "boolean"
+      },
+      "initial_owner_group_id": {
+        "anyOf": [
+          {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Initial Owner Group Id"
+      }
+    },
+    "required": [
+      "ticket_id",
+      "ticket_class",
+      "summary",
+      "description",
+      "status",
+      "reported_priority",
+      "impact",
+      "urgency",
+      "language",
+      "reported_by_id",
+      "affected_person_id",
+      "reported_at",
+      "updated_at"
+    ],
+    "title": "ImportedTicket",
+    "type": "object"
+  }
+}

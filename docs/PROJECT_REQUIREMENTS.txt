@@ -1,0 +1,280 @@
+Hello team,
+Congratulations on continuing with us.
+Your next task is a three-week team project based on a real opportunity ISYS is working on: designing, building, and evaluating an Agentic IT Diagnosis & Resolution solution, integrated and demonstrated through IBM watsonx Orchestrate. Below is the full plan: background, architecture, scope, workstreams, phases, deliverables, and how we'll judge success. Read it end to end before our weekly meeting on Tuesday at 12:00 PM.
+The main focus of this project is diagnosis. We are not building an agent that just reads a ticket, classifies it, and predicts a resolver group. The agent should investigate the reported issue, identify possible causes, ask the right diagnostic questions, gather evidence, rule out alternatives, and reach a defensible diagnosis before deciding whether to resolve, route, or escalate.
+1) BACKGROUND:
+A big part of the misrouting problem is that tickets describe symptoms, not the actual problem. For example, "I cannot access the application" could be caused by any of these:
+An expired or forgotten password
+An account lockout
+An MFA issue
+A missing entitlement
+An application authentication problem
+A network issue
+A wider outage
+Classifying the ticket on its first sentence sends it to the wrong team. A good support agent investigates first.
+Your job is to build a working prototype of the core of that solution. We will use a ticket model aligned with IBM Control Desk / IBM Maximo IT and entirely synthetic data.
+2) OBJECTIVE:
+Build an agentic solution that takes a new IT ticket and can:
+a) Diagnose: Understand the reported symptoms, identify plausible causes, detect missing information, and ask targeted questions that distinguish between competing diagnoses.
+b) Gather evidence: Use the user's answers, ticket information, troubleshooting knowledge, similar historical tickets, and available tools to narrow down the possible causes.
+c) Resolve: When an approved knowledge article has a safe, verified fix and all required conditions are met, guide the user through the fix, confirm it worked, and record the resolution on the ticket.
+d) Route: When specialist support is needed, assign the ticket to the correct resolver group based on the diagnosis and its evidence, not the original ticket wording. Include a confidence level and a clear reason.
+e) Escalate: Recognize security-sensitive cases, cases that require a human, and patterns that indicate a wider incident or outage. For outages, create a global ticket, link the related tickets, and notify the right group.
+The target diagnostic flow is:
+Symptoms → Candidate Diagnoses → Diagnostic Questions → Evidence → Eliminate Alternatives → Diagnosis → Resolve / Route / Escalate
+3) TECHNICAL ARCHITECTURE:
+The solution must be designed for portability. The goal is a diagnostic agent that can later be published and reused outside this project, for example on the IBM Agent Connect catalogue, so it must not be tightly tied to one platform.
+Diagnostic Agent (Python):
+Built as an independently deployable Python agent/service.
+Owns all diagnostic logic: conversation state and context, generating candidate diagnoses, choosing the next question or check, collecting evidence, eliminating unsupported diagnoses, knowledge retrieval, similar-ticket analysis, evidence-based confidence, and safety/human-escalation rules.
+Exposed through a supported agent interface and connected to watsonx Orchestrate as an external agent. Check the Orchestrate documentation for the supported external-agent options.
+A stateful Python agent framework such as LangGraph may be used, but you must justify the choice.
+watsonx Orchestrate:
+Acts as the orchestration layer where the full solution is integrated and demonstrated.
+Coordinates the Diagnostic Agent with ticket tools, routing, escalation, human-in-the-loop steps, and the other collaborator agents.
+Intended structure:
+watsonx Orchestrate → IT Support Supervisor agent.
+The Supervisor coordinates three collaborator agents: the Diagnostic Agent (external, Python), the Routing agent, and the Escalation & Outage agent.
+The Diagnostic Agent uses the knowledge base, similar-ticket search, and diagnostic tools.
+All tools read from and write to the mock Maximo IT API.
+Key principle: the Diagnostic Agent must be testable on its own, without Orchestrate. Orchestrate is where everything comes together; it is not where the diagnostic logic lives.
+4) SCOPE:
+In scope:
+The Python Diagnostic Agent.
+watsonx Orchestrate: agents, collaborator agents, tools, knowledge, the ADK, and external-agent integration.
+Python and OpenAPI tools.
+A mock Maximo IT ticket backend that you build.
+Synthetic IT tickets and diagnostic knowledge that you create.
+An evaluation framework.
+Out of scope:
+A real Maximo IT or Control Desk instance.
+Real client data.
+Real AD or any third-party integrations.
+Production deployment.
+5) GROUND RULES:
+All data must be synthetic: no real names, emails, phone numbers, IPs, or client information. Do not use the client's name anywhere in the data, the agents, or the demo.
+Everything goes in one shared Git repo (Reply to the email with your GitHub Username to add you to the repo). The full solution must be rebuildable from the repo, including Python code, agent definitions, tools, knowledge, configuration, test data, and setup instructions.
+The agent must not force a diagnosis when the evidence is insufficient. It should state what is missing, ask for it, or escalate to a human when a reliable diagnosis can't be reached.
+Every decision (diagnose, resolve, route, escalate) must include its supporting evidence and reason, and be written to the ticket worklog.
+Document your assumptions as you go.
+6) WORKSTREAMS AND OWNERSHIP:
+There are four workstreams. You decide as a team who owns which one. Send me your assignments by the end of next Wednesday, with one owner per workstream.
+Owning a workstream means you are accountable for its deliverables, not that you work alone. Everyone joins the study in Week 1, reviews each other's work, and pairs on integration and testing in Week 3.
+Workstream A - Data & Evaluation:
+Maximo IT-aligned data model.
+Synthetic historical tickets.
+Diagnostic test scenarios with hidden ground truth.
+Evaluation framework.
+Leads testing in Week 3.
+Workstream B - Diagnostic Knowledge:
+Diagnostic articles, including possible causes, diagnostic questions, and exclusion criteria.
+Resolver group directory and routing boundaries.
+Escalation and outage policy.
+Workstream C - Backend & Tools:
+Mock Maximo IT API and OpenAPI spec.
+Ticket tools: similar-ticket search, worklogs, resolution, assignment, and outage-support tools.
+Workstream D - Diagnostic Agent & Orchestration:
+The Python Diagnostic Agent: diagnostic state and logic.
+External-agent interface.
+watsonx Orchestrate integration.
+Routing and escalation orchestration.
+End-to-end agent architecture.
+Note: Workstream D carries the most build work in Week 2. Plan for at least one other team member to pair with its owner that week.
+7) PHASES AND DELIVERABLES:
+PHASE 1: STUDY & DESIGN (Week 1, Days 1–2, everyone)
+Maximo IT, what to learn:
+Ticket classes: Service Request, Incident, Problem, and Change, and how they relate. For example, many incidents can be linked to one problem, and there is a "global issue" concept for grouping related tickets.
+Key ticket fields: ticket ID, class, summary and long description, status lifecycle (new, queued, in progress, pending, resolved, closed), reported priority, impact, urgency, classification hierarchy, owner group and owner, reported by and affected person, asset, configuration item, location, report date, target and actual finish dates, worklogs, linked solution, related tickets, and the global issue flag.
+The Solutions application, which is Maximo's own knowledge records.
+How assignment and reassignment are recorded.
+The pre-built Maximo IT agents in the Orchestrate catalog ("IT Service Management with IBM Maximo IT" and "Knowledge Management with IBM Maximo IT"). Study their design as a reference. We will not connect to them.
+IT support diagnosis, the most important part. For each category you plan to cover, answer:
+What symptoms does the user usually report?
+What different root causes could produce those symptoms?
+What information tells those causes apart?
+What questions should the agent ask?
+What checks can it safely perform?
+When is there enough evidence to diagnose?
+When should the agent stop and involve a human?
+Deliverables (end of next Wednesday):
+A one-page study note.
+Workstream assignments sent to me.
+An initial architecture.
+An initial diagnostic taxonomy.
+PHASE 2: SYNTHETIC DATA (Week 1, Days 3–5, Workstream A)
+Taxonomy:
+Use three levels: Domain > Category > Subcategory / Diagnosis.
+Domains and target shares: Access Management (~40%), Application (~35%), Endpoint (~10%), Network/Other (~15%).
+Aim for 20 to 30 meaningful diagnostic categories.
+Resolver groups (6 to 8). Examples:
+Service Desk L1
+IAM Team
+Application Support
+Endpoint Support
+Network Operations
+Security Operations
+Servers & Infrastructure
+Datasets:
+Historical resolved tickets: 400 to 600. Each should include symptoms, troubleshooting worklogs, the final diagnosis, the resolver group, and the resolution. These feed the knowledge base and the similar-ticket search.
+Test set: 80 to 100 new, open tickets with hidden ground truth. For each ticket, label:
+The correct category and the actual diagnosis.
+The information available in the ticket at the start.
+The information the agent can only discover by asking questions.
+The correct resolver group.
+Agent-resolvable (Y/N), human intervention required (Y/N), and escalation (Y/N).
+Ambiguous cases: deliberately include tickets whose initial symptoms could match several diagnoses, so the agent has to ask questions to tell them apart.
+Outage scenarios: 3 clusters. Example: 20 VPN tickets from the same site within 30 minutes.
+Decoy scenarios: 3 cases where many tickets share a category but are spread over days or different sites. These must NOT trigger escalation.
+Realism requirements:
+Mix English, Arabic, and Franco-Arabic. Include typos, vague descriptions ("system not working"), and missing fields.
+About 15% of historical tickets should be misrouted first and then reassigned, with the reassignment visible in the worklog. This mirrors the client's real misrouting rate.
+Include security-related tickets, a realistic spread of priorities, and some fake sensitive content (fake passwords, fake IPs) to test how the agent handles it.
+Format and generation:
+JSON is the source of truth, with CSV exports where useful.
+Document the schema with a field-by-field mapping to Maximo IT fields.
+Generate the data with a Python script using a fixed random seed so it can be reproduced. You may use an LLM to write ticket descriptions, but the script controls the schema and the labels.
+Important: the test set must be written separately from the knowledge base, using different generation prompts or a different author. Otherwise the agent will just be matching its own wording, and the results will look better than they are.
+Deliverables (end of Week 1):
+Schema document with the Maximo field mapping.
+The historical dataset.
+The diagnostic test set.
+A short data profile: counts per domain, group, and language.
+PHASE 3: DIAGNOSTIC KNOWLEDGE (Week 1 Day 3 through Week 2, Workstream B)
+a) Diagnostic articles, one per major category. Use this template:
+Diagnosis
+Domain and category
+Typical symptoms, with English and Arabic terminology
+Possible causes
+Required evidence to confirm the diagnosis
+Diagnostic questions
+Diagnostic checks the agent can run
+Exclusion criteria (what rules this diagnosis out)
+Similar diagnoses to rule out
+Resolution steps, labeled as self-service, L1, or specialist
+Resolvable by agent (Y/N), and under what conditions
+Mandatory human-escalation conditions
+Resolver group
+The questions must be designed to tell competing diagnoses apart, not just to collect more information. A good question removes at least one candidate diagnosis whatever the answer.
+b) Resolver group directory and routing matrix:
+Which group owns what.
+Clear boundaries between overlapping groups. Example: a password reset goes to IAM, unless the account was locked by a security policy, in which case it goes to Security Operations.
+c) Escalation and outage policy:
+Thresholds, for example N or more tickets on the same configuration item, category, or location within T minutes.
+Severity levels and who gets notified at each level.
+What always goes to a human, regardless of confidence: security issues, privileged access, and critical priority.
+Process:
+Start the articles from the diagnostic taxonomy on Day 3. Refine them with the historical synthetic tickets once those are ready.
+Test retrieval with at least 15 representative scenarios, and improve the article structure until the right article comes back.
+Deliverables (mid-Week 2):
+The diagnostic knowledge base.
+The routing and escalation policies.
+A retrieval test log showing scenarios, returned articles, and pass/fail.
+PHASE 4: MOCK BACKEND & TOOLS (Week 1 Day 3 through Week 2, Workstream C)
+We don't have a Maximo IT instance, so build a small mock of the Maximo IT ticket API (for example, FastAPI with SQLite), loaded with the synthetic data and published with an OpenAPI spec. The tools must be usable both by the Python Diagnostic Agent and by the Orchestrate agents.
+Minimum tools:
+Get Ticket Details: Retrieves a ticket's full record and worklogs using its ticket ID.
+Search Similar Tickets: Finds the most similar resolved historical tickets to a given ticket description. Simple keyword search is fine.
+Assign Ticket: Assigns a ticket to a resolver group and records the confidence level and the reason for the choice.
+Add Worklog Entry: Adds a note to a ticket's worklog describing what the agent did and why.
+Resolve Ticket: Marks a ticket as resolved and records the resolution steps and the knowledge article used.
+Count Recent Tickets: Counts tickets that share a category, configuration item, or location within a given time window. Used for outage detection.
+Find Open Global Tickets: Checks whether an open global ticket already exists for a given category, configuration item, or location.
+Create Global Ticket: Creates a global ticket for a repeated issue or outage, with a summary, severity, and the related tickets.
+Link Ticket to Global Ticket: Links a new ticket to an existing global ticket so it is tracked as part of the same issue.
+Add other diagnostic tools if they clearly help the agent gather evidence. Examples: a simulated account status check, or a service health check.
+To stay on schedule, start the mock API with a small hand-made sample of tickets on Day 3. Switch to the full dataset once Workstream A delivers it.
+Deliverables (mid-Week 2):
+The running mock API and its OpenAPI spec.
+Each tool tested on its own.
+PHASE 5: DIAGNOSTIC AGENT & ORCHESTRATION (Week 2, Workstream D, everyone contributes)
+Diagnostic Agent (Python). For each ticket, the agent should:
+Understand the reported symptoms.
+Retrieve the relevant diagnostic knowledge.
+Generate a shortlist of plausible diagnoses.
+Identify what evidence is missing.
+Choose the most useful next question or check.
+Add the new evidence.
+Eliminate diagnoses the evidence doesn't support.
+Repeat as needed.
+Reach a diagnosis when there is enough evidence, or explicitly decide that a human needs to investigate.
+Return a structured result: diagnosis, evidence, confidence, recommended action (resolve / route / escalate), and rationale.
+If the recommended action is to resolve, and the knowledge article marks the issue as resolvable by agent with its conditions met, the agent walks the user through the fix, confirms it worked, and resolves the ticket with a reference to the article.
+The agent must keep its diagnostic state, so we can see not only the final answer but how it got there. Example trace:
+Initial candidates: password expired, account locked, MFA failure, missing application entitlement.
+Question: "Can you access other corporate applications?"
+Evidence: Yes.
+Eliminated: general account/password issue.
+Remaining: MFA/application authentication issue, missing entitlement.
+Next step: ...
+Orchestrate agents:
+IT Support Supervisor agent: the entry point. It receives a ticket by ID, or a user describing an issue in chat, and coordinates the collaborator agents.
+Diagnostic Agent: the external Python agent described above, connected as a collaborator.
+Routing agent. When the diagnosis requires a specialist:
+Picks the owner group based on the diagnosis and its evidence, plus a confidence level (High / Medium / Low), the top 3 alternative groups, and a reason.
+High confidence: assign directly.
+Medium confidence: assign to L1 triage with the recommendation attached.
+Low confidence: send to human triage.
+Security, privileged access, and critical tickets always go to a human, whatever the confidence.
+Escalation & Outage agent. Runs on every new ticket:
+First, check for an open global ticket. If one exists, link the new ticket to it and tell the user it's a known issue instead of re-diagnosing.
+Otherwise, check recent ticket counts. If a threshold is met, create a global ticket, link the related tickets, and notify the owner group.
+About confidence: an LLM's self-reported confidence is not reliable. Base the confidence level on evidence you can check:
+The strength of the knowledge base match.
+Whether the required information is complete.
+How many similar historical tickets reached the same diagnosis and group.
+Whether competing diagnoses have been ruled out.
+Write this rule explicitly in the agent instructions and in the documentation.
+Every action must write a worklog entry stating what was decided, the supporting evidence, and which knowledge article or historical tickets were used. These logs must also be stored in a database so we can review the agents' actions and find issues.
+Start building early in Week 2 against the sample data and early tools. Don't wait for every other workstream to finish.
+Deliverables (end of Week 2):
+The Python Diagnostic Agent, runnable and testable on its own.
+The external-agent integration with Orchestrate.
+Orchestrate agent definitions in the ADK.
+A simple architecture diagram.
+A diagnostic decision-flow document explaining how the agent diagnoses, and when it resolves, routes, or escalates.
+PHASE 6: INTEGRATION, EVALUATION & DEMO (Week 3, everyone, led by Workstreams A and D)
+Days 1–2: Integration.
+Connect all agents, tools, and knowledge end to end in our tenant.
+Load the full dataset into the mock API.
+Days 3–4: Run the full test set and measure:
+Diagnostic accuracy: correct diagnosis against the hidden ground truth.
+Question quality: were the questions relevant, and did each one narrow down the candidates?
+Premature diagnosis rate: diagnoses made before enough evidence was gathered.
+Routing accuracy: top-1 and top-3 correct resolver group.
+Self-resolution rate, and false resolutions (tickets the agent closed that should have been routed). False resolutions are the most serious error, so track them closely.
+Human-in-the-loop compliance: the share of security, privileged-access, and critical tickets correctly sent to a human (target: 100%).
+Outage detection: clusters caught, and false escalations on the decoys.
+Accuracy on Arabic tickets versus English tickets.
+Then:
+Pick the 5 most informative failures and find the root cause of each: data, knowledge, diagnostic logic/instructions, or tools.
+Fix them, re-run the test set, and report before-and-after numbers.
+Day 5: Demo and final presentation on 20 October [To Be Confirmed]. The live demo covers four scenarios:
+An access issue where several diagnoses are plausible at first. The agent reaches the correct diagnosis through questioning (for example, an expired password), then resolves it end to end with the user.
+An application issue that is diagnosed and routed to the correct specialist group, with the supporting evidence shown.
+A vague Arabic ticket where the agent asks targeted questions before deciding what to do.
+A burst of VPN tickets where the system recognizes an outage, creates or finds a global ticket, and links later tickets, telling users it's a known issue.
+Deliverables:
+A short evaluation report.
+A repo README with setup steps.
+A 20-minute presentation plus Q&A, covering the diagnostic approach, architecture, data, results, failures and fixes, and limitations.
+8) HOW WE'LL WORK:
+Weekly meeting on Tuesday at 12:00 PM.
+No daily standups. Post short updates in our WhatsApp group.
+Raise blockers or issues on the same day.
+9) PROJECT SUCCESS CRITERIA:
+The main measure of success is whether the solution can investigate and diagnose IT issues, not just classify ticket descriptions.
+These are starting targets; we may adjust them after Week 1, once we understand how hard the diagnostic dataset is.
+All 4 demo scenarios run end to end through watsonx Orchestrate.
+The Python Diagnostic Agent runs independently and integrates successfully with Orchestrate.
+Diagnostic accuracy is measured against the hidden ground truth, with a target set after Week 1.
+Top-1 routing accuracy of at least 75%, and top-3 of at least 90%, on the test set.
+False self-resolutions of 3% or less.
+100% of mandatory human-escalation cases handled correctly.
+All outage clusters detected, with zero escalations on the decoys.
+Every diagnosis and action is traceable to its supporting evidence.
+10) RESOURCES:
+watsonx Orchestrate documentation
+watsonx Orchestrate ADK documentation
+IBM Maximo IT Resources
+By the end of the project, we should have more than a ticket-routing demo. We should have a portable diagnostic agent that investigates symptoms, asks the right questions, gathers evidence, tells apart plausible causes, and makes a traceable decision to resolve, route, or escalate, with watsonx Orchestrate coordinating the full workflow.
+Good luck. Treat this like a real client delivery with clear ownership, clear assumptions, reproducible work, and clean documentation. Let me know if you have any questions.

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "HEALTH-0",
+    "configuration_item_id": "CI-PORTAL",
+    "location_id": "LOC-A",
+    "state": "OPERATIONAL",
+    "scope": "CI-PORTAL/LOC-A",
+    "details": "Independent synthetic service monitor observation"
+  },
+  {
+    "id": "HEALTH-1",
+    "configuration_item_id": "CI-VPN",
+    "location_id": "LOC-A",
+    "state": "UNAVAILABLE",
+    "scope": "CI-VPN/LOC-A",
+    "details": "Independent synthetic service monitor observation"
+  },
+  {
+    "id": "HEALTH-2",
+    "configuration_item_id": "CI-PORTAL",
+    "location_id": "LOC-B",
+    "state": "UNAVAILABLE",
+    "scope": "CI-PORTAL/LOC-B",
+    "details": "Independent synthetic service monitor observation"
+  },
+  {
+    "id": "HEALTH-3",
+    "configuration_item_id": "CI-ERP",
+    "location_id": "LOC-C",
+    "state": "DEGRADED",
+    "scope": "CI-ERP/LOC-C",
+    "details": "Independent synthetic service monitor observation"
+  },
+  {
+    "id": "HEALTH-4",
+    "configuration_item_id": "CI-VPN",
+    "location_id": "LOC-D",
+    "state": "OPERATIONAL",
+    "scope": "CI-VPN/LOC-D",
+    "details": "Independent synthetic service monitor observation"
+  },
+  {
+    "id": "HEALTH-5",
+    "configuration_item_id": "CI-PORTAL",
+    "location_id": "LOC-E",
+    "state": "OPERATIONAL",
+    "scope": "CI-PORTAL/LOC-E",
+    "details": "Independent synthetic service monitor observation"
+  },
+  {
+    "id": "HEALTH-6",
+    "configuration_item_id": "CI-ERP",
+    "location_id": "LOC-F",
+    "state": "OPERATIONAL",
+    "scope": "CI-ERP/LOC-F",
+    "details": "Independent synthetic service monitor observation"
+  }
+]

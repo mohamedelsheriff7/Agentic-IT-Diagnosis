@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-29",
+  "diagnostic_tests": {
+    "passed": 273,
+    "failed": 0,
+    "command": "python -m pytest -q"
+  },
+  "portable_bundle_verification": {
+    "status": "passed",
+    "checks": [
+      "relocated single-file factory",
+      "message-only conversation resume",
+      "natural observations",
+      "12 self-service guides",
+      "legacy shared-scope recovery",
+      "async streaming",
+      "ZIP integrity and layout"
+    ]
+  },
+  "assembly_checks": {
+    "python_syntax": "passed",
+    "json_parsing": "passed",
+    "zip_crc": "passed",
+    "native_tool_references": "all match backend OpenAPI operationIds",
+    "diagnostic_bundle_sha256_unchanged": true
+  },
+  "not_run": [
+    "backend test suite (backend implementation unchanged)",
+    "WXO tenant imports and live collaborator execution"
+  ]
+}

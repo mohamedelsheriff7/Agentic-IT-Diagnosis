@@ -1,0 +1,61 @@
+[
+  {
+    "case": "dns",
+    "phase": "resume_actual_report",
+    "ticket_id": "INC-4874544341114a08",
+    "result": "PASS",
+    "evidence_ids_preserved": true,
+    "reply": "You reported: Internal server names fail. Direct IP access works. External websites open normally.\n\nThis suggests a DNS/name-resolution problem, but the cause is not confirmed. A specialist needs to verify a DNS lookup comparison for the affected hostname and configured resolver; this agent has no implemented direct check for it. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-4874544341114a08 · Ref: CHK-fa28174ef3914e1d"
+  },
+  {
+    "case": "dns",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-9a59ef09e5944999",
+    "result": "PASS",
+    "answers_consumed": 1,
+    "turns": [
+      "Do internal hostnames fail while direct IP access to the same server works?\n\nTicket: INC-9a59ef09e5944999 · Ref: CHK-dfffc4f1ba404dc2",
+      "You reported: Internal server names fail. Direct IP access works. External websites open normally.\n\nThis suggests a DNS/name-resolution problem, but the cause is not confirmed. A specialist needs to verify a DNS lookup comparison for the affected hostname and configured resolver; this agent has no implemented direct check for it. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-9a59ef09e5944999 · Ref: CHK-e18f5030fbde4b97"
+    ]
+  },
+  {
+    "case": "wifi",
+    "phase": "resume_actual_report",
+    "ticket_id": "INC-0b14e37807a84cd0",
+    "result": "PASS",
+    "evidence_ids_preserved": true,
+    "reply": "You reported: Another device connects to the same Wi-Fi. The affected device connects to a different approved network.\n\nThis suggests a Wi-Fi connection problem specific to this device/network pairing, but the cause is not confirmed. A specialist needs to verify Wi-Fi association logs and the affected network/profile configuration; this agent has no implemented direct check for it. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-0b14e37807a84cd0 · Ref: CHK-01e995b3eca34203"
+  },
+  {
+    "case": "wifi",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-8e40fa5f0c254837",
+    "result": "PASS",
+    "answers_consumed": 2,
+    "turns": [
+      "Can another device connect to the same Wi-Fi at the same location?\n\nTicket: INC-8e40fa5f0c254837 · Ref: CHK-e73db307bbe743d8",
+      "Can this device connect to a different approved network?\n\nTicket: INC-8e40fa5f0c254837 · Ref: CHK-ff4b156750ce4ae1",
+      "You reported: Another device connects to the same Wi-Fi. The affected device connects to a different approved network.\n\nThis suggests a Wi-Fi connection problem specific to this device/network pairing, but the cause is not confirmed. A specialist needs to verify Wi-Fi association logs and the affected network/profile configuration; this agent has no implemented direct check for it. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-8e40fa5f0c254837 · Ref: CHK-fd99691bc5594cc5"
+    ]
+  },
+  {
+    "case": "printer",
+    "phase": "resume_actual_report",
+    "ticket_id": "INC-72b3f4e943974985",
+    "result": "PASS",
+    "evidence_ids_preserved": true,
+    "reply": "You reported: Multiple users are affected at the same printer. Other users cannot reach the printer.\n\nThis suggests a printer reachability problem, but the cause is not confirmed. A specialist needs to verify the printer power/network status and print-queue state; this agent has no implemented direct check for it. I recommend review by Endpoint Support. Your ticket remains open.\n\nTicket: INC-72b3f4e943974985 · Ref: CHK-62501d3134e442fe"
+  },
+  {
+    "case": "printer",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-46efe22adf6b4b1e",
+    "result": "PASS",
+    "answers_consumed": 2,
+    "turns": [
+      "Is only one user affected or everyone using the same printer?\n\nTicket: INC-46efe22adf6b4b1e · Ref: CHK-6475531a70b84863",
+      "Can the printer be reached by other users on the same network?\n\nTicket: INC-46efe22adf6b4b1e · Ref: CHK-b04d8634a9d44791",
+      "You reported: Multiple users are affected at the same printer. Other users cannot reach the printer.\n\nThis suggests a printer reachability problem, but the cause is not confirmed. A specialist needs to verify the printer power/network status and print-queue state; this agent has no implemented direct check for it. I recommend review by Endpoint Support. Your ticket remains open.\n\nTicket: INC-46efe22adf6b4b1e · Ref: CHK-33711a95fea24103"
+    ]
+  }
+]

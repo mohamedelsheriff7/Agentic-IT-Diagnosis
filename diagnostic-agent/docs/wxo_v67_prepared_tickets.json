@@ -1,0 +1,346 @@
+[
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-66fd5bcb357e4625",
+    "prompt": "Investigate INC-66fd5bcb357e4625",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "02",
+    "label": "Password workflow",
+    "ticket_id": "INC-eade781c86144462",
+    "prompt": "Investigate INC-eade781c86144462",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "05",
+    "label": "Account lock",
+    "ticket_id": "INC-253d04eecb9047da",
+    "prompt": "Investigate INC-253d04eecb9047da",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-9975387921614b86",
+    "prompt": "Investigate INC-9975387921614b86",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "02",
+    "label": "Password workflow",
+    "ticket_id": "INC-a40b8eeb549f4cdd",
+    "prompt": "Investigate INC-a40b8eeb549f4cdd",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "05",
+    "label": "Account lock",
+    "ticket_id": "INC-90a09de4afe3414f",
+    "prompt": "Investigate INC-90a09de4afe3414f",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "06",
+    "label": "Application entitlement",
+    "ticket_id": "INC-435e0579bb294335",
+    "prompt": "Investigate INC-435e0579bb294335",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "07",
+    "label": "VPN scope",
+    "ticket_id": "INC-d11e9e7aae3e4137",
+    "prompt": "Investigate INC-d11e9e7aae3e4137",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-53fb2041945d45f4",
+    "prompt": "Investigate INC-53fb2041945d45f4",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "02",
+    "label": "Password workflow",
+    "ticket_id": "INC-978b4dc298184d34",
+    "prompt": "Investigate INC-978b4dc298184d34",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "05",
+    "label": "Account lock",
+    "ticket_id": "INC-e778c8c306214ac2",
+    "prompt": "Investigate INC-e778c8c306214ac2",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "07",
+    "label": "VPN scope",
+    "ticket_id": "INC-1e5ddcda55b842c6",
+    "prompt": "Investigate INC-1e5ddcda55b842c6",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "21",
+    "label": "Arabic password",
+    "ticket_id": "INC-2b27dacaeedb4e38",
+    "prompt": "Investigate INC-2b27dacaeedb4e38",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "08",
+    "label": "VPN scope",
+    "ticket_id": "INC-d502275737364396",
+    "prompt": "Investigate INC-d502275737364396",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "09",
+    "label": "DNS comparison",
+    "ticket_id": "INC-6f93cd515029443f",
+    "prompt": "Investigate INC-6f93cd515029443f",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "10",
+    "label": "DNS comparison",
+    "ticket_id": "INC-b972a68304464bc1",
+    "prompt": "Investigate INC-b972a68304464bc1",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "11",
+    "label": "Vague intake to account lock",
+    "ticket_id": "INC-7b061ed94ca24faf",
+    "prompt": "Investigate INC-7b061ed94ca24faf",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "12",
+    "label": "Vague intake to application access",
+    "ticket_id": "INC-e0d3edd4da6546c7",
+    "prompt": "Investigate INC-e0d3edd4da6546c7",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "13",
+    "label": "Wi-Fi pairing",
+    "ticket_id": "INC-0dfac842c4a945bf",
+    "prompt": "Investigate INC-0dfac842c4a945bf",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "14",
+    "label": "Shared printer",
+    "ticket_id": "INC-75d5e9921ddb40ea",
+    "prompt": "Investigate INC-75d5e9921ddb40ea",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "15",
+    "label": "Unknown symptoms",
+    "ticket_id": "INC-8c6f74ae7a174858",
+    "prompt": "Investigate INC-8c6f74ae7a174858",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "12",
+    "label": "Vague intake to application access",
+    "ticket_id": "INC-dcbea9bfce83441f",
+    "prompt": "Investigate INC-dcbea9bfce83441f",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "16",
+    "label": "Password workflow",
+    "ticket_id": "INC-31f0b5e7c04e462e",
+    "prompt": "Investigate INC-31f0b5e7c04e462e",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "17",
+    "label": "Priority 1",
+    "ticket_id": "INC-278f43b3256a4fd2",
+    "prompt": "Investigate INC-278f43b3256a4fd2",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "18",
+    "label": "Security flag",
+    "ticket_id": "INC-8fc6e8d7c72e4ff4",
+    "prompt": "Investigate INC-8fc6e8d7c72e4ff4",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "19",
+    "label": "Privileged flag",
+    "ticket_id": "INC-8b0ceee306f44fa3",
+    "prompt": "Investigate INC-8b0ceee306f44fa3",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "20",
+    "label": "Late security disclosure",
+    "ticket_id": "INC-a1590bed99494270",
+    "prompt": "Investigate INC-a1590bed99494270",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "23",
+    "label": "VPN scope",
+    "ticket_id": "INC-65ea1b3e49a84882",
+    "prompt": "Investigate INC-65ea1b3e49a84882",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "24",
+    "label": "Unobserved VPN health scope",
+    "ticket_id": "INC-f206a42939134726",
+    "prompt": "Investigate INC-f206a42939134726",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-37cb7167ed5d44f8",
+    "prompt": "Investigate INC-37cb7167ed5d44f8",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "10",
+    "label": "DNS comparison",
+    "ticket_id": "INC-1af42c8499504c2c",
+    "prompt": "Investigate INC-1af42c8499504c2c",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "05",
+    "label": "Account lock",
+    "ticket_id": "INC-49fe3bbc5e3a4525",
+    "prompt": "Investigate INC-49fe3bbc5e3a4525",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-8e84e098e1bf4530",
+    "prompt": "Investigate INC-8e84e098e1bf4530",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-994e6bb7c4d34222",
+    "prompt": "Investigate INC-994e6bb7c4d34222",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-da2698c5673448d1",
+    "prompt": "Investigate INC-da2698c5673448d1",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-2edf40b870a14efa",
+    "prompt": "Investigate INC-2edf40b870a14efa",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-90e0a771d6e24c97",
+    "prompt": "Investigate INC-90e0a771d6e24c97",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-906a8b226ff94030",
+    "prompt": "Investigate INC-906a8b226ff94030",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-150d820f292c4f17",
+    "prompt": "Investigate INC-150d820f292c4f17",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-a8f1f2b4dc694cc8",
+    "prompt": "Investigate INC-a8f1f2b4dc694cc8",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "02",
+    "label": "Password workflow",
+    "ticket_id": "INC-03ad5fa4cc2c43a6",
+    "prompt": "Investigate INC-03ad5fa4cc2c43a6",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-7a0568861ab44a9a",
+    "prompt": "Investigate INC-7a0568861ab44a9a",
+    "status": "NEW",
+    "agent_run": false
+  },
+  {
+    "case": "01",
+    "label": "Password workflow",
+    "ticket_id": "INC-3483624f5b144907",
+    "prompt": "Investigate INC-3483624f5b144907",
+    "status": "NEW",
+    "agent_run": false
+  }
+]

@@ -1,0 +1,1579 @@
+[
+  {
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-0f1deda906e743a8",
+          "summary": "Password expired; cannot sign in",
+          "description": "The sign-in screen says my password expired.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": "Access Management",
+          "category": "Authentication",
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": null,
+          "location_id": null,
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [
+          {
+            "diagnosis_id": "PASSWORD_EXPIRED",
+            "name": "Expired password",
+            "domain": "Access Management",
+            "category": "Authentication",
+            "resolver_group": "IAM Team",
+            "required_evidence": [
+              "password_expired_confirmed"
+            ],
+            "supporting_evidence_ids": [
+              "EV-e8cbd323d45b451a",
+              "EV-e0e5260c3b414806"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "confirmed",
+            "elimination_reason": null,
+            "knowledge_article_id": null
+          }
+        ],
+        "archived_candidates": [],
+        "evidence": [
+          {
+            "evidence_id": "EV-e8cbd323d45b451a",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-e8cbd323d45b451a'}",
+            "value": {
+              "user_id": "USR-001",
+              "enabled": "TRUE",
+              "locked": "FALSE",
+              "password_expired": "TRUE",
+              "mfa_enrolled": "TRUE",
+              "mfa_locked": "FALSE",
+              "observed_at": "2026-10-01T12:00:00Z",
+              "evidence_id": "EV-e8cbd323d45b451a"
+            },
+            "source": "diagnostic_check",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS"
+            ],
+            "contradicts": [
+              "ACCOUNT_LOCKED"
+            ]
+          },
+          {
+            "evidence_id": "EV-e0e5260c3b414806",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "value": "no",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "contradicts": []
+          }
+        ],
+        "questions_asked": [
+          "Does the sign-in screen explicitly say the password has expired?",
+          "Can you access other corporate applications with the same account?"
+        ],
+        "eliminated_diagnoses": [],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "Does the sign-in screen explicitly say the password has expired?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "evidence_added",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-e8cbd323d45b451a'}",
+            "evidence_ids": [
+              "EV-e8cbd323d45b451a"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS",
+              "ACCOUNT_LOCKED"
+            ],
+            "rationale": "Evidence source: diagnostic_check."
+          },
+          {
+            "step_number": 7,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can you access other corporate applications with the same account?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 8,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "evidence_ids": [
+              "EV-e0e5260c3b414806"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 9,
+            "event_type": "diagnosis_supported",
+            "description": "Evidence threshold met for PASSWORD_EXPIRED.",
+            "evidence_ids": [
+              "EV-e0e5260c3b414806",
+              "EV-e8cbd323d45b451a"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "PASSWORD_EXPIRED is supported by 1 diagnostic-check item(s) and 1 consistent user-answer item(s) with no contradictions. This heuristic confidence is not a calibrated probability. The case is recommended for routing; no fix was executed."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": "PASSWORD_EXPIRED",
+        "confidence": 0.75,
+        "recommended_action": "route",
+        "rationale": "PASSWORD_EXPIRED is supported by 1 diagnostic-check item(s) and 1 consistent user-answer item(s) with no contradictions. This heuristic confidence is not a calibrated probability. The case is recommended for routing; no fix was executed.",
+        "status": "diagnosed",
+        "diagnostic_result_id": "DR-c61324c3ad864fb5",
+        "diagnostic_result_version": 2
+      },
+      "ticket_id": "INC-0f1deda906e743a8",
+      "checkpoint_ref": "CHK-cf51efb5cda64217"
+    },
+    "result": {
+      "ticket_id": "INC-0f1deda906e743a8",
+      "diagnostic_result_id": "DR-c61324c3ad864fb5",
+      "diagnostic_result_version": 2,
+      "evidence_ids": [
+        "EV-e8cbd323d45b451a",
+        "EV-e0e5260c3b414806"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "DIAGNOSED",
+      "recommended_action": "ROUTE",
+      "diagnosis_code": "PASSWORD_EXPIRED",
+      "confidence": "MEDIUM",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": 0,
+          "comparison_diagnosis_code": "PASSWORD_EXPIRED",
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "HIGH",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": false
+      },
+      "rationale": "PASSWORD_EXPIRED is supported by 1 diagnostic-check item(s) and 1 consistent user-answer item(s) with no contradictions. This heuristic confidence is not a calibrated probability. The case is recommended for routing; no fix was executed.",
+      "next_question": null,
+      "remaining_candidates": [
+        "PASSWORD_EXPIRED"
+      ],
+      "eliminated_diagnoses": [],
+      "evidence_conflicts": [],
+      "evidence_count": 2,
+      "trace_steps": 9,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "PASSWORD_EXPIRED",
+          "name": "Expired password",
+          "score": 3.0,
+          "supporting_evidence_ids": [
+            "EV-e8cbd323d45b451a",
+            "EV-e0e5260c3b414806"
+          ],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": null,
+          "status": "confirmed"
+        }
+      ],
+      "checks": [],
+      "check_errors": []
+    },
+    "test": "1"
+  },
+  {
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-bf1b4ed354af410f",
+          "summary": "Password expired; cannot sign in",
+          "description": "The sign-in screen says my password expired.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": "Access Management",
+          "category": "Authentication",
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": null,
+          "location_id": null,
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [
+          {
+            "diagnosis_id": "PASSWORD_EXPIRED",
+            "name": "Expired password",
+            "domain": "Access Management",
+            "category": "Authentication",
+            "resolver_group": "IAM Team",
+            "required_evidence": [
+              "password_expired_confirmed"
+            ],
+            "supporting_evidence_ids": [
+              "EV-feb3924e141642dc"
+            ],
+            "contradicting_evidence_ids": [],
+            "status": "plausible",
+            "elimination_reason": null,
+            "knowledge_article_id": null
+          }
+        ],
+        "archived_candidates": [],
+        "evidence": [
+          {
+            "evidence_id": "EV-feb3924e141642dc",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-feb3924e141642dc'}",
+            "value": {
+              "user_id": "USR-001",
+              "enabled": "TRUE",
+              "locked": "FALSE",
+              "password_expired": "TRUE",
+              "mfa_enrolled": "TRUE",
+              "mfa_locked": "FALSE",
+              "observed_at": "2026-10-01T12:00:00Z",
+              "evidence_id": "EV-feb3924e141642dc"
+            },
+            "source": "diagnostic_check",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS"
+            ],
+            "contradicts": [
+              "ACCOUNT_LOCKED"
+            ]
+          },
+          {
+            "evidence_id": "EV-55e86f2688af4275",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "value": "I cannot access other corporate applications with this account either.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "questions_asked": [
+          "Does the sign-in screen explicitly say the password has expired?",
+          "Can you access other corporate applications with the same account?"
+        ],
+        "eliminated_diagnoses": [],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "Does the sign-in screen explicitly say the password has expired?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "evidence_added",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-feb3924e141642dc'}",
+            "evidence_ids": [
+              "EV-feb3924e141642dc"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS",
+              "ACCOUNT_LOCKED"
+            ],
+            "rationale": "Evidence source: diagnostic_check."
+          },
+          {
+            "step_number": 7,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can you access other corporate applications with the same account?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 8,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "evidence_ids": [
+              "EV-55e86f2688af4275"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 9,
+            "event_type": "escalation_required",
+            "description": "The current diagnostic rules need human follow-up.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": null,
+        "confidence": null,
+        "recommended_action": "escalate",
+        "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+        "status": "escalated",
+        "diagnostic_result_id": "DR-b951570c20a74215",
+        "diagnostic_result_version": 2
+      },
+      "ticket_id": "INC-bf1b4ed354af410f",
+      "checkpoint_ref": "CHK-bf4ff8859d06452d"
+    },
+    "result": {
+      "ticket_id": "INC-bf1b4ed354af410f",
+      "diagnostic_result_id": "DR-b951570c20a74215",
+      "diagnostic_result_version": 2,
+      "evidence_ids": [
+        "EV-feb3924e141642dc",
+        "EV-55e86f2688af4275"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": false
+      },
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "next_question": null,
+      "remaining_candidates": [
+        "PASSWORD_EXPIRED"
+      ],
+      "eliminated_diagnoses": [],
+      "evidence_conflicts": [],
+      "evidence_count": 2,
+      "trace_steps": 9,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "PASSWORD_EXPIRED",
+          "name": "Expired password",
+          "score": 2.0,
+          "supporting_evidence_ids": [
+            "EV-feb3924e141642dc"
+          ],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": null,
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": []
+    },
+    "test": "2"
+  },
+  {
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-d8a775438e974622",
+          "summary": "Internal hostname cannot resolve",
+          "description": "The browser says server not found for an internal hostname.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": "Network",
+          "category": "DNS",
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": null,
+          "location_id": null,
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [
+          {
+            "diagnosis_id": "DNS_FAILURE",
+            "name": "DNS lookup failure",
+            "domain": "Network",
+            "category": "DNS",
+            "resolver_group": "GRP-NET",
+            "required_evidence": [
+              "dns_failure_confirmed"
+            ],
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "plausible",
+            "elimination_reason": null,
+            "knowledge_article_id": null
+          }
+        ],
+        "archived_candidates": [],
+        "evidence": [
+          {
+            "evidence_id": "EV-7792ee915bf04248",
+            "description": "User answered the diagnostic question: Do internal hostnames fail while direct IP access to the same server works?",
+            "value": "Internal server names fail, but direct IP access to the same server works. External websites open normally",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          },
+          {
+            "evidence_id": "EV-d820dfbfc74046c8",
+            "description": "User answered the diagnostic question: Do external websites resolve normally, or does all connectivity fail?",
+            "value": "External websites open normally",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "questions_asked": [
+          "Do internal hostnames fail while direct IP access to the same server works?",
+          "Do external websites resolve normally, or does all connectivity fail?"
+        ],
+        "eliminated_diagnoses": [],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "DNS_FAILURE"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "Do internal hostnames fail while direct IP access to the same server works?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "DNS_FAILURE"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Do internal hostnames fail while direct IP access to the same server works?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Do internal hostnames fail while direct IP access to the same server works?",
+            "evidence_ids": [
+              "EV-7792ee915bf04248"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Do external websites resolve normally, or does all connectivity fail?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 9,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Do external websites resolve normally, or does all connectivity fail?",
+            "evidence_ids": [
+              "EV-d820dfbfc74046c8"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 10,
+            "event_type": "escalation_required",
+            "description": "The current diagnostic rules need human follow-up.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": null,
+        "confidence": null,
+        "recommended_action": "escalate",
+        "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+        "status": "escalated",
+        "diagnostic_result_id": "DR-9a775f48c2294707",
+        "diagnostic_result_version": 3
+      },
+      "ticket_id": "INC-d8a775438e974622",
+      "checkpoint_ref": "CHK-8dbde1d11a6b49f2"
+    },
+    "result": {
+      "ticket_id": "INC-d8a775438e974622",
+      "diagnostic_result_id": "DR-9a775f48c2294707",
+      "diagnostic_result_version": 3,
+      "evidence_ids": [
+        "EV-7792ee915bf04248",
+        "EV-d820dfbfc74046c8"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": false
+      },
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "next_question": null,
+      "remaining_candidates": [
+        "DNS_FAILURE"
+      ],
+      "eliminated_diagnoses": [],
+      "evidence_conflicts": [],
+      "evidence_count": 2,
+      "trace_steps": 10,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "DNS_FAILURE",
+          "name": "DNS lookup failure",
+          "score": 0,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": null,
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": []
+    },
+    "test": "3"
+  },
+  {
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-1de93dbec7cc4105",
+          "summary": "Device cannot join Wi-Fi",
+          "description": "A device cannot connect to the approved corporate Wi-Fi.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": "Network",
+          "category": "Connectivity",
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": null,
+          "location_id": null,
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [],
+        "archived_candidates": [
+          {
+            "diagnosis_id": "WIFI_FAILURE",
+            "name": "Wi-Fi association failure",
+            "domain": "Network",
+            "category": "Connectivity",
+            "resolver_group": "GRP-NET",
+            "required_evidence": [
+              "wifi_failure_confirmed"
+            ],
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [
+              "EV-d36100b474b84061"
+            ],
+            "status": "eliminated",
+            "elimination_reason": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?",
+            "knowledge_article_id": null
+          }
+        ],
+        "evidence": [
+          {
+            "evidence_id": "EV-d36100b474b84061",
+            "description": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?",
+            "value": "yes",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": [
+              "WIFI_FAILURE"
+            ]
+          }
+        ],
+        "questions_asked": [
+          "Can another device connect to the same Wi-Fi at the same location?"
+        ],
+        "eliminated_diagnoses": [
+          {
+            "diagnosis_id": "WIFI_FAILURE",
+            "reason": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?"
+          }
+        ],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "WIFI_FAILURE"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "Can another device connect to the same Wi-Fi at the same location?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "WIFI_FAILURE"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can another device connect to the same Wi-Fi at the same location?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "WIFI_FAILURE"
+            ],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?",
+            "evidence_ids": [
+              "EV-d36100b474b84061"
+            ],
+            "candidate_ids": [
+              "WIFI_FAILURE"
+            ],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "escalation_required",
+            "description": "The current diagnostic rules need human follow-up.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": null,
+        "confidence": null,
+        "recommended_action": "escalate",
+        "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+        "status": "escalated",
+        "diagnostic_result_id": "DR-d1cbd5d85ded4fc9",
+        "diagnostic_result_version": 2
+      },
+      "ticket_id": "INC-1de93dbec7cc4105",
+      "checkpoint_ref": "CHK-3e49d90ef8864155"
+    },
+    "result": {
+      "ticket_id": "INC-1de93dbec7cc4105",
+      "diagnostic_result_id": "DR-d1cbd5d85ded4fc9",
+      "diagnostic_result_version": 2,
+      "evidence_ids": [
+        "EV-d36100b474b84061"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": true
+      },
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "next_question": null,
+      "remaining_candidates": [],
+      "eliminated_diagnoses": [
+        {
+          "diagnosis_id": "WIFI_FAILURE",
+          "reason": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?"
+        }
+      ],
+      "evidence_conflicts": [],
+      "evidence_count": 1,
+      "trace_steps": 8,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [],
+      "checks": [],
+      "check_errors": []
+    },
+    "test": "4"
+  },
+  {
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-a91c8bce92c645e9",
+          "summary": "Office printer offline",
+          "description": "A user reports that the office printer appears offline.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": "Endpoints",
+          "category": "Printing",
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": null,
+          "location_id": null,
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [
+          {
+            "diagnosis_id": "PRINTER_OFFLINE",
+            "name": "Printer offline",
+            "domain": "Endpoints",
+            "category": "Printing",
+            "resolver_group": "GRP-END",
+            "required_evidence": [
+              "printer_offline_confirmed"
+            ],
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "plausible",
+            "elimination_reason": null,
+            "knowledge_article_id": null
+          }
+        ],
+        "archived_candidates": [],
+        "evidence": [
+          {
+            "evidence_id": "EV-058c13b72b554c53",
+            "description": "User answered the diagnostic question: Is only one user affected or everyone using the same printer?",
+            "value": "Everyone using that printer is affected",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          },
+          {
+            "evidence_id": "EV-29c906c5ce1848e1",
+            "description": "User answered the diagnostic question: Can the printer be reached by other users on the same network?",
+            "value": "Other users cannot reach the printer either.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "questions_asked": [
+          "Is only one user affected or everyone using the same printer?",
+          "Can the printer be reached by other users on the same network?"
+        ],
+        "eliminated_diagnoses": [],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PRINTER_OFFLINE"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "Is only one user affected or everyone using the same printer?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PRINTER_OFFLINE"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Is only one user affected or everyone using the same printer?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Is only one user affected or everyone using the same printer?",
+            "evidence_ids": [
+              "EV-058c13b72b554c53"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can the printer be reached by other users on the same network?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 9,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can the printer be reached by other users on the same network?",
+            "evidence_ids": [
+              "EV-29c906c5ce1848e1"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 10,
+            "event_type": "escalation_required",
+            "description": "The current diagnostic rules need human follow-up.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": null,
+        "confidence": null,
+        "recommended_action": "escalate",
+        "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+        "status": "escalated",
+        "diagnostic_result_id": "DR-ecbdf6f4f74d411e",
+        "diagnostic_result_version": 3
+      },
+      "ticket_id": "INC-a91c8bce92c645e9",
+      "checkpoint_ref": "CHK-321799c7171a4f07"
+    },
+    "result": {
+      "ticket_id": "INC-a91c8bce92c645e9",
+      "diagnostic_result_id": "DR-ecbdf6f4f74d411e",
+      "diagnostic_result_version": 3,
+      "evidence_ids": [
+        "EV-058c13b72b554c53",
+        "EV-29c906c5ce1848e1"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": false
+      },
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "next_question": null,
+      "remaining_candidates": [
+        "PRINTER_OFFLINE"
+      ],
+      "eliminated_diagnoses": [],
+      "evidence_conflicts": [],
+      "evidence_count": 2,
+      "trace_steps": 10,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "PRINTER_OFFLINE",
+          "name": "Printer offline",
+          "score": 0,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": null,
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": []
+    },
+    "test": "5"
+  },
+  {
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-1fd0c8ed464e4970",
+          "summary": "VPN client cannot connect",
+          "description": "The VPN client cannot connect. The scope has not been established.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": "Network",
+          "category": "VPN",
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": "CI-VPN",
+          "location_id": "LOC-D",
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [
+          {
+            "diagnosis_id": "VPN_CLIENT_ISSUE",
+            "name": "VPN client or credential issue",
+            "domain": "Network",
+            "category": "VPN",
+            "resolver_group": "GRP-NET",
+            "required_evidence": [
+              "vpn_client_issue_confirmed"
+            ],
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "plausible",
+            "elimination_reason": null,
+            "knowledge_article_id": null
+          }
+        ],
+        "archived_candidates": [],
+        "evidence": [
+          {
+            "evidence_id": "EV-4160712855334cd6",
+            "description": "Service health check: status=OPERATIONAL",
+            "value": {
+              "configuration_item_id": "CI-VPN",
+              "location_id": "LOC-D",
+              "state": "OPERATIONAL",
+              "scope": "CI-VPN/LOC-D",
+              "details": "Stored synthetic monitor fact supplied by Workstream A.",
+              "observed_at": "2026-10-01T12:00:00Z",
+              "evidence_id": "EV-4160712855334cd6"
+            },
+            "source": "diagnostic_check",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          },
+          {
+            "evidence_id": "EV-39c57dd12d2d44f5",
+            "description": "User answered the diagnostic question: Does the VPN client show a local configuration or credential error?",
+            "value": "local configuration",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "questions_asked": [
+          "Can colleagues at the same site connect to VPN right now?",
+          "Does the VPN client show a local configuration or credential error?"
+        ],
+        "eliminated_diagnoses": [],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "VPN_CLIENT_ISSUE"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "Can colleagues at the same site connect to VPN right now?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "VPN_CLIENT_ISSUE"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "evidence_added",
+            "description": "Service health check: status=OPERATIONAL",
+            "evidence_ids": [
+              "EV-4160712855334cd6"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: diagnostic_check."
+          },
+          {
+            "step_number": 7,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Does the VPN client show a local configuration or credential error?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 8,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Does the VPN client show a local configuration or credential error?",
+            "evidence_ids": [
+              "EV-39c57dd12d2d44f5"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 9,
+            "event_type": "escalation_required",
+            "description": "The current diagnostic rules need human follow-up.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": null,
+        "confidence": null,
+        "recommended_action": "escalate",
+        "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+        "status": "escalated",
+        "diagnostic_result_id": "DR-ed9e6b1053c94b9f",
+        "diagnostic_result_version": 2
+      },
+      "ticket_id": "INC-1fd0c8ed464e4970",
+      "checkpoint_ref": "CHK-37dbc0ae2be44f87"
+    },
+    "result": {
+      "ticket_id": "INC-1fd0c8ed464e4970",
+      "diagnostic_result_id": "DR-ed9e6b1053c94b9f",
+      "diagnostic_result_version": 2,
+      "evidence_ids": [
+        "EV-4160712855334cd6",
+        "EV-39c57dd12d2d44f5"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": false
+      },
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "next_question": null,
+      "remaining_candidates": [
+        "VPN_CLIENT_ISSUE"
+      ],
+      "eliminated_diagnoses": [],
+      "evidence_conflicts": [],
+      "evidence_count": 2,
+      "trace_steps": 9,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "VPN_CLIENT_ISSUE",
+          "name": "VPN client or credential issue",
+          "score": 0,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": null,
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": []
+    },
+    "test": "6"
+  },
+  {
+    "session": {
+      "mode": "backend",
+      "snapshot": {
+        "ticket": {
+          "ticket_id": "INC-9f7bbd14f5234483",
+          "summary": "Unclear service problem",
+          "description": "Something is not working. The affected service and exact error are not yet known.",
+          "priority": "3",
+          "ticket_class": "INCIDENT",
+          "impact": 3,
+          "urgency": 2,
+          "language": "en",
+          "domain": null,
+          "category": null,
+          "subcategory": null,
+          "severity": null,
+          "asset_id": null,
+          "configuration_item_id": null,
+          "location_id": null,
+          "security_sensitive": false,
+          "privileged_access": false,
+          "metadata": {}
+        },
+        "candidates": [
+          {
+            "diagnosis_id": "UNKNOWN_ISSUE",
+            "name": "Cause not yet identified",
+            "domain": "Other",
+            "category": "Unclassified",
+            "resolver_group": "Service Desk L1",
+            "required_evidence": [
+              "cause_identified"
+            ],
+            "supporting_evidence_ids": [],
+            "contradicting_evidence_ids": [],
+            "status": "plausible",
+            "elimination_reason": null,
+            "knowledge_article_id": null
+          }
+        ],
+        "archived_candidates": [],
+        "evidence": [
+          {
+            "evidence_id": "EV-239dd11bc9584e69",
+            "description": "User answered the diagnostic question: What exact error message do you see, and when did the problem start?",
+            "value": "I don’t know which service is affected or the exact error.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "questions_asked": [
+          "What exact error message do you see, and when did the problem start?"
+        ],
+        "eliminated_diagnoses": [],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 0 approved diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "history_retrieval_unavailable",
+            "description": "Historical ticket retrieval could not be completed.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+          },
+          {
+            "step_number": 3,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 4,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "UNKNOWN_ISSUE"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 5,
+            "event_type": "question_selected",
+            "description": "What exact error message do you see, and when did the problem start?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "UNKNOWN_ISSUE"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: What exact error message do you see, and when did the problem start?",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: What exact error message do you see, and when did the problem start?",
+            "evidence_ids": [
+              "EV-239dd11bc9584e69"
+            ],
+            "candidate_ids": [],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "escalation_required",
+            "description": "The current diagnostic rules need human follow-up.",
+            "evidence_ids": [],
+            "candidate_ids": [],
+            "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+          }
+        ],
+        "knowledge_matches": [],
+        "historical_matches": [],
+        "next_question": null,
+        "final_diagnosis": null,
+        "confidence": null,
+        "recommended_action": "escalate",
+        "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+        "status": "escalated",
+        "diagnostic_result_id": "DR-55b35c2e1098455f",
+        "diagnostic_result_version": 2
+      },
+      "ticket_id": "INC-9f7bbd14f5234483",
+      "checkpoint_ref": "CHK-86b4b61be3e342ae"
+    },
+    "result": {
+      "ticket_id": "INC-9f7bbd14f5234483",
+      "diagnostic_result_id": "DR-55b35c2e1098455f",
+      "diagnostic_result_version": 2,
+      "evidence_ids": [
+        "EV-239dd11bc9584e69"
+      ],
+      "completed_actions": [],
+      "missing_information": [],
+      "status": "NEW",
+      "integration_status": "BACKEND_CONNECTED",
+      "outcome": "HUMAN_REQUIRED",
+      "recommended_action": "ESCALATE",
+      "diagnosis_code": null,
+      "confidence": "LOW",
+      "confidence_basis": {
+        "historical_counts": {
+          "matching": null,
+          "comparison_diagnosis_code": null,
+          "reviewed": 0,
+          "ticket_ids": []
+        },
+        "knowledge_match_strength": "LOW",
+        "evidence_completeness": "MEDIUM",
+        "historical_agreement": "NOT_AVAILABLE",
+        "alternatives_excluded": false
+      },
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "next_question": null,
+      "remaining_candidates": [
+        "UNKNOWN_ISSUE"
+      ],
+      "eliminated_diagnoses": [],
+      "evidence_conflicts": [],
+      "evidence_count": 1,
+      "trace_steps": 8,
+      "knowledge_article_ids": [],
+      "historical_ticket_ids": [],
+      "candidate_rankings": [
+        {
+          "diagnosis_id": "UNKNOWN_ISSUE",
+          "name": "Cause not yet identified",
+          "score": 0,
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "knowledge_article_id": null,
+          "status": "plausible"
+        }
+      ],
+      "checks": [],
+      "check_errors": []
+    },
+    "test": "7"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "status": "PENDING",
+  "approver": "Project owner / requesting user",
+  "approved_at": null,
+  "articles_approved": false,
+  "policy_approved": false,
+  "orchestrate_retrieval_status": "NOT_RUN",
+  "note": "No approval inferred from delivery or conversion. Backend runtime enforcement has no policy approved field; do not import/activate the reviewed policy until owner approval. Individual articles retain approved=false."
+}

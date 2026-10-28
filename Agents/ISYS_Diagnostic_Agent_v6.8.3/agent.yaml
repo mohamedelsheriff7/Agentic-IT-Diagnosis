@@ -1,0 +1,11 @@
+spec_version: v1
+kind: agent
+name: isys_diagnostic_langgraph_v6_8_3
+title: ISYS Diagnostic Agent v6.8.3
+description: Investigates synthetic IT tickets, maintains diagnostic evidence across turns, asks targeted questions, and recommends resolution or human handoff. Requires the isys_it_backend team API-key connection for backend access.
+framework: langgraph
+deployment:
+  code_bundle:
+    entrypoint: agent:create_agent
+checkpointer:
+  type: sqlite

@@ -1,0 +1,1134 @@
+[
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\.gitkeep",
+    "destination": "diagnostic-agent\\adk-project\\agents\\.gitkeep"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\__init__.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\__init__.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\__main__.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\__main__.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\answers.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\answers.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\backend_client.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\backend_client.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\contract.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\contract.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\conversation.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\conversation.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\engine.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\engine.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\history.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\history.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\integrated.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\integrated.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\knowledge.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\knowledge.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\llm.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\llm.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\models.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\models.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\prompts\\diagnostic_agent_role.md",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\prompts\\diagnostic_agent_role.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\prompts\\shared_instructions.md",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\prompts\\shared_instructions.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\resolution_guidance.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\resolution_guidance.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\session_store.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\session_store.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\agents\\diagnostic_agent\\standalone.py",
+    "destination": "diagnostic-agent\\adk-project\\agents\\diagnostic_agent\\standalone.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\.gitkeep",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\.gitkeep"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\approval_register.json",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\approval_register.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\diagnostic_articles.json",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\diagnostic_articles.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\escalation_policy.json",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\escalation_policy.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\historical_tickets.json",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\historical_tickets.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\resolver_groups.json",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\resolver_groups.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\reviewed\\approval_register.json",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\reviewed\\approval_register.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\reviewed\\diagnostic_articles.json",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\reviewed\\diagnostic_articles.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\routing_matrix.json",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\routing_matrix.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\adk-project\\knowledge\\taxonomy.json",
+    "destination": "diagnostic-agent\\adk-project\\knowledge\\taxonomy.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\add_self_service_articles.py",
+    "destination": "diagnostic-agent\\scripts\\add_self_service_articles.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\align_kb001_to_backend.py",
+    "destination": "diagnostic-agent\\scripts\\align_kb001_to_backend.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\align_remaining_articles_to_backend.py",
+    "destination": "diagnostic-agent\\scripts\\align_remaining_articles_to_backend.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\build_langgraph_package.py",
+    "destination": "diagnostic-agent\\scripts\\build_langgraph_package.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\build_patch_history_report.py",
+    "destination": "diagnostic-agent\\scripts\\build_patch_history_report.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\check_backend_connection.py",
+    "destination": "diagnostic-agent\\scripts\\check_backend_connection.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\check_failed_contracts.py",
+    "destination": "diagnostic-agent\\scripts\\check_failed_contracts.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\evaluate_independent_agent.py",
+    "destination": "diagnostic-agent\\scripts\\evaluate_independent_agent.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\evaluation_user.py",
+    "destination": "diagnostic-agent\\scripts\\evaluation_user.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\live_regression_matrix.py",
+    "destination": "diagnostic-agent\\scripts\\live_regression_matrix.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\prepare_practice_scenario.py",
+    "destination": "diagnostic-agent\\scripts\\prepare_practice_scenario.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\prepare_wxo_manual_test.py",
+    "destination": "diagnostic-agent\\scripts\\prepare_wxo_manual_test.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\render_patch_history_report.py",
+    "destination": "diagnostic-agent\\scripts\\render_patch_history_report.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\reproduce_legacy_import.py",
+    "destination": "diagnostic-agent\\scripts\\reproduce_legacy_import.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\review_and_approve_articles.py",
+    "destination": "diagnostic-agent\\scripts\\review_and_approve_articles.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\smoke_langgraph_backend.py",
+    "destination": "diagnostic-agent\\scripts\\smoke_langgraph_backend.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\smoke_local.py",
+    "destination": "diagnostic-agent\\scripts\\smoke_local.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\smoke_local_graph.py",
+    "destination": "diagnostic-agent\\scripts\\smoke_local_graph.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_conversational_backend.py",
+    "destination": "diagnostic-agent\\scripts\\verify_conversational_backend.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_langgraph_package.py",
+    "destination": "diagnostic-agent\\scripts\\verify_langgraph_package.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_natural_language_backend.py",
+    "destination": "diagnostic-agent\\scripts\\verify_natural_language_backend.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_v61_challenges.py",
+    "destination": "diagnostic-agent\\scripts\\verify_v61_challenges.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_v61_extended.py",
+    "destination": "diagnostic-agent\\scripts\\verify_v61_extended.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_v62_live_correction.py",
+    "destination": "diagnostic-agent\\scripts\\verify_v62_live_correction.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_v66_resolution.py",
+    "destination": "diagnostic-agent\\scripts\\verify_v66_resolution.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_v67_dialogues.py",
+    "destination": "diagnostic-agent\\scripts\\verify_v67_dialogues.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_v68_runtime.py",
+    "destination": "diagnostic-agent\\scripts\\verify_v68_runtime.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_v6_batch.py",
+    "destination": "diagnostic-agent\\scripts\\verify_v6_batch.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_v6_prepatch.py",
+    "destination": "diagnostic-agent\\scripts\\verify_v6_prepatch.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_vpn_reassessment.py",
+    "destination": "diagnostic-agent\\scripts\\verify_vpn_reassessment.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\scripts\\verify_vpn_sequence.py",
+    "destination": "diagnostic-agent\\scripts\\verify_vpn_sequence.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\fixtures\\natural_language_reports.json",
+    "destination": "diagnostic-agent\\tests\\fixtures\\natural_language_reports.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\fixtures\\stale_vpn_session.json",
+    "destination": "diagnostic-agent\\tests\\fixtures\\stale_vpn_session.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\fixtures\\v5_batch_reports.json",
+    "destination": "diagnostic-agent\\tests\\fixtures\\v5_batch_reports.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\fixtures\\vpn_after_no_v3.json",
+    "destination": "diagnostic-agent\\tests\\fixtures\\vpn_after_no_v3.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\fixtures\\wxo_v41_handoff.json",
+    "destination": "diagnostic-agent\\tests\\fixtures\\wxo_v41_handoff.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_api.py",
+    "destination": "diagnostic-agent\\tests\\test_api.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_backend_integration.py",
+    "destination": "diagnostic-agent\\tests\\test_backend_integration.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_conflicting_vpn_evidence.py",
+    "destination": "diagnostic-agent\\tests\\test_conflicting_vpn_evidence.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_conversation.py",
+    "destination": "diagnostic-agent\\tests\\test_conversation.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_engine.py",
+    "destination": "diagnostic-agent\\tests\\test_engine.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_engine_retrieval.py",
+    "destination": "diagnostic-agent\\tests\\test_engine_retrieval.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_guided_resolution_delivery.py",
+    "destination": "diagnostic-agent\\tests\\test_guided_resolution_delivery.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_history.py",
+    "destination": "diagnostic-agent\\tests\\test_history.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_interaction.py",
+    "destination": "diagnostic-agent\\tests\\test_interaction.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_knowledge.py",
+    "destination": "diagnostic-agent\\tests\\test_knowledge.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_langgraph_agent.py",
+    "destination": "diagnostic-agent\\tests\\test_langgraph_agent.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_models.py",
+    "destination": "diagnostic-agent\\tests\\test_models.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_native_scenario_matrix.py",
+    "destination": "diagnostic-agent\\tests\\test_native_scenario_matrix.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_natural_observations.py",
+    "destination": "diagnostic-agent\\tests\\test_natural_observations.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_result_contract.py",
+    "destination": "diagnostic-agent\\tests\\test_result_contract.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_reviewed_article_approval.py",
+    "destination": "diagnostic-agent\\tests\\test_reviewed_article_approval.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_runtime_packaging.py",
+    "destination": "diagnostic-agent\\tests\\test_runtime_packaging.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_self_service_articles.py",
+    "destination": "diagnostic-agent\\tests\\test_self_service_articles.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_stale_vpn_escalation.py",
+    "destination": "diagnostic-agent\\tests\\test_stale_vpn_escalation.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_standalone_agent.py",
+    "destination": "diagnostic-agent\\tests\\test_standalone_agent.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_v5_batch_patch.py",
+    "destination": "diagnostic-agent\\tests\\test_v5_batch_patch.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_v62_patch.py",
+    "destination": "diagnostic-agent\\tests\\test_v62_patch.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_v67_reasoning.py",
+    "destination": "diagnostic-agent\\tests\\test_v67_reasoning.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_v682_session_recovery.py",
+    "destination": "diagnostic-agent\\tests\\test_v682_session_recovery.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_v683_question_and_unknown_checks.py",
+    "destination": "diagnostic-agent\\tests\\test_v683_question_and_unknown_checks.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\tests\\test_v6_prepatch_findings.py",
+    "destination": "diagnostic-agent\\tests\\test_v6_prepatch_findings.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\article_approval_2026-10-25.md",
+    "destination": "diagnostic-agent\\docs\\article_approval_2026-10-25.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\article_review_2026-10-25.json",
+    "destination": "diagnostic-agent\\docs\\article_review_2026-10-25.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\article_review_2026-10-25.md",
+    "destination": "diagnostic-agent\\docs\\article_review_2026-10-25.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\backend_article_alignment.json",
+    "destination": "diagnostic-agent\\docs\\backend_article_alignment.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\backend_article_reference.json",
+    "destination": "diagnostic-agent\\docs\\backend_article_reference.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\backend_kb001_reference.json",
+    "destination": "diagnostic-agent\\docs\\backend_kb001_reference.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\chat_scenarios_2026-10-25.json",
+    "destination": "diagnostic-agent\\docs\\chat_scenarios_2026-10-25.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\CHAT_SCENARIOS_2026-10-25.md",
+    "destination": "diagnostic-agent\\docs\\CHAT_SCENARIOS_2026-10-25.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\CHK-37c7aba9be684638.json",
+    "destination": "diagnostic-agent\\docs\\CHK-37c7aba9be684638.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\CHK-9d22ad1c02e64c7a.json",
+    "destination": "diagnostic-agent\\docs\\CHK-9d22ad1c02e64c7a.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\CHK-b6adfc1c9f784a84.json",
+    "destination": "diagnostic-agent\\docs\\CHK-b6adfc1c9f784a84.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\CHK-f6b3cd70a0c64c9b.json",
+    "destination": "diagnostic-agent\\docs\\CHK-f6b3cd70a0c64c9b.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\CONSOLIDATED_DEBUGGING_REPORT.md",
+    "destination": "diagnostic-agent\\docs\\CONSOLIDATED_DEBUGGING_REPORT.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\conversational_backend_verification.json",
+    "destination": "diagnostic-agent\\docs\\conversational_backend_verification.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\DECISION_FLOW.md",
+    "destination": "diagnostic-agent\\docs\\DECISION_FLOW.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\diagnostic-result.schema.json",
+    "destination": "diagnostic-agent\\docs\\diagnostic-result.schema.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\DIAGNOSTIC_AGENT_READINESS.md",
+    "destination": "diagnostic-agent\\docs\\DIAGNOSTIC_AGENT_READINESS.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\DIAGNOSTIC_RESULT_CONTRACT.md",
+    "destination": "diagnostic-agent\\docs\\DIAGNOSTIC_RESULT_CONTRACT.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\EXTERNAL_INTERFACE_NOT_IMPLEMENTED.md",
+    "destination": "diagnostic-agent\\docs\\EXTERNAL_INTERFACE_NOT_IMPLEMENTED.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\fresh_v61_chat_tests.json",
+    "destination": "diagnostic-agent\\docs\\fresh_v61_chat_tests.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\independent_evaluation_after.json",
+    "destination": "diagnostic-agent\\docs\\independent_evaluation_after.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\independent_evaluation_before.json",
+    "destination": "diagnostic-agent\\docs\\independent_evaluation_before.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\kb001_backend_alignment.json",
+    "destination": "diagnostic-agent\\docs\\kb001_backend_alignment.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\live_regression_results.json",
+    "destination": "diagnostic-agent\\docs\\live_regression_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\live_regression_results_before.json",
+    "destination": "diagnostic-agent\\docs\\live_regression_results_before.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\LOCAL_API_AND_ORCHESTRATE.md",
+    "destination": "diagnostic-agent\\docs\\LOCAL_API_AND_ORCHESTRATE.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\LOCAL_VERIFICATION.md",
+    "destination": "diagnostic-agent\\docs\\LOCAL_VERIFICATION.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\NATIVE_LANGGRAPH_IMPORT.md",
+    "destination": "diagnostic-agent\\docs\\NATIVE_LANGGRAPH_IMPORT.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\natural_language_backend_verification.json",
+    "destination": "diagnostic-agent\\docs\\natural_language_backend_verification.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\patch_history_inventory.json",
+    "destination": "diagnostic-agent\\docs\\patch_history_inventory.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\practice_password_scenario.json",
+    "destination": "diagnostic-agent\\docs\\practice_password_scenario.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\pre_backend_alignment_articles.json",
+    "destination": "diagnostic-agent\\docs\\pre_backend_alignment_articles.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\project_artifacts\\article_id_migration.json",
+    "destination": "diagnostic-agent\\docs\\project_artifacts\\article_id_migration.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\project_artifacts\\backend_validation.json",
+    "destination": "diagnostic-agent\\docs\\project_artifacts\\backend_validation.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\project_artifacts\\retrieval_test_log.json",
+    "destination": "diagnostic-agent\\docs\\project_artifacts\\retrieval_test_log.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\.qa_patch_history\\ISYS_Diagnostic_Agent_Patch_History.pdf",
+    "destination": "diagnostic-agent\\docs\\reports\\.qa_patch_history\\ISYS_Diagnostic_Agent_Patch_History.pdf"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\.qa_patch_history\\page-1.png",
+    "destination": "diagnostic-agent\\docs\\reports\\.qa_patch_history\\page-1.png"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\.qa_patch_history\\page-2.png",
+    "destination": "diagnostic-agent\\docs\\reports\\.qa_patch_history\\page-2.png"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\.qa_patch_history\\page-3.png",
+    "destination": "diagnostic-agent\\docs\\reports\\.qa_patch_history\\page-3.png"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\.qa_patch_history\\page-4.png",
+    "destination": "diagnostic-agent\\docs\\reports\\.qa_patch_history\\page-4.png"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\.qa_patch_history\\page-5.png",
+    "destination": "diagnostic-agent\\docs\\reports\\.qa_patch_history\\page-5.png"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\.qa_patch_history\\page-6.png",
+    "destination": "diagnostic-agent\\docs\\reports\\.qa_patch_history\\page-6.png"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\.qa_patch_history\\page-7.png",
+    "destination": "diagnostic-agent\\docs\\reports\\.qa_patch_history\\page-7.png"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\.qa_patch_history\\page-8.png",
+    "destination": "diagnostic-agent\\docs\\reports\\.qa_patch_history\\page-8.png"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\ISYS_Diagnostic_Agent_Patch_History.docx",
+    "destination": "diagnostic-agent\\docs\\reports\\ISYS_Diagnostic_Agent_Patch_History.docx"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\reports\\ISYS_Diagnostic_Agent_Patch_History.md",
+    "destination": "diagnostic-agent\\docs\\reports\\ISYS_Diagnostic_Agent_Patch_History.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\self_service_article_manifest.json",
+    "destination": "diagnostic-agent\\docs\\self_service_article_manifest.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v5_batch_test_tickets.json",
+    "destination": "diagnostic-agent\\docs\\v5_batch_test_tickets.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v6.1_patch_notes.md",
+    "destination": "diagnostic-agent\\docs\\v6.1_patch_notes.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v6.2_patch_notes.md",
+    "destination": "diagnostic-agent\\docs\\v6.2_patch_notes.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v6.3_patch_notes.md",
+    "destination": "diagnostic-agent\\docs\\v6.3_patch_notes.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v6.4_patch_notes.md",
+    "destination": "diagnostic-agent\\docs\\v6.4_patch_notes.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v6.5_patch_notes.md",
+    "destination": "diagnostic-agent\\docs\\v6.5_patch_notes.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v61_challenge_results.json",
+    "destination": "diagnostic-agent\\docs\\v61_challenge_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v61_extended_results.json",
+    "destination": "diagnostic-agent\\docs\\v61_extended_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v61_extended_test_notes.md",
+    "destination": "diagnostic-agent\\docs\\v61_extended_test_notes.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v61_followup_test_notes.md",
+    "destination": "diagnostic-agent\\docs\\v61_followup_test_notes.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v61_verification_results.json",
+    "destination": "diagnostic-agent\\docs\\v61_verification_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v62_backend_results.json",
+    "destination": "diagnostic-agent\\docs\\v62_backend_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v62_challenge_results.json",
+    "destination": "diagnostic-agent\\docs\\v62_challenge_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v62_extended_results.json",
+    "destination": "diagnostic-agent\\docs\\v62_extended_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v62_live_correction_attempt.json",
+    "destination": "diagnostic-agent\\docs\\v62_live_correction_attempt.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v62_live_correction_results.json",
+    "destination": "diagnostic-agent\\docs\\v62_live_correction_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v63_challenge_results.json",
+    "destination": "diagnostic-agent\\docs\\v63_challenge_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v63_extended_results.json",
+    "destination": "diagnostic-agent\\docs\\v63_extended_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v64_challenge_results.json",
+    "destination": "diagnostic-agent\\docs\\v64_challenge_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v64_extended_results.json",
+    "destination": "diagnostic-agent\\docs\\v64_extended_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v65_challenge_results.json",
+    "destination": "diagnostic-agent\\docs\\v65_challenge_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v65_extended_results.json",
+    "destination": "diagnostic-agent\\docs\\v65_extended_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v66_challenge_results.json",
+    "destination": "diagnostic-agent\\docs\\v66_challenge_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v66_extended_results.json",
+    "destination": "diagnostic-agent\\docs\\v66_extended_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v66_live_resolution_results.json",
+    "destination": "diagnostic-agent\\docs\\v66_live_resolution_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v67_challenge_results.json",
+    "destination": "diagnostic-agent\\docs\\v67_challenge_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v67_dialogue_results.json",
+    "destination": "diagnostic-agent\\docs\\v67_dialogue_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v67_evaluation_after.json",
+    "destination": "diagnostic-agent\\docs\\v67_evaluation_after.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v67_evaluation_baseline.json",
+    "destination": "diagnostic-agent\\docs\\v67_evaluation_baseline.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v67_extended_results.json",
+    "destination": "diagnostic-agent\\docs\\v67_extended_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v67_live_resolution_results.json",
+    "destination": "diagnostic-agent\\docs\\v67_live_resolution_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\V67_REASONING_PATCH.md",
+    "destination": "diagnostic-agent\\docs\\V67_REASONING_PATCH.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v67_validation_summary.json",
+    "destination": "diagnostic-agent\\docs\\v67_validation_summary.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v681_dialogue_results.json",
+    "destination": "diagnostic-agent\\docs\\v681_dialogue_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\V681_KB001_GUIDANCE.md",
+    "destination": "diagnostic-agent\\docs\\V681_KB001_GUIDANCE.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v68_dialogue_results.json",
+    "destination": "diagnostic-agent\\docs\\v68_dialogue_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\V68_RUNTIME_PATCH.md",
+    "destination": "diagnostic-agent\\docs\\V68_RUNTIME_PATCH.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v68_runtime_results.json",
+    "destination": "diagnostic-agent\\docs\\v68_runtime_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\V6_CONSOLIDATED_PATCH.md",
+    "destination": "diagnostic-agent\\docs\\V6_CONSOLIDATED_PATCH.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v6_live_batch_results.json",
+    "destination": "diagnostic-agent\\docs\\v6_live_batch_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v6_prepatch_findings.md",
+    "destination": "diagnostic-agent\\docs\\v6_prepatch_findings.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\v6_prepatch_results.json",
+    "destination": "diagnostic-agent\\docs\\v6_prepatch_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\wxo_v67_prepared_tickets.json",
+    "destination": "diagnostic-agent\\docs\\wxo_v67_prepared_tickets.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\docs\\WXO_V67_TEST_SCENARIOS.md",
+    "destination": "diagnostic-agent\\docs\\WXO_V67_TEST_SCENARIOS.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\examples\\ticket.json",
+    "destination": "diagnostic-agent\\examples\\ticket.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\wxo_langgraph\\agent.py",
+    "destination": "diagnostic-agent\\wxo_langgraph\\agent.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\wxo_langgraph\\agent.yaml",
+    "destination": "diagnostic-agent\\wxo_langgraph\\agent.yaml"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\wxo_langgraph\\requirements.txt",
+    "destination": "diagnostic-agent\\wxo_langgraph\\requirements.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\server.py",
+    "destination": "diagnostic-agent/server.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\serve.py",
+    "destination": "diagnostic-agent/serve.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\Start-Agent.ps1",
+    "destination": "diagnostic-agent/Start-Agent.ps1"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\pyproject.toml",
+    "destination": "diagnostic-agent/pyproject.toml"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\requirements.txt",
+    "destination": "diagnostic-agent/requirements.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\requirements-dev.txt",
+    "destination": "diagnostic-agent/requirements-dev.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\README.md",
+    "destination": "diagnostic-agent/README.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\diagnostic-agent.openapi.json",
+    "destination": "diagnostic-agent/diagnostic-agent.openapi.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\agent.openapi.json",
+    "destination": "diagnostic-agent/agent.openapi.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\INTERACTIVE_ANSWER_AND_RANKING_GUIDE.md",
+    "destination": "diagnostic-agent/INTERACTIVE_ANSWER_AND_RANKING_GUIDE.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\Documents\\WXOEXP\\Agents\\ZIP\\isys-diagnostic-langgraph-v6.8.3.zip",
+    "destination": "diagnostic-agent/dist/isys-diagnostic-langgraph-v6.8.3.zip"
+  },
+  {
+    "source": "C:\\Users\\dadae\\Documents\\WXOEXP\\Agents\\ZIP\\isys-diagnostic-langgraph-v6.8.3.zip",
+    "destination": "Agents/ZIP/ISYS_Diagnostic_Agent_v6.8.3.zip"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\dist\\isys-diagnostic-langgraph-v6.7.zip",
+    "destination": "diagnostic-agent/dist/isys-diagnostic-langgraph-v6.7.zip"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\IT-Diagnosis-Agent-final\\IT-Diagnosis-Agent-final\\dist\\isys-diagnostic-langgraph-v6.8.zip",
+    "destination": "diagnostic-agent/dist/isys-diagnostic-langgraph-v6.8.zip"
+  },
+  {
+    "source": "C:\\Users\\dadae\\Documents\\WXOEXP\\Agents\\Untitled_Agent_1_7866Br\\Untitled_Agent_1_7866Br\\knowledge_bases\\IT_Diag_Knowledge_4328i9.yaml",
+    "destination": "Agents/Routing_Agent/knowledge_bases/IT_Diag_Knowledge_4328i9.yaml"
+  },
+  {
+    "source": "C:\\Users\\dadae\\Documents\\WXOEXP\\Agents\\Untitled_Agent_1_0666Sy\\Untitled_Agent_1_0666Sy\\knowledge_bases\\IT_Diag_Knowledge_4328i9.yaml",
+    "destination": "Agents/Escalation_Outage_Agent/knowledge_bases/IT_Diag_Knowledge_4328i9.yaml"
+  },
+  {
+    "source": "C:\\Users\\dadae\\Documents\\WXOEXP\\Agents\\Untitled_Agent_1_0666Sy\\Untitled_Agent_1_0666Sy\\knowledge_bases\\IT_Diag_Knowledge_4328i9.yaml",
+    "destination": "Agents/IT_Support_Supervisor/knowledge_bases/IT_Diag_Knowledge_4328i9.yaml"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\approval_register.json",
+    "destination": "knowledge\\approval_register.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\article_id_migration.json",
+    "destination": "knowledge\\article_id_migration.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\backend_import\\diagnostic_articles.json",
+    "destination": "knowledge\\backend_import\\diagnostic_articles.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\backend_import\\escalation_policy.json",
+    "destination": "knowledge\\backend_import\\escalation_policy.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\backend_import\\resolver_groups.json",
+    "destination": "knowledge\\backend_import\\resolver_groups.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\backend_import\\routing_matrix.json",
+    "destination": "knowledge\\backend_import\\routing_matrix.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\backend_import\\taxonomy.json",
+    "destination": "knowledge\\backend_import\\taxonomy.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\backend_validation.json",
+    "destination": "knowledge\\backend_validation.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\orchestrate_retrieval_test_plan.json",
+    "destination": "knowledge\\orchestrate_retrieval_test_plan.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\review_and_upload_guide.md",
+    "destination": "knowledge\\review_and_upload_guide.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\assumptions_and_decisions.md",
+    "destination": "knowledge\\source\\assumptions_and_decisions.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\diagnostic_articles.json",
+    "destination": "knowledge\\source\\diagnostic_articles.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\escalation_policy.json",
+    "destination": "knowledge\\source\\escalation_policy.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\README.md",
+    "destination": "knowledge\\source\\README.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\resolver_groups.json",
+    "destination": "knowledge\\source\\resolver_groups.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\retrieval_test_log.csv",
+    "destination": "knowledge\\source\\retrieval_test_log.csv"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\retrieval_test_log.json",
+    "destination": "knowledge\\source\\retrieval_test_log.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\retrieval_test_report.md",
+    "destination": "knowledge\\source\\retrieval_test_report.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\routing_matrix.json",
+    "destination": "knowledge\\source\\routing_matrix.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\schema_and_field_mapping.md",
+    "destination": "knowledge\\source\\schema_and_field_mapping.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\workstream_b_reviewed\\source\\taxonomy.json",
+    "destination": "knowledge\\source\\taxonomy.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\Workstream A\\ground_truth.json",
+    "destination": "evaluation/workstream_a/ground_truth.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\Workstream A\\historical_tickets.json",
+    "destination": "evaluation/workstream_a/historical_tickets.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\Workstream A\\TestSet_Tickets.json",
+    "destination": "evaluation/workstream_a/TestSet_Tickets.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\Workstream A\\workstream_a_merge_report.md",
+    "destination": "evaluation/workstream_a/merge_report.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\ALL_TEST_CASES.json",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\ALL_TEST_CASES.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\build_supervisor_only_test_pack_v2.py",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\build_supervisor_only_test_pack_v2.py"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\COVERAGE.json",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\COVERAGE.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\FAILURE_REPORT_TEMPLATE.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\FAILURE_REPORT_TEMPLATE.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\FIXTURE_REQUIREMENTS.md",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\FIXTURE_REQUIREMENTS.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\FULL_SCENARIOS.md",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\FULL_SCENARIOS.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-01.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-01.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-02.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-02.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-03.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-03.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-04.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-04.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-05.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-05.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-06.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-06.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-07.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-07.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-08.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-08.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-09.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-09.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-10.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-10.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-11.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-11.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-12.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-12.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-13.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-13.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-14.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-14.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-15.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-15.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-16.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-16.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-17.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-17.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-18.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-18.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-19.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-19.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-20.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-20.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-21.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-21.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-22.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-22.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-23.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-23.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-24.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-24.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-25.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-25.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-26.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-26.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-27.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-27.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-28.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-28.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-29.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-29.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-30.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-30.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-31.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-31.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-32.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-32.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-33.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-33.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-34.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-34.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-35.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-35.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-36.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\individual_tests\\SYS-36.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\RESULTS.csv",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\RESULTS.csv"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\START_HERE.md",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\START_HERE.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\TEST_PACK_v2.0_CHANGE_NOTES.txt",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\TEST_PACK_v2.0_CHANGE_NOTES.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_only_acceptance_v2.0_2026-10-28\\VERSION_MANIFEST.json",
+    "destination": "evaluation\\supervisor_only_acceptance_v2.0_2026-10-28\\VERSION_MANIFEST.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_end_to_end_tests\\execution_results.json",
+    "destination": "evaluation\\supervisor_end_to_end_tests\\execution_results.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_end_to_end_tests\\README.md",
+    "destination": "evaluation\\supervisor_end_to_end_tests\\README.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_end_to_end_tests\\scenarios.json",
+    "destination": "evaluation\\supervisor_end_to_end_tests\\scenarios.json"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\supervisor_end_to_end_tests\\SUPERVISOR_END_TO_END_SCENARIOS.md",
+    "destination": "evaluation\\supervisor_end_to_end_tests\\SUPERVISOR_END_TO_END_SCENARIOS.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\Project Description.txt",
+    "destination": "docs/PROJECT_REQUIREMENTS.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\coordination_guide",
+    "destination": "docs/TEAM_CONTRACT.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\architecture_diagram.svg",
+    "destination": "docs/architecture_diagram.svg"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\diagnostic_decision_flow.md",
+    "destination": "docs/diagnostic_decision_flow.md"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\agent_instruction_patches\\IT_Support_Supervisor_v1.16.txt",
+    "destination": "docs/agent-instructions/IT_Support_Supervisor_v1.16.txt"
+  },
+  {
+    "source": "C:\\Users\\dadae\\OneDrive\\Desktop\\ISYS_IT_DIAG\\output\\agent_instruction_patches\\IT_Support_Supervisor_GUIDELINES_v1.5.txt",
+    "destination": "docs/agent-instructions/IT_Support_Supervisor_GUIDELINES_v1.5.txt"
+  }
+]

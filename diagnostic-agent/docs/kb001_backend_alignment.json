@@ -1,0 +1,47 @@
+{
+  "article_id": "KB-001",
+  "previous_local_version": 3,
+  "backend_version": 1,
+  "local_equals_backend": true,
+  "backend_modified": false,
+  "article_sha256": "c03613efbaea10464910a7c9bdbb44714a8df5716fde2c31cfefb07ee81c7bc2",
+  "changed_fields": [
+    "competing_diagnoses",
+    "discriminating_questions",
+    "exclusion_criteria",
+    "mandatory_human_escalation_conditions",
+    "possible_causes",
+    "required_evidence",
+    "resolution_conditions",
+    "resolution_steps",
+    "safe_checks",
+    "symptoms_ar",
+    "symptoms_en",
+    "version"
+  ],
+  "step_ids": [
+    "PASSWORD_EXPIRED-1"
+  ],
+  "conditions": [
+    {
+      "tool": "check_account_status",
+      "field": "password_expired",
+      "equals": "TRUE"
+    },
+    {
+      "tool": "check_account_status",
+      "field": "enabled",
+      "equals": "TRUE"
+    },
+    {
+      "tool": "check_account_status",
+      "field": "locked",
+      "equals": "FALSE"
+    },
+    {
+      "tool": "check_account_status",
+      "field": "mfa_locked",
+      "equals": "FALSE"
+    }
+  ]
+}

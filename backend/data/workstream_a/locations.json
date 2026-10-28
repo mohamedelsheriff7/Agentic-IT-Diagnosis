@@ -1,0 +1,30 @@
+[
+  {
+    "id": "LOC-A",
+    "label": "Synthetic site A"
+  },
+  {
+    "id": "LOC-B",
+    "label": "Synthetic site B"
+  },
+  {
+    "id": "LOC-C",
+    "label": "Synthetic site C"
+  },
+  {
+    "id": "LOC-D",
+    "label": "Synthetic site D"
+  },
+  {
+    "id": "LOC-E",
+    "label": "Synthetic site E"
+  },
+  {
+    "id": "LOC-F",
+    "label": "Synthetic site F"
+  },
+  {
+    "id": "LOC-G",
+    "label": "Synthetic site G"
+  }
+]

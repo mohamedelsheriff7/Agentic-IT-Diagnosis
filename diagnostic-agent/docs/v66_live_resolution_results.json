@@ -1,0 +1,890 @@
+{
+  "ticket_id": "INC-a9d86f2d46464b05",
+  "passed": true,
+  "turns": [
+    {
+      "user": "Investigate INC-a9d86f2d46464b05",
+      "reply": "The account check shows an expired password. I need one more detail to confirm the issue.\n\nCan you access other corporate applications with the same account?\n\nTicket: INC-a9d86f2d46464b05 · Ref: CHK-505408ba4f7949f5",
+      "result": {
+        "contract_version": "1.0",
+        "ticket_id": "INC-a9d86f2d46464b05",
+        "diagnostic_result_id": "DR-d5ae09f1ca9245f4",
+        "diagnostic_result_version": 1,
+        "diagnosis": null,
+        "outcome": "INCONCLUSIVE",
+        "evidence": [
+          {
+            "evidence_id": "EV-d88aae9ede144806",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-d88aae9ede144806'}",
+            "value": {
+              "user_id": "USR-001",
+              "enabled": "TRUE",
+              "locked": "FALSE",
+              "password_expired": "TRUE",
+              "mfa_enrolled": "TRUE",
+              "mfa_locked": "FALSE",
+              "observed_at": "2026-10-01T12:00:00Z",
+              "evidence_id": "EV-d88aae9ede144806"
+            },
+            "source": "diagnostic_check",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS"
+            ],
+            "contradicts": [
+              "ACCOUNT_LOCKED"
+            ]
+          }
+        ],
+        "evidence_ids": [
+          "EV-d88aae9ede144806"
+        ],
+        "confidence": "LOW",
+        "confidence_basis": {
+          "historical_counts": {
+            "matching": null,
+            "comparison_diagnosis_code": null,
+            "reviewed": 5,
+            "ticket_ids": [
+              "HIS-0020",
+              "HIS-0076",
+              "HIS-0089",
+              "HIS-0161",
+              "HIS-0191"
+            ]
+          },
+          "knowledge_match_strength": "HIGH",
+          "evidence_completeness": "MEDIUM",
+          "historical_agreement": "NOT_AVAILABLE",
+          "alternatives_excluded": false
+        },
+        "recommended_action": "ASK_MORE",
+        "rationale": "More evidence is needed. No diagnosis is confirmed by this step.",
+        "next_question": "Can you access other corporate applications with the same account?",
+        "knowledge_sources": [
+          {
+            "article_id": "KB-001",
+            "version": 1,
+            "approved": true,
+            "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE",
+            "backend_reference": false
+          }
+        ],
+        "historical_ticket_ids": [
+          "HIS-0020",
+          "HIS-0076",
+          "HIS-0089",
+          "HIS-0161",
+          "HIS-0191"
+        ],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 1 diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 5 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 3,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 4,
+            "event_type": "question_selected",
+            "description": "Does the sign-in screen explicitly say the password has expired?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 5,
+            "event_type": "evidence_added",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-d88aae9ede144806'}",
+            "evidence_ids": [
+              "EV-d88aae9ede144806"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS",
+              "ACCOUNT_LOCKED"
+            ],
+            "rationale": "Evidence source: diagnostic_check."
+          }
+        ],
+        "completed_actions": [],
+        "resolution_progress": null,
+        "error": null
+      }
+    },
+    {
+      "user": "I cannot access other corporate applications with this account either.",
+      "reply": "The diagnosis is an expired password, and the recorded account checks permit approved self-service.\n\nAsk the user to complete the approved self-service password change flow; never ask for their password.\n\nHave you completed this step? Do not share passwords or verification codes.\n\nTicket: INC-a9d86f2d46464b05 · Ref: CHK-8e1053594dfc4d11",
+      "result": {
+        "contract_version": "1.0",
+        "ticket_id": "INC-a9d86f2d46464b05",
+        "diagnostic_result_id": "DR-929785fcd3dd441e",
+        "diagnostic_result_version": 2,
+        "diagnosis": "PASSWORD_EXPIRED",
+        "outcome": "RESOLVE_READY",
+        "evidence": [
+          {
+            "evidence_id": "EV-d88aae9ede144806",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-d88aae9ede144806'}",
+            "value": {
+              "user_id": "USR-001",
+              "enabled": "TRUE",
+              "locked": "FALSE",
+              "password_expired": "TRUE",
+              "mfa_enrolled": "TRUE",
+              "mfa_locked": "FALSE",
+              "observed_at": "2026-10-01T12:00:00Z",
+              "evidence_id": "EV-d88aae9ede144806"
+            },
+            "source": "diagnostic_check",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS"
+            ],
+            "contradicts": [
+              "ACCOUNT_LOCKED"
+            ]
+          },
+          {
+            "evidence_id": "EV-77def9018f334f49",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "value": "I cannot access other corporate applications with this account either.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "contradicts": []
+          }
+        ],
+        "evidence_ids": [
+          "EV-d88aae9ede144806",
+          "EV-77def9018f334f49"
+        ],
+        "confidence": "HIGH",
+        "confidence_basis": {
+          "historical_counts": {
+            "matching": 5,
+            "comparison_diagnosis_code": "PASSWORD_EXPIRED",
+            "reviewed": 5,
+            "ticket_ids": [
+              "HIS-0020",
+              "HIS-0076",
+              "HIS-0089",
+              "HIS-0161",
+              "HIS-0191"
+            ]
+          },
+          "knowledge_match_strength": "HIGH",
+          "evidence_completeness": "HIGH",
+          "historical_agreement": "AGREES",
+          "alternatives_excluded": false
+        },
+        "recommended_action": "RESOLVE",
+        "rationale": "PASSWORD_EXPIRED is supported by 1 diagnostic-check item(s) and 1 consistent user-answer item(s) with no contradictions. This heuristic confidence is not a calibrated probability. The case is recommended for routing; no fix was executed. Diagnostic guidance sources: KB-001. Guidance retrieval does not approve a repair.",
+        "next_question": "Ask the user to complete the approved self-service password change flow; never ask for their password. Have you completed this step? Do not share passwords or verification codes.",
+        "knowledge_sources": [
+          {
+            "article_id": "KB-001",
+            "version": 1,
+            "approved": true,
+            "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE",
+            "backend_reference": false
+          }
+        ],
+        "historical_ticket_ids": [
+          "HIS-0020",
+          "HIS-0076",
+          "HIS-0089",
+          "HIS-0161",
+          "HIS-0191"
+        ],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 1 diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 5 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 3,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 4,
+            "event_type": "question_selected",
+            "description": "Does the sign-in screen explicitly say the password has expired?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 5,
+            "event_type": "evidence_added",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-d88aae9ede144806'}",
+            "evidence_ids": [
+              "EV-d88aae9ede144806"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS",
+              "ACCOUNT_LOCKED"
+            ],
+            "rationale": "Evidence source: diagnostic_check."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can you access other corporate applications with the same account?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "evidence_ids": [
+              "EV-77def9018f334f49"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "diagnosis_supported",
+            "description": "Evidence threshold met for PASSWORD_EXPIRED.",
+            "evidence_ids": [
+              "EV-77def9018f334f49",
+              "EV-d88aae9ede144806"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "PASSWORD_EXPIRED is supported by 1 diagnostic-check item(s) and 1 consistent user-answer item(s) with no contradictions. This heuristic confidence is not a calibrated probability. The case is recommended for routing; no fix was executed. Diagnostic guidance sources: KB-001. Guidance retrieval does not approve a repair."
+          },
+          {
+            "step_number": 9,
+            "event_type": "resolution_started",
+            "description": "Resolution walk-through started for PASSWORD_EXPIRED using article KB-001.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Article is approved and agent_resolvable=True. No SPECIALIST steps are presented."
+          }
+        ],
+        "completed_actions": [],
+        "resolution_progress": {
+          "article_id": "KB-001",
+          "stage": "WAIT_STEP",
+          "step_index": 0,
+          "completed_step_ids": [],
+          "steps": [
+            {
+              "step_id": "PASSWORD_EXPIRED-1",
+              "level": "SELF_SERVICE",
+              "instruction": "Ask the user to complete the approved self-service password change flow; never ask for their password."
+            }
+          ],
+          "user_confirmed_success": false
+        },
+        "error": null
+      }
+    },
+    {
+      "user": "done",
+      "reply": "The approved step is recorded as completed. Does the original sign-in problem now work correctly? Please explicitly confirm yes or no.\n\nTicket: INC-a9d86f2d46464b05 · Ref: CHK-c64580cb4fad4162",
+      "result": {
+        "contract_version": "1.0",
+        "ticket_id": "INC-a9d86f2d46464b05",
+        "diagnostic_result_id": "DR-8ca76277fe8147f3",
+        "diagnostic_result_version": 3,
+        "diagnosis": "PASSWORD_EXPIRED",
+        "outcome": "RESOLVE_READY",
+        "evidence": [
+          {
+            "evidence_id": "EV-d88aae9ede144806",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-d88aae9ede144806'}",
+            "value": {
+              "user_id": "USR-001",
+              "enabled": "TRUE",
+              "locked": "FALSE",
+              "password_expired": "TRUE",
+              "mfa_enrolled": "TRUE",
+              "mfa_locked": "FALSE",
+              "observed_at": "2026-10-01T12:00:00Z",
+              "evidence_id": "EV-d88aae9ede144806"
+            },
+            "source": "diagnostic_check",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS"
+            ],
+            "contradicts": [
+              "ACCOUNT_LOCKED"
+            ]
+          },
+          {
+            "evidence_id": "EV-77def9018f334f49",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "value": "I cannot access other corporate applications with this account either.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "contradicts": []
+          },
+          {
+            "evidence_id": "EV-63798c0cc40e4c90",
+            "description": "User answered guided resolution: WAIT_STEP",
+            "value": "done",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "evidence_ids": [
+          "EV-d88aae9ede144806",
+          "EV-77def9018f334f49",
+          "EV-63798c0cc40e4c90"
+        ],
+        "confidence": "HIGH",
+        "confidence_basis": {
+          "historical_counts": {
+            "matching": 5,
+            "comparison_diagnosis_code": "PASSWORD_EXPIRED",
+            "reviewed": 5,
+            "ticket_ids": [
+              "HIS-0020",
+              "HIS-0076",
+              "HIS-0089",
+              "HIS-0161",
+              "HIS-0191"
+            ]
+          },
+          "knowledge_match_strength": "HIGH",
+          "evidence_completeness": "HIGH",
+          "historical_agreement": "AGREES",
+          "alternatives_excluded": false
+        },
+        "recommended_action": "RESOLVE",
+        "rationale": "Approved self-service guidance is in progress; step completion and explicit original-problem confirmation remain separate requirements.",
+        "next_question": "Does the original sign-in problem now work correctly? Please explicitly confirm yes or no.",
+        "knowledge_sources": [
+          {
+            "article_id": "KB-001",
+            "version": 1,
+            "approved": true,
+            "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE",
+            "backend_reference": false
+          }
+        ],
+        "historical_ticket_ids": [
+          "HIS-0020",
+          "HIS-0076",
+          "HIS-0089",
+          "HIS-0161",
+          "HIS-0191"
+        ],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 1 diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 5 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 3,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 4,
+            "event_type": "question_selected",
+            "description": "Does the sign-in screen explicitly say the password has expired?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 5,
+            "event_type": "evidence_added",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-d88aae9ede144806'}",
+            "evidence_ids": [
+              "EV-d88aae9ede144806"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS",
+              "ACCOUNT_LOCKED"
+            ],
+            "rationale": "Evidence source: diagnostic_check."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can you access other corporate applications with the same account?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "evidence_ids": [
+              "EV-77def9018f334f49"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "diagnosis_supported",
+            "description": "Evidence threshold met for PASSWORD_EXPIRED.",
+            "evidence_ids": [
+              "EV-77def9018f334f49",
+              "EV-d88aae9ede144806"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "PASSWORD_EXPIRED is supported by 1 diagnostic-check item(s) and 1 consistent user-answer item(s) with no contradictions. This heuristic confidence is not a calibrated probability. The case is recommended for routing; no fix was executed. Diagnostic guidance sources: KB-001. Guidance retrieval does not approve a repair."
+          },
+          {
+            "step_number": 9,
+            "event_type": "resolution_started",
+            "description": "Resolution walk-through started for PASSWORD_EXPIRED using article KB-001.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Article is approved and agent_resolvable=True. No SPECIALIST steps are presented."
+          },
+          {
+            "step_number": 10,
+            "event_type": "resolution_started",
+            "description": "Resolution walk-through started for PASSWORD_EXPIRED using article KB-001.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Article is approved and agent_resolvable=True. No SPECIALIST steps are presented."
+          }
+        ],
+        "completed_actions": [],
+        "resolution_progress": {
+          "article_id": "KB-001",
+          "stage": "WAIT_SUCCESS",
+          "step_index": 1,
+          "completed_step_ids": [
+            "PASSWORD_EXPIRED-1"
+          ],
+          "steps": [
+            {
+              "step_id": "PASSWORD_EXPIRED-1",
+              "level": "SELF_SERVICE",
+              "instruction": "Ask the user to complete the approved self-service password change flow; never ask for their password."
+            }
+          ],
+          "user_confirmed_success": false
+        },
+        "error": null
+      }
+    },
+    {
+      "user": "yes",
+      "reply": "The ticket system confirmed that the issue is resolved.\n\nTicket: INC-a9d86f2d46464b05 · Ref: CHK-c64580cb4fad4162",
+      "result": {
+        "contract_version": "1.0",
+        "ticket_id": "INC-a9d86f2d46464b05",
+        "diagnostic_result_id": "DR-d44086afd67a4323",
+        "diagnostic_result_version": 4,
+        "diagnosis": "PASSWORD_EXPIRED",
+        "outcome": "RESOLVED",
+        "evidence": [
+          {
+            "evidence_id": "EV-d88aae9ede144806",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-d88aae9ede144806'}",
+            "value": {
+              "user_id": "USR-001",
+              "enabled": "TRUE",
+              "locked": "FALSE",
+              "password_expired": "TRUE",
+              "mfa_enrolled": "TRUE",
+              "mfa_locked": "FALSE",
+              "observed_at": "2026-10-01T12:00:00Z",
+              "evidence_id": "EV-d88aae9ede144806"
+            },
+            "source": "diagnostic_check",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS"
+            ],
+            "contradicts": [
+              "ACCOUNT_LOCKED"
+            ]
+          },
+          {
+            "evidence_id": "EV-77def9018f334f49",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "value": "I cannot access other corporate applications with this account either.",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "contradicts": []
+          },
+          {
+            "evidence_id": "EV-63798c0cc40e4c90",
+            "description": "User answered guided resolution: WAIT_STEP",
+            "value": "done",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          },
+          {
+            "evidence_id": "EV-b03440ccb594427d",
+            "description": "User answered guided resolution: WAIT_SUCCESS",
+            "value": "yes",
+            "source": "user_answer",
+            "timestamp": null,
+            "supports": [],
+            "contradicts": []
+          }
+        ],
+        "evidence_ids": [
+          "EV-d88aae9ede144806",
+          "EV-77def9018f334f49",
+          "EV-63798c0cc40e4c90",
+          "EV-b03440ccb594427d"
+        ],
+        "confidence": "HIGH",
+        "confidence_basis": {
+          "historical_counts": {
+            "matching": 5,
+            "comparison_diagnosis_code": "PASSWORD_EXPIRED",
+            "reviewed": 5,
+            "ticket_ids": [
+              "HIS-0020",
+              "HIS-0076",
+              "HIS-0089",
+              "HIS-0161",
+              "HIS-0191"
+            ]
+          },
+          "knowledge_match_strength": "HIGH",
+          "evidence_completeness": "MEDIUM",
+          "historical_agreement": "AGREES",
+          "alternatives_excluded": false
+        },
+        "recommended_action": "RESOLVE",
+        "rationale": "User confirmed the issue is fixed after completing steps: PASSWORD_EXPIRED-1. Diagnosis: PASSWORD_EXPIRED.",
+        "next_question": null,
+        "knowledge_sources": [
+          {
+            "article_id": "KB-001",
+            "version": 1,
+            "approved": true,
+            "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE",
+            "backend_reference": false
+          }
+        ],
+        "historical_ticket_ids": [
+          "HIS-0020",
+          "HIS-0076",
+          "HIS-0089",
+          "HIS-0161",
+          "HIS-0191"
+        ],
+        "trace": [
+          {
+            "step_number": 1,
+            "event_type": "knowledge_retrieved",
+            "description": "Retrieved 1 diagnostic article(s).",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+          },
+          {
+            "step_number": 2,
+            "event_type": "historical_tickets_retrieved",
+            "description": "Retrieved 5 similar resolved/closed historical ticket(s).",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED",
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+          },
+          {
+            "step_number": 3,
+            "event_type": "investigation_started",
+            "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+          },
+          {
+            "step_number": 4,
+            "event_type": "question_selected",
+            "description": "Does the sign-in screen explicitly say the password has expired?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "The answer may help distinguish between plausible causes."
+          },
+          {
+            "step_number": 5,
+            "event_type": "evidence_added",
+            "description": "Account status check: {'user_id': 'USR-001', 'enabled': 'TRUE', 'locked': 'FALSE', 'password_expired': 'TRUE', 'mfa_enrolled': 'TRUE', 'mfa_locked': 'FALSE', 'observed_at': '2026-10-01T12:00:00Z', 'evidence_id': 'EV-d88aae9ede144806'}",
+            "evidence_ids": [
+              "EV-d88aae9ede144806"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "STALE_CREDENTIALS",
+              "ACCOUNT_LOCKED"
+            ],
+            "rationale": "Evidence source: diagnostic_check."
+          },
+          {
+            "step_number": 6,
+            "event_type": "answer_received",
+            "description": "Recorded an answer to: Can you access other corporate applications with the same account?",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+          },
+          {
+            "step_number": 7,
+            "event_type": "evidence_added",
+            "description": "User answered the diagnostic question: Can you access other corporate applications with the same account?",
+            "evidence_ids": [
+              "EV-77def9018f334f49"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED",
+              "ACCOUNT_LOCKED",
+              "MFA_FAILURE"
+            ],
+            "rationale": "Evidence source: user_answer."
+          },
+          {
+            "step_number": 8,
+            "event_type": "diagnosis_supported",
+            "description": "Evidence threshold met for PASSWORD_EXPIRED.",
+            "evidence_ids": [
+              "EV-77def9018f334f49",
+              "EV-d88aae9ede144806"
+            ],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "PASSWORD_EXPIRED is supported by 1 diagnostic-check item(s) and 1 consistent user-answer item(s) with no contradictions. This heuristic confidence is not a calibrated probability. The case is recommended for routing; no fix was executed. Diagnostic guidance sources: KB-001. Guidance retrieval does not approve a repair."
+          },
+          {
+            "step_number": 9,
+            "event_type": "resolution_started",
+            "description": "Resolution walk-through started for PASSWORD_EXPIRED using article KB-001.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Article is approved and agent_resolvable=True. No SPECIALIST steps are presented."
+          },
+          {
+            "step_number": 10,
+            "event_type": "resolution_started",
+            "description": "Resolution walk-through started for PASSWORD_EXPIRED using article KB-001.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Article is approved and agent_resolvable=True. No SPECIALIST steps are presented."
+          },
+          {
+            "step_number": 11,
+            "event_type": "resolution_started",
+            "description": "Resolution walk-through started for PASSWORD_EXPIRED using article KB-001.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Article is approved and agent_resolvable=True. No SPECIALIST steps are presented."
+          },
+          {
+            "step_number": 12,
+            "event_type": "resolution_started",
+            "description": "Resolution walk-through started for PASSWORD_EXPIRED using article KB-001.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "Article is approved and agent_resolvable=True. No SPECIALIST steps are presented."
+          },
+          {
+            "step_number": 13,
+            "event_type": "resolution_confirmed",
+            "description": "User confirmed the fix succeeded; ticket marked resolved.",
+            "evidence_ids": [],
+            "candidate_ids": [
+              "PASSWORD_EXPIRED"
+            ],
+            "rationale": "User confirmed the issue is fixed after completing steps: PASSWORD_EXPIRED-1. Diagnosis: PASSWORD_EXPIRED."
+          }
+        ],
+        "completed_actions": [
+          "TICKET_RESOLVED"
+        ],
+        "resolution_progress": {
+          "article_id": "KB-001",
+          "stage": "RESOLVED",
+          "step_index": 1,
+          "completed_step_ids": [
+            "PASSWORD_EXPIRED-1"
+          ],
+          "steps": [
+            {
+              "step_id": "PASSWORD_EXPIRED-1",
+              "level": "SELF_SERVICE",
+              "instruction": "Ask the user to complete the approved self-service password change flow; never ask for their password."
+            }
+          ],
+          "user_confirmed_success": true
+        },
+        "error": null
+      }
+    }
+  ],
+  "synthetic_user_simulation": true,
+  "package_sha256": "0dcd0a0121d0b2a68c6e5d24cc02d97fbf4ff1da3dab6e1b0a9f34fb10296c86",
+  "note": "No real account/password was changed; this tests the synthetic prototype workflow.",
+  "backend_status": "RESOLVED",
+  "linked_solution_id": "KB-001",
+  "diagnostic_result_id": "DR-d44086afd67a4323"
+}

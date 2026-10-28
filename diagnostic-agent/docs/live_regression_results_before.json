@@ -1,0 +1,48 @@
+[
+  {
+    "scenario": "access",
+    "ticket_id": "INC-358d5f54de0d4f5d",
+    "result": "PASS",
+    "initial_action": "ASK_MORE",
+    "followup_action": "ASK_MORE"
+  },
+  {
+    "scenario": "application",
+    "ticket_id": "INC-614375aeb07a49a7",
+    "result": "FAIL",
+    "error": "Backend request failed with HTTP 404 for POST /tickets/INC-614375aeb07a49a7/diagnostic-results."
+  },
+  {
+    "scenario": "endpoint",
+    "ticket_id": "INC-6ebdfa40fbc54a18",
+    "result": "PASS",
+    "initial_action": "ASK_MORE",
+    "followup_action": "ASK_MORE"
+  },
+  {
+    "scenario": "arabic",
+    "ticket_id": "INC-7f7806c44a194c55",
+    "result": "FAIL",
+    "error": "Backend request failed with HTTP 404 for POST /tickets/INC-7f7806c44a194c55/diagnostic-results."
+  },
+  {
+    "scenario": "critical",
+    "ticket_id": "INC-0a4862c886c64ab4",
+    "result": "PASS",
+    "initial_action": "ESCALATE",
+    "followup_action": "ESCALATE"
+  },
+  {
+    "scenario": "security",
+    "ticket_id": "INC-9cb6c744d5e44bd8",
+    "result": "FAIL",
+    "error": "Backend request failed with HTTP 404 for POST /tickets/INC-9cb6c744d5e44bd8/diagnostic-results."
+  },
+  {
+    "scenario": "privileged",
+    "ticket_id": "INC-07d24720afa941b4",
+    "result": "PASS",
+    "initial_action": "ESCALATE",
+    "followup_action": "ESCALATE"
+  }
+]

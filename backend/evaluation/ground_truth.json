@@ -1,0 +1,152 @@
+[
+  {
+    "ticket_id": "INC-1001",
+    "expected_diagnosis": "PASSWORD_EXPIRED",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1002",
+    "expected_diagnosis": "ACCOUNT_LOCKED",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1003",
+    "expected_diagnosis": "MFA_FAILURE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1004",
+    "expected_diagnosis": "MISSING_ENTITLEMENT",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1005",
+    "expected_diagnosis": "APP_AUTH_FAILURE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1006",
+    "expected_diagnosis": "LOCAL_ENDPOINT",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1007",
+    "expected_diagnosis": "APP_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1008",
+    "expected_diagnosis": "VPN_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1009",
+    "expected_diagnosis": "PHISHING",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1010",
+    "expected_diagnosis": "PRIVILEGED_ACCESS",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1011",
+    "expected_diagnosis": "SERVER_FAILURE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1012",
+    "expected_diagnosis": "UNKNOWN_ISSUE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-1-1",
+    "expected_diagnosis": "VPN_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-1-2",
+    "expected_diagnosis": "VPN_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-1-3",
+    "expected_diagnosis": "VPN_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-2-1",
+    "expected_diagnosis": "APP_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-2-2",
+    "expected_diagnosis": "APP_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-2-3",
+    "expected_diagnosis": "APP_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-3-1",
+    "expected_diagnosis": "APP_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-3-2",
+    "expected_diagnosis": "APP_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-3-3",
+    "expected_diagnosis": "APP_OUTAGE",
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-1-1",
+    "expected_diagnosis": null,
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-1-2",
+    "expected_diagnosis": null,
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-1-3",
+    "expected_diagnosis": null,
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-2-1",
+    "expected_diagnosis": null,
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-2-2",
+    "expected_diagnosis": null,
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-2-3",
+    "expected_diagnosis": null,
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-3-1",
+    "expected_diagnosis": null,
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-3-2",
+    "expected_diagnosis": null,
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-3-3",
+    "expected_diagnosis": null,
+    "evaluation_only": true
+  }
+]

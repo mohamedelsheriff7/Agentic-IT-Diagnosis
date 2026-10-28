@@ -1,0 +1,986 @@
+[
+  {
+    "id": "ASSET-001",
+    "label": "Synthetic laptop 001"
+  },
+  {
+    "id": "ASSET-002",
+    "label": "Synthetic laptop 002"
+  },
+  {
+    "id": "ASSET-003",
+    "label": "Synthetic laptop 003"
+  },
+  {
+    "id": "ASSET-004",
+    "label": "Synthetic laptop 004"
+  },
+  {
+    "id": "ASSET-005",
+    "label": "Synthetic laptop 005"
+  },
+  {
+    "id": "ASSET-006",
+    "label": "Synthetic laptop 006"
+  },
+  {
+    "id": "ASSET-007",
+    "label": "Synthetic laptop 007"
+  },
+  {
+    "id": "ASSET-008",
+    "label": "Synthetic laptop 008"
+  },
+  {
+    "id": "ASSET-009",
+    "label": "Synthetic laptop 009"
+  },
+  {
+    "id": "ASSET-010",
+    "label": "Synthetic laptop 010"
+  },
+  {
+    "id": "ASSET-011",
+    "label": "Synthetic laptop 011"
+  },
+  {
+    "id": "ASSET-012",
+    "label": "Synthetic laptop 012"
+  },
+  {
+    "id": "ASSET-013",
+    "label": "Synthetic laptop 013"
+  },
+  {
+    "id": "ASSET-014",
+    "label": "Synthetic laptop 014"
+  },
+  {
+    "id": "ASSET-015",
+    "label": "Synthetic laptop 015"
+  },
+  {
+    "id": "ASSET-016",
+    "label": "Synthetic laptop 016"
+  },
+  {
+    "id": "ASSET-017",
+    "label": "Synthetic laptop 017"
+  },
+  {
+    "id": "ASSET-018",
+    "label": "Synthetic laptop 018"
+  },
+  {
+    "id": "ASSET-019",
+    "label": "Synthetic laptop 019"
+  },
+  {
+    "id": "ASSET-020",
+    "label": "Synthetic laptop 020"
+  },
+  {
+    "id": "ASSET-021",
+    "label": "Synthetic laptop 021"
+  },
+  {
+    "id": "ASSET-022",
+    "label": "Synthetic laptop 022"
+  },
+  {
+    "id": "ASSET-023",
+    "label": "Synthetic laptop 023"
+  },
+  {
+    "id": "ASSET-024",
+    "label": "Synthetic laptop 024"
+  },
+  {
+    "id": "ASSET-025",
+    "label": "Synthetic laptop 025"
+  },
+  {
+    "id": "ASSET-026",
+    "label": "Synthetic laptop 026"
+  },
+  {
+    "id": "ASSET-027",
+    "label": "Synthetic laptop 027"
+  },
+  {
+    "id": "ASSET-028",
+    "label": "Synthetic laptop 028"
+  },
+  {
+    "id": "ASSET-029",
+    "label": "Synthetic laptop 029"
+  },
+  {
+    "id": "ASSET-030",
+    "label": "Synthetic laptop 030"
+  },
+  {
+    "id": "ASSET-031",
+    "label": "Synthetic laptop 031"
+  },
+  {
+    "id": "ASSET-032",
+    "label": "Synthetic laptop 032"
+  },
+  {
+    "id": "ASSET-033",
+    "label": "Synthetic laptop 033"
+  },
+  {
+    "id": "ASSET-034",
+    "label": "Synthetic laptop 034"
+  },
+  {
+    "id": "ASSET-035",
+    "label": "Synthetic laptop 035"
+  },
+  {
+    "id": "ASSET-036",
+    "label": "Synthetic laptop 036"
+  },
+  {
+    "id": "ASSET-037",
+    "label": "Synthetic laptop 037"
+  },
+  {
+    "id": "ASSET-038",
+    "label": "Synthetic laptop 038"
+  },
+  {
+    "id": "ASSET-039",
+    "label": "Synthetic laptop 039"
+  },
+  {
+    "id": "ASSET-040",
+    "label": "Synthetic laptop 040"
+  },
+  {
+    "id": "ASSET-041",
+    "label": "Synthetic ASSET-041"
+  },
+  {
+    "id": "ASSET-042",
+    "label": "Synthetic ASSET-042"
+  },
+  {
+    "id": "ASSET-044",
+    "label": "Synthetic ASSET-044"
+  },
+  {
+    "id": "ASSET-046",
+    "label": "Synthetic ASSET-046"
+  },
+  {
+    "id": "ASSET-051",
+    "label": "Synthetic ASSET-051"
+  },
+  {
+    "id": "ASSET-052",
+    "label": "Synthetic ASSET-052"
+  },
+  {
+    "id": "ASSET-055",
+    "label": "Synthetic ASSET-055"
+  },
+  {
+    "id": "ASSET-056",
+    "label": "Synthetic ASSET-056"
+  },
+  {
+    "id": "ASSET-057",
+    "label": "Synthetic ASSET-057"
+  },
+  {
+    "id": "ASSET-058",
+    "label": "Synthetic ASSET-058"
+  },
+  {
+    "id": "ASSET-061",
+    "label": "Synthetic ASSET-061"
+  },
+  {
+    "id": "ASSET-062",
+    "label": "Synthetic ASSET-062"
+  },
+  {
+    "id": "ASSET-063",
+    "label": "Synthetic ASSET-063"
+  },
+  {
+    "id": "ASSET-065",
+    "label": "Synthetic ASSET-065"
+  },
+  {
+    "id": "ASSET-073",
+    "label": "Synthetic ASSET-073"
+  },
+  {
+    "id": "ASSET-074",
+    "label": "Synthetic ASSET-074"
+  },
+  {
+    "id": "ASSET-076",
+    "label": "Synthetic ASSET-076"
+  },
+  {
+    "id": "ASSET-077",
+    "label": "Synthetic ASSET-077"
+  },
+  {
+    "id": "ASSET-078",
+    "label": "Synthetic ASSET-078"
+  },
+  {
+    "id": "ASSET-081",
+    "label": "Synthetic ASSET-081"
+  },
+  {
+    "id": "ASSET-082",
+    "label": "Synthetic ASSET-082"
+  },
+  {
+    "id": "ASSET-083",
+    "label": "Synthetic ASSET-083"
+  },
+  {
+    "id": "ASSET-084",
+    "label": "Synthetic ASSET-084"
+  },
+  {
+    "id": "ASSET-088",
+    "label": "Synthetic ASSET-088"
+  },
+  {
+    "id": "ASSET-089",
+    "label": "Synthetic ASSET-089"
+  },
+  {
+    "id": "ASSET-091",
+    "label": "Synthetic ASSET-091"
+  },
+  {
+    "id": "ASSET-092",
+    "label": "Synthetic ASSET-092"
+  },
+  {
+    "id": "ASSET-093",
+    "label": "Synthetic ASSET-093"
+  },
+  {
+    "id": "ASSET-097",
+    "label": "Synthetic ASSET-097"
+  },
+  {
+    "id": "ASSET-098",
+    "label": "Synthetic ASSET-098"
+  },
+  {
+    "id": "ASSET-100",
+    "label": "Synthetic ASSET-100"
+  },
+  {
+    "id": "ASSET-101",
+    "label": "Synthetic ASSET-101"
+  },
+  {
+    "id": "ASSET-102",
+    "label": "Synthetic ASSET-102"
+  },
+  {
+    "id": "ASSET-103",
+    "label": "Synthetic ASSET-103"
+  },
+  {
+    "id": "ASSET-106",
+    "label": "Synthetic ASSET-106"
+  },
+  {
+    "id": "ASSET-110",
+    "label": "Synthetic ASSET-110"
+  },
+  {
+    "id": "ASSET-111",
+    "label": "Synthetic ASSET-111"
+  },
+  {
+    "id": "ASSET-113",
+    "label": "Synthetic ASSET-113"
+  },
+  {
+    "id": "ASSET-119",
+    "label": "Synthetic ASSET-119"
+  },
+  {
+    "id": "ASSET-120",
+    "label": "Synthetic ASSET-120"
+  },
+  {
+    "id": "ASSET-123",
+    "label": "Synthetic ASSET-123"
+  },
+  {
+    "id": "ASSET-124",
+    "label": "Synthetic ASSET-124"
+  },
+  {
+    "id": "ASSET-126",
+    "label": "Synthetic ASSET-126"
+  },
+  {
+    "id": "ASSET-127",
+    "label": "Synthetic ASSET-127"
+  },
+  {
+    "id": "ASSET-130",
+    "label": "Synthetic ASSET-130"
+  },
+  {
+    "id": "ASSET-131",
+    "label": "Synthetic ASSET-131"
+  },
+  {
+    "id": "ASSET-133",
+    "label": "Synthetic ASSET-133"
+  },
+  {
+    "id": "ASSET-135",
+    "label": "Synthetic ASSET-135"
+  },
+  {
+    "id": "ASSET-136",
+    "label": "Synthetic ASSET-136"
+  },
+  {
+    "id": "ASSET-142",
+    "label": "Synthetic ASSET-142"
+  },
+  {
+    "id": "ASSET-148",
+    "label": "Synthetic ASSET-148"
+  },
+  {
+    "id": "ASSET-150",
+    "label": "Synthetic ASSET-150"
+  },
+  {
+    "id": "ASSET-151",
+    "label": "Synthetic ASSET-151"
+  },
+  {
+    "id": "ASSET-153",
+    "label": "Synthetic ASSET-153"
+  },
+  {
+    "id": "ASSET-155",
+    "label": "Synthetic ASSET-155"
+  },
+  {
+    "id": "ASSET-156",
+    "label": "Synthetic ASSET-156"
+  },
+  {
+    "id": "ASSET-161",
+    "label": "Synthetic ASSET-161"
+  },
+  {
+    "id": "ASSET-162",
+    "label": "Synthetic ASSET-162"
+  },
+  {
+    "id": "ASSET-163",
+    "label": "Synthetic ASSET-163"
+  },
+  {
+    "id": "ASSET-167",
+    "label": "Synthetic ASSET-167"
+  },
+  {
+    "id": "ASSET-168",
+    "label": "Synthetic ASSET-168"
+  },
+  {
+    "id": "ASSET-170",
+    "label": "Synthetic ASSET-170"
+  },
+  {
+    "id": "ASSET-172",
+    "label": "Synthetic ASSET-172"
+  },
+  {
+    "id": "ASSET-176",
+    "label": "Synthetic ASSET-176"
+  },
+  {
+    "id": "ASSET-177",
+    "label": "Synthetic ASSET-177"
+  },
+  {
+    "id": "ASSET-179",
+    "label": "Synthetic ASSET-179"
+  },
+  {
+    "id": "ASSET-180",
+    "label": "Synthetic ASSET-180"
+  },
+  {
+    "id": "ASSET-181",
+    "label": "Synthetic ASSET-181"
+  },
+  {
+    "id": "ASSET-182",
+    "label": "Synthetic ASSET-182"
+  },
+  {
+    "id": "ASSET-183",
+    "label": "Synthetic ASSET-183"
+  },
+  {
+    "id": "ASSET-185",
+    "label": "Synthetic ASSET-185"
+  },
+  {
+    "id": "ASSET-186",
+    "label": "Synthetic ASSET-186"
+  },
+  {
+    "id": "ASSET-188",
+    "label": "Synthetic ASSET-188"
+  },
+  {
+    "id": "ASSET-191",
+    "label": "Synthetic ASSET-191"
+  },
+  {
+    "id": "ASSET-193",
+    "label": "Synthetic ASSET-193"
+  },
+  {
+    "id": "ASSET-196",
+    "label": "Synthetic ASSET-196"
+  },
+  {
+    "id": "ASSET-197",
+    "label": "Synthetic ASSET-197"
+  },
+  {
+    "id": "ASSET-198",
+    "label": "Synthetic ASSET-198"
+  },
+  {
+    "id": "ASSET-201",
+    "label": "Synthetic ASSET-201"
+  },
+  {
+    "id": "ASSET-202",
+    "label": "Synthetic ASSET-202"
+  },
+  {
+    "id": "ASSET-205",
+    "label": "Synthetic ASSET-205"
+  },
+  {
+    "id": "ASSET-207",
+    "label": "Synthetic ASSET-207"
+  },
+  {
+    "id": "ASSET-208",
+    "label": "Synthetic ASSET-208"
+  },
+  {
+    "id": "ASSET-210",
+    "label": "Synthetic ASSET-210"
+  },
+  {
+    "id": "ASSET-211",
+    "label": "Synthetic ASSET-211"
+  },
+  {
+    "id": "ASSET-212",
+    "label": "Synthetic ASSET-212"
+  },
+  {
+    "id": "ASSET-213",
+    "label": "Synthetic ASSET-213"
+  },
+  {
+    "id": "ASSET-214",
+    "label": "Synthetic ASSET-214"
+  },
+  {
+    "id": "ASSET-216",
+    "label": "Synthetic ASSET-216"
+  },
+  {
+    "id": "ASSET-218",
+    "label": "Synthetic ASSET-218"
+  },
+  {
+    "id": "ASSET-219",
+    "label": "Synthetic ASSET-219"
+  },
+  {
+    "id": "ASSET-220",
+    "label": "Synthetic ASSET-220"
+  },
+  {
+    "id": "ASSET-225",
+    "label": "Synthetic ASSET-225"
+  },
+  {
+    "id": "ASSET-227",
+    "label": "Synthetic ASSET-227"
+  },
+  {
+    "id": "ASSET-228",
+    "label": "Synthetic ASSET-228"
+  },
+  {
+    "id": "ASSET-229",
+    "label": "Synthetic ASSET-229"
+  },
+  {
+    "id": "ASSET-231",
+    "label": "Synthetic ASSET-231"
+  },
+  {
+    "id": "ASSET-234",
+    "label": "Synthetic ASSET-234"
+  },
+  {
+    "id": "ASSET-236",
+    "label": "Synthetic ASSET-236"
+  },
+  {
+    "id": "ASSET-239",
+    "label": "Synthetic ASSET-239"
+  },
+  {
+    "id": "ASSET-240",
+    "label": "Synthetic ASSET-240"
+  },
+  {
+    "id": "ASSET-241",
+    "label": "Synthetic ASSET-241"
+  },
+  {
+    "id": "ASSET-242",
+    "label": "Synthetic ASSET-242"
+  },
+  {
+    "id": "ASSET-249",
+    "label": "Synthetic ASSET-249"
+  },
+  {
+    "id": "ASSET-251",
+    "label": "Synthetic ASSET-251"
+  },
+  {
+    "id": "ASSET-255",
+    "label": "Synthetic ASSET-255"
+  },
+  {
+    "id": "ASSET-256",
+    "label": "Synthetic ASSET-256"
+  },
+  {
+    "id": "ASSET-257",
+    "label": "Synthetic ASSET-257"
+  },
+  {
+    "id": "ASSET-258",
+    "label": "Synthetic ASSET-258"
+  },
+  {
+    "id": "ASSET-259",
+    "label": "Synthetic ASSET-259"
+  },
+  {
+    "id": "ASSET-262",
+    "label": "Synthetic ASSET-262"
+  },
+  {
+    "id": "ASSET-263",
+    "label": "Synthetic ASSET-263"
+  },
+  {
+    "id": "ASSET-264",
+    "label": "Synthetic ASSET-264"
+  },
+  {
+    "id": "ASSET-265",
+    "label": "Synthetic ASSET-265"
+  },
+  {
+    "id": "ASSET-266",
+    "label": "Synthetic ASSET-266"
+  },
+  {
+    "id": "ASSET-267",
+    "label": "Synthetic ASSET-267"
+  },
+  {
+    "id": "ASSET-269",
+    "label": "Synthetic ASSET-269"
+  },
+  {
+    "id": "ASSET-273",
+    "label": "Synthetic ASSET-273"
+  },
+  {
+    "id": "ASSET-274",
+    "label": "Synthetic ASSET-274"
+  },
+  {
+    "id": "ASSET-275",
+    "label": "Synthetic ASSET-275"
+  },
+  {
+    "id": "ASSET-276",
+    "label": "Synthetic ASSET-276"
+  },
+  {
+    "id": "ASSET-278",
+    "label": "Synthetic ASSET-278"
+  },
+  {
+    "id": "ASSET-281",
+    "label": "Synthetic ASSET-281"
+  },
+  {
+    "id": "ASSET-282",
+    "label": "Synthetic ASSET-282"
+  },
+  {
+    "id": "ASSET-283",
+    "label": "Synthetic ASSET-283"
+  },
+  {
+    "id": "ASSET-285",
+    "label": "Synthetic ASSET-285"
+  },
+  {
+    "id": "ASSET-288",
+    "label": "Synthetic ASSET-288"
+  },
+  {
+    "id": "ASSET-290",
+    "label": "Synthetic ASSET-290"
+  },
+  {
+    "id": "ASSET-291",
+    "label": "Synthetic ASSET-291"
+  },
+  {
+    "id": "ASSET-293",
+    "label": "Synthetic ASSET-293"
+  },
+  {
+    "id": "ASSET-294",
+    "label": "Synthetic ASSET-294"
+  },
+  {
+    "id": "ASSET-295",
+    "label": "Synthetic ASSET-295"
+  },
+  {
+    "id": "ASSET-296",
+    "label": "Synthetic ASSET-296"
+  },
+  {
+    "id": "ASSET-298",
+    "label": "Synthetic ASSET-298"
+  },
+  {
+    "id": "ASSET-300",
+    "label": "Synthetic ASSET-300"
+  },
+  {
+    "id": "ASSET-301",
+    "label": "Synthetic ASSET-301"
+  },
+  {
+    "id": "ASSET-303",
+    "label": "Synthetic ASSET-303"
+  },
+  {
+    "id": "ASSET-310",
+    "label": "Synthetic ASSET-310"
+  },
+  {
+    "id": "ASSET-311",
+    "label": "Synthetic ASSET-311"
+  },
+  {
+    "id": "ASSET-313",
+    "label": "Synthetic ASSET-313"
+  },
+  {
+    "id": "ASSET-315",
+    "label": "Synthetic ASSET-315"
+  },
+  {
+    "id": "ASSET-317",
+    "label": "Synthetic ASSET-317"
+  },
+  {
+    "id": "ASSET-318",
+    "label": "Synthetic ASSET-318"
+  },
+  {
+    "id": "ASSET-319",
+    "label": "Synthetic ASSET-319"
+  },
+  {
+    "id": "ASSET-320",
+    "label": "Synthetic ASSET-320"
+  },
+  {
+    "id": "ASSET-321",
+    "label": "Synthetic ASSET-321"
+  },
+  {
+    "id": "ASSET-322",
+    "label": "Synthetic ASSET-322"
+  },
+  {
+    "id": "ASSET-323",
+    "label": "Synthetic ASSET-323"
+  },
+  {
+    "id": "ASSET-325",
+    "label": "Synthetic ASSET-325"
+  },
+  {
+    "id": "ASSET-326",
+    "label": "Synthetic ASSET-326"
+  },
+  {
+    "id": "ASSET-329",
+    "label": "Synthetic ASSET-329"
+  },
+  {
+    "id": "ASSET-330",
+    "label": "Synthetic ASSET-330"
+  },
+  {
+    "id": "ASSET-331",
+    "label": "Synthetic ASSET-331"
+  },
+  {
+    "id": "ASSET-333",
+    "label": "Synthetic ASSET-333"
+  },
+  {
+    "id": "ASSET-334",
+    "label": "Synthetic ASSET-334"
+  },
+  {
+    "id": "ASSET-335",
+    "label": "Synthetic ASSET-335"
+  },
+  {
+    "id": "ASSET-337",
+    "label": "Synthetic ASSET-337"
+  },
+  {
+    "id": "ASSET-338",
+    "label": "Synthetic ASSET-338"
+  },
+  {
+    "id": "ASSET-339",
+    "label": "Synthetic ASSET-339"
+  },
+  {
+    "id": "ASSET-342",
+    "label": "Synthetic ASSET-342"
+  },
+  {
+    "id": "ASSET-346",
+    "label": "Synthetic ASSET-346"
+  },
+  {
+    "id": "ASSET-347",
+    "label": "Synthetic ASSET-347"
+  },
+  {
+    "id": "ASSET-348",
+    "label": "Synthetic ASSET-348"
+  },
+  {
+    "id": "ASSET-350",
+    "label": "Synthetic ASSET-350"
+  },
+  {
+    "id": "ASSET-351",
+    "label": "Synthetic ASSET-351"
+  },
+  {
+    "id": "ASSET-352",
+    "label": "Synthetic ASSET-352"
+  },
+  {
+    "id": "ASSET-353",
+    "label": "Synthetic ASSET-353"
+  },
+  {
+    "id": "ASSET-354",
+    "label": "Synthetic ASSET-354"
+  },
+  {
+    "id": "ASSET-355",
+    "label": "Synthetic ASSET-355"
+  },
+  {
+    "id": "ASSET-356",
+    "label": "Synthetic ASSET-356"
+  },
+  {
+    "id": "ASSET-357",
+    "label": "Synthetic ASSET-357"
+  },
+  {
+    "id": "ASSET-358",
+    "label": "Synthetic ASSET-358"
+  },
+  {
+    "id": "ASSET-360",
+    "label": "Synthetic ASSET-360"
+  },
+  {
+    "id": "ASSET-361",
+    "label": "Synthetic ASSET-361"
+  },
+  {
+    "id": "ASSET-363",
+    "label": "Synthetic ASSET-363"
+  },
+  {
+    "id": "ASSET-365",
+    "label": "Synthetic ASSET-365"
+  },
+  {
+    "id": "ASSET-367",
+    "label": "Synthetic ASSET-367"
+  },
+  {
+    "id": "ASSET-368",
+    "label": "Synthetic ASSET-368"
+  },
+  {
+    "id": "ASSET-369",
+    "label": "Synthetic ASSET-369"
+  },
+  {
+    "id": "ASSET-371",
+    "label": "Synthetic ASSET-371"
+  },
+  {
+    "id": "ASSET-372",
+    "label": "Synthetic ASSET-372"
+  },
+  {
+    "id": "ASSET-373",
+    "label": "Synthetic ASSET-373"
+  },
+  {
+    "id": "ASSET-374",
+    "label": "Synthetic ASSET-374"
+  },
+  {
+    "id": "ASSET-375",
+    "label": "Synthetic ASSET-375"
+  },
+  {
+    "id": "ASSET-376",
+    "label": "Synthetic ASSET-376"
+  },
+  {
+    "id": "ASSET-377",
+    "label": "Synthetic ASSET-377"
+  },
+  {
+    "id": "ASSET-379",
+    "label": "Synthetic ASSET-379"
+  },
+  {
+    "id": "ASSET-380",
+    "label": "Synthetic ASSET-380"
+  },
+  {
+    "id": "ASSET-383",
+    "label": "Synthetic ASSET-383"
+  },
+  {
+    "id": "ASSET-384",
+    "label": "Synthetic ASSET-384"
+  },
+  {
+    "id": "ASSET-386",
+    "label": "Synthetic ASSET-386"
+  },
+  {
+    "id": "ASSET-388",
+    "label": "Synthetic ASSET-388"
+  },
+  {
+    "id": "ASSET-389",
+    "label": "Synthetic ASSET-389"
+  },
+  {
+    "id": "ASSET-390",
+    "label": "Synthetic ASSET-390"
+  },
+  {
+    "id": "ASSET-391",
+    "label": "Synthetic ASSET-391"
+  },
+  {
+    "id": "ASSET-392",
+    "label": "Synthetic ASSET-392"
+  },
+  {
+    "id": "ASSET-396",
+    "label": "Synthetic ASSET-396"
+  },
+  {
+    "id": "ASSET-PRN-01",
+    "label": "Synthetic ASSET-PRN-01"
+  },
+  {
+    "id": "ASSET-PRN-02",
+    "label": "Synthetic ASSET-PRN-02"
+  },
+  {
+    "id": "ASSET-PRN-03",
+    "label": "Synthetic ASSET-PRN-03"
+  },
+  {
+    "id": "ASSET-PRN-04",
+    "label": "Synthetic ASSET-PRN-04"
+  },
+  {
+    "id": "ASSET-PRN-05",
+    "label": "Synthetic ASSET-PRN-05"
+  },
+  {
+    "id": "ASSET-PRN-07",
+    "label": "Synthetic ASSET-PRN-07"
+  },
+  {
+    "id": "ASSET-PRN-08",
+    "label": "Synthetic ASSET-PRN-08"
+  },
+  {
+    "id": "ASSET-PRN-09",
+    "label": "Synthetic ASSET-PRN-09"
+  },
+  {
+    "id": "ASSET-PRN-12",
+    "label": "Synthetic ASSET-PRN-12"
+  }
+]

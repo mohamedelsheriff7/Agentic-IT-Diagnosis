@@ -1,0 +1,429 @@
+{
+  "$defs": {
+    "AccountFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "enum": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN"
+          ],
+          "title": "Enabled",
+          "type": "string"
+        },
+        "locked": {
+          "enum": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN"
+          ],
+          "title": "Locked",
+          "type": "string"
+        },
+        "password_expired": {
+          "enum": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN"
+          ],
+          "title": "Password Expired",
+          "type": "string"
+        },
+        "mfa_enrolled": {
+          "enum": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN"
+          ],
+          "title": "Mfa Enrolled",
+          "type": "string"
+        },
+        "mfa_locked": {
+          "enum": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN"
+          ],
+          "title": "Mfa Locked",
+          "type": "string"
+        }
+      },
+      "required": [
+        "enabled",
+        "locked",
+        "password_expired",
+        "mfa_enrolled",
+        "mfa_locked"
+      ],
+      "title": "AccountFixture",
+      "type": "object"
+    },
+    "Answer": {
+      "additionalProperties": false,
+      "properties": {
+        "topic": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Topic",
+          "type": "string"
+        },
+        "answer": {
+          "maxLength": 16000,
+          "minLength": 1,
+          "title": "Answer",
+          "type": "string"
+        },
+        "eliminates": {
+          "items": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "type": "string"
+          },
+          "title": "Eliminates",
+          "type": "array"
+        },
+        "answer_en": {
+          "anyOf": [
+            {
+              "maxLength": 16000,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Answer En"
+        }
+      },
+      "required": [
+        "topic",
+        "answer",
+        "eliminates"
+      ],
+      "title": "Answer",
+      "type": "object"
+    },
+    "EntitlementFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "application_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Application Id",
+          "type": "string"
+        },
+        "entitled": {
+          "enum": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN"
+          ],
+          "title": "Entitled",
+          "type": "string"
+        },
+        "provisioning_state": {
+          "enum": [
+            "ACTIVE",
+            "PENDING",
+            "ABSENT",
+            "UNKNOWN"
+          ],
+          "title": "Provisioning State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "application_id",
+        "entitled",
+        "provisioning_state"
+      ],
+      "title": "EntitlementFixture",
+      "type": "object"
+    },
+    "RequiredFixtures": {
+      "additionalProperties": false,
+      "properties": {
+        "check_account_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AccountFixture"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "check_application_entitlement": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EntitlementFixture"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "check_service_health": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ServiceFixture"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "RequiredFixtures",
+      "type": "object"
+    },
+    "ServiceFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "configuration_item_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "title": "Configuration Item Id",
+          "type": "string"
+        },
+        "location_id": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Location Id"
+        },
+        "state": {
+          "enum": [
+            "OPERATIONAL",
+            "DEGRADED",
+            "UNAVAILABLE",
+            "UNKNOWN"
+          ],
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "configuration_item_id",
+        "state"
+      ],
+      "title": "ServiceFixture",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "ticket_id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "title": "Ticket Id",
+      "type": "string"
+    },
+    "evaluation_only": {
+      "const": true,
+      "title": "Evaluation Only",
+      "type": "boolean"
+    },
+    "scenario_type": {
+      "enum": [
+        "normal",
+        "ambiguous",
+        "security",
+        "vague",
+        "outage",
+        "decoy"
+      ],
+      "title": "Scenario Type",
+      "type": "string"
+    },
+    "story_id": {
+      "anyOf": [
+        {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Story Id"
+    },
+    "ambiguity_cluster": {
+      "anyOf": [
+        {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ambiguity Cluster"
+    },
+    "cluster_id": {
+      "anyOf": [
+        {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_.:-]+$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Cluster Id"
+    },
+    "cluster_position": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Cluster Position"
+    },
+    "expected_domain": {
+      "maxLength": 16000,
+      "minLength": 1,
+      "title": "Expected Domain",
+      "type": "string"
+    },
+    "expected_category": {
+      "maxLength": 16000,
+      "minLength": 1,
+      "title": "Expected Category",
+      "type": "string"
+    },
+    "expected_diagnosis_code": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "title": "Expected Diagnosis Code",
+      "type": "string"
+    },
+    "expected_resolver_group_id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.:-]+$",
+      "title": "Expected Resolver Group Id",
+      "type": "string"
+    },
+    "agent_resolvable": {
+      "title": "Agent Resolvable",
+      "type": "boolean"
+    },
+    "human_required": {
+      "title": "Human Required",
+      "type": "boolean"
+    },
+    "escalation_required": {
+      "title": "Escalation Required",
+      "type": "boolean"
+    },
+    "expected_action": {
+      "enum": [
+        "ASK_MORE",
+        "RESOLVE",
+        "ROUTE",
+        "ESCALATE"
+      ],
+      "title": "Expected Action",
+      "type": "string"
+    },
+    "expected_outage_action": {
+      "enum": [
+        "none",
+        "create_global",
+        "link_existing"
+      ],
+      "title": "Expected Outage Action",
+      "type": "string"
+    },
+    "requires_questions": {
+      "title": "Requires Questions",
+      "type": "boolean"
+    },
+    "initial_candidates": {
+      "items": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9_.:-]+$",
+        "type": "string"
+      },
+      "title": "Initial Candidates",
+      "type": "array"
+    },
+    "initial_information": {
+      "items": {
+        "maxLength": 16000,
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Initial Information",
+      "type": "array"
+    },
+    "discoverable_information": {
+      "items": {
+        "$ref": "#/$defs/Answer"
+      },
+      "title": "Discoverable Information",
+      "type": "array"
+    },
+    "required_fixtures": {
+      "$ref": "#/$defs/RequiredFixtures"
+    }
+  },
+  "required": [
+    "ticket_id",
+    "evaluation_only",
+    "scenario_type",
+    "expected_domain",
+    "expected_category",
+    "expected_diagnosis_code",
+    "expected_resolver_group_id",
+    "agent_resolvable",
+    "human_required",
+    "escalation_required",
+    "expected_action",
+    "expected_outage_action",
+    "requires_questions",
+    "initial_candidates",
+    "initial_information",
+    "discoverable_information",
+    "required_fixtures"
+  ],
+  "title": "EvaluationRecord",
+  "type": "object"
+}

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "ACC-001",
+    "user_id": "USR-001",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "TRUE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-002",
+    "user_id": "USR-002",
+    "enabled": "TRUE",
+    "locked": "TRUE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-003",
+    "user_id": "USR-003",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "TRUE"
+  },
+  {
+    "id": "ACC-004",
+    "user_id": "USR-004",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-005",
+    "user_id": "USR-005",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-006",
+    "user_id": "USR-006",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-007",
+    "user_id": "USR-007",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-008",
+    "user_id": "USR-008",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-009",
+    "user_id": "USR-009",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-010",
+    "user_id": "USR-010",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-011",
+    "user_id": "USR-011",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-012",
+    "user_id": "USR-012",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-013",
+    "user_id": "USR-013",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-014",
+    "user_id": "USR-014",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-015",
+    "user_id": "USR-015",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-016",
+    "user_id": "USR-016",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-017",
+    "user_id": "USR-017",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-018",
+    "user_id": "USR-018",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-019",
+    "user_id": "USR-019",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-020",
+    "user_id": "USR-020",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-021",
+    "user_id": "USR-021",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-022",
+    "user_id": "USR-022",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-023",
+    "user_id": "USR-023",
+    "enabled": "FALSE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  },
+  {
+    "id": "ACC-024",
+    "user_id": "USR-024",
+    "enabled": "TRUE",
+    "locked": "FALSE",
+    "password_expired": "FALSE",
+    "mfa_enrolled": "TRUE",
+    "mfa_locked": "FALSE"
+  }
+]

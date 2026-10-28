@@ -1,0 +1,242 @@
+[
+  {
+    "ticket_id": "INC-1001",
+    "answers": [
+      "Other applications reject sign-in too.",
+      "The error says my password expired.",
+      "I completed self-service change and can sign in now."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1002",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1003",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1004",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1005",
+    "answers": [
+      "Other applications work.",
+      "The portal fails in another browser too."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1006",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1007",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1008",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1009",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1010",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1011",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "INC-1012",
+    "answers": [
+      "المشكلة مش واضحة ومحتاج مساعدة من الدعم"
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-1-1",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-1-2",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-1-3",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-2-1",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-2-2",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-2-3",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-3-1",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-3-2",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "CLUSTER-3-3",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-1-1",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-1-2",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-1-3",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-2-1",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-2-2",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-2-3",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-3-1",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-3-2",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  },
+  {
+    "ticket_id": "DECOY-3-3",
+    "answers": [
+      "Please investigate this synthetic report.",
+      "I have no further verified information."
+    ],
+    "evaluation_only": true
+  }
+]

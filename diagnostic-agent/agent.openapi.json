@@ -1,0 +1,4519 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Workstream C: Synthetic IT Diagnostics Backend",
+    "description": "Deterministic mock tools; no account changes, LLM, external notifications or hidden answers. Admin API is excluded from agent export.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/tickets/{ticket_id}": {
+      "get": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "get_ticket_details",
+        "description": "Use before deciding next steps. Returns worklogs, related global issue, evidence and latest versioned diagnosis; no hidden answers.",
+        "operationId": "get_ticket_details",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Server-generated ticket ID, for example INC-1001",
+              "title": "Ticket Id",
+              "example": "INC-1001"
+            },
+            "description": "Server-generated ticket ID, for example INC-1001"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/search-similar": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "search_similar_tickets",
+        "description": "Use to compare symptoms with resolved/closed tickets. Deterministic lexical score is not diagnostic confidence; no useful overlap returns an empty list.",
+        "operationId": "search_similar_tickets",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchTickets"
+              },
+              "example": {
+                "description": "password expired sign in",
+                "limit": 5
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimilarResults"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ]
+      }
+    },
+    "/tickets": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "create_ticket",
+        "description": "Use when no ticket exists. Requires a synthetic reporter; preserves unknown classification. Supply a stable action_id for retries.",
+        "operationId": "create_ticket",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTicket"
+              },
+              "example": {
+                "action_id": "create-demo-001",
+                "summary": "Cannot sign in",
+                "description": "The portal rejects my sign-in.",
+                "reported_by_id": "USR-001"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ]
+      }
+    },
+    "/tickets/{ticket_id}/assignment": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "assign_ticket",
+        "description": "Use after diagnostic investigation. HIGH routes to requested group subject to review. MEDIUM routes to L1 preserving alternatives. LOW requires human triage.",
+        "operationId": "assign_ticket",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Server-generated ticket ID, for example INC-1001",
+              "title": "Ticket Id",
+              "example": "INC-1001"
+            },
+            "description": "Server-generated ticket ID, for example INC-1001"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignTicket"
+              },
+              "example": {
+                "action_id": "assign-demo-001",
+                "resolver_group_id": "GRP-APP",
+                "confidence": "HIGH",
+                "reason": "Only the application fails; identity checks are healthy.",
+                "alternative_resolver_group_ids": [
+                  "GRP-IAM"
+                ],
+                "evidence_ids": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssignmentOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/{ticket_id}/worklogs": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "add_worklog_entry",
+        "description": "Use for intermediate reasoning and user responses. Cannot change status or owner. New evidence is limited to asserted user/knowledge/history sources; tool evidence comes only from checks.",
+        "operationId": "add_worklog_entry",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Server-generated ticket ID, for example INC-1001",
+              "title": "Ticket Id",
+              "example": "INC-1001"
+            },
+            "description": "Server-generated ticket ID, for example INC-1001"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddWorklog"
+              },
+              "example": {
+                "action_id": "note-demo-001",
+                "entry_type": "QUESTION",
+                "summary": "Do other applications work?",
+                "rationale": "Discriminate shared identity from app-specific failure."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WorklogOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/{ticket_id}/resolution": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "resolve_ticket",
+        "description": "Use only after approved article conditions and steps are met, with recorded diagnosis and explicit user success confirmation. Mandatory human cases are rejected. Sets RESOLVED, never CLOSED.",
+        "operationId": "resolve_ticket",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Server-generated ticket ID, for example INC-1001",
+              "title": "Ticket Id",
+              "example": "INC-1001"
+            },
+            "description": "Server-generated ticket ID, for example INC-1001"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResolveTicket"
+              },
+              "example": {
+                "action_id": "resolve-demo-001",
+                "diagnosis_code": "PASSWORD_EXPIRED",
+                "resolution_summary": "User completed self-service change and confirmed successful sign-in.",
+                "steps_completed": [
+                  "PASSWORD_EXPIRED-1"
+                ],
+                "knowledge_article_id": "KB-001",
+                "user_confirmed_success": true,
+                "evidence_ids": [
+                  "EV-from-account-check"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TicketDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/count-recent": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "count_recent_tickets",
+        "description": "Use for outage investigation. Supplied filters use AND; requires a filter. Inclusive window excludes global, resolved, closed and already globally linked tickets.",
+        "operationId": "count_recent_tickets",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CountRecent"
+              },
+              "example": {
+                "category": "VPN",
+                "configuration_item_id": "CI-VPN",
+                "location_id": "LOC-A",
+                "window_minutes": 30
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CountOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ]
+      }
+    },
+    "/global-tickets/search": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "find_open_global_tickets",
+        "description": "Use before creating a global issue. All supplied exact-match filters use AND; empty filters are rejected. Closed/resolved global issues are excluded.",
+        "operationId": "find_open_global_tickets",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Grouping"
+              },
+              "example": {
+                "category": "VPN",
+                "configuration_item_id": "CI-VPN",
+                "location_id": "LOC-A"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GlobalResults"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ]
+      }
+    },
+    "/global-tickets": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "create_global_ticket",
+        "description": "Use after the agent evaluates outage thresholds. Requires category, CI, location and active related tickets in that scope. Atomic linking and unique active scope prevent duplicates.",
+        "operationId": "create_global_ticket",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGlobal"
+              },
+              "example": {
+                "action_id": "outage-demo-001",
+                "summary": "VPN unavailable at site A",
+                "description": "Three affected synthetic users within 30 minutes.",
+                "severity": "SEV2",
+                "category": "VPN",
+                "configuration_item_id": "CI-VPN",
+                "location_id": "LOC-A",
+                "owner_group_id": "GRP-NET",
+                "related_ticket_ids": [
+                  "CLUSTER-1-1",
+                  "CLUSTER-1-2"
+                ],
+                "reason": "Cluster and independent health observation support outage investigation."
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GlobalCreated"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ]
+      }
+    },
+    "/tickets/{ticket_id}/global-link": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "link_ticket_to_global_ticket",
+        "description": "Use when an active global issue already covers this exact category/CI/location. Conflicting, self and inactive links are rejected; identical links add no duplicate worklogs.",
+        "operationId": "link_ticket_to_global_ticket",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Server-generated ticket ID, for example INC-1001",
+              "title": "Ticket Id",
+              "example": "INC-1001"
+            },
+            "description": "Server-generated ticket ID, for example INC-1001"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LinkGlobal"
+              },
+              "example": {
+                "action_id": "link-demo-001",
+                "global_ticket_id": "GLB-from-create",
+                "reason": "Same service, category and site."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/diagnostics/account-status": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "check_account_status",
+        "description": "Use to discriminate lockout, password expiry and MFA conditions. Reads stored state; unknown state remains UNKNOWN. Records evidence only, never modifies accounts or returns secrets.",
+        "operationId": "check_account_status",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccountCheck"
+              },
+              "example": {
+                "action_id": "account-demo-001",
+                "ticket_id": "INC-1001",
+                "user_id": "USR-001"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ]
+      }
+    },
+    "/diagnostics/application-entitlement": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "check_application_entitlement",
+        "description": "Use to distinguish missing entitlement or role from authentication failure. Reads stored provisioning state and records evidence; never grants access.",
+        "operationId": "check_application_entitlement",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EntitlementCheck"
+              },
+              "example": {
+                "action_id": "entitlement-demo-001",
+                "ticket_id": "INC-1004",
+                "user_id": "USR-004",
+                "application_id": "APP-PORTAL",
+                "required_role": "USER"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntitlementOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ]
+      }
+    },
+    "/diagnostics/service-health": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "check_service_health",
+        "description": "Use to compare local symptoms with a stored service observation for the exact CI/location. Never infers health from ticket counts. Records evidence, with UNKNOWN when absent.",
+        "operationId": "check_service_health",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HealthCheck"
+              },
+              "example": {
+                "action_id": "health-demo-001",
+                "ticket_id": "CLUSTER-1-1",
+                "configuration_item_id": "CI-VPN",
+                "location_id": "LOC-A"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ]
+      }
+    },
+    "/tickets/{ticket_id}/human-reviews": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "request_human_review",
+        "description": "Use for mandatory human cases or uncertainty. Sets PENDING and records a REQUESTED review; this is not approval. Only authenticated admin can decide a review.",
+        "operationId": "request_human_review",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Server-generated ticket ID, for example INC-1001",
+              "title": "Ticket Id",
+              "example": "INC-1001"
+            },
+            "description": "Server-generated ticket ID, for example INC-1001"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestReview"
+              },
+              "example": {
+                "action_id": "review-demo-001",
+                "reason": "Insufficient evidence to diagnose safely.",
+                "review_type": "INVESTIGATION",
+                "suggested_group_id": "GRP-L1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReviewOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tickets/{ticket_id}/notifications": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "notify_resolver_group",
+        "description": "Use after routing or escalation to record intended communication. Stores SQLite notification and worklog; sends no external message.",
+        "operationId": "notify_resolver_group",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Server-generated ticket ID, for example INC-1001",
+              "title": "Ticket Id",
+              "example": "INC-1001"
+            },
+            "description": "Server-generated ticket ID, for example INC-1001"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Notify"
+              },
+              "example": {
+                "action_id": "notify-demo-001",
+                "resolver_group_id": "GRP-NET",
+                "severity": "SEV2",
+                "message": "Synthetic VPN outage investigation requested."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/knowledge/search": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "search_diagnostic_knowledge",
+        "description": "Use to choose discriminating questions, safe checks and next steps. Returns approved portable articles with evidence, exclusions, resolution and escalation conditions.",
+        "operationId": "search_diagnostic_knowledge",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/KnowledgeSearch"
+              },
+              "example": {
+                "query": "password expired",
+                "limit": 5
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KnowledgeResults"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ]
+      }
+    },
+    "/tickets/{ticket_id}/diagnostic-results": {
+      "post": {
+        "tags": [
+          "agent-tools"
+        ],
+        "summary": "record_diagnostic_result",
+        "description": "Use after collecting evidence. Stores agent assertions and confidence basis as a new version, validates sources/policy and updates valid taxonomy. Does not resolve or assign automatically.",
+        "operationId": "record_diagnostic_result",
+        "security": [
+          {
+            "ServiceApiKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "ticket_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Server-generated ticket ID, for example INC-1001",
+              "title": "Ticket Id",
+              "example": "INC-1001"
+            },
+            "description": "Server-generated ticket ID, for example INC-1001"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiagnosticInput"
+              },
+              "example": {
+                "action_id": "diagnosis-demo-001",
+                "diagnosis_code": "PASSWORD_EXPIRED",
+                "outcome": "DIAGNOSED",
+                "candidate_diagnoses": [
+                  {
+                    "diagnosis_code": "PASSWORD_EXPIRED",
+                    "reason": "Expiry observation with active unlocked account."
+                  }
+                ],
+                "eliminated_diagnoses": [
+                  {
+                    "diagnosis_code": "ACCOUNT_LOCKED",
+                    "reason": "Account check reports unlocked."
+                  }
+                ],
+                "evidence_ids": [
+                  "EV-from-account-check"
+                ],
+                "knowledge_article_ids": [
+                  "KB-001"
+                ],
+                "confidence": "HIGH",
+                "confidence_basis": {
+                  "knowledge_match_strength": "HIGH",
+                  "evidence_completeness": "HIGH",
+                  "historical_agreement": "NOT_AVAILABLE",
+                  "alternatives_excluded": true
+                },
+                "recommended_action": "RESOLVE",
+                "missing_information": [],
+                "rationale": "User response and recorded account evidence agree."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DiagnosticOut"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown ticket or reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Retry conflict, invalid status or relationship conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request or policy rejection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected server error; use request_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccountCheck": {
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "user_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "User Id",
+            "description": "User id. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Retry key for recording the observation; synthetic account is never modified."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticket_id",
+          "user_id",
+          "action_id"
+        ],
+        "title": "AccountCheck"
+      },
+      "AccountOut": {
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "title": "User Id",
+            "description": "User id. See operation description and integration contract for policy semantics."
+          },
+          "enabled": {
+            "type": "string",
+            "enum": [
+              "TRUE",
+              "FALSE",
+              "UNKNOWN"
+            ],
+            "title": "Enabled",
+            "description": "Enabled. See operation description and integration contract for policy semantics."
+          },
+          "locked": {
+            "type": "string",
+            "enum": [
+              "TRUE",
+              "FALSE",
+              "UNKNOWN"
+            ],
+            "title": "Locked",
+            "description": "Locked. See operation description and integration contract for policy semantics."
+          },
+          "password_expired": {
+            "type": "string",
+            "enum": [
+              "TRUE",
+              "FALSE",
+              "UNKNOWN"
+            ],
+            "title": "Password Expired",
+            "description": "Password expired. See operation description and integration contract for policy semantics."
+          },
+          "mfa_enrolled": {
+            "type": "string",
+            "enum": [
+              "TRUE",
+              "FALSE",
+              "UNKNOWN"
+            ],
+            "title": "Mfa Enrolled",
+            "description": "Mfa enrolled. See operation description and integration contract for policy semantics."
+          },
+          "mfa_locked": {
+            "type": "string",
+            "enum": [
+              "TRUE",
+              "FALSE",
+              "UNKNOWN"
+            ],
+            "title": "Mfa Locked",
+            "description": "Mfa locked. See operation description and integration contract for policy semantics."
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At",
+            "description": "Observed at. See operation description and integration contract for policy semantics."
+          },
+          "evidence_id": {
+            "type": "string",
+            "title": "Evidence Id",
+            "description": "Evidence id. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "user_id",
+          "enabled",
+          "locked",
+          "password_expired",
+          "mfa_enrolled",
+          "mfa_locked",
+          "observed_at",
+          "evidence_id"
+        ],
+        "title": "AccountOut"
+      },
+      "AddWorklog": {
+        "properties": {
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "description": "Recorded evidence IDs belonging to this ticket."
+          },
+          "knowledge_article_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Knowledge Article Ids",
+            "default": [],
+            "description": "Knowledge article ids. See operation description and integration contract for policy semantics."
+          },
+          "historical_ticket_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Historical Ticket Ids",
+            "default": [],
+            "description": "Historical ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "entry_type": {
+            "type": "string",
+            "enum": [
+              "NOTE",
+              "QUESTION",
+              "EVIDENCE",
+              "DIAGNOSIS"
+            ],
+            "title": "Entry Type",
+            "description": "Entry type. See operation description and integration contract for policy semantics."
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Summary",
+            "description": "Summary. See operation description and integration contract for policy semantics."
+          },
+          "rationale": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Rationale",
+            "description": "Rationale. See operation description and integration contract for policy semantics."
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceInput"
+            },
+            "type": "array",
+            "title": "Evidence",
+            "default": [],
+            "description": "Evidence. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "entry_type",
+          "summary",
+          "rationale"
+        ],
+        "title": "AddWorklog"
+      },
+      "Article": {
+        "properties": {
+          "article_id": {
+            "type": "string",
+            "title": "Article Id",
+            "description": "Article id. See operation description and integration contract for policy semantics."
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version",
+            "description": "Version. See operation description and integration contract for policy semantics."
+          },
+          "approved": {
+            "type": "boolean",
+            "title": "Approved",
+            "description": "Approved. See operation description and integration contract for policy semantics."
+          },
+          "diagnosis_code": {
+            "type": "string",
+            "title": "Diagnosis Code",
+            "description": "Diagnosis code. See operation description and integration contract for policy semantics."
+          },
+          "domain": {
+            "type": "string",
+            "title": "Domain",
+            "description": "Domain. See operation description and integration contract for policy semantics."
+          },
+          "category": {
+            "type": "string",
+            "title": "Category",
+            "description": "Category. See operation description and integration contract for policy semantics."
+          },
+          "symptoms_en": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Symptoms En",
+            "description": "Symptoms en. See operation description and integration contract for policy semantics."
+          },
+          "symptoms_ar": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Symptoms Ar",
+            "description": "Symptoms ar. See operation description and integration contract for policy semantics."
+          },
+          "possible_causes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Possible Causes",
+            "description": "Possible causes. See operation description and integration contract for policy semantics."
+          },
+          "discriminating_questions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Discriminating Questions",
+            "description": "Discriminating questions. See operation description and integration contract for policy semantics."
+          },
+          "required_evidence": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Required Evidence",
+            "description": "Required evidence. See operation description and integration contract for policy semantics."
+          },
+          "safe_checks": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Safe Checks",
+            "description": "Safe checks. See operation description and integration contract for policy semantics."
+          },
+          "exclusion_criteria": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Exclusion Criteria",
+            "description": "Exclusion criteria. See operation description and integration contract for policy semantics."
+          },
+          "competing_diagnoses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Competing Diagnoses",
+            "description": "Competing diagnoses. See operation description and integration contract for policy semantics."
+          },
+          "resolution_steps": {
+            "items": {
+              "$ref": "#/components/schemas/ResolutionStep"
+            },
+            "type": "array",
+            "title": "Resolution Steps",
+            "description": "Resolution steps. See operation description and integration contract for policy semantics."
+          },
+          "agent_resolvable": {
+            "type": "boolean",
+            "title": "Agent Resolvable",
+            "description": "Agent resolvable. See operation description and integration contract for policy semantics."
+          },
+          "resolution_conditions": {
+            "items": {
+              "$ref": "#/components/schemas/Condition"
+            },
+            "type": "array",
+            "title": "Resolution Conditions",
+            "description": "Resolution conditions. See operation description and integration contract for policy semantics."
+          },
+          "mandatory_human_escalation_conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Mandatory Human Escalation Conditions",
+            "description": "Mandatory human escalation conditions. See operation description and integration contract for policy semantics."
+          },
+          "resolver_group_id": {
+            "type": "string",
+            "title": "Resolver Group Id",
+            "description": "Resolver group id. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "article_id",
+          "version",
+          "approved",
+          "diagnosis_code",
+          "domain",
+          "category",
+          "symptoms_en",
+          "symptoms_ar",
+          "possible_causes",
+          "discriminating_questions",
+          "required_evidence",
+          "safe_checks",
+          "exclusion_criteria",
+          "competing_diagnoses",
+          "resolution_steps",
+          "agent_resolvable",
+          "resolution_conditions",
+          "mandatory_human_escalation_conditions",
+          "resolver_group_id"
+        ],
+        "title": "Article"
+      },
+      "AssignTicket": {
+        "properties": {
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "description": "Recorded evidence IDs belonging to this ticket."
+          },
+          "knowledge_article_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Knowledge Article Ids",
+            "default": [],
+            "description": "Knowledge article ids. See operation description and integration contract for policy semantics."
+          },
+          "historical_ticket_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Historical Ticket Ids",
+            "default": [],
+            "description": "Historical ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "resolver_group_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Resolver Group Id",
+            "description": "Resolver group id. See operation description and integration contract for policy semantics."
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ],
+            "title": "Confidence",
+            "description": "Confidence. See operation description and integration contract for policy semantics."
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Reason",
+            "description": "Reason. See operation description and integration contract for policy semantics."
+          },
+          "alternative_resolver_group_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "maxItems": 3,
+            "title": "Alternative Resolver Group Ids",
+            "default": [],
+            "description": "Alternative resolver group ids. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "resolver_group_id",
+          "confidence",
+          "reason"
+        ],
+        "title": "AssignTicket"
+      },
+      "AssignmentOut": {
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "assigned_group_id": {
+            "type": "string",
+            "title": "Assigned Group Id",
+            "description": "Assigned group id. See operation description and integration contract for policy semantics."
+          },
+          "recommended_group_id": {
+            "type": "string",
+            "title": "Recommended Group Id",
+            "description": "Recommended group id. See operation description and integration contract for policy semantics."
+          },
+          "alternative_resolver_group_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Alternative Resolver Group Ids",
+            "description": "Alternative resolver group ids. See operation description and integration contract for policy semantics."
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ],
+            "title": "Confidence",
+            "description": "Confidence. See operation description and integration contract for policy semantics."
+          },
+          "human_triage_required": {
+            "type": "boolean",
+            "title": "Human Triage Required",
+            "description": "Human triage required. See operation description and integration contract for policy semantics."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "NEW",
+              "QUEUED",
+              "IN_PROGRESS",
+              "PENDING",
+              "RESOLVED",
+              "CLOSED"
+            ],
+            "title": "Status",
+            "description": "Status. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticket_id",
+          "assigned_group_id",
+          "recommended_group_id",
+          "alternative_resolver_group_ids",
+          "confidence",
+          "human_triage_required",
+          "status"
+        ],
+        "title": "AssignmentOut"
+      },
+      "Candidate": {
+        "properties": {
+          "diagnosis_code": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Diagnosis Code",
+            "description": "Diagnosis code. See operation description and integration contract for policy semantics."
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Reason",
+            "description": "Reason. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "diagnosis_code",
+          "reason"
+        ],
+        "title": "Candidate"
+      },
+      "Condition": {
+        "properties": {
+          "tool": {
+            "type": "string",
+            "enum": [
+              "check_account_status",
+              "check_application_entitlement",
+              "check_service_health"
+            ],
+            "title": "Tool",
+            "description": "Tool. See operation description and integration contract for policy semantics."
+          },
+          "field": {
+            "type": "string",
+            "title": "Field",
+            "description": "Field. See operation description and integration contract for policy semantics."
+          },
+          "equals": {
+            "type": "string",
+            "title": "Equals",
+            "description": "Equals. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "tool",
+          "field",
+          "equals"
+        ],
+        "title": "Condition"
+      },
+      "ConfidenceBasis": {
+        "properties": {
+          "knowledge_match_strength": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ],
+            "title": "Knowledge Match Strength",
+            "description": "Knowledge match strength. See operation description and integration contract for policy semantics."
+          },
+          "evidence_completeness": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ],
+            "title": "Evidence Completeness",
+            "description": "Evidence completeness. See operation description and integration contract for policy semantics."
+          },
+          "historical_agreement": {
+            "type": "string",
+            "enum": [
+              "AGREES",
+              "DISAGREES",
+              "NOT_AVAILABLE"
+            ],
+            "title": "Historical Agreement",
+            "description": "Historical agreement. See operation description and integration contract for policy semantics."
+          },
+          "alternatives_excluded": {
+            "type": "boolean",
+            "title": "Alternatives Excluded",
+            "description": "Alternatives excluded. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "knowledge_match_strength",
+          "evidence_completeness",
+          "historical_agreement",
+          "alternatives_excluded"
+        ],
+        "title": "ConfidenceBasis"
+      },
+      "CountOut": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "title": "Count",
+            "description": "Count. See operation description and integration contract for policy semantics."
+          },
+          "matching_ticket_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Matching Ticket Ids",
+            "description": "Matching ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "grouping_criteria": {
+            "$ref": "#/components/schemas/Criteria",
+            "description": "Grouping criteria. See operation description and integration contract for policy semantics."
+          },
+          "window_start": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Window Start",
+            "description": "Window start. See operation description and integration contract for policy semantics."
+          },
+          "window_end": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Window End",
+            "description": "Window end. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "count",
+          "matching_ticket_ids",
+          "grouping_criteria",
+          "window_start",
+          "window_end"
+        ],
+        "title": "CountOut"
+      },
+      "CountRecent": {
+        "properties": {
+          "category": {
+            "title": "Category",
+            "description": "Category. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "configuration_item_id": {
+            "title": "Configuration Item Id",
+            "description": "Configuration item id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          },
+          "location_id": {
+            "title": "Location Id",
+            "description": "Location id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          },
+          "domain": {
+            "title": "Domain",
+            "description": "Domain. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "window_minutes": {
+            "type": "integer",
+            "maximum": 10080.0,
+            "minimum": 1.0,
+            "title": "Window Minutes",
+            "default": 30,
+            "description": "Window minutes. See operation description and integration contract for policy semantics."
+          },
+          "as_of": {
+            "title": "As Of",
+            "description": "As of. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "CountRecent"
+      },
+      "CreateGlobal": {
+        "properties": {
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "description": "Recorded evidence IDs belonging to this ticket."
+          },
+          "knowledge_article_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Knowledge Article Ids",
+            "default": [],
+            "description": "Knowledge article ids. See operation description and integration contract for policy semantics."
+          },
+          "historical_ticket_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Historical Ticket Ids",
+            "default": [],
+            "description": "Historical ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Summary",
+            "description": "Summary. See operation description and integration contract for policy semantics."
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Description",
+            "description": "Description. See operation description and integration contract for policy semantics."
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "SEV1",
+              "SEV2",
+              "SEV3"
+            ],
+            "title": "Severity",
+            "description": "Severity. See operation description and integration contract for policy semantics."
+          },
+          "category": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Category",
+            "description": "Category. See operation description and integration contract for policy semantics."
+          },
+          "configuration_item_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Configuration Item Id",
+            "description": "Configuration item id. See operation description and integration contract for policy semantics."
+          },
+          "location_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Location Id",
+            "description": "Location id. See operation description and integration contract for policy semantics."
+          },
+          "owner_group_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Owner Group Id",
+            "description": "Owner group id. See operation description and integration contract for policy semantics."
+          },
+          "related_ticket_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Related Ticket Ids",
+            "description": "Related ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Reason",
+            "description": "Reason. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "summary",
+          "description",
+          "severity",
+          "category",
+          "configuration_item_id",
+          "location_id",
+          "owner_group_id",
+          "related_ticket_ids",
+          "reason"
+        ],
+        "title": "CreateGlobal"
+      },
+      "CreateTicket": {
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "summary": {
+            "type": "string",
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Summary",
+            "description": "Summary. See operation description and integration contract for policy semantics."
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Description",
+            "description": "Description. See operation description and integration contract for policy semantics."
+          },
+          "reported_by_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Reported By Id",
+            "description": "Reported by id. See operation description and integration contract for policy semantics."
+          },
+          "affected_person_id": {
+            "title": "Affected Person Id",
+            "description": "Affected person id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          },
+          "ticket_class": {
+            "type": "string",
+            "enum": [
+              "SERVICE_REQUEST",
+              "INCIDENT",
+              "PROBLEM",
+              "CHANGE"
+            ],
+            "title": "Ticket Class",
+            "default": "INCIDENT",
+            "description": "Ticket class. See operation description and integration contract for policy semantics."
+          },
+          "reported_priority": {
+            "type": "integer",
+            "maximum": 4.0,
+            "minimum": 1.0,
+            "title": "Reported Priority",
+            "default": 3,
+            "description": "Reported priority. See operation description and integration contract for policy semantics."
+          },
+          "impact": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 1.0,
+            "title": "Impact",
+            "default": 3,
+            "description": "Impact. See operation description and integration contract for policy semantics."
+          },
+          "urgency": {
+            "type": "integer",
+            "maximum": 3.0,
+            "minimum": 1.0,
+            "title": "Urgency",
+            "default": 2,
+            "description": "Urgency. See operation description and integration contract for policy semantics."
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "ar",
+              "franco_ar"
+            ],
+            "title": "Language",
+            "default": "en",
+            "description": "Language. See operation description and integration contract for policy semantics."
+          },
+          "domain": {
+            "title": "Domain",
+            "description": "Domain. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "category": {
+            "title": "Category",
+            "description": "Category. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "subcategory": {
+            "title": "Subcategory",
+            "description": "Subcategory. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "asset_id": {
+            "title": "Asset Id",
+            "description": "Asset id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          },
+          "configuration_item_id": {
+            "title": "Configuration Item Id",
+            "description": "Configuration item id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          },
+          "location_id": {
+            "title": "Location Id",
+            "description": "Location id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          },
+          "security_sensitive": {
+            "type": "boolean",
+            "title": "Security Sensitive",
+            "default": false,
+            "description": "Security sensitive. See operation description and integration contract for policy semantics."
+          },
+          "privileged_access": {
+            "type": "boolean",
+            "title": "Privileged Access",
+            "default": false,
+            "description": "Privileged access. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "summary",
+          "description",
+          "reported_by_id"
+        ],
+        "title": "CreateTicket"
+      },
+      "Criteria": {
+        "properties": {
+          "domain": {
+            "title": "Domain",
+            "description": "Domain. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "category": {
+            "title": "Category",
+            "description": "Category. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "configuration_item_id": {
+            "title": "Configuration Item Id",
+            "description": "Configuration item id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "location_id": {
+            "title": "Location Id",
+            "description": "Location id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Criteria"
+      },
+      "DiagnosticInput": {
+        "properties": {
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "description": "Recorded evidence IDs belonging to this ticket."
+          },
+          "knowledge_article_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Knowledge Article Ids",
+            "default": [],
+            "description": "Knowledge article ids. See operation description and integration contract for policy semantics."
+          },
+          "historical_ticket_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Historical Ticket Ids",
+            "default": [],
+            "description": "Historical ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "diagnosis_code": {
+            "title": "Diagnosis Code",
+            "description": "Diagnosis code. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "DIAGNOSED",
+              "INCONCLUSIVE",
+              "HUMAN_REQUIRED"
+            ],
+            "title": "Outcome",
+            "description": "Outcome. See operation description and integration contract for policy semantics."
+          },
+          "candidate_diagnoses": {
+            "items": {
+              "$ref": "#/components/schemas/Candidate"
+            },
+            "type": "array",
+            "title": "Candidate Diagnoses",
+            "default": [],
+            "description": "Candidate diagnoses. See operation description and integration contract for policy semantics."
+          },
+          "eliminated_diagnoses": {
+            "items": {
+              "$ref": "#/components/schemas/Candidate"
+            },
+            "type": "array",
+            "title": "Eliminated Diagnoses",
+            "default": [],
+            "description": "Eliminated diagnoses. See operation description and integration contract for policy semantics."
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ],
+            "title": "Confidence",
+            "description": "Confidence. See operation description and integration contract for policy semantics."
+          },
+          "confidence_basis": {
+            "$ref": "#/components/schemas/ConfidenceBasis",
+            "description": "Confidence basis. See operation description and integration contract for policy semantics."
+          },
+          "recommended_action": {
+            "type": "string",
+            "enum": [
+              "ASK_MORE",
+              "RESOLVE",
+              "ROUTE",
+              "ESCALATE"
+            ],
+            "title": "Recommended Action",
+            "description": "Recommended action. See operation description and integration contract for policy semantics."
+          },
+          "missing_information": {
+            "items": {
+              "type": "string",
+              "maxLength": 16000,
+              "minLength": 1
+            },
+            "type": "array",
+            "title": "Missing Information",
+            "default": [],
+            "description": "Missing information. See operation description and integration contract for policy semantics."
+          },
+          "rationale": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Rationale",
+            "description": "Rationale. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "outcome",
+          "confidence",
+          "confidence_basis",
+          "recommended_action",
+          "rationale"
+        ],
+        "title": "DiagnosticInput"
+      },
+      "DiagnosticOut": {
+        "properties": {
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "description": "Recorded evidence IDs belonging to this ticket."
+          },
+          "knowledge_article_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Knowledge Article Ids",
+            "default": [],
+            "description": "Knowledge article ids. See operation description and integration contract for policy semantics."
+          },
+          "historical_ticket_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Historical Ticket Ids",
+            "default": [],
+            "description": "Historical ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "diagnosis_code": {
+            "title": "Diagnosis Code",
+            "description": "Diagnosis code. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "DIAGNOSED",
+              "INCONCLUSIVE",
+              "HUMAN_REQUIRED"
+            ],
+            "title": "Outcome",
+            "description": "Outcome. See operation description and integration contract for policy semantics."
+          },
+          "candidate_diagnoses": {
+            "items": {
+              "$ref": "#/components/schemas/Candidate"
+            },
+            "type": "array",
+            "title": "Candidate Diagnoses",
+            "default": [],
+            "description": "Candidate diagnoses. See operation description and integration contract for policy semantics."
+          },
+          "eliminated_diagnoses": {
+            "items": {
+              "$ref": "#/components/schemas/Candidate"
+            },
+            "type": "array",
+            "title": "Eliminated Diagnoses",
+            "default": [],
+            "description": "Eliminated diagnoses. See operation description and integration contract for policy semantics."
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ],
+            "title": "Confidence",
+            "description": "Confidence. See operation description and integration contract for policy semantics."
+          },
+          "confidence_basis": {
+            "$ref": "#/components/schemas/ConfidenceBasis",
+            "description": "Confidence basis. See operation description and integration contract for policy semantics."
+          },
+          "recommended_action": {
+            "type": "string",
+            "enum": [
+              "ASK_MORE",
+              "RESOLVE",
+              "ROUTE",
+              "ESCALATE"
+            ],
+            "title": "Recommended Action",
+            "description": "Recommended action. See operation description and integration contract for policy semantics."
+          },
+          "missing_information": {
+            "items": {
+              "type": "string",
+              "maxLength": 16000,
+              "minLength": 1
+            },
+            "type": "array",
+            "title": "Missing Information",
+            "default": [],
+            "description": "Missing information. See operation description and integration contract for policy semantics."
+          },
+          "rationale": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Rationale",
+            "description": "Rationale. See operation description and integration contract for policy semantics."
+          },
+          "diagnostic_result_id": {
+            "type": "string",
+            "title": "Diagnostic Result Id",
+            "description": "Diagnostic result id. See operation description and integration contract for policy semantics."
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version",
+            "description": "Version. See operation description and integration contract for policy semantics."
+          },
+          "recorded_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Recorded At",
+            "description": "Recorded at. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "outcome",
+          "confidence",
+          "confidence_basis",
+          "recommended_action",
+          "rationale",
+          "diagnostic_result_id",
+          "version",
+          "recorded_at"
+        ],
+        "title": "DiagnosticOut"
+      },
+      "EntitlementCheck": {
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "user_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "User Id",
+            "description": "User id. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Retry key for recording the observation; synthetic account is never modified."
+          },
+          "application_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Application Id",
+            "description": "Application id. See operation description and integration contract for policy semantics."
+          },
+          "required_role": {
+            "title": "Required Role",
+            "description": "Required role. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticket_id",
+          "user_id",
+          "action_id",
+          "application_id"
+        ],
+        "title": "EntitlementCheck"
+      },
+      "EntitlementOut": {
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "title": "User Id",
+            "description": "User id. See operation description and integration contract for policy semantics."
+          },
+          "application_id": {
+            "type": "string",
+            "title": "Application Id",
+            "description": "Application id. See operation description and integration contract for policy semantics."
+          },
+          "required_role": {
+            "title": "Required Role",
+            "description": "Required role. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "entitled": {
+            "type": "string",
+            "enum": [
+              "TRUE",
+              "FALSE",
+              "UNKNOWN"
+            ],
+            "title": "Entitled",
+            "description": "Entitled. See operation description and integration contract for policy semantics."
+          },
+          "provisioning_state": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "PENDING",
+              "ABSENT",
+              "UNKNOWN"
+            ],
+            "title": "Provisioning State",
+            "description": "Provisioning state. See operation description and integration contract for policy semantics."
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At",
+            "description": "Observed at. See operation description and integration contract for policy semantics."
+          },
+          "evidence_id": {
+            "type": "string",
+            "title": "Evidence Id",
+            "description": "Evidence id. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "user_id",
+          "application_id",
+          "required_role",
+          "entitled",
+          "provisioning_state",
+          "observed_at",
+          "evidence_id"
+        ],
+        "title": "EntitlementOut"
+      },
+      "Error": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Code. See operation description and integration contract for policy semantics."
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Message. See operation description and integration contract for policy semantics."
+          },
+          "details": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Details",
+            "default": [],
+            "description": "Details. See operation description and integration contract for policy semantics."
+          },
+          "request_id": {
+            "type": "string",
+            "title": "Request Id",
+            "description": "Request id. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "message",
+          "request_id"
+        ],
+        "title": "Error"
+      },
+      "EvidenceInput": {
+        "properties": {
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "USER_RESPONSE",
+              "KNOWLEDGE_ARTICLE",
+              "HISTORICAL_TICKET"
+            ],
+            "title": "Source Type",
+            "description": "Source type. See operation description and integration contract for policy semantics."
+          },
+          "source_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Source Id",
+            "description": "Source id. See operation description and integration contract for policy semantics."
+          },
+          "observation": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Observation",
+            "description": "Observation. See operation description and integration contract for policy semantics."
+          },
+          "observed_at": {
+            "title": "Observed At",
+            "description": "Observed at. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "source_type",
+          "source_id",
+          "observation"
+        ],
+        "title": "EvidenceInput"
+      },
+      "EvidenceOut": {
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "title": "Evidence Id",
+            "description": "Evidence id. See operation description and integration contract for policy semantics."
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "USER_RESPONSE",
+              "TOOL_CHECK",
+              "KNOWLEDGE_ARTICLE",
+              "HISTORICAL_TICKET"
+            ],
+            "title": "Source Type",
+            "description": "Source type. See operation description and integration contract for policy semantics."
+          },
+          "source_id": {
+            "type": "string",
+            "title": "Source Id",
+            "description": "Source id. See operation description and integration contract for policy semantics."
+          },
+          "observation": {
+            "type": "string",
+            "title": "Observation",
+            "description": "Observation. See operation description and integration contract for policy semantics."
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At",
+            "description": "Observed at. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "source_type",
+          "source_id",
+          "observation",
+          "observed_at"
+        ],
+        "title": "EvidenceOut"
+      },
+      "GlobalCreated": {
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "reused_existing": {
+            "type": "boolean",
+            "title": "Reused Existing",
+            "description": "Reused existing. See operation description and integration contract for policy semantics."
+          },
+          "related_ticket_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Related Ticket Ids",
+            "description": "Related ticket ids. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticket_id",
+          "reused_existing",
+          "related_ticket_ids"
+        ],
+        "title": "GlobalCreated"
+      },
+      "GlobalIssue": {
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "SEV1",
+              "SEV2",
+              "SEV3"
+            ],
+            "title": "Severity",
+            "description": "Severity. See operation description and integration contract for policy semantics."
+          },
+          "owner_group_id": {
+            "type": "string",
+            "title": "Owner Group Id",
+            "description": "Owner group id. See operation description and integration contract for policy semantics."
+          },
+          "affected_scope": {
+            "$ref": "#/components/schemas/Criteria",
+            "description": "Affected scope. See operation description and integration contract for policy semantics."
+          },
+          "related_ticket_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Related Ticket Ids",
+            "description": "Related ticket ids. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticket_id",
+          "severity",
+          "owner_group_id",
+          "affected_scope",
+          "related_ticket_ids"
+        ],
+        "title": "GlobalIssue"
+      },
+      "GlobalResults": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/GlobalIssue"
+            },
+            "type": "array",
+            "title": "Results",
+            "description": "Results. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "title": "GlobalResults"
+      },
+      "Grouping": {
+        "properties": {
+          "category": {
+            "title": "Category",
+            "description": "Category. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "configuration_item_id": {
+            "title": "Configuration Item Id",
+            "description": "Configuration item id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          },
+          "location_id": {
+            "title": "Location Id",
+            "description": "Location id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Grouping"
+      },
+      "HealthCheck": {
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "ticket_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "configuration_item_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Configuration Item Id",
+            "description": "Configuration item id. See operation description and integration contract for policy semantics."
+          },
+          "location_id": {
+            "title": "Location Id",
+            "description": "Location id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "ticket_id",
+          "configuration_item_id"
+        ],
+        "title": "HealthCheck"
+      },
+      "HealthOut": {
+        "properties": {
+          "configuration_item_id": {
+            "type": "string",
+            "title": "Configuration Item Id",
+            "description": "Configuration item id. See operation description and integration contract for policy semantics."
+          },
+          "location_id": {
+            "title": "Location Id",
+            "description": "Location id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "OPERATIONAL",
+              "DEGRADED",
+              "UNAVAILABLE",
+              "UNKNOWN"
+            ],
+            "title": "State",
+            "description": "State. See operation description and integration contract for policy semantics."
+          },
+          "scope": {
+            "type": "string",
+            "title": "Scope",
+            "description": "Scope. See operation description and integration contract for policy semantics."
+          },
+          "details": {
+            "type": "string",
+            "title": "Details",
+            "description": "Details. See operation description and integration contract for policy semantics."
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Observed At",
+            "description": "Observed at. See operation description and integration contract for policy semantics."
+          },
+          "evidence_id": {
+            "type": "string",
+            "title": "Evidence Id",
+            "description": "Evidence id. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "configuration_item_id",
+          "location_id",
+          "state",
+          "scope",
+          "details",
+          "observed_at",
+          "evidence_id"
+        ],
+        "title": "HealthOut"
+      },
+      "KnowledgeResults": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/Article"
+            },
+            "type": "array",
+            "title": "Results",
+            "description": "Results. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "title": "KnowledgeResults"
+      },
+      "KnowledgeSearch": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Query",
+            "description": "Query. See operation description and integration contract for policy semantics."
+          },
+          "domain": {
+            "title": "Domain",
+            "description": "Domain. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "category": {
+            "title": "Category",
+            "description": "Category. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "default": 5,
+            "description": "Limit. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "title": "KnowledgeSearch"
+      },
+      "LinkGlobal": {
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "global_ticket_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Global Ticket Id",
+            "description": "Global ticket id. See operation description and integration contract for policy semantics."
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Reason",
+            "description": "Reason. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "global_ticket_id",
+          "reason"
+        ],
+        "title": "LinkGlobal"
+      },
+      "LinkOut": {
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "global_ticket_id": {
+            "type": "string",
+            "title": "Global Ticket Id",
+            "description": "Global ticket id. See operation description and integration contract for policy semantics."
+          },
+          "already_linked": {
+            "type": "boolean",
+            "title": "Already Linked",
+            "description": "Already linked. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticket_id",
+          "global_ticket_id",
+          "already_linked"
+        ],
+        "title": "LinkOut"
+      },
+      "NotificationOut": {
+        "properties": {
+          "notification_id": {
+            "type": "string",
+            "title": "Notification Id",
+            "description": "Notification id. See operation description and integration contract for policy semantics."
+          },
+          "delivery_mode": {
+            "type": "string",
+            "title": "Delivery Mode",
+            "default": "MOCK",
+            "description": "Delivery mode. See operation description and integration contract for policy semantics.",
+            "enum": [
+              "MOCK"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "notification_id"
+        ],
+        "title": "NotificationOut"
+      },
+      "Notify": {
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "resolver_group_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Resolver Group Id",
+            "description": "Resolver group id. See operation description and integration contract for policy semantics."
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "SEV1",
+              "SEV2",
+              "SEV3"
+            ],
+            "title": "Severity",
+            "description": "Severity. See operation description and integration contract for policy semantics."
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Message",
+            "description": "Message. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "resolver_group_id",
+          "severity",
+          "message"
+        ],
+        "title": "Notify"
+      },
+      "RequestReview": {
+        "properties": {
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "description": "Recorded evidence IDs belonging to this ticket."
+          },
+          "knowledge_article_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Knowledge Article Ids",
+            "default": [],
+            "description": "Knowledge article ids. See operation description and integration contract for policy semantics."
+          },
+          "historical_ticket_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Historical Ticket Ids",
+            "default": [],
+            "description": "Historical ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Reason",
+            "description": "Reason. See operation description and integration contract for policy semantics."
+          },
+          "review_type": {
+            "type": "string",
+            "enum": [
+              "SAFETY",
+              "TRIAGE",
+              "INVESTIGATION",
+              "PRIVILEGED_ACCESS"
+            ],
+            "title": "Review Type",
+            "description": "Review type. See operation description and integration contract for policy semantics."
+          },
+          "suggested_group_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Suggested Group Id",
+            "description": "Suggested group id. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "reason",
+          "review_type",
+          "suggested_group_id"
+        ],
+        "title": "RequestReview"
+      },
+      "ResolutionStep": {
+        "properties": {
+          "step_id": {
+            "type": "string",
+            "title": "Step Id",
+            "description": "Step id. See operation description and integration contract for policy semantics."
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "SELF_SERVICE",
+              "L1",
+              "SPECIALIST"
+            ],
+            "title": "Level",
+            "description": "Level. See operation description and integration contract for policy semantics."
+          },
+          "instruction": {
+            "type": "string",
+            "title": "Instruction",
+            "description": "Instruction. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "step_id",
+          "level",
+          "instruction"
+        ],
+        "title": "ResolutionStep"
+      },
+      "ResolveTicket": {
+        "properties": {
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "description": "Recorded evidence IDs belonging to this ticket."
+          },
+          "knowledge_article_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Knowledge Article Ids",
+            "default": [],
+            "description": "Knowledge article ids. See operation description and integration contract for policy semantics."
+          },
+          "historical_ticket_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Historical Ticket Ids",
+            "default": [],
+            "description": "Historical ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Action Id",
+            "description": "Unique retry key. Reuse only for identical operation and inputs.",
+            "example": "demo-action-001"
+          },
+          "diagnosis_code": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Diagnosis Code",
+            "description": "Diagnosis code. See operation description and integration contract for policy semantics."
+          },
+          "resolution_summary": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Resolution Summary",
+            "description": "Resolution summary. See operation description and integration contract for policy semantics."
+          },
+          "steps_completed": {
+            "items": {
+              "type": "string",
+              "maxLength": 16000,
+              "minLength": 1
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Steps Completed",
+            "description": "Exact article step IDs completed by the user or authorized operator."
+          },
+          "knowledge_article_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_.:-]+$",
+            "title": "Knowledge Article Id",
+            "description": "Knowledge article id. See operation description and integration contract for policy semantics."
+          },
+          "user_confirmed_success": {
+            "type": "boolean",
+            "title": "User Confirmed Success",
+            "description": "Conversation assertion only, not independent verification of the fix."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "action_id",
+          "diagnosis_code",
+          "resolution_summary",
+          "steps_completed",
+          "knowledge_article_id",
+          "user_confirmed_success"
+        ],
+        "title": "ResolveTicket"
+      },
+      "ReviewOut": {
+        "properties": {
+          "review_id": {
+            "type": "string",
+            "title": "Review Id",
+            "description": "Review id. See operation description and integration contract for policy semantics."
+          },
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "REQUESTED",
+              "APPROVED",
+              "REJECTED"
+            ],
+            "title": "State",
+            "description": "State. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "review_id",
+          "ticket_id",
+          "state"
+        ],
+        "title": "ReviewOut"
+      },
+      "SearchTickets": {
+        "properties": {
+          "description": {
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "title": "Description",
+            "description": "Description. See operation description and integration contract for policy semantics."
+          },
+          "domain": {
+            "title": "Domain",
+            "description": "Domain. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "category": {
+            "title": "Category",
+            "description": "Category. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "maxLength": 16000,
+            "minLength": 1,
+            "nullable": true
+          },
+          "language": {
+            "title": "Language",
+            "description": "Language. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "enum": [
+              "en",
+              "ar",
+              "franco_ar"
+            ],
+            "nullable": true
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 50.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "default": 5,
+            "description": "Limit. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "description"
+        ],
+        "title": "SearchTickets"
+      },
+      "SimilarResults": {
+        "properties": {
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/SimilarTicket"
+            },
+            "type": "array",
+            "title": "Results",
+            "description": "Results. See operation description and integration contract for policy semantics."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "results"
+        ],
+        "title": "SimilarResults"
+      },
+      "SimilarTicket": {
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "symptoms": {
+            "type": "string",
+            "title": "Symptoms",
+            "description": "Symptoms. See operation description and integration contract for policy semantics."
+          },
+          "diagnosis_code": {
+            "title": "Diagnosis Code",
+            "description": "Diagnosis code. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "resolver_group_id": {
+            "title": "Resolver Group Id",
+            "description": "Resolver group id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "resolution": {
+            "title": "Resolution",
+            "description": "Resolution. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "relevance_score": {
+            "type": "number",
+            "title": "Relevance Score",
+            "description": "Lexical similarity, not diagnostic confidence."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticket_id",
+          "symptoms",
+          "diagnosis_code",
+          "resolver_group_id",
+          "resolution",
+          "relevance_score"
+        ],
+        "title": "SimilarTicket"
+      },
+      "TicketDetails": {
+        "properties": {
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "ticket_class": {
+            "type": "string",
+            "enum": [
+              "SERVICE_REQUEST",
+              "INCIDENT",
+              "PROBLEM",
+              "CHANGE"
+            ],
+            "title": "Ticket Class",
+            "description": "Ticket class. See operation description and integration contract for policy semantics."
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary",
+            "description": "Summary. See operation description and integration contract for policy semantics."
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description. See operation description and integration contract for policy semantics."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "NEW",
+              "QUEUED",
+              "IN_PROGRESS",
+              "PENDING",
+              "RESOLVED",
+              "CLOSED"
+            ],
+            "title": "Status",
+            "description": "Status. See operation description and integration contract for policy semantics."
+          },
+          "reported_priority": {
+            "type": "integer",
+            "title": "Reported Priority",
+            "description": "Reported priority. See operation description and integration contract for policy semantics."
+          },
+          "impact": {
+            "type": "integer",
+            "title": "Impact",
+            "description": "Impact. See operation description and integration contract for policy semantics."
+          },
+          "urgency": {
+            "type": "integer",
+            "title": "Urgency",
+            "description": "Urgency. See operation description and integration contract for policy semantics."
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "ar",
+              "franco_ar"
+            ],
+            "title": "Language",
+            "description": "Language. See operation description and integration contract for policy semantics."
+          },
+          "domain": {
+            "title": "Domain",
+            "description": "Domain. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "category": {
+            "title": "Category",
+            "description": "Category. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "subcategory": {
+            "title": "Subcategory",
+            "description": "Subcategory. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "diagnosis_code": {
+            "title": "Diagnosis Code",
+            "description": "Diagnosis code. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "owner_group_id": {
+            "title": "Owner Group Id",
+            "description": "Owner group id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "owner_id": {
+            "title": "Owner Id",
+            "description": "Owner id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "reported_by_id": {
+            "type": "string",
+            "title": "Reported By Id",
+            "description": "Reported by id. See operation description and integration contract for policy semantics."
+          },
+          "affected_person_id": {
+            "type": "string",
+            "title": "Affected Person Id",
+            "description": "Affected person id. See operation description and integration contract for policy semantics."
+          },
+          "asset_id": {
+            "title": "Asset Id",
+            "description": "Asset id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "configuration_item_id": {
+            "title": "Configuration Item Id",
+            "description": "Configuration item id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "location_id": {
+            "title": "Location Id",
+            "description": "Location id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "reported_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Reported At",
+            "description": "Reported at. See operation description and integration contract for policy semantics."
+          },
+          "target_finish_at": {
+            "title": "Target Finish At",
+            "description": "Target finish at. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "actual_finish_at": {
+            "title": "Actual Finish At",
+            "description": "Actual finish at. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "resolved_at": {
+            "title": "Resolved At",
+            "description": "Resolved at. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "closed_at": {
+            "title": "Closed At",
+            "description": "Closed at. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At",
+            "description": "Updated at. See operation description and integration contract for policy semantics."
+          },
+          "linked_solution_id": {
+            "title": "Linked Solution Id",
+            "description": "Linked solution id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "resolution_summary": {
+            "title": "Resolution Summary",
+            "description": "Resolution summary. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "is_global": {
+            "type": "boolean",
+            "title": "Is Global",
+            "default": false,
+            "description": "Is global. See operation description and integration contract for policy semantics."
+          },
+          "global_ticket_id": {
+            "title": "Global Ticket Id",
+            "description": "Global ticket id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          },
+          "severity": {
+            "title": "Severity",
+            "description": "Severity. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "enum": [
+              "SEV1",
+              "SEV2",
+              "SEV3"
+            ],
+            "nullable": true
+          },
+          "security_sensitive": {
+            "type": "boolean",
+            "title": "Security Sensitive",
+            "default": false,
+            "description": "Security sensitive. See operation description and integration contract for policy semantics."
+          },
+          "privileged_access": {
+            "type": "boolean",
+            "title": "Privileged Access",
+            "default": false,
+            "description": "Privileged access. See operation description and integration contract for policy semantics."
+          },
+          "related_ticket_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Related Ticket Ids",
+            "default": [],
+            "description": "Related ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "worklogs": {
+            "items": {
+              "$ref": "#/components/schemas/WorklogOut"
+            },
+            "type": "array",
+            "title": "Worklogs",
+            "default": [],
+            "description": "Worklogs. See operation description and integration contract for policy semantics."
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/EvidenceOut"
+            },
+            "type": "array",
+            "title": "Evidence",
+            "default": [],
+            "description": "Evidence. See operation description and integration contract for policy semantics."
+          },
+          "latest_diagnostic_result": {
+            "description": "Latest diagnostic result. See operation description and integration contract for policy semantics.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DiagnosticOut"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticket_id",
+          "ticket_class",
+          "summary",
+          "description",
+          "status",
+          "reported_priority",
+          "impact",
+          "urgency",
+          "language",
+          "reported_by_id",
+          "affected_person_id",
+          "reported_at",
+          "updated_at"
+        ],
+        "title": "TicketDetails"
+      },
+      "WorklogOut": {
+        "properties": {
+          "evidence_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Evidence Ids",
+            "description": "Recorded evidence IDs belonging to this ticket."
+          },
+          "knowledge_article_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Knowledge Article Ids",
+            "default": [],
+            "description": "Knowledge article ids. See operation description and integration contract for policy semantics."
+          },
+          "historical_ticket_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            "type": "array",
+            "title": "Historical Ticket Ids",
+            "default": [],
+            "description": "Historical ticket ids. See operation description and integration contract for policy semantics."
+          },
+          "worklog_id": {
+            "type": "string",
+            "title": "Worklog Id",
+            "description": "Worklog id. See operation description and integration contract for policy semantics."
+          },
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id",
+            "description": "Ticket id. See operation description and integration contract for policy semantics."
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Timestamp",
+            "description": "Timestamp. See operation description and integration contract for policy semantics."
+          },
+          "actor_id": {
+            "type": "string",
+            "title": "Actor Id",
+            "description": "Actor id. See operation description and integration contract for policy semantics."
+          },
+          "entry_type": {
+            "type": "string",
+            "enum": [
+              "NOTE",
+              "QUESTION",
+              "EVIDENCE",
+              "DIAGNOSIS",
+              "ASSIGNMENT",
+              "RESOLUTION",
+              "ESCALATION",
+              "OUTAGE",
+              "NOTIFICATION"
+            ],
+            "title": "Entry Type",
+            "description": "Entry type. See operation description and integration contract for policy semantics."
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary",
+            "description": "Summary. See operation description and integration contract for policy semantics."
+          },
+          "rationale": {
+            "type": "string",
+            "title": "Rationale",
+            "description": "Rationale. See operation description and integration contract for policy semantics."
+          },
+          "action_id": {
+            "title": "Action Id",
+            "description": "Action id. See operation description and integration contract for policy semantics.",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "worklog_id",
+          "ticket_id",
+          "timestamp",
+          "actor_id",
+          "entry_type",
+          "summary",
+          "rationale"
+        ],
+        "title": "WorklogOut"
+      }
+    },
+    "securitySchemes": {
+      "ServiceApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://shelf-roman-swimmable.ngrok-free.dev/"
+    }
+  ],
+  "security": [
+    {
+      "ServiceApiKey": []
+    }
+  ]
+}

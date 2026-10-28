@@ -1,0 +1,17 @@
+{
+  "diagnostic_articles": 26,
+  "taxonomy": 26,
+  "routing_matrix": 26,
+  "resolver_groups": 7,
+  "escalation_policy": 1,
+  "backend_article_ids_preserved": true,
+  "backend_thresholds_exact_match": true,
+  "unapproved_knowledge_search_returns_empty": true,
+  "unapproved_resolution_rejected": true,
+  "validation_scope": "Supplied backend schemas and service functions; isolated in-memory database, no deployed API contacted",
+  "official_json_csv_logs_match": true,
+  "current_retrieval_cases": 56,
+  "all_current_cases_not_run": true,
+  "official_article_taxonomy_route_references_consistent": true,
+  "archived_original_files_verified": 11
+}

@@ -1,0 +1,42 @@
+# SYS-28 — Existing global: link and report known issue once
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-28 has verified category Availability, CI-PORTAL, LOC-B and an existing active matching global covering the same issue. Active policy permits linking; child initially unlinked.
+
+## Opening input — copy into Supervisor
+
+```text
+Please investigate TST-SYS-28. The portal is unavailable for several users at Site B.
+```
+
+## Expected first response/action
+
+Read TST-SYS-28 and dispatch the verified relevant shared-service check to Escalation; search the exact active-global scope before count/create decisions.
+
+No scripted follow-up is required. Answer only a genuine missing observable fact if asked; optional scope must not delay mandatory human handling.
+
+## Expected internal agent path
+
+Supervisor -> Escalation & Outage -> exact global search/link/readback -> Supervisor
+
+## Expected terminal output / ticket state
+
+Escalation finds/verifies the exact matching active global, links child once if permitted, reads back relationship and returns actual global ID/status. No duplicate global or duplicate individual fix. Separate mandatory-human needs still apply.
+
+## Fail this case if
+
+- Links from category-only similarity.
+- Creates another global.
+- Calls linkage resolution or suppresses a separate safety requirement.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

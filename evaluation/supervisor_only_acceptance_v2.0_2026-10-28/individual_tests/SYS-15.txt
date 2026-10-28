@@ -1,0 +1,48 @@
+# SYS-15 — Reply forwarding: do not print tool JSON
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- USR-001 must currently return independently verified expired password with enabled/unlocked account and required nonblocking MFA state; applicable resolution article/version is actively approved. Earlier successful chat is evidence of prior behavior, not a guarantee of current data.
+
+## Opening input — copy into Supervisor
+
+```text
+I am user USR-001. My password expired.
+```
+
+## Expected first response/action
+
+Invoke Diagnostic and relay the actual first question. The answer-dispatch assertion is exercised only at the matching expiry-message question.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: When the actual question asks whether the sign-in screen explicitly reports password expiry
+
+```text
+Yes. The sign-in screen explicitly says my password has expired.
+```
+
+**Expected:** One actual collaborator answer call using exact ticket/checkpoint, followed by its real next result. A JSON object displayed as the assistant answer is a failure.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> one real answer invocation -> actual next checkpoint
+
+## Expected terminal output / ticket state
+
+An actual next Diagnostic question/procedure/result appears; no extra OK or repeated user answer is needed.
+
+## Fail this case if
+
+- Only prints operation/answer JSON.
+- Repeats the same question with unchanged receipt instead of submitting the first reply.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

@@ -1,0 +1,452 @@
+{
+  "session": {
+    "mode": "backend",
+    "snapshot": {
+      "ticket": {
+        "ticket_id": "INC-4d1182caa08a41fc",
+        "summary": "Laptop cannot connect to office Wi-Fi",
+        "description": "My laptop cannot connect to the office Wi-Fi.",
+        "priority": "3",
+        "ticket_class": "INCIDENT",
+        "impact": 3,
+        "urgency": 2,
+        "language": "en",
+        "domain": "Network",
+        "category": "Connectivity",
+        "subcategory": null,
+        "severity": null,
+        "asset_id": null,
+        "configuration_item_id": null,
+        "location_id": null,
+        "security_sensitive": false,
+        "privileged_access": false,
+        "metadata": {
+          "diagnostic_review_mode": true,
+          "answer_clarifications": {
+            "Can another device connect to the same Wi-Fi at the same location?": 1
+          },
+          "interpreted_answers": {
+            "EV-1dfbb28213364c05": {
+              "question": "Can another device connect to the same Wi-Fi at the same location?",
+              "facts": {
+                "peer_wifi_connection": "WORKS"
+              }
+            }
+          }
+        }
+      },
+      "candidates": [
+        {
+          "diagnosis_id": "WIFI_FAILURE",
+          "name": "Wi-Fi association failure",
+          "domain": "Network",
+          "category": "Connectivity",
+          "resolver_group": "GRP-NET",
+          "required_evidence": [
+            "wifi_failure_confirmed"
+          ],
+          "supporting_evidence_ids": [],
+          "contradicting_evidence_ids": [],
+          "status": "plausible",
+          "elimination_reason": null,
+          "knowledge_article_id": "KB-014"
+        },
+        {
+          "diagnosis_id": "LOCAL_ENDPOINT",
+          "name": "Local endpoint issue",
+          "domain": "Endpoints",
+          "category": "Device",
+          "resolver_group": "GRP-END",
+          "required_evidence": [
+            "local_endpoint_confirmed"
+          ],
+          "supporting_evidence_ids": [
+            "EV-ab6cb4c994384f44"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "plausible",
+          "elimination_reason": null,
+          "knowledge_article_id": null
+        }
+      ],
+      "archived_candidates": [],
+      "evidence": [
+        {
+          "evidence_id": "EV-ab6cb4c994384f44",
+          "description": "User answered the diagnostic question: Does the same task work on another device or for a colleague?",
+          "value": "Yes, another device connects to the same Wi-Fi.",
+          "source": "user_answer",
+          "timestamp": null,
+          "supports": [
+            "LOCAL_ENDPOINT"
+          ],
+          "contradicts": [
+            "APP_OUTAGE"
+          ]
+        },
+        {
+          "evidence_id": "EV-f87f45989616439c",
+          "description": "User answered the diagnostic question: Is the affected service reported as healthy for other users?",
+          "value": "The affected device connects to a different approved network",
+          "source": "user_answer",
+          "timestamp": null,
+          "supports": [],
+          "contradicts": []
+        },
+        {
+          "evidence_id": "EV-021fa5ab670d44ac",
+          "description": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?",
+          "value": "The affected device connects to a different approved network",
+          "source": "user_answer",
+          "timestamp": null,
+          "supports": [],
+          "contradicts": []
+        },
+        {
+          "evidence_id": "EV-1dfbb28213364c05",
+          "description": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?",
+          "value": "“Yes, another device connects to the same Wi-Fi",
+          "source": "user_answer",
+          "timestamp": null,
+          "supports": [],
+          "contradicts": []
+        }
+      ],
+      "questions_asked": [
+        "Does the same task work on another device or for a colleague?",
+        "Is the affected service reported as healthy for other users?",
+        "Can another device connect to the same Wi-Fi at the same location?",
+        "Can this device connect to a different approved network?"
+      ],
+      "eliminated_diagnoses": [],
+      "trace": [
+        {
+          "step_number": 1,
+          "event_type": "knowledge_retrieved",
+          "description": "Retrieved 1 diagnostic article(s).",
+          "evidence_ids": [],
+          "candidate_ids": [
+            "WIFI_FAILURE"
+          ],
+          "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+        },
+        {
+          "step_number": 2,
+          "event_type": "historical_tickets_retrieved",
+          "description": "Retrieved 5 similar resolved/closed historical ticket(s).",
+          "evidence_ids": [],
+          "candidate_ids": [
+            "WIFI_FAILURE",
+            "WIFI_FAILURE",
+            "WIFI_FAILURE",
+            "WIFI_FAILURE",
+            "WIFI_FAILURE"
+          ],
+          "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+        },
+        {
+          "step_number": 3,
+          "event_type": "investigation_started",
+          "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+          "evidence_ids": [],
+          "candidate_ids": [
+            "WIFI_FAILURE",
+            "LOCAL_ENDPOINT"
+          ],
+          "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+        },
+        {
+          "step_number": 4,
+          "event_type": "question_selected",
+          "description": "Does the same task work on another device or for a colleague?",
+          "evidence_ids": [],
+          "candidate_ids": [
+            "WIFI_FAILURE",
+            "LOCAL_ENDPOINT"
+          ],
+          "rationale": "The answer may help distinguish between plausible causes."
+        },
+        {
+          "step_number": 5,
+          "event_type": "answer_received",
+          "description": "Recorded an answer to: Does the same task work on another device or for a colleague?",
+          "evidence_ids": [],
+          "candidate_ids": [
+            "LOCAL_ENDPOINT",
+            "APP_OUTAGE"
+          ],
+          "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+        },
+        {
+          "step_number": 6,
+          "event_type": "evidence_added",
+          "description": "User answered the diagnostic question: Does the same task work on another device or for a colleague?",
+          "evidence_ids": [
+            "EV-ab6cb4c994384f44"
+          ],
+          "candidate_ids": [
+            "LOCAL_ENDPOINT",
+            "APP_OUTAGE"
+          ],
+          "rationale": "Evidence source: user_answer."
+        },
+        {
+          "step_number": 7,
+          "event_type": "answer_received",
+          "description": "Recorded an answer to: Is the affected service reported as healthy for other users?",
+          "evidence_ids": [],
+          "candidate_ids": [],
+          "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+        },
+        {
+          "step_number": 8,
+          "event_type": "evidence_added",
+          "description": "User answered the diagnostic question: Is the affected service reported as healthy for other users?",
+          "evidence_ids": [
+            "EV-f87f45989616439c"
+          ],
+          "candidate_ids": [],
+          "rationale": "Evidence source: user_answer."
+        },
+        {
+          "step_number": 9,
+          "event_type": "answer_received",
+          "description": "Recorded an answer to: Can another device connect to the same Wi-Fi at the same location?",
+          "evidence_ids": [],
+          "candidate_ids": [],
+          "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+        },
+        {
+          "step_number": 10,
+          "event_type": "evidence_added",
+          "description": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?",
+          "evidence_ids": [
+            "EV-021fa5ab670d44ac"
+          ],
+          "candidate_ids": [],
+          "rationale": "Evidence source: user_answer."
+        },
+        {
+          "step_number": 11,
+          "event_type": "answer_received",
+          "description": "Recorded an answer to: Can another device connect to the same Wi-Fi at the same location?",
+          "evidence_ids": [],
+          "candidate_ids": [],
+          "rationale": "Only explicit, narrowly scoped reported facts are mapped to candidates. The answer is not sufficient on its own to confirm a diagnosis."
+        },
+        {
+          "step_number": 12,
+          "event_type": "evidence_added",
+          "description": "User answered the diagnostic question: Can another device connect to the same Wi-Fi at the same location?",
+          "evidence_ids": [
+            "EV-1dfbb28213364c05"
+          ],
+          "candidate_ids": [],
+          "rationale": "Evidence source: user_answer."
+        }
+      ],
+      "knowledge_matches": [
+        {
+          "article_id": "KB-014",
+          "title": "KB-014",
+          "score": 6,
+          "matched_terms": [
+            "cannot",
+            "connect",
+            "fi",
+            "the",
+            "to",
+            "wi"
+          ],
+          "diagnosis_code": "WIFI_FAILURE",
+          "questions": [
+            "Can another device connect to the same Wi-Fi at the same location?",
+            "Can this device connect to a different approved network?"
+          ],
+          "approved": false,
+          "usage": "DIAGNOSTIC_GUIDANCE",
+          "version": 2,
+          "backend_reference": false,
+          "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE"
+        }
+      ],
+      "historical_matches": [
+        {
+          "ticket_id": "HIS-0346",
+          "score": 0.3882,
+          "matched_on": [
+            "shared_ticket_terms",
+            "category"
+          ],
+          "diagnosis_code": "WIFI_FAILURE",
+          "resolution_summary": "Wireless profile removed and re-added; connection stable after the access point was restarted.",
+          "owner_group_id": "GRP-NET"
+        },
+        {
+          "ticket_id": "HIS-0093",
+          "score": 0.2105,
+          "matched_on": [
+            "shared_ticket_terms",
+            "category"
+          ],
+          "diagnosis_code": "WIFI_FAILURE",
+          "resolution_summary": "Wireless profile removed and re-added; connection stable after the access point was restarted.",
+          "owner_group_id": "GRP-NET"
+        },
+        {
+          "ticket_id": "HIS-0172",
+          "score": 0.2105,
+          "matched_on": [
+            "shared_ticket_terms",
+            "category"
+          ],
+          "diagnosis_code": "WIFI_FAILURE",
+          "resolution_summary": "Wireless profile removed and re-added; connection stable after the access point was restarted. Confirmed working with the user.",
+          "owner_group_id": "GRP-NET"
+        },
+        {
+          "ticket_id": "HIS-0259",
+          "score": 0.2105,
+          "matched_on": [
+            "shared_ticket_terms",
+            "category"
+          ],
+          "diagnosis_code": "WIFI_FAILURE",
+          "resolution_summary": "Wireless profile removed and re-added; connection stable after the access point was restarted. Confirmed working with the user.",
+          "owner_group_id": "GRP-NET"
+        },
+        {
+          "ticket_id": "HIS-0306",
+          "score": 0.2105,
+          "matched_on": [
+            "shared_ticket_terms",
+            "category"
+          ],
+          "diagnosis_code": "WIFI_FAILURE",
+          "resolution_summary": "Wireless profile removed and re-added; connection stable after the access point was restarted.",
+          "owner_group_id": "GRP-NET"
+        }
+      ],
+      "next_question": "Can this device connect to a different approved network?",
+      "final_diagnosis": null,
+      "confidence": null,
+      "recommended_action": "investigate",
+      "rationale": "More evidence is needed. No diagnosis is confirmed by this step.",
+      "status": "in_progress",
+      "diagnostic_result_id": "DR-ab496ff7b46247d4",
+      "diagnostic_result_version": 6
+    },
+    "ticket_id": "INC-4d1182caa08a41fc",
+    "checkpoint_ref": "CHK-37c7aba9be684638"
+  },
+  "result": {
+    "ticket_id": "INC-4d1182caa08a41fc",
+    "diagnostic_result_id": "DR-ab496ff7b46247d4",
+    "diagnostic_result_version": 6,
+    "evidence_ids": [
+      "EV-ab6cb4c994384f44",
+      "EV-f87f45989616439c",
+      "EV-021fa5ab670d44ac",
+      "EV-1dfbb28213364c05"
+    ],
+    "completed_actions": [],
+    "missing_information": [
+      "Can this device connect to a different approved network?"
+    ],
+    "status": "NEW",
+    "integration_status": "BACKEND_CONNECTED",
+    "outcome": "INCONCLUSIVE",
+    "recommended_action": "ASK_MORE",
+    "diagnosis_code": null,
+    "diagnosis_scope": "UNDETERMINED",
+    "confidence": "LOW",
+    "confidence_basis": {
+      "historical_counts": {
+        "matching": null,
+        "comparison_diagnosis_code": null,
+        "reviewed": 5,
+        "ticket_ids": [
+          "HIS-0346",
+          "HIS-0093",
+          "HIS-0172",
+          "HIS-0259",
+          "HIS-0306"
+        ]
+      },
+      "knowledge_match_strength": "HIGH",
+      "evidence_completeness": "MEDIUM",
+      "historical_agreement": "NOT_AVAILABLE",
+      "alternatives_excluded": false
+    },
+    "rationale": "More evidence is needed. No diagnosis is confirmed by this step.",
+    "diagnostic_findings": {
+      "observations": [
+        {
+          "description": "Another device connects to the same Wi-Fi.",
+          "evidence_id": "EV-1dfbb28213364c05",
+          "source": "USER_RESPONSE"
+        }
+      ],
+      "leading_hypothesis": {
+        "diagnosis_code": "WIFI_FAILURE",
+        "description": "a Wi-Fi connection problem",
+        "supporting_evidence_ids": [],
+        "contradicting_evidence_ids": []
+      },
+      "suggested_support_team": "Network Support",
+      "verification_gaps": [
+        "A specialist needs to verify Wi-Fi association logs and the affected network/profile configuration; this agent has no implemented direct check for it."
+      ]
+    },
+    "next_question": "Can this device connect to a different approved network?",
+    "remaining_candidates": [
+      "WIFI_FAILURE",
+      "LOCAL_ENDPOINT"
+    ],
+    "eliminated_diagnoses": [],
+    "evidence_conflicts": [],
+    "evidence_count": 4,
+    "trace_steps": 12,
+    "knowledge_article_ids": [],
+    "knowledge_sources": [
+      {
+        "article_id": "KB-014",
+        "version": 2,
+        "approved": false,
+        "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE",
+        "backend_reference": false
+      }
+    ],
+    "historical_ticket_ids": [
+      "HIS-0346",
+      "HIS-0093",
+      "HIS-0172",
+      "HIS-0259",
+      "HIS-0306"
+    ],
+    "candidate_rankings": [
+      {
+        "diagnosis_id": "LOCAL_ENDPOINT",
+        "name": "Local endpoint issue",
+        "score": 1.0,
+        "supporting_evidence_ids": [
+          "EV-ab6cb4c994384f44"
+        ],
+        "contradicting_evidence_ids": [],
+        "knowledge_article_id": null,
+        "status": "plausible"
+      },
+      {
+        "diagnosis_id": "WIFI_FAILURE",
+        "name": "Wi-Fi association failure",
+        "score": 0,
+        "supporting_evidence_ids": [],
+        "contradicting_evidence_ids": [],
+        "knowledge_article_id": "KB-014",
+        "status": "plausible"
+      }
+    ],
+    "checks": [],
+    "check_errors": []
+  }
+}

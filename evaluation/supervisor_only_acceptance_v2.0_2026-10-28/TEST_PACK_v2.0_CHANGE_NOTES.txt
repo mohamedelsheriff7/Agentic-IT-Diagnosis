@@ -1,0 +1,10 @@
+Supervisor-only acceptance test pack v2.0 - CHANGE NOTES
+Date: 28 October 2026.
+New pack, preserving the earlier agent_test_pack and all previous tests/patch files.
+All user messages go through Supervisor; no direct collaborator test prompts or operation JSON are required.
+36 full scenarios include exact opening inputs, conditional exact follow-up replies, expected outputs/actions/state, explicit preconditions, negative checks and report fields.
+Targets current intended Supervisor v1.14 / Diagnostic v6.8.3 with unchanged Routing v1.0 and Escalation v1.4 plus respective Guidelines. Older packs with blanket every-ticket Escalation assumptions are not this pack's oracle.
+Tier A contains normal chat attempts; Tier B contains explicit controlled-fixture routing/review/global/idempotency tests. Setup is specified only, never executed. Missing active approvals or data are blocked preconditions, not fabricated passes.
+Includes the observed JSON-instead-of-call, missing guidance, unknown-account loop, lost portal evidence, wrong-language repeat, unsupported-priority, partial-failure and terminal-handoff regression targets.
+All actual agent/WXO executions are NOT_RUN. Local validation checks only completeness, unique IDs, Supervisor entrypoint, reply structure, manifest hashes and archive integrity.
+No agent instruction/code, backend, approval, knowledge or live WXO configuration changed.

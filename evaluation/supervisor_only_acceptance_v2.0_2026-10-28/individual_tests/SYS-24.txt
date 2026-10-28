@@ -1,0 +1,59 @@
+# SYS-24 — Application entitlement: route to Application Support
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-24 is active with verified application CI and exact location; independent entitlement check entitled=FALSE, provisioning_state=ABSENT; account works in other apps, competing causes excluded, active approved applicable references support HIGH route.
+
+## Opening input — copy into Supervisor
+
+```text
+Please investigate TST-SYS-24. I can sign in, but the company portal says access denied and all required menus are missing.
+```
+
+## Expected first response/action
+
+Read TST-SYS-24 and invoke Diagnostic on the application-only access issue using the actual verified CI/evidence. Do not grant roles or default to general IAM.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked whether other apps accept the same account
+
+```text
+Yes. I performed a fresh sign-in to email and another corporate application using the same account.
+```
+
+**Expected:** Record scoped successful access; do not treat an existing cached mail session as fresh verification.
+
+### Reply 2: If asked for the application-specific problem
+
+```text
+Only the company portal is affected. It reports that my required application role is missing.
+```
+
+**Expected:** Treat as reported role symptom; independent entitlement evidence must still confirm it.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> Routing -> GRP-APP assignment/readback -> Supervisor
+
+## Expected terminal output / ticket state
+
+Current supported MISSING_ENTITLEMENT/ROUTE result; Routing recommends/assigns GRP-APP when HIGH/active approval prerequisites hold. No role grant, IAM-only default or resolution from assignment.
+
+## Fail this case if
+
+- Grants role autonomously.
+- Always routes account-related work to IAM.
+- Assigns before persisting/validating diagnostic evidence.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

@@ -1,0 +1,59 @@
+# SYS-25 — DNS pattern with MEDIUM evidence: L1 plus specialist recommendation
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-25 is ordinary/active with this reported DNS pattern, applicable approved knowledge and no implemented direct DNS check. The intended valid result is MEDIUM/ROUTE; active routing policy permits L1 handling.
+
+## Opening input — copy into Supervisor
+
+```text
+Please investigate TST-SYS-25. Internal server names fail, direct IP access works, and external websites resolve normally.
+```
+
+## Expected first response/action
+
+Read TST-SYS-25 and investigate reported DNS comparisons. Keep reported observations separate from direct tool verification.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked to compare hostname and direct IP
+
+```text
+Internal hostnames fail, but direct IP access to the same server works.
+```
+
+**Expected:** Retain the comparison as user evidence, not a performed DNS tool check.
+
+### Reply 2: If asked about external websites
+
+```text
+External websites resolve normally.
+```
+
+**Expected:** Keep external resolution distinct from internal lookup failures.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> Routing -> L1 with Network recommendation -> Supervisor
+
+## Expected terminal output / ticket state
+
+Persist supported MEDIUM symptom-pattern DNS_FAILURE/ROUTE when applicable; Routing assigns GRP-L1 with GRP-NET recommendation and named missing direct-verification evidence. No invented DNS check/HIGH probability or direct specialist assignment contrary to MEDIUM policy.
+
+## Fail this case if
+
+- Calls user statements TOOL_CHECK evidence.
+- Invents confidence percentage.
+- Assigns GRP-NET directly despite MEDIUM triage policy.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

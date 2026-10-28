@@ -1,0 +1,236 @@
+[
+  {
+    "diagnosis_code": "PASSWORD_EXPIRED",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "label": "Expired password",
+    "resolver_group_id": "GRP-IAM",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "ACCOUNT_LOCKED",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "label": "Account lockout",
+    "resolver_group_id": "GRP-IAM",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "MFA_FAILURE",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "label": "MFA failure",
+    "resolver_group_id": "GRP-IAM",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "MISSING_ENTITLEMENT",
+    "domain": "Applications",
+    "category": "Authorization",
+    "label": "Missing application entitlement",
+    "resolver_group_id": "GRP-APP",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "APP_AUTH_FAILURE",
+    "domain": "Applications",
+    "category": "Authentication",
+    "label": "Application authentication failure",
+    "resolver_group_id": "GRP-APP",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "domain": "Endpoints",
+    "category": "Device",
+    "label": "Local endpoint issue",
+    "resolver_group_id": "GRP-END",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "APP_OUTAGE",
+    "domain": "Applications",
+    "category": "Availability",
+    "label": "Application service outage",
+    "resolver_group_id": "GRP-APP",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "VPN_OUTAGE",
+    "domain": "Network",
+    "category": "VPN",
+    "label": "VPN outage",
+    "resolver_group_id": "GRP-NET",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "PHISHING",
+    "domain": "Security",
+    "category": "Threat",
+    "label": "Suspected phishing",
+    "resolver_group_id": "GRP-SEC",
+    "security_sensitive": true,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "PRIVILEGED_ACCESS",
+    "domain": "Access Management",
+    "category": "Privileges",
+    "label": "Privileged-access request",
+    "resolver_group_id": "GRP-IAM",
+    "security_sensitive": false,
+    "privileged_access": true
+  },
+  {
+    "diagnosis_code": "SERVER_FAILURE",
+    "domain": "Infrastructure",
+    "category": "Compute",
+    "label": "Server failure",
+    "resolver_group_id": "GRP-INFRA",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "UNKNOWN_ISSUE",
+    "domain": "Service Desk",
+    "category": "Unclassified",
+    "label": "Insufficient evidence",
+    "resolver_group_id": "GRP-L1",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "DNS_FAILURE",
+    "domain": "Network",
+    "category": "DNS",
+    "label": "DNS lookup failure",
+    "resolver_group_id": "GRP-NET",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "WIFI_FAILURE",
+    "domain": "Network",
+    "category": "Connectivity",
+    "label": "Wi-Fi association failure",
+    "resolver_group_id": "GRP-NET",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "DISK_FULL",
+    "domain": "Endpoints",
+    "category": "Storage",
+    "label": "Endpoint disk full",
+    "resolver_group_id": "GRP-END",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "domain": "Endpoints",
+    "category": "Printing",
+    "label": "Printer offline",
+    "resolver_group_id": "GRP-END",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "APP_ERROR",
+    "domain": "Applications",
+    "category": "Execution",
+    "label": "Application execution error",
+    "resolver_group_id": "GRP-APP",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "SYNC_DELAY",
+    "domain": "Applications",
+    "category": "Synchronization",
+    "label": "Application synchronization delay",
+    "resolver_group_id": "GRP-APP",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "MALWARE",
+    "domain": "Security",
+    "category": "Threat",
+    "label": "Suspected malware",
+    "resolver_group_id": "GRP-SEC",
+    "security_sensitive": true,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "DATA_EXPOSURE",
+    "domain": "Security",
+    "category": "Data Protection",
+    "label": "Suspected data exposure",
+    "resolver_group_id": "GRP-SEC",
+    "security_sensitive": true,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "STORAGE_FAILURE",
+    "domain": "Infrastructure",
+    "category": "Storage",
+    "label": "Storage service failure",
+    "resolver_group_id": "GRP-INFRA",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "CERT_EXPIRED",
+    "domain": "Infrastructure",
+    "category": "Certificates",
+    "label": "Expired service certificate",
+    "resolver_group_id": "GRP-INFRA",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "ACCOUNT_DISABLED",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "label": "Disabled account",
+    "resolver_group_id": "GRP-IAM",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "REQUEST_GUIDANCE",
+    "domain": "Service Desk",
+    "category": "How To",
+    "label": "General guidance request",
+    "resolver_group_id": "GRP-L1",
+    "security_sensitive": false,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "ACCOUNT_LOCKED_POLICY",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "label": "Account locked by security policy",
+    "resolver_group_id": "GRP-SEC",
+    "security_sensitive": true,
+    "privileged_access": false
+  },
+  {
+    "diagnosis_code": "VPN_CLIENT_ISSUE",
+    "domain": "Network",
+    "category": "VPN",
+    "label": "VPN client or credential issue",
+    "resolver_group_id": "GRP-NET",
+    "security_sensitive": false,
+    "privileged_access": false
+  }
+]

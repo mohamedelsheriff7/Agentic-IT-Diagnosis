@@ -1,0 +1,384 @@
+[
+  {
+    "id": "ENT-001",
+    "user_id": "USR-001",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-002",
+    "user_id": "USR-002",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-003",
+    "user_id": "USR-003",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-004",
+    "user_id": "USR-004",
+    "application_id": "APP-PORTAL",
+    "entitled": "FALSE",
+    "roles": [],
+    "provisioning_state": "ABSENT"
+  },
+  {
+    "id": "ENT-005",
+    "user_id": "USR-005",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-006",
+    "user_id": "USR-006",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-007",
+    "user_id": "USR-007",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-008",
+    "user_id": "USR-008",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-009",
+    "user_id": "USR-009",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-010",
+    "user_id": "USR-010",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-011",
+    "user_id": "USR-011",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-012",
+    "user_id": "USR-012",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-013",
+    "user_id": "USR-013",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-014",
+    "user_id": "USR-014",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-015",
+    "user_id": "USR-015",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-016",
+    "user_id": "USR-016",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-017",
+    "user_id": "USR-017",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-018",
+    "user_id": "USR-018",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-019",
+    "user_id": "USR-019",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-020",
+    "user_id": "USR-020",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-021",
+    "user_id": "USR-021",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-022",
+    "user_id": "USR-022",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-023",
+    "user_id": "USR-023",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "id": "ENT-024",
+    "user_id": "USR-024",
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "roles": [
+      "USER"
+    ],
+    "provisioning_state": "ACTIVE"
+  },
+  {
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-413e86a60721",
+    "user_id": "USR-525",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-9977162a0f75",
+    "user_id": "USR-420",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "FALSE",
+    "provisioning_state": "ABSENT",
+    "id": "A-ENT-cf4b4281f11d",
+    "user_id": "USR-472",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "FALSE",
+    "provisioning_state": "ABSENT",
+    "id": "A-ENT-3c8916e67b8e",
+    "user_id": "USR-471",
+    "roles": []
+  },
+  {
+    "application_id": "APP-CRM",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-bc0f5391f762",
+    "user_id": "USR-438",
+    "roles": []
+  },
+  {
+    "application_id": "APP-PORTAL",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-9cd447ea9705",
+    "user_id": "USR-528",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-bae85d04f7ba",
+    "user_id": "USR-435",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-546f512b19f8",
+    "user_id": "USR-419",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-9ce3e329a199",
+    "user_id": "USR-534",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-c55f0396c0bd",
+    "user_id": "USR-441",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-7f5fe4085cf5",
+    "user_id": "USR-442",
+    "roles": []
+  },
+  {
+    "application_id": "APP-CRM",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-669414c8836c",
+    "user_id": "USR-437",
+    "roles": []
+  },
+  {
+    "application_id": "APP-CRM",
+    "entitled": "FALSE",
+    "provisioning_state": "PENDING",
+    "id": "A-ENT-87cb45972ce5",
+    "user_id": "USR-464",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-2a752fce28b6",
+    "user_id": "USR-531",
+    "roles": []
+  },
+  {
+    "application_id": "APP-CRM",
+    "entitled": "FALSE",
+    "provisioning_state": "PENDING",
+    "id": "A-ENT-a915bc0f4c8d",
+    "user_id": "USR-463",
+    "roles": []
+  },
+  {
+    "application_id": "APP-ERP",
+    "entitled": "TRUE",
+    "provisioning_state": "ACTIVE",
+    "id": "A-ENT-af4552c10d1f",
+    "user_id": "USR-436",
+    "roles": []
+  },
+  {
+    "application_id": "APP-PORTAL",
+    "entitled": "FALSE",
+    "provisioning_state": "ABSENT",
+    "id": "A-ENT-cdef74d0caf5",
+    "user_id": "USR-401",
+    "roles": []
+  },
+  {
+    "application_id": "APP-PORTAL",
+    "entitled": "FALSE",
+    "provisioning_state": "ABSENT",
+    "id": "A-ENT-e05aea82a07f",
+    "user_id": "USR-402",
+    "roles": []
+  }
+]

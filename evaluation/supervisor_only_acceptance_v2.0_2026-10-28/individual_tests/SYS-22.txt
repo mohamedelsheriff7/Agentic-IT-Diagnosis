@@ -1,0 +1,47 @@
+# SYS-22 — New ordinary service request is not a password incident
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+
+## Opening input — copy into Supervisor
+
+```text
+I am user USR-005. I am requesting a new standard company application account; no existing service is failing and I do not need administrator access.
+```
+
+## Expected first response/action
+
+Record a SERVICE_REQUEST for standard new access and preserve its nonprivileged/no-service-failure scope. Do not provision automatically or invent a failure diagnosis.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked which service
+
+```text
+The company training application. I do not know its internal identifier.
+```
+
+**Expected:** Preserve request/scope and ask only useful missing information; do not invent an application ID or grant access.
+
+
+## Expected internal agent path
+
+Supervisor -> permitted request investigation/triage -> supported Routing or Escalation when prerequisites exist
+
+## Expected terminal output / ticket state
+
+SERVICE_REQUEST is recorded when supported; no fabricated failed-login diagnosis or autonomous provisioning. Use supported policy-driven human/specialist handling; report actual missing prerequisites.
+
+## Fail this case if
+
+- Creates an INCIDENT solely because it concerns an account.
+- Grants access or fabricates a routing diagnosis to satisfy an assignment prerequisite.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Password investigation",
+    "ticket_id": "INC-dc1a34813d06416b",
+    "prompt": "Investigate INC-dc1a34813d06416b",
+    "answers_if_asked": [
+      "I cannot access other corporate applications with this account either."
+    ],
+    "expected": "PASSWORD_EXPIRED; route to IAM while article approval is absent.",
+    "agent_run": false
+  },
+  {
+    "name": "DNS investigation",
+    "ticket_id": "INC-19d11d1f17f44440",
+    "prompt": "Investigate INC-19d11d1f17f44440",
+    "answers_if_asked": [
+      "Internal server names fail, but direct IP access to the same server works.",
+      "External websites open normally."
+    ],
+    "expected": "DNS_FAILURE at symptom-pattern level; exact DNS component remains unverified.",
+    "agent_run": false
+  },
+  {
+    "name": "Individual VPN investigation",
+    "ticket_id": "INC-8639d319476e4302",
+    "prompt": "Investigate INC-8639d319476e4302",
+    "answers_if_asked": [
+      "Yes, colleagues at the same site can connect to VPN right now.",
+      "The VPN client reports a local configuration error."
+    ],
+    "expected": "VPN_CLIENT_ISSUE at symptom-pattern level after peer scope and local error are collected.",
+    "agent_run": false
+  },
+  {
+    "name": "Wi-Fi investigation",
+    "ticket_id": "INC-4d1182caa08a41fc",
+    "prompt": "Investigate INC-4d1182caa08a41fc",
+    "answers_if_asked": [
+      "Yes, another device connects to the same Wi-Fi at the same location.",
+      "The affected device connects to a different approved network."
+    ],
+    "expected": "WIFI_FAILURE device/network pairing; exact faulty component remains unverified.",
+    "agent_run": false
+  }
+]

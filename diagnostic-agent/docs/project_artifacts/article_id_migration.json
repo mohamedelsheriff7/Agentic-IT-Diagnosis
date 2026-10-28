@@ -1,0 +1,184 @@
+[
+  {
+    "diagnosis_code": "PASSWORD_EXPIRED",
+    "original_b_article_id": "KB-001",
+    "aligned_article_id": "KB-001",
+    "domain": "Access Management",
+    "category": "Authentication"
+  },
+  {
+    "diagnosis_code": "ACCOUNT_LOCKED",
+    "original_b_article_id": "KB-002",
+    "aligned_article_id": "KB-002",
+    "domain": "Access Management",
+    "category": "Authentication"
+  },
+  {
+    "diagnosis_code": "MFA_FAILURE",
+    "original_b_article_id": "KB-003",
+    "aligned_article_id": "KB-003",
+    "domain": "Access Management",
+    "category": "Authentication"
+  },
+  {
+    "diagnosis_code": "MISSING_ENTITLEMENT",
+    "original_b_article_id": "KB-004",
+    "aligned_article_id": "KB-004",
+    "domain": "Applications",
+    "category": "Authorization"
+  },
+  {
+    "diagnosis_code": "APP_AUTH_FAILURE",
+    "original_b_article_id": "KB-005",
+    "aligned_article_id": "KB-005",
+    "domain": "Applications",
+    "category": "Authentication"
+  },
+  {
+    "diagnosis_code": "APP_ERROR",
+    "original_b_article_id": "KB-006",
+    "aligned_article_id": "KB-017",
+    "domain": "Applications",
+    "category": "Execution"
+  },
+  {
+    "diagnosis_code": "APP_OUTAGE",
+    "original_b_article_id": "KB-007",
+    "aligned_article_id": "KB-007",
+    "domain": "Applications",
+    "category": "Availability"
+  },
+  {
+    "diagnosis_code": "SYNC_DELAY",
+    "original_b_article_id": "KB-008",
+    "aligned_article_id": "KB-018",
+    "domain": "Applications",
+    "category": "Synchronization"
+  },
+  {
+    "diagnosis_code": "ACCOUNT_DISABLED",
+    "original_b_article_id": "KB-009",
+    "aligned_article_id": "KB-023",
+    "domain": "Access Management",
+    "category": "Authentication"
+  },
+  {
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "original_b_article_id": "KB-010",
+    "aligned_article_id": "KB-016",
+    "domain": "Endpoints",
+    "category": "Printing"
+  },
+  {
+    "diagnosis_code": "DISK_FULL",
+    "original_b_article_id": "KB-011",
+    "aligned_article_id": "KB-015",
+    "domain": "Endpoints",
+    "category": "Storage"
+  },
+  {
+    "diagnosis_code": "PRIVILEGED_ACCESS",
+    "original_b_article_id": "KB-012",
+    "aligned_article_id": "KB-010",
+    "domain": "Access Management",
+    "category": "Privileges"
+  },
+  {
+    "diagnosis_code": "ACCOUNT_LOCKED_POLICY",
+    "original_b_article_id": "KB-013",
+    "aligned_article_id": "KB-025",
+    "domain": "Access Management",
+    "category": "Authentication"
+  },
+  {
+    "diagnosis_code": "VPN_CLIENT_ISSUE",
+    "original_b_article_id": "KB-014",
+    "aligned_article_id": "KB-026",
+    "domain": "Network",
+    "category": "VPN"
+  },
+  {
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "original_b_article_id": "KB-015",
+    "aligned_article_id": "KB-006",
+    "domain": "Endpoints",
+    "category": "Device"
+  },
+  {
+    "diagnosis_code": "VPN_OUTAGE",
+    "original_b_article_id": "KB-016",
+    "aligned_article_id": "KB-008",
+    "domain": "Network",
+    "category": "VPN"
+  },
+  {
+    "diagnosis_code": "PHISHING",
+    "original_b_article_id": "KB-017",
+    "aligned_article_id": "KB-009",
+    "domain": "Security",
+    "category": "Threat"
+  },
+  {
+    "diagnosis_code": "WIFI_FAILURE",
+    "original_b_article_id": "KB-018",
+    "aligned_article_id": "KB-014",
+    "domain": "Network",
+    "category": "Connectivity"
+  },
+  {
+    "diagnosis_code": "DNS_FAILURE",
+    "original_b_article_id": "KB-019",
+    "aligned_article_id": "KB-013",
+    "domain": "Network",
+    "category": "DNS"
+  },
+  {
+    "diagnosis_code": "SERVER_FAILURE",
+    "original_b_article_id": "KB-020",
+    "aligned_article_id": "KB-011",
+    "domain": "Infrastructure",
+    "category": "Compute"
+  },
+  {
+    "diagnosis_code": "MALWARE",
+    "original_b_article_id": "KB-021",
+    "aligned_article_id": "KB-019",
+    "domain": "Security",
+    "category": "Threat"
+  },
+  {
+    "diagnosis_code": "REQUEST_GUIDANCE",
+    "original_b_article_id": "KB-022",
+    "aligned_article_id": "KB-024",
+    "domain": "Service Desk",
+    "category": "How To"
+  },
+  {
+    "diagnosis_code": "UNKNOWN_ISSUE",
+    "original_b_article_id": "KB-023",
+    "aligned_article_id": "KB-012",
+    "domain": "Service Desk",
+    "category": "Unclassified"
+  },
+  {
+    "diagnosis_code": "CERT_EXPIRED",
+    "original_b_article_id": "KB-024",
+    "aligned_article_id": "KB-022",
+    "domain": "Infrastructure",
+    "category": "Certificates"
+  },
+  {
+    "diagnosis_code": "DATA_EXPOSURE",
+    "original_b_article_id": "KB-025",
+    "aligned_article_id": "KB-020",
+    "domain": "Security",
+    "category": "Data Protection"
+  },
+  {
+    "diagnosis_code": "STORAGE_FAILURE",
+    "original_b_article_id": "KB-026",
+    "aligned_article_id": "KB-021",
+    "domain": "Infrastructure",
+    "category": "Storage"
+  }
+]

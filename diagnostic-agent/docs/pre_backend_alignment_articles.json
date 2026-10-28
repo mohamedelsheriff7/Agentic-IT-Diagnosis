@@ -1,0 +1,1558 @@
+[
+  {
+    "article_id": "KB-001",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "PASSWORD_EXPIRED",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "password expired sign in rejected",
+      "Expired password"
+    ],
+    "symptoms_ar": [
+      "كلمة المرور انتهت تسجيل الدخول مرفوض"
+    ],
+    "possible_causes": [
+      "Expired password"
+    ],
+    "discriminating_questions": [
+      "Does the error explicitly say your password expired?",
+      "Do other applications using the same identity also reject sign-in?"
+    ],
+    "required_evidence": [
+      "User reports an expiry error",
+      "check_account_status: password_expired TRUE, enabled TRUE, locked FALSE, mfa_locked FALSE"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Account is disabled or locked",
+      "MFA is locked",
+      "Security-sensitive, privileged or critical ticket"
+    ],
+    "competing_diagnoses": [
+      "ACCOUNT_LOCKED",
+      "MFA_FAILURE",
+      "APP_AUTH_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "PASSWORD_EXPIRED-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Ask the user to complete the approved self-service password change flow; never ask for their password."
+      }
+    ],
+    "agent_resolvable": true,
+    "resolution_conditions": [
+      {
+        "tool": "check_account_status",
+        "field": "password_expired",
+        "equals": "TRUE"
+      },
+      {
+        "tool": "check_account_status",
+        "field": "enabled",
+        "equals": "TRUE"
+      },
+      {
+        "tool": "check_account_status",
+        "field": "locked",
+        "equals": "FALSE"
+      },
+      {
+        "tool": "check_account_status",
+        "field": "mfa_locked",
+        "equals": "FALSE"
+      }
+    ],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-002",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "ACCOUNT_LOCKED",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "Account reports locked after repeated failed sign-ins; saved credentials on another device may keep retrying."
+    ],
+    "symptoms_ar": [
+      "الحساب اتقفل بعد محاولات دخول فاشلة"
+    ],
+    "possible_causes": [
+      "Repeated incorrect credentials triggered a lock.",
+      "A device may continue submitting stale saved credentials."
+    ],
+    "discriminating_questions": [
+      "Did the lock follow repeated incorrect passwords, or a security/suspicious-activity notice?",
+      "Are any phones or mail clients still retrying an old saved password?"
+    ],
+    "required_evidence": [
+      "Recorded account check reports locked=TRUE; retain enabled and password-expired observations.",
+      "An authorized IAM/security source verifies the lock reason before classifying it as ordinary lockout. The implemented account check does not expose that reason.",
+      "Record the user account of failed attempts or stale clients as USER_RESPONSE evidence; do not treat it as independent verification of the lock reason."
+    ],
+    "safe_checks": [
+      "Use the implemented account check for enabled/locked/password-expired/MFA state with the exact affected-person ID. Obtain the security lock reason from authorized IAM/Security Operations; no implemented check exposes that reason. Do not attempt repeated sign-ins.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Security-policy/suspicious-activity lock indicator; locked=FALSE; disabled account is the actual state."
+    ],
+    "competing_diagnoses": [
+      "ACCOUNT_LOCKED_POLICY",
+      "PASSWORD_EXPIRED",
+      "ACCOUNT_DISABLED"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "IAM verifies identity and reviews the lock reason before unlocking the account."
+      },
+      {
+        "step_id": "step-2",
+        "level": "L1",
+        "instruction": "After IAM approval, help the user update stale saved credentials on devices."
+      },
+      {
+        "step_id": "step-3",
+        "level": "L1",
+        "instruction": "Confirm sign-in works and record the user confirmation."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Any suspicious-activity or security-policy lock must be escalated to Security Operations.",
+      "Identity cannot be verified; privileged account; critical priority."
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-003",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "MFA_FAILURE",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "Approval notification does not arrive, authenticator code is rejected, or MFA stopped after a phone change."
+    ],
+    "symptoms_ar": [
+      "مشكلة في التحقق متعدد العوامل أو إشعار الموافقة"
+    ],
+    "possible_causes": [
+      "Authenticator is not enrolled on the current device.",
+      "Push delivery or time-based code validation is failing.",
+      "MFA may be locked after repeated attempts."
+    ],
+    "discriminating_questions": [
+      "Does the password succeed before MFA is requested?",
+      "Did you recently replace/reset your phone, or does the authenticator code appear but get rejected?"
+    ],
+    "required_evidence": [
+      "Record whether the password stage succeeds and the failure occurs at MFA, including the non-secret error and device-change history.",
+      "Preserve actual account-check mfa_enrolled/mfa_locked results where available; UNKNOWN does not establish enrollment or lock state.",
+      "Registration mismatch, push-delivery failure or device-specific faults need authorized IAM evidence; no MFA code is collected."
+    ],
+    "safe_checks": [
+      "Check MFA enrollment/lock state; compare with identity-provider health; do not bypass MFA.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Password is rejected before MFA; account disabled/locked; broad identity-provider outage."
+    ],
+    "competing_diagnoses": [
+      "PASSWORD_EXPIRED",
+      "ACCOUNT_LOCKED",
+      "APP_AUTH_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "IAM verifies identity and resets MFA registration when approved."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SELF_SERVICE",
+        "instruction": "User enrolls the authenticator on the current device using the approved flow."
+      },
+      {
+        "step_id": "step-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Confirm successful sign-in without bypassing MFA."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Suspected MFA fatigue, unauthorized prompts, suspicious sign-in, or account compromise must be escalated to Security Operations.",
+      "Privileged access or critical priority."
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-004",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "MISSING_ENTITLEMENT",
+    "domain": "Applications",
+    "category": "Authorization",
+    "symptoms_en": [
+      "User can sign in to other corporate systems but a specific portal/app says access denied or role missing."
+    ],
+    "symptoms_ar": [
+      "لا توجد صلاحية أو دور مطلوب على التطبيق"
+    ],
+    "possible_causes": [
+      "Required application role/group is absent.",
+      "Provisioning or approval for the role is pending."
+    ],
+    "discriminating_questions": [
+      "Can you sign in to other corporate applications using the same account?",
+      "Does the error say access denied/role missing, rather than password or MFA failure?"
+    ],
+    "required_evidence": [
+      "Recorded entitlement check identifies the exact application and reports entitled=FALSE or provisioning_state=ABSENT.",
+      "Record the access-denied/role error and whether fresh sign-in to other applications works; cached sessions alone do not establish healthy authentication.",
+      "Approval/provisioning changes require the application owner; do not infer approval from a request or retrieval."
+    ],
+    "safe_checks": [
+      "Check application entitlement and provisioning state; verify approval status through approved workflow.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Entitled=TRUE and provisioning ACTIVE; application health is UNAVAILABLE; general sign-in fails across apps."
+    ],
+    "competing_diagnoses": [
+      "APP_AUTH_FAILURE",
+      "PASSWORD_EXPIRED",
+      "APP_OUTAGE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "L1",
+        "instruction": "Confirm the application and requested role with the user."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Application owner reviews entitlement request and required manager approval."
+      },
+      {
+        "step_id": "step-3",
+        "level": "SPECIALIST",
+        "instruction": "Apply the approved role and verify access."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Any privileged role or security-sensitive access requires human review and approval.",
+      "Never grant access solely on a chat request."
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-005",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "APP_AUTH_FAILURE",
+    "domain": "Applications",
+    "category": "Authentication",
+    "symptoms_en": [
+      "One application rejects sign-in while other corporate applications work; application-specific SSO/session error."
+    ],
+    "symptoms_ar": [
+      "التطبيق بيرفض تسجيل الدخول رغم عمل الأنظمة الأخرى"
+    ],
+    "possible_causes": [
+      "Application-specific SSO mapping/session is inconsistent.",
+      "Application authentication configuration is failing."
+    ],
+    "discriminating_questions": [
+      "Do other corporate applications accept the same account?",
+      "Does the app show a service-unavailable message or an authentication/SSO error?"
+    ],
+    "required_evidence": [
+      "Record the exact application-specific SSO/authentication error, timing and affected-user scope.",
+      "Compare recorded account, entitlement and exact-CI service-health results; preserve UNKNOWN and conflicting observations.",
+      "A specific SSO mapping/session root cause requires authorized application-log evidence; working cached sessions elsewhere do not rule out account issues."
+    ],
+    "safe_checks": [
+      "Check application service health and application-specific authentication status; compare with identity-provider status.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Password expired, account locked/disabled, MFA failure before application launch, or application health unavailable indicating outage."
+    ],
+    "competing_diagnoses": [
+      "PASSWORD_EXPIRED",
+      "ACCOUNT_LOCKED",
+      "MFA_FAILURE",
+      "MISSING_ENTITLEMENT",
+      "APP_OUTAGE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "L1",
+        "instruction": "Try the approved sign-out/sign-in flow once, if safe and allowed."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Application Support reviews SSO mapping/session logs and corrects application-side configuration."
+      },
+      {
+        "step_id": "step-3",
+        "level": "SPECIALIST",
+        "instruction": "Confirm application sign-in succeeds."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Security alerts, privileged access, or critical priority require human handling."
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-017",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "APP_ERROR",
+    "domain": "Applications",
+    "category": "Execution",
+    "symptoms_en": [
+      "An application opens but an action fails, shows an error code, or stops during processing."
+    ],
+    "symptoms_ar": [
+      "التطبيق بيفتح لكن العملية بتفشل"
+    ],
+    "possible_causes": [
+      "Application defect or invalid input.",
+      "A dependency or backend operation is failing."
+    ],
+    "discriminating_questions": [
+      "Does the application open and fail only after a specific action, or is it unavailable before login?",
+      "Do colleagues using the same function see the same error?"
+    ],
+    "required_evidence": [
+      "Record the exact non-secret application error, failed action, timestamp and reproducible input characteristics.",
+      "Compare whether colleagues can reproduce the same function failure and preserve actual service-health evidence.",
+      "A defect/input/dependency diagnosis requires authorized application logs or safe reproduction evidence; similarity alone is insufficient."
+    ],
+    "safe_checks": [
+      "Capture exact error text/time and affected function; check service health and recent similar tickets.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Application cannot be reached by multiple users; device alone is affected; the issue is only access/authorization."
+    ],
+    "competing_diagnoses": [
+      "APP_OUTAGE",
+      "APP_AUTH_FAILURE",
+      "LOCAL_ENDPOINT",
+      "SERVER_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "L1",
+        "instruction": "Capture the error text, timestamp, and steps to reproduce without collecting sensitive data."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Application Support reviews logs and reproduces the failure in a safe test context."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Data loss, security impact, critical priority, or production-impacting irreversible operations require human handling."
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-007",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "APP_OUTAGE",
+    "domain": "Applications",
+    "category": "Availability",
+    "symptoms_en": [
+      "Service unavailable/timeouts affect several users or a shared application; multiple reports occur close together."
+    ],
+    "symptoms_ar": [
+      "التطبيق متوقف أو غير متاح لعدة مستخدمين"
+    ],
+    "possible_causes": [
+      "Application service or shared dependency is unavailable.",
+      "A recent change or capacity issue may have affected the service."
+    ],
+    "discriminating_questions": [
+      "Are multiple users affected on the same application and location/time window?",
+      "Is the error service-unavailable/timeout, rather than access denied for one user?"
+    ],
+    "required_evidence": [
+      "Record the affected application/CI, location, onset window and reports from affected users.",
+      "Preserve actual service-health observations and scoped recent-ticket/global-ticket search results when available.",
+      "Shared scope triggers Supervisor outage screening. A confirmed outage requires reconciliation of conflicting observations; no threshold or monitor alone confirms or excludes it."
+    ],
+    "safe_checks": [
+      "Check service health; count recent tickets by category, CI and location; check for an open global ticket first.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Peer success and an operational check may reduce the shared-outage hypothesis but do not exclude partial, intermittent or unmonitored faults.",
+      "Different CI/location/time scope changes screening relevance; a low ticket count is not proof that no outage exists."
+    ],
+    "competing_diagnoses": [
+      "APP_AUTH_FAILURE",
+      "MISSING_ENTITLEMENT",
+      "SERVER_FAILURE",
+      "STORAGE_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Application Support validates service health and impact scope."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Return impact evidence to the Supervisor for outage screening. Only an authorized human using an activated, approved policy may decide global-incident creation/linking and notification; the Diagnostic Agent does not perform or claim those actions."
+      },
+      {
+        "step_id": "step-3",
+        "level": "SPECIALIST",
+        "instruction": "Restore service under incident procedures and verify monitoring/user recovery."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Always human-led for critical priority or suspected security impact."
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-018",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "SYNC_DELAY",
+    "domain": "Applications",
+    "category": "Synchronization",
+    "symptoms_en": [
+      "Changes or records appear late between systems; one direction or a subset of records may lag."
+    ],
+    "symptoms_ar": [
+      "تأخر مزامنة البيانات أو عدم تحديثها"
+    ],
+    "possible_causes": [
+      "Synchronization queue/backlog is delayed.",
+      "Source/target connection or rejected records prevent updates."
+    ],
+    "discriminating_questions": [
+      "Are all records delayed or only specific records?",
+      "Is the source system updated while the destination remains stale?"
+    ],
+    "required_evidence": [
+      "Record source-update time, destination-observed time, synthetic record references and whether all or only some records are delayed.",
+      "A reported freshness mismatch supports a synchronization-delay pattern, not a confirmed queue or connection cause.",
+      "Queue status, rejected records and last-success timestamps require authorized application-support evidence; no direct synchronization check is implemented."
+    ],
+    "safe_checks": [
+      "Check sync status/last-success timestamp and service health; compare recent tickets.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Both source and target are unavailable; record was never saved at source; user lacks access rather than data freshness."
+    ],
+    "competing_diagnoses": [
+      "APP_OUTAGE",
+      "APP_ERROR",
+      "SERVER_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "L1",
+        "instruction": "Record example record IDs using synthetic/non-sensitive identifiers and the last known update time."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Application Support inspects sync queue, rejected records, and dependency status."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Potential data corruption, data exposure, or critical business processing impact requires human review."
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-023",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "ACCOUNT_DISABLED",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "Sign-in says account disabled/deactivated rather than password expired or locked."
+    ],
+    "symptoms_ar": [
+      "الحساب متوقف أو معطّل"
+    ],
+    "possible_causes": [
+      "Account lifecycle/admin action disabled the account.",
+      "Reactivation may require authorized approval."
+    ],
+    "discriminating_questions": [
+      "Does the message explicitly say disabled/deactivated, or locked/incorrect password?",
+      "Is the account expected to be active under the organization's access process?"
+    ],
+    "required_evidence": [
+      "Recorded account check reports enabled=FALSE for the exact affected person; preserve locked and password-expired observations too.",
+      "Record the disabled/deactivated message without assuming the lifecycle or security reason.",
+      "Authorized IAM evidence must establish the reason and any reactivation approval."
+    ],
+    "safe_checks": [
+      "Check enabled/locked/password-expired status in the simulated identity system.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "enabled=TRUE contradicts disabled state. Locked and expired-password observations can coexist with disablement and must not silently exclude enabled=FALSE."
+    ],
+    "competing_diagnoses": [
+      "ACCOUNT_LOCKED",
+      "ACCOUNT_LOCKED_POLICY",
+      "PASSWORD_EXPIRED",
+      "MISSING_ENTITLEMENT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "IAM verifies account lifecycle and the authorized reactivation request."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Reactivate only after required approval and audit checks."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Security-related disablement, termination/lifecycle ambiguity, privileged access, or critical priority must be human-led."
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-016",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "domain": "Endpoints",
+    "category": "Printing",
+    "symptoms_en": [
+      "One printer is offline or print jobs remain queued; other device/network functions may work."
+    ],
+    "symptoms_ar": [
+      "الطابعة غير متصلة أو الطباعة متوقفة"
+    ],
+    "possible_causes": [
+      "Printer power/connectivity or queue issue.",
+      "Shared print service or network path may be unavailable."
+    ],
+    "discriminating_questions": [
+      "Is one user affected or everyone using the same printer?",
+      "Can the printer be reached/seen by other users on the same network?"
+    ],
+    "required_evidence": [
+      "Record the exact printer, affected-user scope and whether peers on the same network can reach/use it.",
+      "Obtain actual power/status/queue observations from the user or authorized support; the agent has no printer-status or queue-management tool.",
+      "Reachability symptoms alone do not confirm power loss, a spooler fault or a network root cause."
+    ],
+    "safe_checks": [
+      "Check printer status/queue and whether the issue is local or shared; avoid clearing others' jobs without approval.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Multiple sites/printers fail simultaneously; network reachability broadly fails; printer reports healthy and only one document fails."
+    ],
+    "competing_diagnoses": [
+      "LOCAL_ENDPOINT",
+      "WIFI_FAILURE",
+      "SERVER_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Check printer power, paper/jam indicators, and selected printer."
+      },
+      {
+        "step_id": "step-2",
+        "level": "L1",
+        "instruction": "Clear only the affected user's stuck job if policy permits; escalate shared printer faults."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Shared business-critical printing outage or critical priority requires human handling."
+    ],
+    "resolver_group_id": "GRP-END"
+  },
+  {
+    "article_id": "KB-015",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "DISK_FULL",
+    "domain": "Endpoints",
+    "category": "Storage",
+    "symptoms_en": [
+      "Low disk-space warning; updates or local saves fail; issue isolated to one device."
+    ],
+    "symptoms_ar": [
+      "مساحة الجهاز ممتلئة أو قليلة"
+    ],
+    "possible_causes": [
+      "Temporary files/downloads consumed endpoint capacity.",
+      "Local storage capacity or quota is exhausted."
+    ],
+    "discriminating_questions": [
+      "Is the warning on one device or are multiple users seeing a shared storage error?",
+      "Does the storage check show low free space on the endpoint, or is a network drive affected?"
+    ],
+    "required_evidence": [
+      "Record the low-space warning, affected endpoint/volume and whether the path is local or shared.",
+      "Obtain measured free space/quota from an authorized user or endpoint-support source before declaring capacity exhaustion; the agent has no disk-metrics tool.",
+      "Retain evidence of shared impact or malware/data-integrity concerns; do not infer that any particular file is disposable."
+    ],
+    "safe_checks": [
+      "Read available disk-space metrics; identify only approved temporary/cache files for possible cleanup.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Endpoint has adequate free space; shared server/storage service is failing; multiple users affected on shared storage."
+    ],
+    "competing_diagnoses": [
+      "STORAGE_FAILURE",
+      "SERVER_FAILURE",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Review storage usage. An authorized user may choose an approved temporary-file cleanup procedure; do not delete business data or assume Downloads files are disposable. Stop if ownership or retention requirements are unclear."
+      },
+      {
+        "step_id": "step-2",
+        "level": "L1",
+        "instruction": "Run approved disk cleanup and confirm free space and update success."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Do not delete business data; if data loss risk, encryption/ransomware signs, or critical priority, stop and escalate."
+    ],
+    "resolver_group_id": "GRP-END"
+  },
+  {
+    "article_id": "KB-010",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "PRIVILEGED_ACCESS",
+    "domain": "Access Management",
+    "category": "Privileges",
+    "symptoms_en": [
+      "User requests administrator/elevated access, even temporarily."
+    ],
+    "symptoms_ar": [
+      "طلب صلاحيات إدارية أو مرتفعة"
+    ],
+    "possible_causes": [
+      "A legitimate task requires time-bound elevated permissions.",
+      "Requested scope may exceed least-privilege requirements."
+    ],
+    "discriminating_questions": [
+      "What exact task and duration require elevated access?",
+      "Is the requested role privileged/admin rather than ordinary application access?"
+    ],
+    "required_evidence": [
+      "Record the requested elevated task, scope, duration and business justification without collecting credentials.",
+      "Preserve actual approval references from authorized IAM/security sources. A chat request is not approval.",
+      "The agent classifies and hands off the request; it neither grants privileges nor confirms that access was granted."
+    ],
+    "safe_checks": [
+      "Check request/approval status and least-privilege options; do not grant access.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "The request is only a standard app role with no elevated permissions; route according to the application entitlement workflow."
+    ],
+    "competing_diagnoses": [
+      "MISSING_ENTITLEMENT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Record business justification, scope, and requested expiry."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Obtain manager and security approval and grant only through the approved access workflow."
+      },
+      {
+        "step_id": "step-3",
+        "level": "SPECIALIST",
+        "instruction": "Verify expiry/removal is scheduled and auditable."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Mandatory human approval by IAM/security; always human-led regardless of confidence."
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-025",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "ACCOUNT_LOCKED_POLICY",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "Account blocked after suspicious sign-in or security-policy notice."
+    ],
+    "symptoms_ar": [
+      "الحساب اتقفل بسبب تنبيه أو سياسة أمنية"
+    ],
+    "possible_causes": [
+      "Identity risk controls detected suspicious sign-in activity.",
+      "Security policy blocked the account pending review."
+    ],
+    "discriminating_questions": [
+      "Did the user receive a suspicious-activity/security alert, or was the lock only after incorrect passwords?",
+      "Does the identity status indicate a security-policy lock reason?"
+    ],
+    "required_evidence": [
+      "Record the security-policy/suspicious-sign-in notice or authorized security-alert reference.",
+      "An authorized IAM/security source must establish a security-policy lock reason. The ordinary account-status check reports state, not the policy reason.",
+      "Retain uncertainty and route suspected compromise to Security Operations without attempting unlock."
+    ],
+    "safe_checks": [
+      "Read ordinary account state where available and preserve security-alert references. Ask an authorized IAM/security source to verify the lock reason; do not invent a policy-reason tool, unlock an account or bypass controls.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Identity evidence confirms ordinary lock after failed attempts with no risk/security indicator."
+    ],
+    "competing_diagnoses": [
+      "ACCOUNT_LOCKED",
+      "ACCOUNT_DISABLED",
+      "PHISHING"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Preserve alert details and route immediately to Security Operations."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Security Operations validates sign-in activity and decides containment/unlock."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Always human-led; all suspected compromise or suspicious activity goes to Security Operations."
+    ],
+    "resolver_group_id": "GRP-SEC"
+  },
+  {
+    "article_id": "KB-026",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "VPN_CLIENT_ISSUE",
+    "domain": "Network",
+    "category": "VPN",
+    "symptoms_en": [
+      "One user cannot connect to VPN; others at same site can connect; client shows configuration/credential error."
+    ],
+    "symptoms_ar": [
+      "مشكلة اتصال VPN عند مستخدم واحد"
+    ],
+    "possible_causes": [
+      "Local VPN client/profile configuration is incorrect.",
+      "Local connectivity or cached client credentials are stale."
+    ],
+    "discriminating_questions": [
+      "Can colleagues at the same site connect to VPN right now?",
+      "Can the user reach the internet and does the VPN client show a local configuration/credential error?"
+    ],
+    "required_evidence": [
+      "Record whether colleagues at the same site can connect now, whether ordinary internet access works and the exact local configuration versus credential error.",
+      "Preserve actual VPN service-health results; UNKNOWN is missing evidence and a healthy monitor does not negate reported peer failures.",
+      "Peer success plus a client error supports an individual symptom pattern; client/profile/credential root cause requires authorized logs. New shared impact returns to Supervisor screening."
+    ],
+    "safe_checks": [
+      "Check service health and recent VPN ticket count before local troubleshooting.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Multiple users at one site fail within a short window; VPN service health is unavailable; broad internet/network failure."
+    ],
+    "competing_diagnoses": [
+      "VPN_OUTAGE",
+      "WIFI_FAILURE",
+      "ACCOUNT_LOCKED"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "L1",
+        "instruction": "Check approved VPN client configuration and collect the exact error message."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Network Operations reviews client profile or credential/configuration faults."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Suspected credential compromise, security alert, or critical priority requires human handling."
+    ],
+    "resolver_group_id": "GRP-NET"
+  },
+  {
+    "article_id": "KB-006",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "Problem appears limited to one laptop/device; other users and shared services are unaffected."
+    ],
+    "symptoms_ar": [
+      "مشكلة محلية في الجهاز"
+    ],
+    "possible_causes": [
+      "Local OS, device configuration, driver, or client process issue.",
+      "A device-specific peripheral or software fault."
+    ],
+    "discriminating_questions": [
+      "Does the same task work on another device or for a colleague?",
+      "Is the affected service healthy and is the issue limited to this endpoint?"
+    ],
+    "required_evidence": [
+      "Record the affected device, failed task, error and whether the same task succeeds on another comparable device.",
+      "Record shared-service status and peer scope. A local-device pattern does not establish a particular OS, driver or hardware fault.",
+      "A component diagnosis requires authorized endpoint logs or measurements; the agent has no direct endpoint-health tool."
+    ],
+    "safe_checks": [
+      "Check device health and approved diagnostic logs; compare with service status.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Multiple users/devices share the same failure; service health is degraded; endpoint storage is full."
+    ],
+    "competing_diagnoses": [
+      "DISK_FULL",
+      "VPN_CLIENT_ISSUE",
+      "APP_ERROR",
+      "SERVER_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "L1",
+        "instruction": "Capture device model/asset reference and reproduce with a non-sensitive test."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Endpoint Support reviews device logs/configuration and applies approved repair."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Malware/ransomware signs, suspected data exposure, or critical priority require human handling."
+    ],
+    "resolver_group_id": "GRP-END"
+  },
+  {
+    "article_id": "KB-008",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "VPN_OUTAGE",
+    "domain": "Network",
+    "category": "VPN",
+    "symptoms_en": [
+      "Several users at the same site cannot connect to VPN in a short period."
+    ],
+    "symptoms_ar": [
+      "خدمة VPN متوقفة لعدة مستخدمين"
+    ],
+    "possible_causes": [
+      "Shared VPN gateway/service is unavailable.",
+      "A common network or identity dependency is failing."
+    ],
+    "discriminating_questions": [
+      "Are multiple users at the same site affected within the same short time window?",
+      "Can affected users reach other network services, and is VPN health UNAVAILABLE/DEGRADED?"
+    ],
+    "required_evidence": [
+      "Record VPN failure for multiple users at the same site and the time window, including non-secret errors and other network access.",
+      "Preserve VPN CI/location service-health results and scoped recent-ticket/global-ticket results where available.",
+      "A shared VPN problem is a screening hypothesis until authorized investigation reconciles the evidence; no global incident is created by the Diagnostic Agent."
+    ],
+    "safe_checks": [
+      "Check for open global ticket first; count recent tickets in the same CI/category/location/time window; inspect VPN health.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Only one device failing while peers connect favors an individual issue; preserve later shared-impact reports or contradictory health evidence.",
+      "A low scoped ticket count or reports from different sites/times does not prove the VPN is healthy."
+    ],
+    "competing_diagnoses": [
+      "VPN_CLIENT_ISSUE",
+      "WIFI_FAILURE",
+      "SERVER_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Network Operations validates gateway health and scope."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Return impact evidence to the Supervisor for outage screening. Only an authorized human using an activated, approved policy may decide global-incident creation/linking and notification; the Diagnostic Agent does not perform or claim those actions."
+      },
+      {
+        "step_id": "step-3",
+        "level": "SPECIALIST",
+        "instruction": "Restore service under incident procedure and confirm recovery."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Critical priority or security indicators require human incident command."
+    ],
+    "resolver_group_id": "GRP-NET"
+  },
+  {
+    "article_id": "KB-009",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "PHISHING",
+    "domain": "Security",
+    "category": "Threat",
+    "symptoms_en": [
+      "Suspicious email/message asks for credentials, payment, or urgent link click."
+    ],
+    "symptoms_ar": [
+      "رسالة أو رابط تصيّد مشبوه"
+    ],
+    "possible_causes": [
+      "Credential-harvesting link or spoofed sender.",
+      "Malicious attachment or social-engineering message."
+    ],
+    "discriminating_questions": [
+      "Did you click the link, open the attachment, or enter credentials?",
+      "Does the message request credentials/payment or create unusual urgency?"
+    ],
+    "required_evidence": [
+      "Record the reported suspicious behavior, message reference/time and whether a link, attachment or credential-entry action occurred; do not copy secrets or open content.",
+      "Treat the report as suspected phishing requiring Security Operations review, not a verified malicious-message diagnosis.",
+      "Only an authorized security analysis can establish maliciousness or a benign outcome."
+    ],
+    "safe_checks": [
+      "Record sender/subject/time and user actions; use approved reporting channel; do not open links/attachments.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Verified benign message through trusted security process; user only reports unrelated mail delivery failure."
+    ],
+    "competing_diagnoses": [
+      "ACCOUNT_LOCKED_POLICY",
+      "MALWARE",
+      "DATA_EXPOSURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Do not click, reply, forward broadly, or open attachments; report via approved security channel."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Security Operations analyzes the message and determines containment."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Always human-led; if credentials entered or attachment opened, notify Security Operations immediately."
+    ],
+    "resolver_group_id": "GRP-SEC"
+  },
+  {
+    "article_id": "KB-014",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "WIFI_FAILURE",
+    "domain": "Network",
+    "category": "Connectivity",
+    "symptoms_en": [
+      "Device cannot join Wi-Fi or disconnects while nearby users may or may not be affected."
+    ],
+    "symptoms_ar": [
+      "مشكلة اتصال بشبكة الواي فاي"
+    ],
+    "possible_causes": [
+      "Device adapter/profile issue.",
+      "Access point, wireless authentication, or shared wireless service issue."
+    ],
+    "discriminating_questions": [
+      "Can another device connect to the same Wi-Fi at the same location?",
+      "Can this device connect to a different approved network?"
+    ],
+    "required_evidence": [
+      "Record whether a comparable device joins the same Wi-Fi at the same location and whether the affected device joins a different approved network.",
+      "Record the connection error and affected-user/device scope. The device/network pairing pattern does not identify a faulty access point, adapter or profile.",
+      "A component diagnosis requires authorized association/authentication logs or measurements; the agent has no direct Wi-Fi diagnostic tool."
+    ],
+    "safe_checks": [
+      "Check wireless service health and scope; collect device-side connection error without exposing network secrets.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "All network connectivity fails beyond Wi-Fi; multiple sites affected; device connects normally to same SSID."
+    ],
+    "competing_diagnoses": [
+      "VPN_CLIENT_ISSUE",
+      "DNS_FAILURE",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Confirm Wi-Fi is enabled and select the approved corporate network."
+      },
+      {
+        "step_id": "step-2",
+        "level": "L1",
+        "instruction": "Forget/rejoin the approved network only if policy permits; do not disclose shared secrets."
+      },
+      {
+        "step_id": "step-3",
+        "level": "SPECIALIST",
+        "instruction": "Network Operations investigates access-point or authentication failures."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Security alerts or critical priority require human handling."
+    ],
+    "resolver_group_id": "GRP-NET"
+  },
+  {
+    "article_id": "KB-013",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "DNS_FAILURE",
+    "domain": "Network",
+    "category": "DNS",
+    "symptoms_en": [
+      "Internal hostnames fail to resolve while direct IP access may work; browser says server not found for internal names."
+    ],
+    "symptoms_ar": [
+      "أسماء المواقع الداخلية لا تعمل مع أن الاتصال بالـ IP يعمل"
+    ],
+    "possible_causes": [
+      "Internal DNS resolver/record problem.",
+      "Stale DNS cache or connectivity to the resolver."
+    ],
+    "discriminating_questions": [
+      "Do internal hostnames fail while direct IP access works?",
+      "Do external websites resolve normally, or does all network connectivity fail?"
+    ],
+    "required_evidence": [
+      "Record hostname access and direct-IP access to the same destination, plus whether external websites resolve/open.",
+      "Name failure with successful direct-IP access supports a name-resolution pattern; preserve negative or contradictory observations and the affected scope.",
+      "A resolver/record/cache root cause requires an authorized DNS lookup comparison. The agent has no implemented DNS lookup tool."
+    ],
+    "safe_checks": [
+      "Run approved DNS lookup/health check; compare resolver status and recent tickets.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Direct IP also fails and broad connectivity is down; host is unreachable for unrelated reasons."
+    ],
+    "competing_diagnoses": [
+      "WIFI_FAILURE",
+      "SERVER_FAILURE",
+      "VPN_OUTAGE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "L1",
+        "instruction": "Capture affected hostname category and exact time; do not include real sensitive hostnames in demo artifacts."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Network Operations checks DNS records/resolver and clears cache only under approved procedure."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Broad critical network impact requires human incident handling."
+    ],
+    "resolver_group_id": "GRP-NET"
+  },
+  {
+    "article_id": "KB-011",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "SERVER_FAILURE",
+    "domain": "Infrastructure",
+    "category": "Compute",
+    "symptoms_en": [
+      "Shared service/server is unreachable or failing for multiple users; may correlate with infrastructure health alerts."
+    ],
+    "symptoms_ar": [
+      "السيرفر أو خدمة مشتركة غير متاحة"
+    ],
+    "possible_causes": [
+      "Shared compute host or service dependency failed.",
+      "Infrastructure resource exhaustion or service degradation."
+    ],
+    "discriminating_questions": [
+      "Are multiple users/services affected, or one application function only?",
+      "Does infrastructure health show an unavailable host/dependency?"
+    ],
+    "required_evidence": [
+      "Record the affected host/service CI, location, onset and affected-user/service scope.",
+      "Preserve actual exact-CI service-health observations; identify which dependency is measured rather than assuming all are checked.",
+      "A server/dependency root cause requires authorized infrastructure logs or measurements; shared observations first go to Supervisor screening."
+    ],
+    "safe_checks": [
+      "Check infrastructure/service health and recent incidents; collect timestamps and affected CI.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Only one user's entitlement/authentication fails; only one endpoint is affected; application health alone identifies a local app fault."
+    ],
+    "competing_diagnoses": [
+      "APP_OUTAGE",
+      "STORAGE_FAILURE",
+      "APP_ERROR"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Servers & Infrastructure validates host/dependency status and impact."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Restore under approved incident/runbook and record evidence."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Critical priority or suspected security impact always requires human handling."
+    ],
+    "resolver_group_id": "GRP-INFRA"
+  },
+  {
+    "article_id": "KB-019",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "MALWARE",
+    "domain": "Security",
+    "category": "Threat",
+    "symptoms_en": [
+      "Endpoint behaves suspiciously, security alert appears, or malware/ransomware is suspected."
+    ],
+    "symptoms_ar": [
+      "اشتباه في برمجية خبيثة أو إصابة الجهاز"
+    ],
+    "possible_causes": [
+      "Malicious software or possible endpoint compromise.",
+      "Security alert may also require analyst validation for false positive."
+    ],
+    "discriminating_questions": [
+      "Did an approved security tool show an alert, or is the report based only on unusual behavior?",
+      "Are files being encrypted, security tools disabled, or unexpected prompts appearing?"
+    ],
+    "required_evidence": [
+      "Record the security-alert reference/time or reported suspicious endpoint behavior without opening suspected files or collecting secrets.",
+      "Treat unverified behavior as suspected compromise and stop routine troubleshooting.",
+      "An authorized Security Operations investigation must distinguish malware, benign behavior and false positives."
+    ],
+    "safe_checks": [
+      "Record the alert reference/time and report to Security Operations. Only authorized incident responders decide isolation or cleanup; the Diagnostic Agent performs neither.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Security tooling confirms a benign false positive; symptoms map to a verified non-security device fault."
+    ],
+    "competing_diagnoses": [
+      "PHISHING",
+      "DATA_EXPOSURE",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Stop routine troubleshooting and contact Security Operations immediately."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Security Operations decides containment, evidence preservation, and recovery."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Always human-led. Suspected active compromise/ransomware is immediate escalation."
+    ],
+    "resolver_group_id": "GRP-SEC"
+  },
+  {
+    "article_id": "KB-024",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "REQUEST_GUIDANCE",
+    "domain": "Service Desk",
+    "category": "How To",
+    "symptoms_en": [
+      "User asks how to configure/use an approved service without reporting a fault."
+    ],
+    "symptoms_ar": [
+      "طلب إرشادات أو خطوات استخدام"
+    ],
+    "possible_causes": [
+      "User needs instructions for a supported setup/task.",
+      "Request may reveal an underlying fault when clarified."
+    ],
+    "discriminating_questions": [
+      "Are you asking for instructions, or is an existing service failing with an error?",
+      "Which approved device/app and step are you trying to complete?"
+    ],
+    "required_evidence": [
+      "Record the supported service/platform/version and the task the user wants to learn, distinguishing a how-to request from an actual fault.",
+      "Retrieve a concrete, separately approved platform-specific procedure before giving setup steps; this generic classification article is not that procedure.",
+      "Task success cannot be inferred from delivering guidance. This article does not authorize resolve_ticket."
+    ],
+    "safe_checks": [
+      "Retrieve approved knowledge article and verify supported platform/version.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "A service is actually failing, access is denied, or security-sensitive/privileged action is requested."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "MISSING_ENTITLEMENT",
+      "MFA_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Provide the approved step-by-step knowledge article for the user's supported platform."
+      },
+      {
+        "step_id": "step-2",
+        "level": "L1",
+        "instruction": "Ask whether the guidance completed the task; open an incident if an actual fault remains."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Privileged access, security-sensitive requests, or critical priority require human handling."
+    ],
+    "resolver_group_id": "GRP-L1"
+  },
+  {
+    "article_id": "KB-012",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "UNKNOWN_ISSUE",
+    "domain": "Service Desk",
+    "category": "Unclassified",
+    "symptoms_en": [
+      "Vague report such as 'system not working' without enough context to distinguish causes."
+    ],
+    "symptoms_ar": [
+      "وصف عام للمشكلة بدون معلومات كافية"
+    ],
+    "possible_causes": [
+      "Root cause is unknown; identity, application, endpoint, network, or outage are still candidates."
+    ],
+    "discriminating_questions": [
+      "What exact service and error do you see?",
+      "Are other users affected, and can you access other corporate apps/network services?"
+    ],
+    "required_evidence": [
+      "Record the affected service/device, symptom/error, onset, location and user scope, or explicitly mark each missing item.",
+      "No root cause is established. Use INCONCLUSIVE with diagnosis_code=null while gathering evidence.",
+      "Request human triage when useful questions/checks are exhausted; do not convert vague similarity or UNKNOWN tool results into a diagnosis."
+    ],
+    "safe_checks": [
+      "Collect service/CI, location and affected-user scope, then return to the Supervisor for renewed outage screening. Never issue a broad health check with guessed identifiers.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Do not exclude alternatives until evidence is available; do not treat similar wording as proof."
+    ],
+    "competing_diagnoses": [
+      "PASSWORD_EXPIRED",
+      "ACCOUNT_LOCKED",
+      "MFA_FAILURE",
+      "MISSING_ENTITLEMENT",
+      "APP_AUTH_FAILURE",
+      "APP_OUTAGE",
+      "VPN_OUTAGE",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "L1",
+        "instruction": "Collect the affected service, exact error, onset time, user scope, and whether other services work."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Route to human triage if evidence remains insufficient after targeted questions/checks."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Always human triage when diagnosis remains inconclusive; mandatory for security, privileged access, or critical priority."
+    ],
+    "resolver_group_id": "GRP-L1"
+  },
+  {
+    "article_id": "KB-022",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "CERT_EXPIRED",
+    "domain": "Infrastructure",
+    "category": "Certificates",
+    "symptoms_en": [
+      "Browser/client reports certificate expired or certificate validation failure for a service."
+    ],
+    "symptoms_ar": [
+      "شهادة أمان منتهية الصلاحية"
+    ],
+    "possible_causes": [
+      "Service certificate validity period expired.",
+      "Certificate chain/configuration may be invalid; device clock is a competing explanation."
+    ],
+    "discriminating_questions": [
+      "Does the warning show an expired certificate, or an untrusted/hostname mismatch?",
+      "Are multiple users seeing the same service certificate warning?"
+    ],
+    "required_evidence": [
+      "Record the exact warning type: expiry, untrusted chain or hostname mismatch, and whether multiple users see it.",
+      "An expired-certificate root cause requires actual certificate validity dates compared with a verified clock from an authorized source.",
+      "Shared expiry warnings support a symptom pattern only; the agent has no certificate-inspection tool and must not recommend bypassing validation."
+    ],
+    "safe_checks": [
+      "Check certificate validity and service health through approved read-only checks.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Certificate is valid and only one device clock/profile is incorrect; broad network/DNS failure explains reachability."
+    ],
+    "competing_diagnoses": [
+      "APP_OUTAGE",
+      "DNS_FAILURE",
+      "SERVER_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Application Support/Infrastructure validates certificate chain and expiry."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Renew/replace certificate through approved change control and verify clients."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Certificate warnings affecting authentication or suspected interception must be escalated to a human/security team."
+    ],
+    "resolver_group_id": "GRP-INFRA"
+  },
+  {
+    "article_id": "KB-020",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "DATA_EXPOSURE",
+    "domain": "Security",
+    "category": "Data Protection",
+    "symptoms_en": [
+      "User suspects sensitive data was sent to the wrong recipient, shared publicly, or exposed unexpectedly."
+    ],
+    "symptoms_ar": [
+      "اشتباه في كشف أو مشاركة بيانات حساسة"
+    ],
+    "possible_causes": [
+      "Sensitive information may have been shared with an unintended recipient.",
+      "A link or permission may have exposed information beyond intended audience."
+    ],
+    "discriminating_questions": [
+      "What type of data may be exposed, and when was it shared?",
+      "Was the recipient/link authorized, and has the exposure been contained through approved process?"
+    ],
+    "required_evidence": [
+      "Record minimum necessary data category, sharing reference, time, intended recipient and reported access scope; do not copy sensitive contents.",
+      "Preserve any authorized containment or access evidence without claiming an action occurred based only on a user request.",
+      "Security/privacy owners determine whether exposure occurred, its scope and any required notification."
+    ],
+    "safe_checks": [
+      "Capture minimum necessary details; do not copy sensitive content into chat; preserve references and escalate.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Verified no sensitive data was involved and the sharing path was authorized by the data owner."
+    ],
+    "competing_diagnoses": [
+      "PHISHING",
+      "MALWARE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Stop further sharing and report immediately to Security Operations using approved incident channel."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Security Operations/privacy owner assesses scope, containment, and notification obligations."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Always human-led; suspected data exposure must be escalated immediately."
+    ],
+    "resolver_group_id": "GRP-SEC"
+  },
+  {
+    "article_id": "KB-021",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "STORAGE_FAILURE",
+    "domain": "Infrastructure",
+    "category": "Storage",
+    "symptoms_en": [
+      "Shared storage location/service unavailable or read/write operations fail for multiple users."
+    ],
+    "symptoms_ar": [
+      "مشكلة في خدمة التخزين المشتركة"
+    ],
+    "possible_causes": [
+      "Shared storage backend or service is unavailable.",
+      "Capacity/quota or storage dependency failure."
+    ],
+    "discriminating_questions": [
+      "Is the problem a local device disk warning or a shared drive/service used by multiple users?",
+      "Can users read existing files but not write, or is the share entirely unavailable?"
+    ],
+    "required_evidence": [
+      "Record the affected shared storage CI/path category, read versus write failure, onset and affected-user scope.",
+      "Preserve actual service-health and authorized capacity/quota/permission observations; distinguish local disk exhaustion.",
+      "Storage-backend, capacity and permission root causes require authorized infrastructure evidence; shared impact first goes to Supervisor screening."
+    ],
+    "safe_checks": [
+      "Check storage-service health and scope; count recent incidents on the same CI/location.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Only one endpoint has low free disk space; service health is operational and only one user's permissions fail."
+    ],
+    "competing_diagnoses": [
+      "DISK_FULL",
+      "SERVER_FAILURE",
+      "APP_OUTAGE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Servers & Infrastructure checks storage capacity, service health, and logs."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Restore under approved runbook and verify read/write using safe test data."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Data integrity risk, suspected exposure, or critical priority requires human handling."
+    ],
+    "resolver_group_id": "GRP-INFRA"
+  }
+]

@@ -1,0 +1,42 @@
+# SYS-32 — Decoy cluster: do not mix sites, CIs or time windows
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-32 has verified target Availability/CI-PORTAL/LOC-B but fewer than three eligible same-scope tickets. Add decoys at LOC-A, another CI, outside the backend window, and linked/RESOLVED records. No exact active global.
+
+## Opening input — copy into Supervisor
+
+```text
+Please investigate TST-SYS-32. I heard about several other portal reports, but I do not know whether they concern the same site or time.
+```
+
+## Expected first response/action
+
+Read TST-SYS-32 and distinguish heard-about reports from verified same-scope recent tickets. Do not sum unverified decoys or proclaim clearance.
+
+No scripted follow-up is required. Answer only a genuine missing observable fact if asked; optional scope must not delay mandatory human handling.
+
+## Expected internal agent path
+
+Supervisor -> Escalation & Outage when scope concern merits it -> scoped evidence/decision -> Supervisor
+
+## Expected terminal output / ticket state
+
+Inspect actual scope/time/eligibility and count with AND filters. Cross-site/CI/old/linked/final tickets do not manufacture threshold. No new global from decoys. Actual unresolved shared concern may warrant scoped questioning or human investigation, never false clearance.
+
+## Fail this case if
+
+- Aggregates all similar categories.
+- Counts linked/global/final tickets.
+- Reports no outage simply because a search/count failed.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

@@ -1,0 +1,11 @@
+{
+  "ticket_id": "INC-TEST-001",
+  "summary": "Cannot access Portal",
+  "description": "I can sign in to email but Portal says I do not have access.",
+  "priority": "3",
+  "ticket_class": "INCIDENT",
+  "security_sensitive": false,
+  "privileged_access": false,
+  "configuration_item_id": "CI-PORTAL",
+  "location_id": "LOC-A"
+}

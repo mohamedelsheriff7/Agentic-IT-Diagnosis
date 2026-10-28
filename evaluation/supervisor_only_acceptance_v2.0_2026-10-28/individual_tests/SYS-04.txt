@@ -1,0 +1,59 @@
+# SYS-04 — Unknown account: bounded investigation and actual human handoff
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- The tested account must actually return UNKNOWN/unavailable account verification. USR-148 is the observed candidate, not a guaranteed unknown-user fixture. If it now returns a known verified state, mark BLOCKED_PRECONDITION for this target branch.
+
+## Opening input — copy into Supervisor
+
+```text
+I am user USR-148. My password has expired and I cannot sign in.
+```
+
+## Expected first response/action
+
+Create one INCIDENT for USR-148 and invoke Diagnostic. Preserve any actual UNKNOWN account outcome; ask a focused expiry question rather than invent a fix.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked whether the screen explicitly says password expired
+
+```text
+Yes. The sign-in screen explicitly says, "Your password has expired."
+```
+
+**Expected:** Submit one actual Diagnostic answer with this ticket/current checkpoint. If evidence/approvals permit, display the complete real demo steps and current receipt; otherwise explain the exact remaining evidence gap.
+
+### Reply 2: If asked whether other corporate applications work with this same account
+
+```text
+No. I cannot sign in to other corporate applications using this same account.
+```
+
+**Expected:** Interpret as same-account access failure; preserve this fact rather than ask its negative-worded equivalent again.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> Supervisor -> Escalation & Outage -> human investigation status -> Supervisor
+
+## Expected terminal output / ticket state
+
+If the account check is UNKNOWN/unavailable, persist an inconclusive HUMAN_REQUIRED/ESCALATE account-investigation result after focused observations. Supervisor actually invokes Escalation & Outage; actual review is REQUESTED/PENDING or an explicit supported blocker is reported. Ticket is not resolved.
+
+## Fail this case if
+
+- Repeats equivalent expiry/access questions or same unavailable account check indefinitely.
+- Prints the answer JSON to the user without invoking Diagnostic.
+- No invented password portal URL, reset/unlock option, account change, HIGH confidence or resolution.
+- Calls UNKNOWN proof of invalid ID, healthy service or shared outage.
+- Ends with "Supervisor review needed" without actual dispatch or a concrete blocker.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

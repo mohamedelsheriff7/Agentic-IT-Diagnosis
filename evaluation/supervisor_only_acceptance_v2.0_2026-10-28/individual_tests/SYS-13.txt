@@ -1,0 +1,48 @@
+# SYS-13 — User statement conflicts with initial expiry story
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+
+## Opening input — copy into Supervisor
+
+```text
+I am user USR-001. My password expired.
+```
+
+## Expected first response/action
+
+Create once and invoke Diagnostic; the next correction must be applied against its actual pending question rather than assumed to confirm expiry.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: At the actual question about the expiry message
+
+```text
+Actually, I was wrong. It says "Account locked," not "Password expired."
+```
+
+**Expected:** Retain the correction and any real contradictory account-check evidence. Do not force the old expiry procedure; clarify safely or request supported human investigation.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> conflict/correction handling -> actual human handoff if required
+
+## Expected terminal output / ticket state
+
+Correction/conflict is visible in evidence and decision; no reset or resolution from discarded initial premise.
+
+## Fail this case if
+
+- Ignores correction and follows the old fix.
+- Silently overwrites conflicting tool evidence.
+- Claims a confirmed security-policy lock from ordinary lock text.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

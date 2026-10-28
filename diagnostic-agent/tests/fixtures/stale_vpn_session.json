@@ -1,0 +1,200 @@
+{
+  "ticket": {
+    "ticket_id": "TST-0001",
+    "summary": "el remote access mesh sheghal",
+    "description": "el VPN by7awel yetsel w ba3deen byeqta3, w kol el row 3andoh nafs el 7aga",
+    "priority": "3",
+    "ticket_class": "INCIDENT",
+    "impact": 2,
+    "urgency": 2,
+    "language": "franco_ar",
+    "domain": "Network",
+    "category": "VPN",
+    "subcategory": null,
+    "severity": null,
+    "asset_id": null,
+    "configuration_item_id": "CI-VPN",
+    "location_id": "LOC-D",
+    "security_sensitive": false,
+    "privileged_access": false,
+    "metadata": {}
+  },
+  "candidates": [
+    {
+      "diagnosis_id": "VPN_CLIENT_ISSUE",
+      "name": "VPN client or credential issue",
+      "domain": "Network",
+      "category": "VPN",
+      "resolver_group": "GRP-NET",
+      "required_evidence": [
+        "vpn_client_issue_confirmed"
+      ],
+      "supporting_evidence_ids": [],
+      "contradicting_evidence_ids": [],
+      "status": "plausible",
+      "elimination_reason": null,
+      "knowledge_article_id": null
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EV-a54e96f85bb44132",
+      "description": "Service health check: status=OPERATIONAL",
+      "value": {
+        "configuration_item_id": "CI-VPN",
+        "location_id": "LOC-D",
+        "state": "OPERATIONAL",
+        "scope": "CI-VPN/LOC-D",
+        "details": "Stored synthetic monitor fact supplied by Workstream A.",
+        "observed_at": "2026-10-01T12:00:00Z",
+        "evidence_id": "EV-a54e96f85bb44132"
+      },
+      "source": "diagnostic_check",
+      "timestamp": null,
+      "supports": [],
+      "contradicts": [
+        "VPN_OUTAGE"
+      ]
+    }
+  ],
+  "questions_asked": [],
+  "eliminated_diagnoses": [
+    {
+      "diagnosis_id": "VPN_OUTAGE",
+      "reason": "Service health check: status=OPERATIONAL"
+    }
+  ],
+  "trace": [
+    {
+      "step_number": 1,
+      "event_type": "knowledge_retrieved",
+      "description": "Retrieved 0 approved diagnostic article(s).",
+      "evidence_ids": [],
+      "candidate_ids": [],
+      "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+    },
+    {
+      "step_number": 2,
+      "event_type": "[REDACTED_LONG_TOKEN]",
+      "description": "Retrieved 5 similar resolved/closed historical ticket(s).",
+      "evidence_ids": [],
+      "candidate_ids": [
+        "VPN_CLIENT_ISSUE",
+        "VPN_CLIENT_ISSUE",
+        "VPN_CLIENT_ISSUE",
+        "VPN_CLIENT_ISSUE",
+        "VPN_OUTAGE"
+      ],
+      "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+    },
+    {
+      "step_number": 3,
+      "event_type": "historical_hypothesis_added",
+      "description": "Added VPN_OUTAGE as a candidate based on a similar historical ticket.",
+      "evidence_ids": [],
+      "candidate_ids": [
+        "VPN_OUTAGE"
+      ],
+      "rationale": "Historical similarity score=0.175; this remains a hypothesis and requires evidence from the current ticket."
+    },
+    {
+      "step_number": 4,
+      "event_type": "investigation_started",
+      "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+      "evidence_ids": [],
+      "candidate_ids": [
+        "VPN_CLIENT_ISSUE",
+        "VPN_OUTAGE"
+      ],
+      "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+    },
+    {
+      "step_number": 5,
+      "event_type": "outage_signal_detected",
+      "description": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds.",
+      "evidence_ids": [],
+      "candidate_ids": [
+        "VPN_OUTAGE"
+      ],
+      "rationale": "Local outage-signal rule: ticket mentions a shared-service symptom. Backend count threshold has not yet been checked."
+    },
+    {
+      "step_number": 6,
+      "event_type": "evidence_added",
+      "description": "Service health check: status=OPERATIONAL",
+      "evidence_ids": [
+        "EV-a54e96f85bb44132"
+      ],
+      "candidate_ids": [
+        "VPN_OUTAGE"
+      ],
+      "rationale": "Evidence source: diagnostic_check."
+    }
+  ],
+  "knowledge_matches": [],
+  "historical_matches": [
+    {
+      "ticket_id": "HIS-0025",
+      "score": 0.2522,
+      "matched_on": [
+        "shared_ticket_terms",
+        "category"
+      ],
+      "diagnosis_code": "VPN_CLIENT_ISSUE",
+      "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. No further action needed.",
+      "owner_group_id": "GRP-NET"
+    },
+    {
+      "ticket_id": "HIS-0066",
+      "score": 0.184,
+      "matched_on": [
+        "shared_ticket_terms",
+        "category"
+      ],
+      "diagnosis_code": "VPN_CLIENT_ISSUE",
+      "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. No further action needed.",
+      "owner_group_id": "GRP-NET"
+    },
+    {
+      "ticket_id": "HIS-0074",
+      "score": 0.184,
+      "matched_on": [
+        "shared_ticket_terms",
+        "category"
+      ],
+      "diagnosis_code": "VPN_CLIENT_ISSUE",
+      "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. Confirmed working with the user.",
+      "owner_group_id": "GRP-NET"
+    },
+    {
+      "ticket_id": "HIS-0157",
+      "score": 0.184,
+      "matched_on": [
+        "shared_ticket_terms",
+        "category"
+      ],
+      "diagnosis_code": "VPN_CLIENT_ISSUE",
+      "resolution_summary": "VPN client reinstalled and profile refreshed; connection established and confirmed by the user. User confirmed the issue is resolved.",
+      "owner_group_id": "GRP-NET"
+    },
+    {
+      "ticket_id": "HIS-0323",
+      "score": 0.175,
+      "matched_on": [
+        "shared_ticket_terms",
+        "category"
+      ],
+      "diagnosis_code": "VPN_OUTAGE",
+      "resolution_summary": "VPN gateway service recovered by Network Operations; users reconnected and the root cause recorded. Confirmed working with the user.",
+      "owner_group_id": "GRP-NET"
+    }
+  ],
+  "next_question": null,
+  "final_diagnosis": null,
+  "confidence": null,
+  "recommended_action": "escalate",
+  "rationale": "Shared-service candidate(s) detected: VPN_OUTAGE. Returning ESCALATE so the Supervisor can run outage screening (count_recent_tickets / find_open_global_tickets) before individual diagnosis proceeds.",
+  "status": "escalated",
+  "diagnostic_result_id": "DR-284f478869054faf",
+  "diagnostic_result_version": 3
+}

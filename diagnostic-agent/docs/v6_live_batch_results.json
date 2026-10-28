@@ -1,0 +1,176 @@
+[
+  {
+    "test": "1",
+    "phase": "saved_transcript",
+    "ticket_id": "INC-0f1deda906e743a8",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "PASSWORD_EXPIRED",
+    "turns": [
+      "The evidence points to an expired password. I recommend a review by the IAM team. Your ticket remains open.\n\nTicket: INC-0f1deda906e743a8 · Ref: CHK-c9525523bc97414a"
+    ]
+  },
+  {
+    "test": "1",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-df695b387e81422c",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "PASSWORD_EXPIRED",
+    "turns": [
+      "The account check shows an expired password. I need one more detail to confirm the issue.\n\nCan you access other corporate applications with the same account?\n\nTicket: INC-df695b387e81422c · Ref: CHK-5da872771f0b4c57",
+      "no",
+      "The evidence points to an expired password. I recommend a review by the IAM team. Your ticket remains open.\n\nTicket: INC-df695b387e81422c · Ref: CHK-6a73bb7adb064f9b"
+    ]
+  },
+  {
+    "test": "2",
+    "phase": "saved_transcript",
+    "ticket_id": "INC-bf1b4ed354af410f",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "PASSWORD_EXPIRED",
+    "turns": [
+      "The evidence points to an expired password. I recommend a review by the IAM team. Your ticket remains open.\n\nTicket: INC-bf1b4ed354af410f · Ref: CHK-b8aab8dd1e164a9d"
+    ]
+  },
+  {
+    "test": "2",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-117204d0dc6b424c",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "PASSWORD_EXPIRED",
+    "turns": [
+      "The account check shows an expired password. I need one more detail to confirm the issue.\n\nCan you access other corporate applications with the same account?\n\nTicket: INC-117204d0dc6b424c · Ref: CHK-6d20f31eb13c40d5",
+      "I cannot access other corporate applications with this account either.",
+      "The evidence points to an expired password. I recommend a review by the IAM team. Your ticket remains open.\n\nTicket: INC-117204d0dc6b424c · Ref: CHK-1a9b8bde1b6849ed"
+    ]
+  },
+  {
+    "test": "3",
+    "phase": "saved_transcript",
+    "ticket_id": "INC-d8a775438e974622",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "DNS_FAILURE",
+    "turns": [
+      "You reported: Internal server names fail. Direct IP access works. External websites open normally.\n\nThe reported observations support a DNS/name-resolution problem. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-d8a775438e974622 · Ref: CHK-2ed0d886649f45d5"
+    ]
+  },
+  {
+    "test": "3",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-a743b90237e343c7",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "DNS_FAILURE",
+    "turns": [
+      "Do internal hostnames fail while direct IP access to the same server works?\n\nTicket: INC-a743b90237e343c7 · Ref: CHK-71cec5af3afb4f95",
+      "Internal server names fail, but direct IP access to the same server works. External websites open normally.",
+      "You reported: Internal server names fail. Direct IP access works. External websites open normally.\n\nThe reported observations support a DNS/name-resolution problem. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-a743b90237e343c7 · Ref: CHK-90eab2aaa59c48f7"
+    ]
+  },
+  {
+    "test": "4",
+    "phase": "saved_transcript",
+    "ticket_id": "INC-1de93dbec7cc4105",
+    "result": "PASS",
+    "action": "ASK_MORE",
+    "diagnosis": null,
+    "turns": [
+      "Can this device connect to a different approved network?\n\nTicket: INC-1de93dbec7cc4105 · Ref: CHK-1fcfccc6b41e40e2"
+    ]
+  },
+  {
+    "test": "4",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-bedf18580f5f42a4",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "WIFI_FAILURE",
+    "turns": [
+      "Can another device connect to the same Wi-Fi at the same location?\n\nTicket: INC-bedf18580f5f42a4 · Ref: CHK-aa0af3335af2411d",
+      "yes",
+      "Can this device connect to a different approved network?\n\nTicket: INC-bedf18580f5f42a4 · Ref: CHK-7c9b813379e24b65",
+      "The affected device connects to a different approved network.",
+      "You reported: Another device connects to the same Wi-Fi. The affected device connects to a different approved network.\n\nThe reported observations support a Wi-Fi connection problem specific to this device/network pairing. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-bedf18580f5f42a4 · Ref: CHK-134638fe06ed4991"
+    ]
+  },
+  {
+    "test": "5",
+    "phase": "saved_transcript",
+    "ticket_id": "INC-a91c8bce92c645e9",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "PRINTER_OFFLINE",
+    "turns": [
+      "You reported: Multiple users are affected at the same printer. Other users cannot reach the printer.\n\nThe reported observations support a printer reachability problem. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Endpoint Support. Your ticket remains open.\n\nTicket: INC-a91c8bce92c645e9 · Ref: CHK-0ec0918909b54f39"
+    ]
+  },
+  {
+    "test": "5",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-b5edfa67ab174f5f",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "PRINTER_OFFLINE",
+    "turns": [
+      "Is only one user affected or everyone using the same printer?\n\nTicket: INC-b5edfa67ab174f5f · Ref: CHK-5b42776a29e54e30",
+      "Everyone using that printer is affected.",
+      "Can the printer be reached by other users on the same network?\n\nTicket: INC-b5edfa67ab174f5f · Ref: CHK-b5a3ac82c24a420b",
+      "Other users cannot reach the printer either.",
+      "You reported: Multiple users are affected at the same printer. Other users cannot reach the printer.\n\nThe reported observations support a printer reachability problem. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Endpoint Support. Your ticket remains open.\n\nTicket: INC-b5edfa67ab174f5f · Ref: CHK-3ef0cff817354873"
+    ]
+  },
+  {
+    "test": "6",
+    "phase": "saved_transcript",
+    "ticket_id": "INC-1fd0c8ed464e4970",
+    "result": "PASS",
+    "action": "ASK_MORE",
+    "diagnosis": null,
+    "turns": [
+      "Can colleagues at the same site connect to VPN right now?\n\nTicket: INC-1fd0c8ed464e4970 · Ref: CHK-48b4508a76d047e2"
+    ]
+  },
+  {
+    "test": "6",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-eb17292cb8064a56",
+    "result": "PASS",
+    "action": "ROUTE",
+    "diagnosis": "VPN_CLIENT_ISSUE",
+    "turns": [
+      "Can colleagues at the same site connect to VPN right now?\n\nTicket: INC-eb17292cb8064a56 · Ref: CHK-036a0f291ed84243",
+      "Yes, colleagues at the same site can connect.",
+      "Does the VPN client show a local configuration or credential error?\n\nTicket: INC-eb17292cb8064a56 · Ref: CHK-d009e523bc8b4a63",
+      "local configuration",
+      "You reported: Colleagues at the same site can connect to VPN. The VPN client reports a local configuration error.\n\nThe reported observations support a VPN client configuration/authentication problem. This identifies the problem pattern; the underlying faulty component remains unverified. I recommend review by Network Support. Your ticket remains open.\n\nTicket: INC-eb17292cb8064a56 · Ref: CHK-36ef147805f74746"
+    ]
+  },
+  {
+    "test": "7",
+    "phase": "saved_transcript",
+    "ticket_id": "INC-9f7bbd14f5234483",
+    "result": "PASS",
+    "action": "ASK_MORE",
+    "diagnosis": null,
+    "turns": [
+      "Which application or device were you using when you noticed the problem?\n\nTicket: INC-9f7bbd14f5234483 · Ref: CHK-f002692969db4bb6"
+    ]
+  },
+  {
+    "test": "7",
+    "phase": "fresh_text_only_chat",
+    "ticket_id": "INC-5276a5ea13c24ed4",
+    "result": "PASS",
+    "action": "ASK_MORE",
+    "diagnosis": null,
+    "turns": [
+      "What exact error message do you see, and when did the problem start?\n\nTicket: INC-5276a5ea13c24ed4 · Ref: CHK-544a6bdb1e974832",
+      "I don’t know which service is affected or the exact error.",
+      "Which application or device were you using when you noticed the problem?\n\nTicket: INC-5276a5ea13c24ed4 · Ref: CHK-37575d16a8ae48b9"
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+# SYS-29 — VPN cluster: new global with corroborated exact scope
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-29 has verified VPN/CI-VPN/LOC-A. At least three eligible non-global, unlinked, active same-scope tickets (including current ticket if eligible) are within the backend 30-minute window; health UNAVAILABLE with consistent shared symptoms. No matching global. No P1/security/privilege condition; active global-mutation policy is approved.
+
+## Opening input — copy into Supervisor
+
+```text
+Please investigate TST-SYS-29. Several users at Site A cannot connect to the VPN.
+```
+
+## Expected first response/action
+
+Read TST-SYS-29 and invoke Escalation for the verified VPN shared-scope concern; exact global search precedes cluster creation.
+
+No scripted follow-up is required. Answer only a genuine missing observable fact if asked; optional scope must not delay mandatory human handling.
+
+## Expected internal agent path
+
+Supervisor -> Escalation & Outage -> search -> count/health -> create/link -> notify -> Supervisor
+
+## Expected terminal output / ticket state
+
+Search exact open globals first; if none, count eligible category VPN/CI-VPN/LOC-A tickets in 30 minutes using backend clock. With >=3 verified eligible tickets and corroborating outage evidence under approved active policy, create/reuse one SEV2 global, preserve atomic child links, record required MOCK notifications and verify results. No autonomous network fix.
+
+## Fail this case if
+
+- Count alone proves outage.
+- Wrong real-time clock/window or OR filters.
+- Repeats atomically completed links.
+- Calls MOCK notification delivered email/paging.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

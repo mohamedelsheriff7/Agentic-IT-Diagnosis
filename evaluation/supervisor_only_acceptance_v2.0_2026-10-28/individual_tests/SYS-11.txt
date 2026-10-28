@@ -1,0 +1,56 @@
+# SYS-11 — No exact error available: do not invent one
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+
+## Opening input — copy into Supervisor
+
+```text
+I am user USR-005 at LOC-A. The company portal fails after sign-in; email works.
+```
+
+## Expected first response/action
+
+Preserve reporter/location/symptoms in one INCIDENT and actually invoke Diagnostic; do not invent an exact error string.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked for exact error/start time
+
+```text
+I do not have the exact error text. It first happened about 20 minutes ago.
+```
+
+**Expected:** Keep exact error unknown and start time reported; ask only a useful next distinguishing question.
+
+### Reply 2: If asked for specific application/service
+
+```text
+The company web portal. I do not know its specific name or internal ID.
+```
+
+**Expected:** Do not invent a canonical mapping or repeat the same scope question under a new wording.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> focused scope collection -> supported human escalation if required
+
+## Expected terminal output / ticket state
+
+Clear account of known facts and missing exact service/error information; supported human investigation when questions/checks are exhausted, not forced resolution.
+
+## Fail this case if
+
+- Invents an authentication/error code.
+- Demands category/CI IDs from the user.
+- Treats lack of an error string as a confirmed outage.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

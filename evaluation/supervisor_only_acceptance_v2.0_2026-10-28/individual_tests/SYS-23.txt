@@ -1,0 +1,67 @@
+# SYS-23 — Ordinary lockout: verified specialist routing
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-23 is active, ordinary and unlinked, reporter has independently checked enabled=TRUE, locked=TRUE, password_expired=FALSE. Required evidence/applicable approved article and exclusions support HIGH ACCOUNT_LOCKED/ROUTE; no unresolved competing security condition.
+
+## Opening input — copy into Supervisor
+
+```text
+Please investigate TST-SYS-23 and handle the account-lockout issue.
+```
+
+## Expected first response/action
+
+Read TST-SYS-23; do not create another ticket. Invoke Diagnostic with current account evidence and return only an actual useful unanswered lockout question/result.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked for exact screen message
+
+```text
+The message says "Account locked after too many incorrect attempts."
+```
+
+**Expected:** Persist the actual answer without claiming a policy/security lock.
+
+### Reply 2: If asked whether account is locked
+
+```text
+Yes. The screen explicitly reports the account is locked.
+```
+
+**Expected:** Combine with independent current check; do not invent an unlock fix.
+
+### Reply 3: If asked about a security/suspicious-activity alert
+
+```text
+No. There was no security alert. The lock followed my incorrect password attempts.
+```
+
+**Expected:** Ordinary supported IAM routing, provided exact active policy/evidence prerequisites hold.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> Supervisor -> Routing -> assignment/readback -> Supervisor
+
+## Expected terminal output / ticket state
+
+Actual persisted ACCOUNT_LOCKED/ROUTE result, then Routing invocation. With verified HIGH ordinary prerequisites and approved routing policy, assign GRP-IAM and verify owner. Keep ticket unresolved; user confirmation cannot unlock the account.
+
+## Fail this case if
+
+- Stops after recommending IAM without a ready actual Routing call.
+- Routes to Security solely for ordinary lockout.
+- Reports assignment as resolution.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

@@ -1,0 +1,74 @@
+[
+  {
+    "resolver_group_id": "GRP-L1",
+    "name": "Service Desk L1",
+    "scope": "Initial triage, general guidance, low-confidence cases, approved low-risk user self-service, and coordination.",
+    "boundaries": [
+      "Do not retain a specialist diagnosis merely because the first ticket wording sounds general.",
+      "Medium-confidence specialist recommendations go to L1 with the evidence and recommendation attached.",
+      "Low-confidence or insufficient-evidence cases remain with human triage.",
+      "Coordinate SEV1 human incident leadership. New SEV1 globals and globals with mandatory-human child tickets initially belong to GRP-L1; notify the diagnosed owner separately."
+    ]
+  },
+  {
+    "resolver_group_id": "GRP-IAM",
+    "name": "IAM",
+    "scope": "Identity provider, password expiry/reset, ordinary account lockout, MFA registration/failure, account enabled/disabled state, identity entitlement and access lifecycle.",
+    "boundaries": [
+      "Ordinary lockout after repeated incorrect attempts goes to IAM.",
+      "A lock caused by suspicious activity or security policy goes to GRP-SEC, not ordinary IAM unlock.",
+      "Privileged-access requests always require human review and approval.",
+      "Own identity-provider/account-lifecycle entitlement faults. Application-specific roles and application-only access failures belong to GRP-APP when supported by scope evidence."
+    ]
+  },
+  {
+    "resolver_group_id": "GRP-APP",
+    "name": "Application Support",
+    "scope": "Application-specific authentication, entitlement/role assignment, application errors, application availability, synchronization, and application/storage service failures.",
+    "boundaries": [
+      "If other corporate apps work but one application fails, investigate application authentication or entitlement before general IAM.",
+      "If a service-health check reports an application unavailable/degraded state or multiple users are affected, run outage policy before individual diagnosis.",
+      "Application entitlement changes require approval where applicable; the agent must not grant access autonomously.",
+      "Own application-specific role/entitlement faults and application-isolated storage errors. Identity-provider lifecycle belongs to GRP-IAM; shared storage or certificate infrastructure faults belong to GRP-INFRA."
+    ]
+  },
+  {
+    "resolver_group_id": "GRP-END",
+    "name": "Endpoint Support",
+    "scope": "Local device faults, endpoint storage exhaustion, local printer setup/connectivity where device-side, and endpoint-specific software/client issues.",
+    "boundaries": [
+      "If multiple users or sites are affected, check shared network/service health before treating as a local endpoint issue.",
+      "Do not ask users to delete business data; cleanup must be limited to approved temporary files and user-confirmed safe locations."
+    ]
+  },
+  {
+    "resolver_group_id": "GRP-NET",
+    "name": "Network Operations",
+    "scope": "VPN service/gateway outages, Wi-Fi association, DNS resolution, and shared network connectivity.",
+    "boundaries": [
+      "A single VPN client/configuration problem routes to Network Operations or L1 depending on evidence; a shared gateway outage triggers global-issue handling.",
+      "DNS symptoms where internal names fail but direct IP access works point to DNS; if all connectivity fails, investigate broader network connectivity.",
+      "Do not infer an outage from category similarity alone; the time window and shared scope must satisfy thresholds."
+    ]
+  },
+  {
+    "resolver_group_id": "GRP-SEC",
+    "name": "Security Operations",
+    "scope": "Suspected phishing, malware, suspicious sign-in/security-policy lockouts, and suspected data exposure.",
+    "boundaries": [
+      "All security-sensitive cases are human-led regardless of confidence; do not resolve autonomously or ask the user to forward suspected malicious attachments.",
+      "Preserve evidence and follow approved incident response procedures; do not instruct users to delete artifacts or investigate malware themselves.",
+      "Suspected data exposure and privileged-access cases require human review even if evidence is incomplete."
+    ]
+  },
+  {
+    "resolver_group_id": "GRP-INFRA",
+    "name": "Servers & Infrastructure",
+    "scope": "Shared server/compute failures and infrastructure/storage service faults not isolated to one endpoint or application layer.",
+    "boundaries": [
+      "Use application health and scope evidence to distinguish application service failure from shared server/compute failure.",
+      "For critical priority, always send to a human; do not perform autonomous remediation.",
+      "Own CERT_EXPIRED and shared storage/server-layer faults. Application Support assists when evidence isolates application configuration. Certificate changes remain specialist-led and approval-controlled."
+    ]
+  }
+]

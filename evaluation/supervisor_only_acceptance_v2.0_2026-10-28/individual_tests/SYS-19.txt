@@ -1,0 +1,48 @@
+# SYS-19 — Explicit critical priority: direct human handling
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+
+## Opening input — copy into Supervisor
+
+```text
+I am user USR-005 at LOC-A. A business-critical service is unavailable and our operations have stopped. Please record reported priority 1.
+```
+
+## Expected first response/action
+
+Record explicit reported_priority=1 using the supported field and invoke human handling, without waiting for optional canonical scope.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked for the affected service
+
+```text
+The company operations service. I do not know its internal CI.
+```
+
+**Expected:** Optional scope collection does not delay required human handling; unknown CI is retained honestly.
+
+
+## Expected internal agent path
+
+Supervisor -> Escalation & Outage -> human review -> Supervisor
+
+## Expected terminal output / ticket state
+
+reported_priority=1 is recorded through the supported field. Human handling is requested. No invented global/SEV1 declaration without its further verified policy/impact requirements.
+
+## Fail this case if
+
+- Uses unsupported priority field.
+- Autonomous resolution of P1.
+- Creates SEV1 only because the user said critical, with no required verification/review.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

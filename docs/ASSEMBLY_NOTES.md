@@ -1,0 +1,9 @@
+# Assembly notes — 29 October 2026
+
+The supplied backend and valid diagnostic v6.8.3 bundle were preserved. Added maintained diagnostic source, tests, knowledge, offline evaluation materials, architecture and root setup instructions from the local project workspace. No credentials, running ticket databases, virtual environments, or operational sessions were copied.
+
+Renamed native agent definitions/folders/ZIPs to Routing_Agent and Escalation_Outage_Agent; their internal names now match. Generated tenant tool suffixes were mapped to the existing backend OpenAPI operationIds. The knowledge base name is preserved for consistency with the exported bindings. Reconstructed the missing IT_Support_Supervisor from instructions v1.16 and guidelines v1.5. Diagnostic runtime identity remains isys_diagnostic_langgraph_v6_8_3.
+
+The oddly named Untitled_Agent_1_4107HP.zip identifies itself as diagnostic v6.8.3 but fails CRC validation for agent.py. Preserved it, the old native folders/ZIPs and the duplicate diagnostic ZIP under ignored .local-export-backups/. It is not used for imports. The canonical diagnostic ZIP is the supplied valid isys-diagnostic-langgraph-v6.8.3.zip under a descriptive release filename.
+
+Known limits: WXO tenant import/execution was not performed; tool IDs and knowledge uploads require reconnection in a fresh tenant. Native exports contain knowledge metadata but no uploaded documents or full tool definitions; OpenAPI and source knowledge supply those assets. The supervisor is reconstructed, not exported. Original Workstream A generation/evaluation implementation was not present; original datasets, backend generation utilities and available evaluation material are included. Existing reports document earlier runs, not validation of this assembled folder. Approval remains governed by authoritative backend records. This folder has not been pushed or published.

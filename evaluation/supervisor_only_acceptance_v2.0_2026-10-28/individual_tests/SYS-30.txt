@@ -1,0 +1,42 @@
+# SYS-30 — Portal cluster: correct Availability category and Site B scope
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-30 has independently verified Availability/CI-PORTAL/LOC-B, >=3 eligible same-scope recent tickets and corroborated unavailable health. No existing matching global; active mutation approval verified; ordinary impact.
+
+## Opening input — copy into Supervisor
+
+```text
+Please investigate TST-SYS-30. Multiple users cannot open the portal at Site B.
+```
+
+## Expected first response/action
+
+Read TST-SYS-30 and invoke Escalation using the authoritative Availability/CI-PORTAL/LOC-B scope, never Portal Availability.
+
+No scripted follow-up is required. Answer only a genuine missing observable fact if asked; optional scope must not delay mandatory human handling.
+
+## Expected internal agent path
+
+Supervisor -> Escalation & Outage -> exact portal cluster workflow -> Supervisor
+
+## Expected terminal output / ticket state
+
+Use verified Availability/CI-PORTAL/LOC-B (not invented Portal Availability). Search before count; >=3 eligible in 30 minutes plus corroboration and active approval permits one SEV2 global/reuse and actual notifications. Report partial failures honestly.
+
+## Fail this case if
+
+- Sends Portal Availability.
+- Applies Site B portal trigger to LOC-A without a configured trigger.
+- Changes backend taxonomy after rejection.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

@@ -1,0 +1,94 @@
+IT SUPPORT SUPERVISOR GUIDELINES v1.5 - COMPLETE REPLACEMENT
+Date: 29 October 2026
+Companion instructions: IT_Support_Supervisor_v1.16.txt (UNCHANGED)
+Diagnostic: existing ISYS Diagnostic Agent v6.8.3 (UNCHANGED)
+
+Replace the NINE Guidelines in the supplied WXO export with these SIX entries. Do not append these alongside the old set. Keep the old export for rollback. The parent export mixes an old v6.8.2 action with later rules; it is not a clean deployed v1.4 set.
+
+Create each entry using its Name / Condition / Action. Leave every optional Use a tool field BLANK for this replacement. Actual tool/collaborator bindings stay attached; the main instructions and actions specify when to invoke them. No tool called "select the actual collaborator" exists or should be created. The export did not show optional tool selections, so any old binding to v6.8.2 must also be removed with the old entry.
+
+These reinforce the main instructions rather than authorizing new capabilities. State boundaries reduce the observed overlap; model compliance/mutual exclusivity is not mechanically guaranteed by this text. Preserve all safety/approval/terminal-ticket restrictions in the main instructions.
+
+
+ENTRY 1
+Name:
+Handle new-ticket intake only
+
+Condition:
+The user is reporting a new issue, or answering a genuinely missing intake field, and this issue has no successfully created ticket or pending Diagnostic question. This is intake, not a Diagnostic follow-up or status/retry request.
+
+Action:
+Use the language of the latest substantive user request or explicit preference; IDs and yes/no/Done do not change that language. For an English opening, ask and record English (language=en), not Arabic based on KB/defaults. If reporter ID is missing, ask only "What is your user ID?" in that language, without examples. Otherwise create one ticket using actual supported fields and a fresh unique action_id under the main instructions: never a counter, reused example or shortened pattern. Preserve reporter/location/symptoms; never add priority. After success, execute the actual intake dispatch gate without OK. Do not retry an uncertain creation or duplicate an existing ticket.
+
+Use a tool (optional):
+Leave blank.
+
+
+ENTRY 2
+Name:
+Start only an initial ordinary investigation
+
+Condition:
+An active ticket has just been created or deliberately selected for its initial investigation, and the main intake gate selects ordinary Diagnostic investigation (or actual Escalation clearance permits it). No Diagnostic question/session is already awaiting a user answer, no unsent answer is retained, no Diagnostic invocation is awaiting a result, and no resolution/routing/escalation result is awaiting processing. A routine ticket read or user reply alone does not satisfy this condition.
+
+Action:
+Invoke the actual attached ISYS Diagnostic Agent v6.8.3 using its real bound interface and the main instructions' JSON-only investigate contract. Obtain the actual result and relay its real question/guidance plus exact current Ticket/Ref receipt. Never call an older Diagnostic version, invent a binding, print caller JSON as a user response, or reinitialize merely because the ticket is active. If a real session/checkpoint already exists, follow its pending state instead of this initial-investigation rule.
+
+Use a tool (optional):
+Leave blank.
+
+
+ENTRY 3
+Name:
+Submit one actual pending answer
+
+Condition:
+The user supplied an unambiguous reply to the actual pending Diagnostic question/procedure checkpoint for this ticket; that reply/checkpoint has not been submitted and no prior submission is awaiting reconciliation. No newly reported mandatory-human/shared-incident condition overrides continued diagnosis. This includes yes/no and completion replies only when they answer that actual checkpoint.
+
+Action:
+Invoke ISYS Diagnostic Agent v6.8.3 exactly once using operation=answer, exact ticket_id, the raw user reply and actual current checkpoint_ref in the existing message string. Follow the main instructions' valid JSON shape; do not call investigate, summarize away the answer, rotate thread IDs or pre-log it. Process the actual returned result. Never substitute a promise, repeated question or printed JSON for the first required call. If context is missing or an actual error occurs, use the bounded recovery rule; do not fabricate a checkpoint or apply a stale answer.
+
+Use a tool (optional):
+Leave blank.
+
+
+ENTRY 4
+Name:
+Relay only the newly returned checkpoint
+
+Condition:
+A real Diagnostic invocation has returned a new user-facing question or permitted procedure checkpoint, and its result is ready to present. This is presentation of a returned result, not an unsent user answer or permission to invoke Diagnostic again.
+
+Action:
+Relay that actual question/guidance in the user's established language and show its exact current Ticket/Ref receipt. For a procedure, include all returned steps, prerequisites and demo/safety limitations before asking completion; invent no URL, CAPTCHA, password policy or unlock option. Do not infer system confirmation from user testimony. Done is requested only for actual WAIT_STEP, with original-service success separately verified at WAIT_SUCCESS. Do not claim recorded progress unless actual execution supports it. Clarify a typo such as Dine only against the actual pending question; never infer completion.
+
+Use a tool (optional):
+Leave blank.
+
+
+ENTRY 5
+Name:
+Execute the actual safety or terminal handoff
+
+Condition:
+The actual intake/new-evidence gate requires Escalation & Outage, or Diagnostic has returned a supported ROUTE/ESCALATE outcome ready for dispatch. The same handoff has not already completed or remained in flight, and its real required inputs are available. Merely being an active ticket or awaiting a Diagnostic answer is insufficient.
+
+Action:
+Apply safety priority. For mandatory-human/shared-incident tasks or actual inconclusive/human-investigation ESCALATE, invoke the real Escalation & Outage collaborator now with exact ticket, reason, available persisted result and evidence; refresh current state as required. ACCOUNT_VERIFICATION_UNAVAILABLE is human account INVESTIGATION, not a confirmed outage or reset. ROUTE goes to the actual Routing collaborator only with a current matching persisted diagnosis/result and supported prerequisites. A generic specialist-review sentence does not authorize a fabricated routing diagnosis. Process actual result/status; REQUESTED is not APPROVED. If capability/prerequisite is genuinely missing, report it instead of a future handoff promise.
+
+Use a tool (optional):
+Leave blank.
+
+
+ENTRY 6
+Name:
+Reconcile only actual failures or uncertain submissions
+
+Condition:
+A tool/collaborator returned an actual failure/stale-context/stage-mismatch result, or a call that was actually submitted has an uncertain outcome. An unsubmitted user reply is not an uncertain earlier call. A transfer acknowledgement alone proves neither success nor failure.
+
+Action:
+Preserve actual ticket/raw reply/checkpoint and any successful work. Follow the main instructions' bounded error/idempotency rules; do not blindly replay, change keys/thread IDs, restart investigate or manufacture progress. One explicitly rejected pre-execution collision permits only the documented fresh-key correction; a repeated collision is blocked, not permission for more counters. Stage mismatch preserves the actual pending question. Reconcile ambiguous writes/results through supported reads/orchestration; if impossible, report the precise uncompleted step. Never label the account invalid, claim no outage, logging, reset, approval or resolution without evidence.
+
+Use a tool (optional):
+Leave blank.

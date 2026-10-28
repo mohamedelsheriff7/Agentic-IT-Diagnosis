@@ -1,0 +1,319 @@
+{
+  "session": {
+    "mode": "backend",
+    "snapshot": {
+      "ticket": {
+        "ticket_id": "INC-1fd0c8ed464e4970",
+        "summary": "VPN client cannot connect",
+        "description": "The VPN client cannot connect. The scope has not been established.",
+        "priority": "3",
+        "ticket_class": "INCIDENT",
+        "impact": 3,
+        "urgency": 2,
+        "language": "en",
+        "domain": "Network",
+        "category": "VPN",
+        "subcategory": null,
+        "severity": null,
+        "asset_id": null,
+        "configuration_item_id": "CI-VPN",
+        "location_id": "LOC-D",
+        "security_sensitive": false,
+        "privileged_access": false,
+        "metadata": {
+          "diagnostic_review_mode": true,
+          "interpreted_answers": {
+            "EV-39c57dd12d2d44f5": {
+              "question": "Does the VPN client show a local configuration or credential error?",
+              "facts": {
+                "vpn_client_error": "LOCAL_CONFIGURATION"
+              }
+            }
+          }
+        }
+      },
+      "candidates": [
+        {
+          "diagnosis_id": "VPN_CLIENT_ISSUE",
+          "name": "VPN client or credential issue",
+          "domain": "Network",
+          "category": "VPN",
+          "resolver_group": "GRP-NET",
+          "required_evidence": [
+            "vpn_client_issue_confirmed"
+          ],
+          "supporting_evidence_ids": [
+            "EV-39c57dd12d2d44f5"
+          ],
+          "contradicting_evidence_ids": [],
+          "status": "plausible",
+          "elimination_reason": null,
+          "knowledge_article_id": null
+        }
+      ],
+      "archived_candidates": [],
+      "evidence": [
+        {
+          "evidence_id": "EV-4160712855334cd6",
+          "description": "Service health check: status=OPERATIONAL",
+          "value": {
+            "configuration_item_id": "CI-VPN",
+            "location_id": "LOC-D",
+            "state": "OPERATIONAL",
+            "scope": "CI-VPN/LOC-D",
+            "details": "Stored synthetic monitor fact supplied by Workstream A.",
+            "observed_at": "2026-10-01T12:00:00Z",
+            "evidence_id": "EV-4160712855334cd6"
+          },
+          "source": "diagnostic_check",
+          "timestamp": null,
+          "supports": [],
+          "contradicts": []
+        },
+        {
+          "evidence_id": "EV-39c57dd12d2d44f5",
+          "description": "User answered the diagnostic question: Does the VPN client show a local configuration or credential error?",
+          "value": "local configuration",
+          "source": "user_answer",
+          "timestamp": null,
+          "supports": [
+            "VPN_CLIENT_ISSUE"
+          ],
+          "contradicts": []
+        }
+      ],
+      "questions_asked": [
+        "Does the VPN client show a local configuration or credential error?",
+        "Can colleagues at the same site connect to VPN right now?"
+      ],
+      "eliminated_diagnoses": [],
+      "trace": [
+        {
+          "step_number": 1,
+          "event_type": "knowledge_retrieved",
+          "description": "Retrieved 0 approved diagnostic article(s).",
+          "evidence_ids": [],
+          "candidate_ids": [],
+          "rationale": "Only explicitly approved articles are eligible. Retrieval relevance is not diagnostic confidence."
+        },
+        {
+          "step_number": 2,
+          "event_type": "history_retrieval_unavailable",
+          "description": "Historical ticket retrieval could not be completed.",
+          "evidence_ids": [],
+          "candidate_ids": [],
+          "rationale": "History retrieval error: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/[REDACTED_LONG_TOKEN]/adk-project/knowledge/historical_tickets.json'"
+        },
+        {
+          "step_number": 3,
+          "event_type": "historical_tickets_retrieved",
+          "description": "Retrieved 0 similar resolved/closed historical ticket(s).",
+          "evidence_ids": [],
+          "candidate_ids": [],
+          "rationale": "Past outcomes are supporting context only and do not prove the current ticket has the same cause."
+        },
+        {
+          "step_number": 4,
+          "event_type": "investigation_started",
+          "description": "Created initial diagnostic hypotheses from ticket symptoms.",
+          "evidence_ids": [],
+          "candidate_ids": [
+            "VPN_CLIENT_ISSUE"
+          ],
+          "rationale": "Keyword rules suggest hypotheses; they do not prove a diagnosis."
+        },
+        {
+          "step_number": 5,
+          "event_type": "question_selected",
+          "description": "Can colleagues at the same site connect to VPN right now?",
+          "evidence_ids": [],
+          "candidate_ids": [
+            "VPN_CLIENT_ISSUE"
+          ],
+          "rationale": "The answer may help distinguish between plausible causes."
+        },
+        {
+          "step_number": 6,
+          "event_type": "evidence_added",
+          "description": "Service health check: status=OPERATIONAL",
+          "evidence_ids": [
+            "EV-4160712855334cd6"
+          ],
+          "candidate_ids": [],
+          "rationale": "Evidence source: diagnostic_check."
+        },
+        {
+          "step_number": 7,
+          "event_type": "answer_received",
+          "description": "Recorded an answer to: Does the VPN client show a local configuration or credential error?",
+          "evidence_ids": [],
+          "candidate_ids": [],
+          "rationale": "Only a recognized, narrowly scoped yes/no answer is mapped to a candidate. The answer is not sufficient on its own to confirm a diagnosis."
+        },
+        {
+          "step_number": 8,
+          "event_type": "evidence_added",
+          "description": "User answered the diagnostic question: Does the VPN client show a local configuration or credential error?",
+          "evidence_ids": [
+            "EV-39c57dd12d2d44f5"
+          ],
+          "candidate_ids": [],
+          "rationale": "Evidence source: user_answer."
+        },
+        {
+          "step_number": 9,
+          "event_type": "escalation_required",
+          "description": "The current diagnostic rules need human follow-up.",
+          "evidence_ids": [],
+          "candidate_ids": [],
+          "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis."
+        },
+        {
+          "step_number": 10,
+          "event_type": "answer_interpretation_repaired",
+          "description": "Interpreted a previously unmapped user observation using its original evidence ID.",
+          "evidence_ids": [
+            "EV-39c57dd12d2d44f5"
+          ],
+          "candidate_ids": [
+            "VPN_CLIENT_ISSUE"
+          ],
+          "rationale": "This remains USER_RESPONSE evidence; no tool check or user answer was fabricated."
+        },
+        {
+          "step_number": 11,
+          "event_type": "knowledge_retrieved",
+          "description": "Retrieved 1 diagnostic article(s).",
+          "evidence_ids": [],
+          "candidate_ids": [
+            "VPN_CLIENT_ISSUE"
+          ],
+          "rationale": "Drafts may guide questions in diagnostic review mode; they never authorize a fix. Retrieval relevance is not diagnostic confidence."
+        }
+      ],
+      "knowledge_matches": [
+        {
+          "article_id": "KB-026",
+          "title": "KB-026",
+          "score": 5,
+          "matched_terms": [
+            "cannot",
+            "client",
+            "connect",
+            "the",
+            "vpn"
+          ],
+          "diagnosis_code": "VPN_CLIENT_ISSUE",
+          "questions": [
+            "Can colleagues at the same site connect to VPN right now?",
+            "Can the user reach the internet and does the VPN client show a local configuration/credential error?"
+          ],
+          "approved": false,
+          "usage": "DIAGNOSTIC_GUIDANCE",
+          "version": 2,
+          "backend_reference": false,
+          "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE"
+        }
+      ],
+      "historical_matches": [],
+      "next_question": "Can colleagues at the same site connect to VPN right now?",
+      "final_diagnosis": null,
+      "confidence": null,
+      "recommended_action": "investigate",
+      "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+      "status": "in_progress",
+      "diagnostic_result_id": "DR-56bffca2badc440d",
+      "diagnostic_result_version": 4
+    },
+    "ticket_id": "INC-1fd0c8ed464e4970",
+    "checkpoint_ref": "CHK-f6b3cd70a0c64c9b"
+  },
+  "result": {
+    "ticket_id": "INC-1fd0c8ed464e4970",
+    "diagnostic_result_id": "DR-56bffca2badc440d",
+    "diagnostic_result_version": 4,
+    "evidence_ids": [
+      "EV-4160712855334cd6",
+      "EV-39c57dd12d2d44f5"
+    ],
+    "completed_actions": [],
+    "missing_information": [
+      "Can colleagues at the same site connect to VPN right now?"
+    ],
+    "status": "NEW",
+    "integration_status": "BACKEND_CONNECTED",
+    "outcome": "INCONCLUSIVE",
+    "recommended_action": "ASK_MORE",
+    "diagnosis_code": null,
+    "diagnosis_scope": "UNDETERMINED",
+    "confidence": "LOW",
+    "confidence_basis": {
+      "historical_counts": {
+        "matching": null,
+        "comparison_diagnosis_code": null,
+        "reviewed": 0,
+        "ticket_ids": []
+      },
+      "knowledge_match_strength": "HIGH",
+      "evidence_completeness": "MEDIUM",
+      "historical_agreement": "NOT_AVAILABLE",
+      "alternatives_excluded": false
+    },
+    "rationale": "No unused targeted question remains. Human investigation is needed rather than forcing a diagnosis.",
+    "diagnostic_findings": {
+      "observations": [
+        {
+          "description": "The VPN client reports a local configuration error.",
+          "evidence_id": "EV-39c57dd12d2d44f5",
+          "source": "USER_RESPONSE"
+        }
+      ],
+      "leading_hypothesis": {
+        "diagnosis_code": "VPN_CLIENT_ISSUE",
+        "description": "a VPN client configuration/authentication problem",
+        "supporting_evidence_ids": [
+          "EV-39c57dd12d2d44f5"
+        ],
+        "contradicting_evidence_ids": []
+      },
+      "suggested_support_team": "Network Support",
+      "verification_gaps": [
+        "A specialist needs to verify the client configuration and exact connection error; this agent has no implemented direct check for it."
+      ]
+    },
+    "next_question": "Can colleagues at the same site connect to VPN right now?",
+    "remaining_candidates": [
+      "VPN_CLIENT_ISSUE"
+    ],
+    "eliminated_diagnoses": [],
+    "evidence_conflicts": [],
+    "evidence_count": 2,
+    "trace_steps": 11,
+    "knowledge_article_ids": [],
+    "knowledge_sources": [
+      {
+        "article_id": "KB-026",
+        "version": 2,
+        "approved": false,
+        "source": "BUNDLED_DIAGNOSTIC_KNOWLEDGE",
+        "backend_reference": false
+      }
+    ],
+    "historical_ticket_ids": [],
+    "candidate_rankings": [
+      {
+        "diagnosis_id": "VPN_CLIENT_ISSUE",
+        "name": "VPN client or credential issue",
+        "score": 1.0,
+        "supporting_evidence_ids": [
+          "EV-39c57dd12d2d44f5"
+        ],
+        "contradicting_evidence_ids": [],
+        "knowledge_article_id": null,
+        "status": "plausible"
+      }
+    ],
+    "checks": [],
+    "check_errors": []
+  }
+}

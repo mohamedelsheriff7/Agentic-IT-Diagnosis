@@ -1,0 +1,41 @@
+{
+  "baseline_zip": "dist/isys-diagnostic-langgraph-v5.zip",
+  "sha256": "8b9b810f72ae71d591a022147a4f0214d6c807a96960fea9601d93535cceb5c5",
+  "cases": [
+    {
+      "scenario": "password_short",
+      "ticket_id": "INC-0f1deda906e743a8",
+      "agent_run": false
+    },
+    {
+      "scenario": "password_sentence",
+      "ticket_id": "INC-bf1b4ed354af410f",
+      "agent_run": false
+    },
+    {
+      "scenario": "dns",
+      "ticket_id": "INC-d8a775438e974622",
+      "agent_run": false
+    },
+    {
+      "scenario": "wifi",
+      "ticket_id": "INC-1de93dbec7cc4105",
+      "agent_run": false
+    },
+    {
+      "scenario": "printer",
+      "ticket_id": "INC-a91c8bce92c645e9",
+      "agent_run": false
+    },
+    {
+      "scenario": "vpn_conflict",
+      "ticket_id": "INC-1fd0c8ed464e4970",
+      "agent_run": false
+    },
+    {
+      "scenario": "unknown",
+      "ticket_id": "INC-9f7bbd14f5234483",
+      "agent_run": false
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+[
+  {
+    "test": "self_correcting_answer",
+    "passed": true,
+    "answer": "Yes, colleagues can connect—actually, none can.",
+    "actual": null,
+    "expected": "Clarify the conflicting statement; do not select the first positive clause."
+  },
+  {
+    "test": "explicit_conflicting_answer",
+    "passed": true,
+    "answer": "Yes, colleagues can connect, but no, colleagues cannot connect.",
+    "actual": null,
+    "expected": "Clarify the conflicting statement; do not select the first positive clause."
+  },
+  {
+    "test": "scope_expands_during_investigation",
+    "passed": true,
+    "reply": "You reported: The VPN client reports a local configuration error. Colleagues at the same site also cannot connect to VPN.\n\nThese observations suggest a possible shared-service issue. An outage is not confirmed. I recommend Supervisor outage screening for this service, location, and related tickets before individual troubleshooting. Your ticket remains open.\n\nTicket: INC-1fd0c8ed464e4970 · Ref: CHK-f6b3cd70a0c64c9b",
+    "evidence": {
+      "evidence_id": "answer-2ea6074559a2497ead95e2b7023c77be",
+      "description": "User answered the diagnostic question: Can colleagues at the same site connect to VPN right now?",
+      "value": "It was only me earlier; now five colleagues at the same site cannot connect to VPN.",
+      "source": "user_answer",
+      "timestamp": null,
+      "supports": [
+        "VPN_OUTAGE"
+      ],
+      "contradicts": [
+        "VPN_CLIENT_ISSUE"
+      ]
+    }
+  },
+  {
+    "test": "cached_session_does_not_exclude_account",
+    "passed": true,
+    "actual": null
+  },
+  {
+    "test": "cached_session_left_unclassified",
+    "passed": true,
+    "expected": "Leave the ambiguous cached-session report unclassified rather than assuming fresh access works.",
+    "actual": null
+  },
+  {
+    "test": "AUTH_unknown_not_healthy_or_diagnosed",
+    "passed": true,
+    "action": "ASK_MORE",
+    "check_errors": []
+  },
+  {
+    "test": "AUTH_unknown_visible_gap",
+    "passed": true,
+    "reply": "The account check returned UNKNOWN. This is missing evidence, not confirmation that the account or service is healthy. \n\nCan you access other corporate applications with the same account?\n\nTicket: INC-AUTH-unknown · Ref: CHK-064abe29d4e44283"
+  },
+  {
+    "test": "VPN_unknown_not_healthy_or_diagnosed",
+    "passed": true,
+    "action": "ASK_MORE",
+    "check_errors": []
+  },
+  {
+    "test": "VPN_unknown_visible_gap",
+    "passed": true,
+    "reply": "The service-health check returned UNKNOWN. This is missing evidence, not confirmation that the account or service is healthy. \n\nCan colleagues at the same site connect to VPN right now?\n\nTicket: INC-VPN-unknown · Ref: CHK-ffa29afa23df41c7"
+  },
+  {
+    "test": "AUTH_timeout_not_healthy_or_diagnosed",
+    "passed": true,
+    "action": "ASK_MORE",
+    "check_errors": [
+      {
+        "tool": "check_account_status",
+        "error": "Simulated account check timed out."
+      }
+    ]
+  },
+  {
+    "test": "AUTH_timeout_visible_gap",
+    "passed": true,
+    "reply": "The account check was unavailable. This is missing evidence, not confirmation that the account or service is healthy. \n\nDoes the sign-in screen explicitly say the password has expired?\n\nTicket: INC-AUTH-timeout · Ref: CHK-0cdb6160a88a45ca"
+  },
+  {
+    "test": "VPN_timeout_not_healthy_or_diagnosed",
+    "passed": true,
+    "action": "ASK_MORE",
+    "check_errors": [
+      {
+        "tool": "check_service_health",
+        "error": "Simulated service check timed out."
+      }
+    ]
+  },
+  {
+    "test": "VPN_timeout_visible_gap",
+    "passed": true,
+    "reply": "The service-health check was unavailable. This is missing evidence, not confirmation that the account or service is healthy. \n\nCan colleagues at the same site connect to VPN right now?\n\nTicket: INC-VPN-timeout · Ref: CHK-20c89f6454ec49a4"
+  },
+  {
+    "test": "idless_answer_applies_to_active_ticket",
+    "passed": true
+  },
+  {
+    "test": "local_switch_back_recovers_saved_ticket",
+    "passed": true,
+    "error": null,
+    "scope": "Local mode; backend checkpoint recovery was tested separately."
+  },
+  {
+    "test": "backend_switch_back_recovers_saved_ticket",
+    "passed": true,
+    "reply": "Does the sign-in screen explicitly say the password expired, or does it say the account is locked?\n\nTicket: INC-AUTH-SWITCH-A · Ref: CHK-25d98b8a29ea476e",
+    "error": null
+  },
+  {
+    "test": "RESOLVED_investigation_read_only",
+    "passed": true,
+    "calls": [
+      "get_ticket_details",
+      "get_ticket_details"
+    ]
+  },
+  {
+    "test": "RESOLVED_correction_read_only",
+    "passed": true,
+    "error": "Resolved or closed tickets cannot be mutated."
+  },
+  {
+    "test": "CLOSED_investigation_read_only",
+    "passed": true,
+    "calls": [
+      "get_ticket_details",
+      "get_ticket_details"
+    ]
+  },
+  {
+    "test": "CLOSED_correction_read_only",
+    "passed": true,
+    "error": "Resolved or closed tickets cannot be mutated."
+  },
+  {
+    "test": "success_claim_does_not_resolve",
+    "passed": true
+  },
+  {
+    "test": "explicit_confirmation_cannot_bypass_draft_article",
+    "passed": true,
+    "error": "No approved knowledge article is linked to PASSWORD_EXPIRED."
+  },
+  {
+    "test": "language_english_safe_decision_or_clarification",
+    "passed": true,
+    "reply": "You reported: The VPN client reports a local configuration error. Colleagues at the same site also cannot connect to VPN.\n\nThese observations suggest a possible shared-service issue. An outage is not confirmed. I recommend Supervisor outage screening for this service, location, and related tickets before individual troubleshooting. Your ticket remains open.\n\nTicket: INC-1fd0c8ed464e4970 · Ref: CHK-f6b3cd70a0c64c9b",
+    "action": "ESCALATE",
+    "interpreted_peer_failure": true
+  },
+  {
+    "test": "language_arabic_safe_decision_or_clarification",
+    "passed": true,
+    "reply": "للتوضيح، أحتاج إلى معرفة أي خيار تقصد.\n\nهل يستطيع زملاؤك في الموقع نفسه الاتصال بالـ VPN الآن؟\n\nTicket: INC-1fd0c8ed464e4970 · Ref: CHK-f6b3cd70a0c64c9b",
+    "action": "ASK_MORE",
+    "interpreted_peer_failure": false
+  },
+  {
+    "test": "language_franco_safe_decision_or_clarification",
+    "passed": true,
+    "reply": "To clarify, which option describes what you observed?\n\nCan colleagues at the same site connect to VPN right now?\n\nTicket: INC-1fd0c8ed464e4970 · Ref: CHK-f6b3cd70a0c64c9b",
+    "action": "ASK_MORE",
+    "interpreted_peer_failure": false
+  }
+]

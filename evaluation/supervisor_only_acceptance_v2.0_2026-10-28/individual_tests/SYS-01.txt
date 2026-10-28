@@ -1,0 +1,81 @@
+# SYS-01 — Password expiry: complete happy path with missing ID
+
+**Tier:** A · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- USR-001 must currently return independently verified expired password with enabled/unlocked account and required nonblocking MFA state; applicable resolution article/version is actively approved. Earlier successful chat is evidence of prior behavior, not a guarantee of current data.
+
+## Opening input — copy into Supervisor
+
+```text
+my password expired
+```
+
+## Expected first response/action
+
+Ask "What is your user ID?" without examples or internal field labels. Do not create a ticket with a guessed reporter.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: When Supervisor asks for the missing user ID
+
+```text
+USR-001
+```
+
+**Expected:** Create one INCIDENT with exact reporter; immediately invoke Diagnostic without asking OK. No unsupported priority field.
+
+### Reply 2: If asked whether the screen explicitly says password expired
+
+```text
+Yes. The sign-in screen explicitly says, "Your password has expired."
+```
+
+**Expected:** Submit one actual Diagnostic answer with this ticket/current checkpoint. If evidence/approvals permit, display the complete real demo steps and current receipt; otherwise explain the exact remaining evidence gap.
+
+### Reply 3: If asked whether other corporate applications work with this same account
+
+```text
+No. I cannot sign in to other corporate applications using this same account.
+```
+
+**Expected:** Interpret as same-account access failure; preserve this fact rather than ask its negative-worded equivalent again.
+
+### Reply 4: Only after actual returned simulated procedure and step-completion question (WAIT_STEP)
+
+```text
+Done
+```
+
+**Expected:** Record only simulated step completion. Ask separately whether the original affected service now works. Do not resolve yet.
+
+### Reply 5: Only after the separate actual question asking whether original sign-in works (WAIT_SUCCESS)
+
+```text
+Yes. The original sign-in now works in this synthetic test.
+```
+
+**Expected:** One actual permitted resolution attempt, then readback. Report resolved only if backend confirms it.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> Supervisor/user checkpoints -> Diagnostic resolution -> Supervisor readback
+
+## Expected terminal output / ticket state
+
+Backend confirms RESOLVED after separate step completion and original-service success. Real steps/demo caveats were visible. No fabricated real password change.
+
+## Fail this case if
+
+- Example user IDs/internal reported_by_id labels in intake.
+- Only printed JSON or promised handoff instead of a tool call.
+- Done alone resolves; steps/demo limitations omitted.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

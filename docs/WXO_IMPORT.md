@@ -1,0 +1,12 @@
+# Import and reconnect in watsonx Orchestrate
+
+1. Start the backend with synthetic fixtures and expose a stable HTTPS endpoint reachable by WXO. Configure `PUBLIC_BASE_URL`; regenerate backend specs with `python -m scripts.export_openapi` and validate them with `python -m scripts.validate_openapi`.
+2. Configure a team API-key connection with app ID `isys_it_backend` for the native diagnostic agent. Use the backend service key. Use the backend specs/connection.yaml definition and backend/docs/orchestrate_setup.md for OpenAPI tool credentials.
+3. Import backend/specs/agent.openapi.yaml as tools. Canonical tool references in the native definitions match these operationIds. If WXO adds suffixes on import, rebind each agent to the actual tenant tool IDs. Never substitute the developer/admin API as the agent tool set.
+4. Create/reconnect `IT_Diag_Knowledge_4328i9` using knowledge/source and the review/upload guide. Exported knowledge definitions contain no document payload (`documents: []`); the files must be uploaded separately. Keep evaluation answers out. Upload does not activate draft policies or grant approval.
+5. Import `Agents/ZIP/ISYS_Diagnostic_Agent_v6.8.3.zip` using the LangGraph import flow, selecting the `isys_it_backend` team connection. This is the CRC-verified original v6.8.3 package. Configure its backend URL as described in SETUP.md before deploying elsewhere.
+6. Import Routing_Agent.zip and Escalation_Outage_Agent.zip, reconnect tools and knowledge, then import IT_Support_Supervisor.zip. Its collaborators are `isys_diagnostic_langgraph_v6_8_3`, `Routing_Agent`, and `Escalation_Outage_Agent`. Rebind actual tenant names if they differ.
+7. The supervisor was reconstructed from local instructions v1.16 and six guidelines v1.5, using the exported native configuration as its schema template. It is not a tenant export or tenant-tested deployment. Inspect model availability, knowledge/tool bindings and collaborator execution in a fresh preview before adopting it.
+8. Run the offline suites, the portable package verifier and evaluation/manual acceptance scenarios. Confirm follow-up answers resume the actual pending checkpoint and routing/escalation operate on persisted evidence.
+
+Renaming a local definition does not rename an agent already deployed in WXO. Original tenant exports remain in the ignored `.local-export-backups/` directory; `EXPORT_NAME_MAP.json` records old agent/tool references for reconciliation. New native ZIPs preserve the exported folder layout and are locally parse/integrity checked only.

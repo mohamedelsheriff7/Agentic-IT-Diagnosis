@@ -1,0 +1,264 @@
+{
+  "entrypoint": "Supervisor only",
+  "all_cases": 36,
+  "tier_A": 21,
+  "tier_B": 15,
+  "tags": {
+    "APP": [
+      "SYS-24"
+    ],
+    "ERP": [
+      "SYS-31"
+    ],
+    "IAM": [
+      "SYS-23"
+    ],
+    "NET": [
+      "SYS-25"
+    ],
+    "SEC": [
+      "SYS-27"
+    ],
+    "VPN": [
+      "SYS-29"
+    ],
+    "all_four_agents": [
+      "SYS-36"
+    ],
+    "ambiguity": [
+      "SYS-07"
+    ],
+    "approval_gate": [
+      "SYS-26",
+      "SYS-27"
+    ],
+    "canonical_scope": [
+      "SYS-30"
+    ],
+    "checkpoint": [
+      "SYS-08"
+    ],
+    "classification": [
+      "SYS-22"
+    ],
+    "conflicting_evidence": [
+      "SYS-13"
+    ],
+    "context": [
+      "SYS-02"
+    ],
+    "continuation": [
+      "SYS-04",
+      "SYS-15"
+    ],
+    "count": [
+      "SYS-29"
+    ],
+    "decoys": [
+      "SYS-32"
+    ],
+    "diagnostic": [
+      "SYS-01"
+    ],
+    "direct_escalation": [
+      "SYS-17",
+      "SYS-18",
+      "SYS-19",
+      "SYS-20"
+    ],
+    "dispatch": [
+      "SYS-15",
+      "SYS-16"
+    ],
+    "entitlement": [
+      "SYS-24"
+    ],
+    "escalation": [
+      "SYS-04",
+      "SYS-05",
+      "SYS-10"
+    ],
+    "evidence": [
+      "SYS-10",
+      "SYS-11"
+    ],
+    "existing_ticket": [
+      "SYS-21"
+    ],
+    "failed_fix": [
+      "SYS-05",
+      "SYS-06"
+    ],
+    "handoff_chain": [
+      "SYS-36"
+    ],
+    "human_investigation": [
+      "SYS-33"
+    ],
+    "idempotency": [
+      "SYS-34",
+      "SYS-35"
+    ],
+    "identity": [
+      "SYS-03"
+    ],
+    "intake": [
+      "SYS-01",
+      "SYS-02"
+    ],
+    "known_global": [
+      "SYS-28"
+    ],
+    "language": [
+      "SYS-10",
+      "SYS-12"
+    ],
+    "medium_confidence": [
+      "SYS-25"
+    ],
+    "negative_outage": [
+      "SYS-32"
+    ],
+    "new_global": [
+      "SYS-29",
+      "SYS-30",
+      "SYS-31"
+    ],
+    "new_safety_evidence": [
+      "SYS-36"
+    ],
+    "no_examples": [
+      "SYS-01",
+      "SYS-03"
+    ],
+    "notifications": [
+      "SYS-29",
+      "SYS-35"
+    ],
+    "outage": [
+      "SYS-28"
+    ],
+    "partial_failure": [
+      "SYS-35"
+    ],
+    "portal": [
+      "SYS-10",
+      "SYS-30"
+    ],
+    "priority": [
+      "SYS-19"
+    ],
+    "privilege": [
+      "SYS-18"
+    ],
+    "prompt_injection": [
+      "SYS-14"
+    ],
+    "receipt": [
+      "SYS-12"
+    ],
+    "resolution": [
+      "SYS-01",
+      "SYS-07",
+      "SYS-12"
+    ],
+    "review_dedup": [
+      "SYS-21"
+    ],
+    "review_scope": [
+      "SYS-27"
+    ],
+    "routing": [
+      "SYS-23",
+      "SYS-24",
+      "SYS-25",
+      "SYS-26",
+      "SYS-36"
+    ],
+    "safety": [
+      "SYS-09",
+      "SYS-14"
+    ],
+    "schema": [
+      "SYS-19"
+    ],
+    "scope": [
+      "SYS-16",
+      "SYS-31"
+    ],
+    "secrets": [
+      "SYS-09"
+    ],
+    "security": [
+      "SYS-17"
+    ],
+    "security_lock": [
+      "SYS-20"
+    ],
+    "self_service": [
+      "SYS-01"
+    ],
+    "service_request": [
+      "SYS-22"
+    ],
+    "stage_guard": [
+      "SYS-08"
+    ],
+    "success_verification": [
+      "SYS-06"
+    ],
+    "terminal_state": [
+      "SYS-34"
+    ],
+    "threshold_boundary": [
+      "SYS-33"
+    ],
+    "unknown_account": [
+      "SYS-04"
+    ],
+    "unknown_scope": [
+      "SYS-11"
+    ],
+    "verified_diagnosis": [
+      "SYS-23"
+    ]
+  },
+  "agent_paths": {
+    "SYS-01": "Supervisor -> Diagnostic -> Supervisor/user checkpoints -> Diagnostic resolution -> Supervisor readback",
+    "SYS-02": "Supervisor -> Diagnostic -> verified resolution",
+    "SYS-03": "Supervisor intake -> Diagnostic",
+    "SYS-04": "Supervisor -> Diagnostic -> Supervisor -> Escalation & Outage -> human investigation status -> Supervisor",
+    "SYS-05": "Supervisor -> Diagnostic -> failed step -> Escalation & Outage -> Supervisor",
+    "SYS-06": "Supervisor -> Diagnostic -> failed verification -> supported Diagnostic continuation or Escalation -> Supervisor",
+    "SYS-07": "Supervisor -> Diagnostic WAIT_STEP -> WAIT_SUCCESS -> clarification -> resolution",
+    "SYS-08": "Supervisor -> Diagnostic question -> clarification/stage guard -> same real checkpoint",
+    "SYS-09": "Supervisor safety response -> safe Diagnostic path when permitted",
+    "SYS-10": "Supervisor -> Diagnostic -> evidence-aware clarification -> actual Escalation if inconclusive",
+    "SYS-11": "Supervisor -> Diagnostic -> focused scope collection -> supported human escalation if required",
+    "SYS-12": "Supervisor -> Diagnostic -> Arabic user checkpoints -> verified resolution",
+    "SYS-13": "Supervisor -> Diagnostic -> conflict/correction handling -> actual human handoff if required",
+    "SYS-14": "Supervisor -> safe Diagnostic or justified safety escalation",
+    "SYS-15": "Supervisor -> Diagnostic -> one real answer invocation -> actual next checkpoint",
+    "SYS-16": "Supervisor intake gate -> Diagnostic",
+    "SYS-17": "Supervisor -> Escalation & Outage -> human SAFETY review -> Supervisor",
+    "SYS-18": "Supervisor -> Escalation & Outage -> privileged-access review -> Supervisor",
+    "SYS-19": "Supervisor -> Escalation & Outage -> human review -> Supervisor",
+    "SYS-20": "Supervisor -> Escalation & Outage -> Security/human review -> Supervisor",
+    "SYS-21": "Supervisor -> ticket read -> Escalation read/reuse if required -> Supervisor",
+    "SYS-22": "Supervisor -> permitted request investigation/triage -> supported Routing or Escalation when prerequisites exist",
+    "SYS-23": "Supervisor -> Diagnostic -> Supervisor -> Routing -> assignment/readback -> Supervisor",
+    "SYS-24": "Supervisor -> Diagnostic -> Routing -> GRP-APP assignment/readback -> Supervisor",
+    "SYS-25": "Supervisor -> Diagnostic -> Routing -> L1 with Network recommendation -> Supervisor",
+    "SYS-26": "Supervisor -> Diagnostic current result if needed -> Routing -> proposal/approval gap -> Supervisor",
+    "SYS-27": "Supervisor -> Escalation & Outage -> applicable human approval check -> Supervisor; Routing only when actually permitted",
+    "SYS-28": "Supervisor -> Escalation & Outage -> exact global search/link/readback -> Supervisor",
+    "SYS-29": "Supervisor -> Escalation & Outage -> search -> count/health -> create/link -> notify -> Supervisor",
+    "SYS-30": "Supervisor -> Escalation & Outage -> exact portal cluster workflow -> Supervisor",
+    "SYS-31": "Supervisor -> Escalation & Outage -> exact ERP cluster workflow -> Supervisor",
+    "SYS-32": "Supervisor -> Escalation & Outage when scope concern merits it -> scoped evidence/decision -> Supervisor",
+    "SYS-33": "Supervisor -> Escalation & Outage -> count/health -> human investigation or explicit limited result -> Supervisor",
+    "SYS-34": "Supervisor -> get_ticket_details -> read-only response",
+    "SYS-35": "Supervisor -> Escalation & Outage -> read/reconcile -> only missing permitted work -> Supervisor",
+    "SYS-36": "Supervisor -> Diagnostic -> Routing -> Supervisor -> new user safety evidence -> Escalation & Outage -> Supervisor"
+  }
+}

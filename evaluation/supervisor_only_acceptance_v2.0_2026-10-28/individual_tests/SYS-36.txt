@@ -1,0 +1,69 @@
+# SYS-36 — All four agents: routed issue followed by new safety evidence
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-36 initially ordinary/active/unlinked with independently verified enabled=TRUE, locked=TRUE, password_expired=FALSE, complete supporting evidence and approved active IAM routing prerequisites. No initial review or alert. Fixture supports an actual later SAFETY review on this same active queued ticket.
+
+## Opening input — copy into Supervisor
+
+```text
+Please investigate TST-SYS-36. My account is locked after incorrect password attempts.
+```
+
+## Expected first response/action
+
+Read the same active TST-SYS-36, invoke Diagnostic for the initially ordinary lockout, then execute actual permitted Routing before the later safety-update phase.
+
+## Follow-up inputs and expected outputs
+
+### Reply 1: If asked whether the screen says locked
+
+```text
+Yes. It says my account is locked after too many incorrect attempts.
+```
+
+**Expected:** Persist answer and use verified independent account state.
+
+### Reply 2: If asked about a prior security alert during initial ordinary diagnosis
+
+```text
+No. At this point I have not received any security alert.
+```
+
+**Expected:** Do not fabricate mandatory-security evidence; use ordinary supported IAM routing if valid.
+
+### Reply 3: ONLY AFTER the actual specialist routing/assignment is confirmed and reported
+
+```text
+There is new information about this same ticket: I have now received a suspicious-login alert for an unfamiliar device. Please review this new security concern.
+```
+
+**Expected:** Keep the same exact ticket; record new reported safety evidence and immediately invoke Escalation & Outage for applicable SAFETY review. Do not claim the earlier routing resolved the incident or automatically reassign to Security without required approval.
+
+
+## Expected internal agent path
+
+Supervisor -> Diagnostic -> Routing -> Supervisor -> new user safety evidence -> Escalation & Outage -> Supervisor
+
+## Expected terminal output / ticket state
+
+One active ticket passes through Diagnostic, Routing and later Escalation, coordinated by Supervisor. Initial actual IAM route is auditable; later real human review is requested/reused with actual ID/status. No autonomous unlock/reset, duplicate ticket, false resolution or unapproved Security assignment.
+
+## Fail this case if
+
+- Routes without actual Diagnostic basis.
+- Does not call Routing before second phase.
+- Ignores new security evidence because IAM already owns it.
+- Starts a second ticket for the same reported update.
+- Does not call Escalation or treats REQUESTED as APPROVED.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

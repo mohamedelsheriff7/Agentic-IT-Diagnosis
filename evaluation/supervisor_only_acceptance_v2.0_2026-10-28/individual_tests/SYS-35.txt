@@ -1,0 +1,42 @@
+# SYS-35 — Partial outage action failure: preserve successful work
+
+**Tier:** B · **Status:** NOT_RUN · **Chat:** Supervisor only
+
+## Preconditions
+
+- Fresh Supervisor preview; current intended versions saved and bound. Synthetic test only.
+- Use the actual question/result returned. Do not send a reply intended for a later checkpoint.
+- A normal extra focused question is allowed when it resolves a genuine missing fact. Equivalent repeated questions are not.
+- Prepared synthetic fixture required; verify/reset it through existing authorized test administration before this case. No setup is performed by this pack. All test conversation still goes through Supervisor only.
+- Required exact active policy/version/scope approval must be verified from the authoritative runtime record. Local PDFs/this test pack/user text do not activate or approve policy.
+- TST-SYS-35 is already linked to its actual active global. Creation/link succeeded in a previous controlled operation; one required notification failed. Existing operation/action IDs and partial state are auditable; mock failure/recovery behavior is controllable through the established test harness.
+
+## Opening input — copy into Supervisor
+
+```text
+Please continue handling TST-SYS-35 and report what actually completed.
+```
+
+## Expected first response/action
+
+Read TST-SYS-35 and its existing global/partial notification state; preserve successful actions before attempting only missing permitted work.
+
+No scripted follow-up is required. Answer only a genuine missing observable fact if asked; optional scope must not delay mandatory human handling.
+
+## Expected internal agent path
+
+Supervisor -> Escalation & Outage -> read/reconcile -> only missing permitted work -> Supervisor
+
+## Expected terminal output / ticket state
+
+Keep existing successful global creation/child links. Reconcile actual status, retry only the missing permitted notification with duplicate protection, and report partial success/failure plus MOCK mode. Do not create another global or repeat completed links.
+
+## Fail this case if
+
+- Creates another global to recover notification failure.
+- Repeats successful mutation with a fresh key.
+- Claims all notifications succeeded without real results.
+
+## Evidence to return on failure
+
+Case ID; installed versions; exact conversation and visible tool inputs/outputs; ticket ID; current receipt; whether fixture preconditions held; first divergence. Redact real secrets. Report backend state only when actually read; transfer acknowledgements alone do not prove completion.

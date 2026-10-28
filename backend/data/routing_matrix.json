@@ -1,0 +1,206 @@
+[
+  {
+    "diagnosis_code": "PASSWORD_EXPIRED",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "ACCOUNT_LOCKED",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "MFA_FAILURE",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "MISSING_ENTITLEMENT",
+    "owner_group_id": "GRP-APP",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "APP_AUTH_FAILURE",
+    "owner_group_id": "GRP-APP",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "owner_group_id": "GRP-END",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "APP_OUTAGE",
+    "owner_group_id": "GRP-APP",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "VPN_OUTAGE",
+    "owner_group_id": "GRP-NET",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "PHISHING",
+    "owner_group_id": "GRP-SEC",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "PRIVILEGED_ACCESS",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "SERVER_FAILURE",
+    "owner_group_id": "GRP-INFRA",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "UNKNOWN_ISSUE",
+    "owner_group_id": "GRP-L1",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "DNS_FAILURE",
+    "owner_group_id": "GRP-NET",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "WIFI_FAILURE",
+    "owner_group_id": "GRP-NET",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "DISK_FULL",
+    "owner_group_id": "GRP-END",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "owner_group_id": "GRP-END",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "APP_ERROR",
+    "owner_group_id": "GRP-APP",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "SYNC_DELAY",
+    "owner_group_id": "GRP-APP",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "MALWARE",
+    "owner_group_id": "GRP-SEC",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "DATA_EXPOSURE",
+    "owner_group_id": "GRP-SEC",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "STORAGE_FAILURE",
+    "owner_group_id": "GRP-INFRA",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "CERT_EXPIRED",
+    "owner_group_id": "GRP-INFRA",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "ACCOUNT_DISABLED",
+    "owner_group_id": "GRP-IAM",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-L1"
+    ]
+  },
+  {
+    "diagnosis_code": "REQUEST_GUIDANCE",
+    "owner_group_id": "GRP-L1",
+    "boundary": "IAM owns identity; Application Support owns app-specific sessions and entitlements; Security leads suspected threats; L1 triages uncertainty.",
+    "alternative_group_ids": [
+      "GRP-APP"
+    ]
+  },
+  {
+    "diagnosis_code": "ACCOUNT_LOCKED_POLICY",
+    "owner_group_id": "GRP-SEC",
+    "boundary": "Security-policy lockouts require Security Operations and human review.",
+    "alternative_group_ids": ["GRP-L1"]
+  },
+  {
+    "diagnosis_code": "VPN_CLIENT_ISSUE",
+    "owner_group_id": "GRP-NET",
+    "boundary": "Local VPN client or credential failure is distinct from a service-wide outage; Network Operations investigates.",
+    "alternative_group_ids": ["GRP-L1"]
+  }
+]

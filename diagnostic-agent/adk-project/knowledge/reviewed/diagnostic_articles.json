@@ -1,0 +1,2434 @@
+[
+  {
+    "article_id": "KB-001",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "PASSWORD_EXPIRED",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "password expired sign in rejected",
+      "Expired password"
+    ],
+    "symptoms_ar": [
+      "كلمة المرور انتهت تسجيل الدخول مرفوض"
+    ],
+    "possible_causes": [
+      "Expired password"
+    ],
+    "discriminating_questions": [
+      "Does the error explicitly say your password expired?",
+      "Do other applications using the same identity also reject sign-in?"
+    ],
+    "required_evidence": [
+      "User reports an expiry error",
+      "check_account_status: password_expired TRUE, enabled TRUE, locked FALSE, mfa_locked FALSE"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Account is disabled or locked",
+      "MFA is locked",
+      "Security-sensitive, privileged or critical ticket"
+    ],
+    "competing_diagnoses": [
+      "ACCOUNT_LOCKED",
+      "MFA_FAILURE",
+      "APP_AUTH_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "PASSWORD_EXPIRED-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Ask the user to complete the approved self-service password change flow; never ask for their password."
+      }
+    ],
+    "agent_resolvable": true,
+    "resolution_conditions": [
+      {
+        "tool": "check_account_status",
+        "field": "password_expired",
+        "equals": "TRUE"
+      },
+      {
+        "tool": "check_account_status",
+        "field": "enabled",
+        "equals": "TRUE"
+      },
+      {
+        "tool": "check_account_status",
+        "field": "locked",
+        "equals": "FALSE"
+      },
+      {
+        "tool": "check_account_status",
+        "field": "mfa_locked",
+        "equals": "FALSE"
+      }
+    ],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-002",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "ACCOUNT_LOCKED",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "account locked after login attempts",
+      "Account lockout"
+    ],
+    "symptoms_ar": [
+      "الحساب مقفول بعد محاولات الدخول"
+    ],
+    "possible_causes": [
+      "Account lockout"
+    ],
+    "discriminating_questions": [
+      "Does the error mention too many attempts or a locked account?",
+      "When did the failures start?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "MFA_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "ACCOUNT_LOCKED-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-003",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "MFA_FAILURE",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "MFA code rejected authentication phone",
+      "MFA failure"
+    ],
+    "symptoms_ar": [
+      "رمز التحقق مرفوض"
+    ],
+    "possible_causes": [
+      "MFA failure"
+    ],
+    "discriminating_questions": [
+      "Is the prompt missing, rejected, or arriving on a different device?",
+      "Is the authenticator enrolled and unlocked?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "MISSING_ENTITLEMENT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "MFA_FAILURE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-004",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "MISSING_ENTITLEMENT",
+    "domain": "Applications",
+    "category": "Authorization",
+    "symptoms_en": [
+      "application access denied missing role",
+      "Missing application entitlement"
+    ],
+    "symptoms_ar": [
+      "ليس لدي صلاحية للتطبيق"
+    ],
+    "possible_causes": [
+      "Missing application entitlement"
+    ],
+    "discriminating_questions": [
+      "Can you sign in but not open this application?",
+      "Which role is required for the task?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "APP_AUTH_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "MISSING_ENTITLEMENT-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-005",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "APP_AUTH_FAILURE",
+    "domain": "Applications",
+    "category": "Authentication",
+    "symptoms_en": [
+      "portal sign in fails other applications work",
+      "Application authentication failure"
+    ],
+    "symptoms_ar": [
+      "البوابة لا تقبل الدخول وباقي التطبيقات تعمل"
+    ],
+    "possible_causes": [
+      "Application authentication failure"
+    ],
+    "discriminating_questions": [
+      "Do other applications accept the same identity?",
+      "Does the application fail in a second browser?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "APP_AUTH_FAILURE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-017",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "APP_ERROR",
+    "domain": "Applications",
+    "category": "Execution",
+    "symptoms_en": [
+      "application crashes unexpected error",
+      "Application execution error"
+    ],
+    "symptoms_ar": [
+      "التطبيق يغلق فجأة"
+    ],
+    "possible_causes": [
+      "Application execution error"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "SYNC_DELAY"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "APP_ERROR-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-007",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "APP_OUTAGE",
+    "domain": "Applications",
+    "category": "Availability",
+    "symptoms_en": [
+      "portal unavailable error service down",
+      "Application service outage"
+    ],
+    "symptoms_ar": [
+      "البوابة متوقفة والخدمة لا تعمل"
+    ],
+    "possible_causes": [
+      "Application service outage"
+    ],
+    "discriminating_questions": [
+      "Which application and site are affected?",
+      "Are other users affected at the same time?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "VPN_OUTAGE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "APP_OUTAGE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-018",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "SYNC_DELAY",
+    "domain": "Applications",
+    "category": "Synchronization",
+    "symptoms_en": [
+      "records not syncing delayed update",
+      "Application synchronization delay"
+    ],
+    "symptoms_ar": [
+      "البيانات لم تتحدث"
+    ],
+    "possible_causes": [
+      "Application synchronization delay"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "MALWARE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "SYNC_DELAY-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-APP"
+  },
+  {
+    "article_id": "KB-023",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "ACCOUNT_DISABLED",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "account disabled sign in blocked",
+      "Disabled account"
+    ],
+    "symptoms_ar": [
+      "الحساب معطل"
+    ],
+    "possible_causes": [
+      "Disabled account"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "REQUEST_GUIDANCE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "ACCOUNT_DISABLED-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-016",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "domain": "Endpoints",
+    "category": "Printing",
+    "symptoms_en": [
+      "printer offline print job stuck",
+      "Printer offline"
+    ],
+    "symptoms_ar": [
+      "الطابعة لا تعمل"
+    ],
+    "possible_causes": [
+      "Printer offline"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "PRINTER_OFFLINE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-END"
+  },
+  {
+    "article_id": "KB-015",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "DISK_FULL",
+    "domain": "Endpoints",
+    "category": "Storage",
+    "symptoms_en": [
+      "disk full cannot save file",
+      "Endpoint disk full"
+    ],
+    "symptoms_ar": [
+      "المساحة ممتلئة لا يمكن حفظ الملف"
+    ],
+    "possible_causes": [
+      "Endpoint disk full"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "PRINTER_OFFLINE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "DISK_FULL-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-END"
+  },
+  {
+    "article_id": "KB-010",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "PRIVILEGED_ACCESS",
+    "domain": "Access Management",
+    "category": "Privileges",
+    "symptoms_en": [
+      "administrator privileged access request",
+      "Privileged-access request"
+    ],
+    "symptoms_ar": [
+      "طلب صلاحيات مدير النظام"
+    ],
+    "possible_causes": [
+      "Privileged-access request"
+    ],
+    "discriminating_questions": [
+      "Which administrative task requires access?",
+      "Has an authorized approver reviewed the request?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "SERVER_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "PRIVILEGED_ACCESS-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-IAM"
+  },
+  {
+    "article_id": "KB-025",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "ACCOUNT_LOCKED_POLICY",
+    "domain": "Access Management",
+    "category": "Authentication",
+    "symptoms_en": [
+      "Account blocked after suspicious sign-in or security-policy notice."
+    ],
+    "symptoms_ar": [
+      "الحساب اتقفل بسبب تنبيه أو سياسة أمنية"
+    ],
+    "possible_causes": [
+      "Identity risk controls detected suspicious sign-in activity.",
+      "Security policy blocked the account pending review."
+    ],
+    "discriminating_questions": [
+      "Did the user receive a suspicious-activity/security alert, or was the lock only after incorrect passwords?",
+      "Does the identity status indicate a security-policy lock reason?"
+    ],
+    "required_evidence": [
+      "Record the security-policy/suspicious-sign-in notice or authorized security-alert reference.",
+      "An authorized IAM/security source must establish a security-policy lock reason. The ordinary account-status check reports state, not the policy reason.",
+      "Retain uncertainty and route suspected compromise to Security Operations without attempting unlock."
+    ],
+    "safe_checks": [
+      "Read ordinary account state where available and preserve security-alert references. Ask an authorized IAM/security source to verify the lock reason; do not invent a policy-reason tool, unlock an account or bypass controls.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Identity evidence confirms ordinary lock after failed attempts with no risk/security indicator."
+    ],
+    "competing_diagnoses": [
+      "ACCOUNT_LOCKED",
+      "ACCOUNT_DISABLED",
+      "PHISHING"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "SPECIALIST",
+        "instruction": "Preserve alert details and route immediately to Security Operations."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Security Operations validates sign-in activity and decides containment/unlock."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Always human-led; all suspected compromise or suspicious activity goes to Security Operations."
+    ],
+    "resolver_group_id": "GRP-SEC"
+  },
+  {
+    "article_id": "KB-026",
+    "version": 3,
+    "approved": true,
+    "diagnosis_code": "VPN_CLIENT_ISSUE",
+    "domain": "Network",
+    "category": "VPN",
+    "symptoms_en": [
+      "One user cannot connect to VPN; others at same site can connect; client shows configuration/credential error."
+    ],
+    "symptoms_ar": [
+      "مشكلة اتصال VPN عند مستخدم واحد"
+    ],
+    "possible_causes": [
+      "Local VPN client/profile configuration is incorrect.",
+      "Local connectivity or cached client credentials are stale."
+    ],
+    "discriminating_questions": [
+      "Can colleagues at the same site connect to VPN right now?",
+      "Can the user reach the internet and does the VPN client show a local configuration/credential error?"
+    ],
+    "required_evidence": [
+      "Record whether colleagues at the same site can connect now, whether ordinary internet access works and the exact local configuration versus credential error.",
+      "Preserve actual VPN service-health results; UNKNOWN is missing evidence and a healthy monitor does not negate reported peer failures.",
+      "Peer success plus a client error supports an individual symptom pattern; client/profile/credential root cause requires authorized logs. New shared impact returns to Supervisor screening."
+    ],
+    "safe_checks": [
+      "Check service health and recent VPN ticket count before local troubleshooting.",
+      "Execution boundary: the agent may use only implemented account-status, entitlement and exact-CI/location service-health checks with valid IDs. Other checks named in this article require an authorized human or a separately implemented tool. Record user observations as USER_RESPONSE, never TOOL_CHECK; UNKNOWN is unavailable evidence, not a healthy result."
+    ],
+    "exclusion_criteria": [
+      "Multiple users at one site fail within a short window; VPN service health is unavailable; broad internet/network failure."
+    ],
+    "competing_diagnoses": [
+      "VPN_OUTAGE",
+      "WIFI_FAILURE",
+      "ACCOUNT_LOCKED"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "step-1",
+        "level": "L1",
+        "instruction": "Check approved VPN client configuration and collect the exact error message."
+      },
+      {
+        "step_id": "step-2",
+        "level": "SPECIALIST",
+        "instruction": "Network Operations reviews client profile or credential/configuration faults."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "Suspected credential compromise, security alert, or critical priority requires human handling."
+    ],
+    "resolver_group_id": "GRP-NET"
+  },
+  {
+    "article_id": "KB-006",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "laptop browser freezes local device",
+      "Local endpoint issue"
+    ],
+    "symptoms_ar": [
+      "الجهاز بطيء والمتصفح يتوقف"
+    ],
+    "possible_causes": [
+      "Local endpoint issue"
+    ],
+    "discriminating_questions": [
+      "Does the issue follow this device or also occur on another device?",
+      "Is only one browser affected?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "APP_OUTAGE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "LOCAL_ENDPOINT-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-END"
+  },
+  {
+    "article_id": "KB-008",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "VPN_OUTAGE",
+    "domain": "Network",
+    "category": "VPN",
+    "symptoms_en": [
+      "vpn connection timeout remote access unavailable",
+      "VPN outage"
+    ],
+    "symptoms_ar": [
+      "اتصال الشبكة الخاصة لا يعمل"
+    ],
+    "possible_causes": [
+      "VPN outage"
+    ],
+    "discriminating_questions": [
+      "Which VPN service and site are affected?",
+      "Does ordinary internet access still work?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "PHISHING"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "VPN_OUTAGE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-NET"
+  },
+  {
+    "article_id": "KB-009",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "PHISHING",
+    "domain": "Security",
+    "category": "Threat",
+    "symptoms_en": [
+      "suspicious email phishing link password request",
+      "Suspected phishing"
+    ],
+    "symptoms_ar": [
+      "رسالة مشبوهة تطلب كلمة المرور"
+    ],
+    "possible_causes": [
+      "Suspected phishing"
+    ],
+    "discriminating_questions": [
+      "Did you open a link or enter credentials? Do not share those credentials.",
+      "Can you describe the suspicious sender without forwarding secrets?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "PRIVILEGED_ACCESS"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "PHISHING-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-SEC"
+  },
+  {
+    "article_id": "KB-014",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "WIFI_FAILURE",
+    "domain": "Network",
+    "category": "Connectivity",
+    "symptoms_en": [
+      "wifi disconnected cannot connect",
+      "Wi-Fi association failure"
+    ],
+    "symptoms_ar": [
+      "الواي فاي مفصول"
+    ],
+    "possible_causes": [
+      "Wi-Fi association failure"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "DISK_FULL"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "WIFI_FAILURE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-NET"
+  },
+  {
+    "article_id": "KB-013",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "DNS_FAILURE",
+    "domain": "Network",
+    "category": "DNS",
+    "symptoms_en": [
+      "hostname resolution DNS failed",
+      "DNS lookup failure"
+    ],
+    "symptoms_ar": [
+      "اسم الموقع لا يعمل"
+    ],
+    "possible_causes": [
+      "DNS lookup failure"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "WIFI_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "DNS_FAILURE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-NET"
+  },
+  {
+    "article_id": "KB-011",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "SERVER_FAILURE",
+    "domain": "Infrastructure",
+    "category": "Compute",
+    "symptoms_en": [
+      "server unreachable host offline",
+      "Server failure"
+    ],
+    "symptoms_ar": [
+      "الخادم غير متاح"
+    ],
+    "possible_causes": [
+      "Server failure"
+    ],
+    "discriminating_questions": [
+      "Which host or service is unreachable?",
+      "When was it last reachable and from which site?"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "UNKNOWN_ISSUE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "SERVER_FAILURE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-INFRA"
+  },
+  {
+    "article_id": "KB-019",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "MALWARE",
+    "domain": "Security",
+    "category": "Threat",
+    "symptoms_en": [
+      "antivirus malware warning suspicious process",
+      "Suspected malware"
+    ],
+    "symptoms_ar": [
+      "تحذير فيروس على الجهاز"
+    ],
+    "possible_causes": [
+      "Suspected malware"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "DATA_EXPOSURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "MALWARE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-SEC"
+  },
+  {
+    "article_id": "KB-024",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "REQUEST_GUIDANCE",
+    "domain": "Service Desk",
+    "category": "How To",
+    "symptoms_en": [
+      "how to use service portal guide",
+      "General guidance request"
+    ],
+    "symptoms_ar": [
+      "كيف استخدم بوابة الخدمات"
+    ],
+    "possible_causes": [
+      "General guidance request"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "PASSWORD_EXPIRED"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "REQUEST_GUIDANCE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-L1"
+  },
+  {
+    "article_id": "KB-012",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "UNKNOWN_ISSUE",
+    "domain": "Service Desk",
+    "category": "Unclassified",
+    "symptoms_en": [
+      "not working help issue unclear",
+      "Insufficient evidence"
+    ],
+    "symptoms_ar": [
+      "مش شغال ومش عارف السبب"
+    ],
+    "possible_causes": [
+      "Insufficient evidence"
+    ],
+    "discriminating_questions": [
+      "ما هو التطبيق الذي لا يعمل؟",
+      "ما هي رسالة الخطأ ومتى بدأت المشكلة؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "DNS_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "UNKNOWN_ISSUE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-L1"
+  },
+  {
+    "article_id": "KB-022",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "CERT_EXPIRED",
+    "domain": "Infrastructure",
+    "category": "Certificates",
+    "symptoms_en": [
+      "service certificate expired TLS warning",
+      "Expired service certificate"
+    ],
+    "symptoms_ar": [
+      "شهادة الخدمة منتهية"
+    ],
+    "possible_causes": [
+      "Expired service certificate"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "ACCOUNT_DISABLED"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "CERT_EXPIRED-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-INFRA"
+  },
+  {
+    "article_id": "KB-020",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "DATA_EXPOSURE",
+    "domain": "Security",
+    "category": "Data Protection",
+    "symptoms_en": [
+      "confidential file shared publicly",
+      "Suspected data exposure"
+    ],
+    "symptoms_ar": [
+      "ملف سري منشور للعامة"
+    ],
+    "possible_causes": [
+      "Suspected data exposure"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "STORAGE_FAILURE"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "DATA_EXPOSURE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-SEC"
+  },
+  {
+    "article_id": "KB-021",
+    "version": 1,
+    "approved": true,
+    "diagnosis_code": "STORAGE_FAILURE",
+    "domain": "Infrastructure",
+    "category": "Storage",
+    "symptoms_en": [
+      "shared storage volume unavailable",
+      "Storage service failure"
+    ],
+    "symptoms_ar": [
+      "التخزين المشترك غير متاح"
+    ],
+    "possible_causes": [
+      "Storage service failure"
+    ],
+    "discriminating_questions": [
+      "What exact error appears?",
+      "Do other applications work?",
+      "Is another user or device affected?",
+      "ما هي رسالة الخطأ؟"
+    ],
+    "required_evidence": [
+      "Affected person response",
+      "Independent relevant diagnostic check"
+    ],
+    "safe_checks": [
+      "check_account_status",
+      "check_application_entitlement",
+      "check_service_health"
+    ],
+    "exclusion_criteria": [
+      "Do not infer diagnosis from symptom overlap alone",
+      "Exclude competing causes with questions and checks"
+    ],
+    "competing_diagnoses": [
+      "CERT_EXPIRED"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "STORAGE_FAILURE-1",
+        "level": "SPECIALIST",
+        "instruction": "Authorized specialist investigates and follows the organization runbook."
+      }
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "mandatory_human_escalation_conditions": [
+      "security_sensitive",
+      "privileged_access",
+      "reported_priority=1",
+      "insufficient evidence"
+    ],
+    "resolver_group_id": "GRP-INFRA"
+  },
+  {
+    "article_id": "KB-027",
+    "version": 1,
+    "approved": true,
+    "title": "Wi-Fi switched off",
+    "diagnosis_code": "WIFI_FAILURE",
+    "scenario_code": "WIFI_DISABLED",
+    "domain": "Network",
+    "category": "Connectivity",
+    "symptoms_en": [
+      "Wi-Fi is turned off and I cannot connect to the office network."
+    ],
+    "symptoms_ar": [
+      "هل مفتاح الواي فاي مغلق؟"
+    ],
+    "keywords": [
+      "Wi-Fi switched off",
+      "WIFI DISABLED"
+    ],
+    "possible_causes": [
+      "Wi-Fi switched off",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Does the Wi-Fi setting show Off, and are you allowed to enable it here?",
+      "Can another device connect to the same approved network at this location?"
+    ],
+    "required_evidence": [
+      "The user observes Wi-Fi=Off on their own device.",
+      "The expected network is an approved saved network and changing the setting is permitted.",
+      "There is no contradictory shared-service or security evidence."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "Wi-Fi is already on or no adapter is present.",
+      "Peers cannot connect, the control is policy-locked, or the expected approved network is absent."
+    ],
+    "competing_diagnoses": [
+      "LOCAL_ENDPOINT",
+      "WIFI_FAILURE",
+      "APP_ERROR"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "WIFI_DISABLED-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Open the device network settings and turn Wi-Fi on if permitted."
+      },
+      {
+        "step_id": "WIFI_DISABLED-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Select the known approved saved network. If credentials are needed, use the approved local sign-in flow; never share them in chat."
+      },
+      {
+        "step_id": "WIFI_DISABLED-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Retry the originally affected service once."
+      }
+    ],
+    "success_criteria": [
+      "Wi-Fi shows connected to the intended approved network.",
+      "The user explicitly confirms the original connectivity problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-NET",
+    "source_urls": [
+      "https://support.microsoft.com/en-us/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-028",
+    "version": 1,
+    "approved": true,
+    "title": "Wrong printer selected",
+    "diagnosis_code": "PRINTER_OFFLINE",
+    "scenario_code": "WRONG_PRINTER_SELECTED",
+    "domain": "Endpoints",
+    "category": "Printing",
+    "symptoms_en": [
+      "The print dialog selects the wrong printer or Print to PDF."
+    ],
+    "symptoms_ar": [
+      "هل تم اختيار طابعة غير المقصودة؟"
+    ],
+    "keywords": [
+      "Wrong printer selected",
+      "WRONG PRINTER SELECTED"
+    ],
+    "possible_causes": [
+      "Wrong printer selected",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Which installed printer is selected in the print dialog, and which approved printer did you intend to use?",
+      "Is the intended printer available and are other users able to print to it?"
+    ],
+    "required_evidence": [
+      "The selected installed printer differs from the intended approved printer.",
+      "The user can identify and access the intended installed printer.",
+      "The intended printer is available; shared faults or an actual offline state are not assumed away."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "The intended printer is missing/offline or peers also cannot print.",
+      "Installing drivers, clearing other users jobs, or changing shared print settings would be required."
+    ],
+    "competing_diagnoses": [
+      "LOCAL_ENDPOINT",
+      "WIFI_FAILURE",
+      "APP_ERROR"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "WRONG_PRINTER_SELECTED-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Open the print dialog without submitting the original document."
+      },
+      {
+        "step_id": "WRONG_PRINTER_SELECTED-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Choose the intended installed approved printer; change the default only if the user wants that change."
+      },
+      {
+        "step_id": "WRONG_PRINTER_SELECTED-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Print a harmless non-sensitive test page to that printer and collect it."
+      }
+    ],
+    "success_criteria": [
+      "The harmless page arrives at the intended printer.",
+      "The user confirms the original wrong-destination problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.microsoft.com/en-us/windows/hardware/printer/set-a-default-printer-in-windows"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-029",
+    "version": 1,
+    "approved": true,
+    "title": "Speakers muted or volume zero",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "SPEAKERS_MUTED",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "Speakers are muted or system volume is zero; no sound plays."
+    ],
+    "symptoms_ar": [
+      "هل الصوت مكتوم أو مستوى الصوت صفر؟"
+    ],
+    "keywords": [
+      "Speakers muted or volume zero",
+      "SPEAKERS MUTED"
+    ],
+    "possible_causes": [
+      "Speakers muted or volume zero",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Is the intended connected output device selected, and does its volume show muted or zero?",
+      "Does the same harmless test sound fail in more than one application?"
+    ],
+    "required_evidence": [
+      "The intended output is present and selected.",
+      "The user observes mute enabled or volume zero.",
+      "A missing output, hardware fault or only-one-app problem has not been treated as system mute."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "The output device is missing or the volume was already appropriate.",
+      "Sound remains absent, distorted or intermittent after the change."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "SPEAKERS_MUTED-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Verify the intended connected output device before changing volume."
+      },
+      {
+        "step_id": "SPEAKERS_MUTED-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Unmute and set a low comfortable volume."
+      },
+      {
+        "step_id": "SPEAKERS_MUTED-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Play a harmless system test sound; raise the volume gradually only as needed."
+      }
+    ],
+    "success_criteria": [
+      "The user hears the test sound at a comfortable level.",
+      "The original no-sound task works and the user confirms it is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.microsoft.com/en-us/windows/hardware/audio/fix-audio-issues-when-no-sound-plays-from-speakers-or-headphones-in-windows"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-030",
+    "version": 1,
+    "approved": true,
+    "title": "Wrong audio output device",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "WRONG_AUDIO_OUTPUT",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "Sound is routed to the wrong audio output such as a monitor instead of my connected headset."
+    ],
+    "symptoms_ar": [
+      "هل تم توجيه الصوت إلى جهاز إخراج آخر؟"
+    ],
+    "keywords": [
+      "Wrong audio output device",
+      "WRONG AUDIO OUTPUT"
+    ],
+    "possible_causes": [
+      "Wrong audio output device",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Which output is selected, and which connected speaker or headset do you intend to hear?",
+      "Is the intended device present, powered on and unmuted?"
+    ],
+    "required_evidence": [
+      "The selected output differs from the intended known connected output.",
+      "The intended output is present and available.",
+      "Muted volume, a disconnected device and hardware faults remain alternatives until checked."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "The intended device is absent or disconnected.",
+      "Selection is managed or audio still fails; do not install drivers or reset devices through this guide."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "WRONG_AUDIO_OUTPUT-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Open sound output selection on the user device."
+      },
+      {
+        "step_id": "WRONG_AUDIO_OUTPUT-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Choose the intended connected device and set a low comfortable volume."
+      },
+      {
+        "step_id": "WRONG_AUDIO_OUTPUT-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Play a harmless test sound and retry the original audio task."
+      }
+    ],
+    "success_criteria": [
+      "The test sound comes from the intended output.",
+      "The user confirms the original audio-routing problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.microsoft.com/en-us/windows/hardware/audio/fix-audio-issues-when-no-sound-plays-from-speakers-or-headphones-in-windows"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-031",
+    "version": 1,
+    "approved": true,
+    "title": "Wrong microphone selected in Teams",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "WRONG_TEAMS_MICROPHONE",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "Teams uses the wrong microphone even though my intended microphone is connected."
+    ],
+    "symptoms_ar": [
+      "هل اختار Teams ميكروفونًا غير المقصود؟"
+    ],
+    "keywords": [
+      "Wrong microphone selected in Teams",
+      "WRONG TEAMS MICROPHONE"
+    ],
+    "possible_causes": [
+      "Wrong microphone selected in Teams",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Which microphone is selected in Teams, and which connected microphone do you intend to use?",
+      "Is the intended microphone unmuted and available in the device list?"
+    ],
+    "required_evidence": [
+      "Teams is using a different microphone from the intended connected one.",
+      "The intended microphone is present and locally permitted.",
+      "Hardware mute, blocked permissions or an organization restriction have not been silently bypassed."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "The microphone is absent, policy-blocked or does not work in an approved local test.",
+      "A test feature is unavailable; do not simulate that it ran or contact other people automatically."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "WRONG_TEAMS_MICROPHONE-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Open Teams device/audio settings outside a live call."
+      },
+      {
+        "step_id": "WRONG_TEAMS_MICROPHONE-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Select the intended connected microphone without changing organization-managed permissions."
+      },
+      {
+        "step_id": "WRONG_TEAMS_MICROPHONE-3",
+        "level": "SELF_SERVICE",
+        "instruction": "If available, use the built-in Teams test-call feature with a harmless phrase; otherwise use an approved local microphone test. Do not send recordings into this chat."
+      }
+    ],
+    "success_criteria": [
+      "The approved test captures the intended microphone clearly.",
+      "The user confirms the original microphone-selection problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.microsoft.com/en-us/teams/notifications-settings/manage-your-device-settings-in-microsoft-teams"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-032",
+    "version": 1,
+    "approved": true,
+    "title": "Accidental browser page zoom",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "BROWSER_ZOOM_SETTING",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "The browser page is too large or too small because its zoom setting changed."
+    ],
+    "symptoms_ar": [
+      "هل تغير تكبير الصفحة داخل المتصفح فقط؟"
+    ],
+    "keywords": [
+      "Accidental browser page zoom",
+      "BROWSER ZOOM SETTING"
+    ],
+    "possible_causes": [
+      "Accidental browser page zoom",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Is only the webpage affected, and what zoom level does the browser show?",
+      "Was that zoom level intentional for accessibility or a personal preference?"
+    ],
+    "required_evidence": [
+      "The user observes a changed browser page-zoom setting explaining the display symptom.",
+      "The user wants to adjust it; accessibility preferences are respected.",
+      "System display scaling or a broken page layout has not been mistaken for page zoom."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "The problem affects the entire desktop or persists at the desired zoom.",
+      "A managed setting or accessibility requirement prevents the proposed change."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "BROWSER_ZOOM_SETTING-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Open the browser page-zoom controls for the affected site."
+      },
+      {
+        "step_id": "BROWSER_ZOOM_SETTING-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Adjust to the user preferred level; use 100 percent only if the user wants it."
+      },
+      {
+        "step_id": "BROWSER_ZOOM_SETTING-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Check the original page and its controls without changing system-wide display scaling."
+      }
+    ],
+    "success_criteria": [
+      "The page and required controls are readable and usable.",
+      "The user confirms the original page-display problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.google.com/chrome/answer/96810"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-033",
+    "version": 1,
+    "approved": true,
+    "title": "Wrong keyboard input layout",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "KEYBOARD_LAYOUT_SETTING",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "The keyboard layout is wrong and keys type different characters."
+    ],
+    "symptoms_ar": [
+      "هل تخطيط لوحة المفاتيح أو لغة الإدخال غير المقصودة؟"
+    ],
+    "keywords": [
+      "Wrong keyboard input layout",
+      "KEYBOARD LAYOUT SETTING"
+    ],
+    "possible_causes": [
+      "Wrong keyboard input layout",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Which installed input layout is selected, and which layout matches the keyboard you intend to use?",
+      "Do the unexpected characters also appear in a harmless local text editor?"
+    ],
+    "required_evidence": [
+      "The selected installed input layout differs from the intended layout.",
+      "A harmless local typing test is consistent with that mismatch.",
+      "A damaged key, a one-application shortcut or an unavailable layout remains an alternative."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "The needed layout is not installed or the selector is managed.",
+      "Only specific damaged keys fail; do not install language packs or alter display language through this guide."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "KEYBOARD_LAYOUT_SETTING-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Use the input-language selector to choose the correct already-installed keyboard layout."
+      },
+      {
+        "step_id": "KEYBOARD_LAYOUT_SETTING-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Type a harmless sample in a local editor; never type or reveal a password for this test."
+      },
+      {
+        "step_id": "KEYBOARD_LAYOUT_SETTING-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Retry the original non-sensitive typing task."
+      }
+    ],
+    "success_criteria": [
+      "The harmless sample produces the expected characters.",
+      "The user confirms the original typing problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.microsoft.com/en-gb/windows/hardware/input-devices/manage-the-language-and-keyboard-input-layout-settings-in-windows"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-034",
+    "version": 1,
+    "approved": true,
+    "title": "Display brightness set too low",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "LOW_DISPLAY_BRIGHTNESS",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "My working screen is unusually dim and the brightness setting is low."
+    ],
+    "symptoms_ar": [
+      "هل الشاشة تعمل لكن السطوع منخفض؟"
+    ],
+    "keywords": [
+      "Display brightness set too low",
+      "LOW DISPLAY BRIGHTNESS"
+    ],
+    "possible_causes": [
+      "Display brightness set too low",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Is the display working but dim, and is its available brightness control set low?",
+      "Is this the built-in display or an external monitor with its own brightness controls?"
+    ],
+    "required_evidence": [
+      "The user can see a working display and observes a low brightness setting.",
+      "The correct display and a permitted brightness control are identified.",
+      "A blank display, flicker, physical damage or an intentional accessibility setting is not treated as low brightness."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "The setting is unavailable or policy-managed, or brightness was already adequate.",
+      "The screen is blank, flickering, damaged or remains dim."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "LOW_DISPLAY_BRIGHTNESS-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Locate the available brightness control for the affected display."
+      },
+      {
+        "step_id": "LOW_DISPLAY_BRIGHTNESS-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Adjust gradually to the user preferred comfortable level; use the monitor controls if applicable."
+      },
+      {
+        "step_id": "LOW_DISPLAY_BRIGHTNESS-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Check the original task without modifying drivers, HDR or color profiles."
+      }
+    ],
+    "success_criteria": [
+      "The affected display is comfortably visible.",
+      "The user confirms the original dim-screen problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/change-display-brightness-and-color-in-windows"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-035",
+    "version": 1,
+    "approved": true,
+    "title": "Incorrect multiple-display mode",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "DISPLAY_PROJECTION_SETTING",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "The second monitor is detected but the wrong display mode is selected."
+    ],
+    "symptoms_ar": [
+      "هل الشاشة الثانية مكتشفة لكن وضع العرض غير مناسب؟"
+    ],
+    "keywords": [
+      "Incorrect multiple-display mode",
+      "DISPLAY PROJECTION SETTING"
+    ],
+    "possible_causes": [
+      "Incorrect multiple-display mode",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Are the intended connected displays detected, and do you want Duplicate or Extend?",
+      "Are these your authorized displays, with no unintended public or shared audience?"
+    ],
+    "required_evidence": [
+      "The intended displays are detected and available.",
+      "The current projection mode differs from the user intended mode.",
+      "The user confirms which displays may show the desktop; no unapproved casting destination is selected."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "The display is not detected or cables/hardware are faulty.",
+      "The destination is unknown, shared without permission or policy-controlled."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "DISPLAY_PROJECTION_SETTING-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Identify the intended connected displays and the desired mode."
+      },
+      {
+        "step_id": "DISPLAY_PROJECTION_SETTING-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Select the intended Duplicate or Extend option in display/projection settings."
+      },
+      {
+        "step_id": "DISPLAY_PROJECTION_SETTING-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Verify the expected content on both screens and revert the change if it is unsuitable."
+      }
+    ],
+    "success_criteria": [
+      "Both displays show the intended content or extended workspace.",
+      "The user confirms the original display-mode problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.microsoft.com/en-us/windows/hardware/display-graphics/how-to-use-multiple-monitors-in-windows"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-036",
+    "version": 1,
+    "approved": true,
+    "title": "Bluetooth off for a known paired device",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "BLUETOOTH_DISABLED",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "Bluetooth is switched off and my already-paired headset will not connect."
+    ],
+    "symptoms_ar": [
+      "هل البلوتوث مغلق والجهاز الشخصي مقترن سابقًا؟"
+    ],
+    "keywords": [
+      "Bluetooth off for a known paired device",
+      "BLUETOOTH DISABLED"
+    ],
+    "possible_causes": [
+      "Bluetooth off for a known paired device",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Is Bluetooth switched off, and is the intended device your known previously paired device?",
+      "Is that device powered, in range and permitted to connect here?"
+    ],
+    "required_evidence": [
+      "The user observes Bluetooth=Off.",
+      "The intended owned/authorized device is already paired, powered and in range.",
+      "A new pairing, unknown device or organization restriction is not being treated as a simple reconnect."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "Bluetooth was already on, the device is unknown/unpaired or controls are managed.",
+      "A PIN, driver change, pairing reset or broader hardware troubleshooting would be needed."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "BLUETOOTH_DISABLED-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Turn Bluetooth on if permitted in this location."
+      },
+      {
+        "step_id": "BLUETOOTH_DISABLED-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Choose the known previously paired device and reconnect; do not remove pairings or accept an unfamiliar device."
+      },
+      {
+        "step_id": "BLUETOOTH_DISABLED-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Test the original device function, such as a harmless headset sound."
+      }
+    ],
+    "success_criteria": [
+      "The known device reports connected and passes the functional test.",
+      "The user confirms the original connection problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.microsoft.com/en-US/Windows/Hardware/bluetooth/pair-a-bluetooth-device-in-windows"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-037",
+    "version": 1,
+    "approved": true,
+    "title": "Camera privacy shutter closed",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "CAMERA_SHUTTER_CLOSED",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "The camera preview is black because its physical privacy shutter is closed."
+    ],
+    "symptoms_ar": [
+      "هل غطاء خصوصية الكاميرا مغلق؟"
+    ],
+    "keywords": [
+      "Camera privacy shutter closed",
+      "CAMERA SHUTTER CLOSED"
+    ],
+    "possible_causes": [
+      "Camera privacy shutter closed",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Does the device have a physical camera shutter, and can you see that it is closed?",
+      "Do you want to use the camera now, in a local preview outside any meeting?"
+    ],
+    "required_evidence": [
+      "The user visually confirms a closed physical shutter on the intended camera.",
+      "The user wants the camera active for a local preview and controls the device.",
+      "Blocked permissions, software privacy controls or a hardware fault are not assumed to be the shutter."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "There is no shutter or it is already open.",
+      "The preview remains black, the control is managed or the user does not want the camera enabled."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "CAMERA_SHUTTER_CLOSED-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Ensure no unintended meeting, recording or stream is active."
+      },
+      {
+        "step_id": "CAMERA_SHUTTER_CLOSED-2",
+        "level": "SELF_SERVICE",
+        "instruction": "If the user wants to use the camera, have them physically open the shutter; the agent does not control it."
+      },
+      {
+        "step_id": "CAMERA_SHUTTER_CLOSED-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Open an approved local preview without recording or sharing it in this chat."
+      }
+    ],
+    "success_criteria": [
+      "The local preview shows the expected image.",
+      "The user confirms the original shutter-related problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://learn.microsoft.com/en-us/windows-hardware/drivers/stream/camera-privacy-controls"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  },
+  {
+    "article_id": "KB-038",
+    "version": 1,
+    "approved": true,
+    "title": "Notifications suppressed by Do Not Disturb",
+    "diagnosis_code": "LOCAL_ENDPOINT",
+    "scenario_code": "DO_NOT_DISTURB_NOTIFICATIONS",
+    "domain": "Endpoints",
+    "category": "Device",
+    "symptoms_en": [
+      "Notification banners are missing while Do Not Disturb is on and notifications reach Notification Center."
+    ],
+    "symptoms_ar": [
+      "هل وضع عدم الإزعاج يمنع ظهور إشعارات البانر؟"
+    ],
+    "keywords": [
+      "Notifications suppressed by Do Not Disturb",
+      "DO NOT DISTURB NOTIFICATIONS"
+    ],
+    "possible_causes": [
+      "Notifications suppressed by Do Not Disturb",
+      "A different device, application, hardware or shared-service fault may explain similar symptoms."
+    ],
+    "discriminating_questions": [
+      "Are the expected notifications present in Notification Center, with Do Not Disturb enabled?",
+      "Do you want banners enabled now, and is this a user-controlled setting?"
+    ],
+    "required_evidence": [
+      "Expected notifications arrive in Notification Center but banners are suppressed.",
+      "The user observes Do Not Disturb enabled and wants to change it.",
+      "App-delivery failure, app-specific settings, intentional focus preferences and organization policy remain distinct."
+    ],
+    "safe_checks": [
+      "Ask the user to inspect the named setting and perform only a harmless permitted local test.",
+      "No implemented agent tool reads these endpoint settings. Record observations as USER_RESPONSE, never TOOL_CHECK.",
+      "Missing, unknown or conflicting observations do not establish this scenario."
+    ],
+    "exclusion_criteria": [
+      "Notifications never arrive, Do Not Disturb was already off or the setting is policy-managed.",
+      "The user prefers suppression; no notification arrives to verify the change."
+    ],
+    "competing_diagnoses": [
+      "APP_ERROR",
+      "LOCAL_ENDPOINT"
+    ],
+    "resolution_steps": [
+      {
+        "step_id": "DO_NOT_DISTURB_NOTIFICATIONS-1",
+        "level": "SELF_SERVICE",
+        "instruction": "Review the user-controlled Do Not Disturb setting and any automatic focus rule with the user."
+      },
+      {
+        "step_id": "DO_NOT_DISTURB_NOTIFICATIONS-2",
+        "level": "SELF_SERVICE",
+        "instruction": "Disable it only if the user wants banners now; do not override organization policy or change lock-screen privacy."
+      },
+      {
+        "step_id": "DO_NOT_DISTURB_NOTIFICATIONS-3",
+        "level": "SELF_SERVICE",
+        "instruction": "Wait for an expected non-sensitive ordinary notification; do not claim success before one is observed or send messages on the user behalf."
+      }
+    ],
+    "success_criteria": [
+      "An expected ordinary notification banner appears.",
+      "The user confirms the original notification-display problem is fixed."
+    ],
+    "agent_resolvable": false,
+    "resolution_conditions": [],
+    "guided_self_service": true,
+    "backend_reference": false,
+    "backend_status": "LOCAL_ONLY_NOT_REGISTERED",
+    "mandatory_human_escalation_conditions": [
+      "Security-sensitive or privileged access, critical priority, shared-service impact, managed/forbidden settings, contradictory evidence or failure of the permitted self-service steps requires human handling.",
+      "Do not install drivers, alter security controls, delete data, collect credentials or repeat unsuccessful configuration changes through this guide."
+    ],
+    "resolver_group_id": "GRP-END",
+    "source_urls": [
+      "https://support.microsoft.com/en-us/windows/experience/notifications-and-do-not-disturb-in-windows"
+    ],
+    "approval_scope": "Owner-requested diagnostic and guided self-service content only; not backend resolution authorization."
+  }
+]

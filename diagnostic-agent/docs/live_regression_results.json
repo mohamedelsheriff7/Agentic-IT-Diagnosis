@@ -1,0 +1,51 @@
+[
+  {
+    "scenario": "access",
+    "ticket_id": "INC-2b920eb4bdde44ce",
+    "result": "PASS",
+    "initial_action": "ASK_MORE",
+    "followup_action": "ASK_MORE"
+  },
+  {
+    "scenario": "application",
+    "ticket_id": "INC-bf0f9900e18a49b5",
+    "result": "PASS",
+    "initial_action": "ASK_MORE",
+    "followup_action": "ESCALATE"
+  },
+  {
+    "scenario": "endpoint",
+    "ticket_id": "INC-fe9737143e02481e",
+    "result": "PASS",
+    "initial_action": "ASK_MORE",
+    "followup_action": "ASK_MORE"
+  },
+  {
+    "scenario": "arabic",
+    "ticket_id": "INC-c005d47bba0246eb",
+    "result": "PASS",
+    "initial_action": "ASK_MORE",
+    "followup_action": "ESCALATE"
+  },
+  {
+    "scenario": "critical",
+    "ticket_id": "INC-7245d88114e14111",
+    "result": "PASS",
+    "initial_action": "ESCALATE",
+    "followup_action": "ESCALATE"
+  },
+  {
+    "scenario": "security",
+    "ticket_id": "INC-f5b1f836f3004ed8",
+    "result": "PASS",
+    "initial_action": "ESCALATE",
+    "followup_action": "ESCALATE"
+  },
+  {
+    "scenario": "privileged",
+    "ticket_id": "INC-737167a1b22c4c2c",
+    "result": "PASS",
+    "initial_action": "ESCALATE",
+    "followup_action": "ESCALATE"
+  }
+]

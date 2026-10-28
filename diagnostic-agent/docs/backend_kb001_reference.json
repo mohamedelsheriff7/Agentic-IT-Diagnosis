@@ -1,0 +1,78 @@
+{
+  "article_id": "KB-001",
+  "version": 1,
+  "approved": true,
+  "diagnosis_code": "PASSWORD_EXPIRED",
+  "domain": "Access Management",
+  "category": "Authentication",
+  "symptoms_en": [
+    "password expired sign in rejected",
+    "Expired password"
+  ],
+  "symptoms_ar": [
+    "كلمة المرور انتهت تسجيل الدخول مرفوض"
+  ],
+  "possible_causes": [
+    "Expired password"
+  ],
+  "discriminating_questions": [
+    "Does the error explicitly say your password expired?",
+    "Do other applications using the same identity also reject sign-in?"
+  ],
+  "required_evidence": [
+    "User reports an expiry error",
+    "check_account_status: password_expired TRUE, enabled TRUE, locked FALSE, mfa_locked FALSE"
+  ],
+  "safe_checks": [
+    "check_account_status",
+    "check_application_entitlement",
+    "check_service_health"
+  ],
+  "exclusion_criteria": [
+    "Account is disabled or locked",
+    "MFA is locked",
+    "Security-sensitive, privileged or critical ticket"
+  ],
+  "competing_diagnoses": [
+    "ACCOUNT_LOCKED",
+    "MFA_FAILURE",
+    "APP_AUTH_FAILURE"
+  ],
+  "resolution_steps": [
+    {
+      "step_id": "PASSWORD_EXPIRED-1",
+      "level": "SELF_SERVICE",
+      "instruction": "Ask the user to complete the approved self-service password change flow; never ask for their password."
+    }
+  ],
+  "agent_resolvable": true,
+  "resolution_conditions": [
+    {
+      "tool": "check_account_status",
+      "field": "password_expired",
+      "equals": "TRUE"
+    },
+    {
+      "tool": "check_account_status",
+      "field": "enabled",
+      "equals": "TRUE"
+    },
+    {
+      "tool": "check_account_status",
+      "field": "locked",
+      "equals": "FALSE"
+    },
+    {
+      "tool": "check_account_status",
+      "field": "mfa_locked",
+      "equals": "FALSE"
+    }
+  ],
+  "mandatory_human_escalation_conditions": [
+    "security_sensitive",
+    "privileged_access",
+    "reported_priority=1",
+    "insufficient evidence"
+  ],
+  "resolver_group_id": "GRP-IAM"
+}

@@ -1,0 +1,18 @@
+SUPERVISOR-ONLY FAILURE REPORT
+Case ID:
+Actual installed Supervisor / Guidelines / Diagnostic / Routing / Escalation versions:
+Run date/time and timezone:
+Outcome (PASS / FAIL / BLOCKED_PRECONDITION / NOT_APPLICABLE_BRANCH):
+Ticket ID(s):
+Were case fixture and authoritative approval preconditions verified? How?
+Opening input:
+Actual questions and exact user replies:
+Full visible tool-call inputs/outputs and collaborator result contract if exposed:
+Actual current Ticket/Ref receipt:
+Expected result:
+First actual divergence:
+Actual backend ticket/review/ownership/global state if read (otherwise NOT_CHECKED):
+Which actions definitely completed vs only announced/transferred:
+Repeatability (runs / failures):
+Full transcript attachment/paste:
+Redact real passwords, MFA codes, API keys and tokens. Do not omit the synthetic ticket/checkpoint identifiers needed to correlate the failure.

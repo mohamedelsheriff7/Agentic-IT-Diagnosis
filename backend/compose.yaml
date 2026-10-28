@@ -1,0 +1,20 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      API_KEY: ${API_KEY:?Set API_KEY in .env}
+      ADMIN_API_KEY: ${ADMIN_API_KEY:?Set ADMIN_API_KEY in .env}
+      DATABASE_URL: sqlite:////data/workstream.db
+      DEMO_CLOCK: ${DEMO_CLOCK:-2026-10-01T12:00:00Z}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-https://workstream-c.example.com}
+    volumes:
+      - sqlite_data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+volumes:
+  sqlite_data:
